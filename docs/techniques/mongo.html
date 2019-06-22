@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mongo &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="上传文件" href="file-upload.html" />
+    <link rel="prev" title="认证" href="authentication.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">技术</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">认证</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mongo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-injection">Model injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#async-configuration">Async configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="file-upload.html">上传文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">高速缓存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">序列化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">记录仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compression.html">压缩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http-module.html">HTTP 模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">性能 (Fastify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hot-reload.html">热重新加载 (Webpack)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">技术</a> &raquo;</li>
+        
+      <li>Mongo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/techniques/mongo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mongo">
+<h1>Mongo<a class="headerlink" href="#mongo" title="永久链接至标题">¶</a></h1>
+<p>There are two ways of dealing with the MongoDB database. You can either
+use an <a class="reference external" href="https://github.com/typeorm/typeorm">ORM</a> that provides a
+MongoDB support or <a class="reference external" href="http://mongoosejs.com">Mongoose</a> which is the
+most popular <a class="reference external" href="https://www.mongodb.org/">MongoDB</a> object modeling
+tool. If you wanna stay with the <strong>ORM</strong> you can follow these steps.
+Otherwise, we’ll use the dedicated <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/mongoose</span></code> package.</p>
+<p>Firstly, we need to install all of the required dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save @nestjs/mongoose mongoose
+</pre></div>
+</div>
+<p>Once the installation process is completed, we can import the
+<code class="docutils literal notranslate"><span class="pre">MongooseModule</span></code> into the root <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { MongooseModule } from &#39;@nestjs/mongoose&#39;;
+
+@Module({
+  imports: [MongooseModule.forRoot(&#39;mongodb://localhost/nest&#39;)],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">forRoot()</span></code> method accepts the same configuration object as
+<code class="docutils literal notranslate"><span class="pre">mongoose.connect()</span></code> from the <a class="reference external" href="http://mongoosejs.com">Mongoose</a>
+package.</p>
+<div class="section" id="model-injection">
+<h2>Model injection<a class="headerlink" href="#model-injection" title="永久链接至标题">¶</a></h2>
+<p>With Mongoose, everything is derived from a
+<a class="reference external" href="http://mongoosejs.com/docs/guide.html">Schema</a>. Let’s define the
+<code class="docutils literal notranslate"><span class="pre">CatSchema</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(schemas/cat.schema)
+import * as mongoose from &#39;mongoose&#39;;
+
+export const CatSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  breed: String,
+});
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">CatsSchema</span></code> belongs to the <code class="docutils literal notranslate"><span class="pre">cats</span></code> directory. This directory
+represents the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code>. It’s your decision where you gonna keep
+your schema files. From our point of view, the best way’s to hold them
+nearly their <strong>domain</strong>, in the appropriate module directory.</p>
+<p>Let’s have a look at the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { MongooseModule } from &#39;@nestjs/mongoose&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+import { CatSchema } from &#39;./schemas/cat.schema&#39;;
+
+@Module({
+  imports: [MongooseModule.forFeature([{ name: &#39;Cat&#39;, schema: CatSchema }])],
+  controllers: [CatsController],
+  providers: [CatsService],
+})
+export class CatsModule {}
+</pre></div>
+</div>
+<p>This module uses <code class="docutils literal notranslate"><span class="pre">forFeature()</span></code> method to define which models shall be
+registered in the current scope. Thanks to that, we can inject the
+<code class="docutils literal notranslate"><span class="pre">CatModel</span></code> to the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> using the <code class="docutils literal notranslate"><span class="pre">&#64;InjectModel()</span></code>
+decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.service)
+import { Model } from &#39;mongoose&#39;;
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { InjectModel } from &#39;@nestjs/mongoose&#39;;
+import { Cat } from &#39;./interfaces/cat.interface&#39;;
+import { CreateCatDto } from &#39;./dto/create-cat.dto&#39;;
+
+@Injectable()
+export class CatsService {
+  constructor(@InjectModel(&#39;Cat&#39;) private readonly catModel: Model&lt;Cat&gt;) {}
+
+  async create(createCatDto: CreateCatDto): Promise&lt;Cat&gt; {
+    const createdCat = new this.catModel(createCatDto);
+    return await createdCat.save();
+  }
+
+  async findAll(): Promise&lt;Cat[]&gt; {
+    return await this.catModel.find().exec();
+  }
+}
+@@switch
+import { Model } from &#39;mongoose&#39;;
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+import { InjectModel } from &#39;@nestjs/mongoose&#39;;
+
+@Injectable()
+@Dependencies(InjectModel(&#39;Cat&#39;))
+export class CatsService {
+  constructor(catModel) {
+    this.catModel = catModel;
+  }
+
+  async create(createCatDto) {
+    const createdCat = new this.catModel(createCatDto);
+    return await createdCat.save();
+  }
+
+  async findAll() {
+    return await this.catModel.find().exec();
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="永久链接至标题">¶</a></h2>
+<p>When it comes to unit test our application, we usually want to avoid any
+database connection, making our test suits independent and their
+execution process quick as possible. But our classes might depend on
+models that are pulled from the connection instance. What’s then? The
+solution is to create fake models. In order to achieve that, we should
+set up <a class="reference external" href="/fundamentals/custom-providers">custom providers</a> . In fact,
+each registered model is represented by <code class="docutils literal notranslate"><span class="pre">NameModel</span></code> token, where
+<code class="docutils literal notranslate"><span class="pre">Name</span></code> is a model’s name.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/mongoose</span></code> package exposes <code class="docutils literal notranslate"><span class="pre">getModelToken()</span></code> function
+that returns prepared token based on a given model’s name.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CatsService</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="nx">provide</span>: <span class="kt">getModelToken</span><span class="p">(</span><span class="s1">&#39;Cat&#39;</span><span class="p">),</span>
+      <span class="nx">useValue</span>: <span class="kt">catModel</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Now a hardcoded <code class="docutils literal notranslate"><span class="pre">catModel</span></code> will be used as a <code class="docutils literal notranslate"><span class="pre">Model&lt;Cat&gt;</span></code>. Whenever
+any provider asks for <code class="docutils literal notranslate"><span class="pre">Model&lt;Cat&gt;</span></code> using an <code class="docutils literal notranslate"><span class="pre">&#64;InjectModel()</span></code>
+decorator, Nest will use a registered <code class="docutils literal notranslate"><span class="pre">catModel</span></code> object.</p>
+</div>
+<div class="section" id="async-configuration">
+<h2>Async configuration<a class="headerlink" href="#async-configuration" title="永久链接至标题">¶</a></h2>
+<p>Quite often you might want to asynchronously pass your module options
+instead of passing them beforehand. In such case, use <code class="docutils literal notranslate"><span class="pre">forRootAsync()</span></code>
+method, that provides a couple of various ways to deal with async data.</p>
+<p>First possible approach is to use a factory function:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">MongooseModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">useFactory</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="nx">uri</span><span class="o">:</span> <span class="s1">&#39;mongodb://localhost/nest&#39;</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Obviously, our factory behaves like every other one (might be <code class="docutils literal notranslate"><span class="pre">async</span></code>
+and is able to inject dependencies through <code class="docutils literal notranslate"><span class="pre">inject</span></code>).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">MongooseModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigModule</span><span class="p">],</span>
+  <span class="nx">useFactory</span>: <span class="kt">async</span> <span class="p">(</span><span class="nx">configService</span>: <span class="kt">ConfigService</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="nx">uri</span>: <span class="kt">configService.getString</span><span class="p">(</span><span class="s1">&#39;MONGODB_URI&#39;</span><span class="p">),</span>
+  <span class="p">}),</span>
+  <span class="nx">inject</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigService</span><span class="p">],</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Alternatively, you are able to use class instead of a factory.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">MongooseModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">useClass</span>: <span class="kt">MongooseConfigService</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Above construction will instantiate <code class="docutils literal notranslate"><span class="pre">MongooseConfigService</span></code> inside
+<code class="docutils literal notranslate"><span class="pre">MongooseModule</span></code> and will leverage it to create options object. The
+<code class="docutils literal notranslate"><span class="pre">MongooseConfigService</span></code> has to implement <code class="docutils literal notranslate"><span class="pre">MongooseOptionsFactory</span></code>
+interface.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">class</span> <span class="nx">MongooseConfigService</span> <span class="kr">implements</span> <span class="nx">MongooseOptionsFactory</span> <span class="p">{</span>
+  <span class="nx">createMongooseOptions</span><span class="p">()</span><span class="o">:</span> <span class="nx">MongooseModuleOptions</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">uri</span><span class="o">:</span> <span class="s1">&#39;mongodb://localhost/nest&#39;</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to prevent the creation of <code class="docutils literal notranslate"><span class="pre">MongooseConfigService</span></code> inside
+<code class="docutils literal notranslate"><span class="pre">MongooseModule</span></code> and use a provider imported from a different module,
+you can use the <code class="docutils literal notranslate"><span class="pre">useExisting</span></code> syntax.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">MongooseModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigModule</span><span class="p">],</span>
+  <span class="nx">useExisting</span>: <span class="kt">ConfigService</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>It works the same as <code class="docutils literal notranslate"><span class="pre">useClass</span></code> with one critical difference -
+<code class="docutils literal notranslate"><span class="pre">MongooseModule</span></code> will lookup imported modules to reuse already created
+<code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>, instead of instantiating it on its own.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>A working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/14-mongoose-base">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="file-upload.html" class="btn btn-neutral float-right" title="上传文件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="authentication.html" class="btn btn-neutral float-left" title="认证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

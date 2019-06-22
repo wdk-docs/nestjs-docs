@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>配置 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="压缩" href="compression.html" />
+    <link rel="prev" title="安全" href="security.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">技术</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo.html">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file-upload.html">上传文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">高速缓存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">序列化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">记录仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">安全</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-configservice">Using the ConfigService</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-configuration">Advanced configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validation">Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-properties">Class properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage-example">Usage example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compression.html">压缩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http-module.html">HTTP 模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">性能 (Fastify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hot-reload.html">热重新加载 (Webpack)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">技术</a> &raquo;</li>
+        
+      <li>配置</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/techniques/configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<h1>配置<a class="headerlink" href="#configuration" title="永久链接至标题">¶</a></h1>
+<p>The applications used to run in different <strong>environments</strong>. Depending on
+an environment, various sets of configuration variables should be used.
+For example, that’s very likely that local environment relies on
+specific database credentials, valid solely for local db instance. In
+order to solve this issue, we used to take advantage of <code class="docutils literal notranslate"><span class="pre">.env</span></code> files,
+that hold key-value pairs, where each key represents a particular value
+since this approach is very convenient.</p>
+<p>But when we use a <code class="docutils literal notranslate"><span class="pre">process</span></code> global object, it’s difficult to keep our
+tests clean since tested class may directly use it. Another way is to
+create an abstraction layer, a <code class="docutils literal notranslate"><span class="pre">ConfigModule</span></code> that exposes a
+<code class="docutils literal notranslate"><span class="pre">ConfigService</span></code> with loaded configuration variables.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>Certain platforms automatically attach our environment variables to the
+<code class="docutils literal notranslate"><span class="pre">process.env</span></code> global. However, in the local environment, we have to
+manually take care of it. In order to parse our environment files, we’ll
+use a <a class="reference external" href="https://github.com/motdotla/dotenv">dotenv</a> package.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save dotenv
+$ npm i --save-dev @types/dotenv
+</pre></div>
+</div>
+</div>
+<div class="section" id="service">
+<h2>Service<a class="headerlink" href="#service" title="永久链接至标题">¶</a></h2>
+<p>Firstly, let’s create a <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code> class.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+import * as dotenv from &#39;dotenv&#39;;
+import * as fs from &#39;fs&#39;;
+
+export class ConfigService {
+  private readonly envConfig: { [key: string]: string };
+
+  constructor(filePath: string) {
+    this.envConfig = dotenv.parse(fs.readFileSync(filePath))
+  }
+
+  get(key: string): string {
+    return this.envConfig[key];
+  }
+}
+@@switch
+import * as dotenv from &#39;dotenv&#39;;
+import * as fs from &#39;fs&#39;;
+
+export class ConfigService {
+  constructor(filePath) {
+    this.envConfig = dotenv.parse(fs.readFileSync(filePath))
+  }
+
+  get(key) {
+    return this.envConfig[key];
+  }
+}
+</pre></div>
+</div>
+<p>This class takes a single argument, a <code class="docutils literal notranslate"><span class="pre">filePath</span></code>, which is a path to
+your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. The <code class="docutils literal notranslate"><span class="pre">get()</span></code> method is provided to enable access to
+a private <code class="docutils literal notranslate"><span class="pre">envConfig</span></code> object that holds each property defined inside
+an environment file.</p>
+<p>The last step is to create a <code class="docutils literal notranslate"><span class="pre">ConfigModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+import { Module } from &#39;@nestjs/common&#39;;
+import { ConfigService } from &#39;./config.service&#39;;
+
+@Module({
+  providers: [
+    {
+      provide: ConfigService,
+      useValue: new ConfigService(`${process.env.NODE_ENV}.env`),
+    },
+  ],
+  exports: [ConfigService],
+})
+export class ConfigModule {}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ConfigModule</span></code> registers a <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code> and exports it as
+well. Additionally, we passed a path to the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. This path
+will be different depending on actual execution environment. Now you can
+simply inject <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code> anywhere, and pull out a particular
+value based on a passed key. Sample <code class="docutils literal notranslate"><span class="pre">.env</span></code> file could look like below:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">DATABASE_USER</span> <span class="o">=</span> <span class="nx">test</span>
+<span class="nx">DATABASE_PASSWORD</span> <span class="o">=</span> <span class="nx">test</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-configservice">
+<h2>Using the ConfigService<a class="headerlink" href="#using-the-configservice" title="永久链接至标题">¶</a></h2>
+<p>To access <strong>environment variables</strong> from our <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code> we need
+to inject it. Therefore we firstly need to import the module.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+@Module({
+  imports: [ConfigModule],
+  ...
+})
+</pre></div>
+</div>
+<p>Afterward, you can inject it using an injection token. By default, the
+token is equal to the class name (in our example <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.service)
+@Injectable()
+export class AppService {
+  private isAuthEnabled: boolean;
+  constructor(config: ConfigService) {
+    // Please take note that this check is case sensitive!
+    this.isAuthEnabled = config.get(&#39;IS_AUTH_ENABLED&#39;) === &#39;true&#39;;
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Instead of importing <code class="docutils literal notranslate"><span class="pre">ConfigModule</span></code> in all your
+modules, you can also declare <code class="docutils literal notranslate"><span class="pre">ConfigModule</span></code> as a global module.</p>
+</div></blockquote>
+</div>
+<div class="section" id="advanced-configuration">
+<h2>Advanced configuration<a class="headerlink" href="#advanced-configuration" title="永久链接至标题">¶</a></h2>
+<p>We just implemented a basic <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>. However, this approach
+has a couple of disadvantages, which we’ll address now:</p>
+<ul class="simple">
+<li><p>missing names &amp; types for the environment variables (no IntelliSense)</p></li>
+<li><p>a lack of <strong>validation</strong> of the provided <code class="docutils literal notranslate"><span class="pre">.env</span></code> file</p></li>
+<li><p>the env file provides booleans as string (<code class="docutils literal notranslate"><span class="pre">'true'</span></code>), and thus have
+to cast them to a <code class="docutils literal notranslate"><span class="pre">boolean</span></code> every time</p></li>
+</ul>
+</div>
+<div class="section" id="validation">
+<h2>Validation<a class="headerlink" href="#validation" title="永久链接至标题">¶</a></h2>
+<p>We’ll start with the validation of the provided environment variables.
+You can throw an error if required environment variables haven’t been
+provided or if they don’t meet your predefined requirements. For this
+purpose, we are going to use the npm package
+<a class="reference external" href="https://github.com/hapijs/joi">Joi</a>. With Joi, you define an object
+schema and validate JavaScript objects against it.</p>
+<p>Install Joi and it’s types (for <strong>TypeScript</strong> users):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save joi
+$ npm install --save-dev @types/joi
+</pre></div>
+</div>
+<p>Once the packages are installed, we can move to our <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(config.service)
+import * as dotenv from &#39;dotenv&#39;;
+import * as Joi from &#39;joi&#39;;
+import * as fs from &#39;fs&#39;;
+
+export interface EnvConfig {
+  [key: string]: string;
+}
+
+export class ConfigService {
+  private readonly envConfig: EnvConfig;
+
+  constructor(filePath: string) {
+    const config = dotenv.parse(fs.readFileSync(filePath));
+    this.envConfig = this.validateInput(config);
+  }
+
+  /**
+   * Ensures all needed variables are set, and returns the validated JavaScript object
+   * including the applied default values.
+   */
+  private validateInput(envConfig: EnvConfig): EnvConfig {
+    const envVarsSchema: Joi.ObjectSchema = Joi.object({
+      NODE_ENV: Joi.string()
+        .valid([&#39;development&#39;, &#39;production&#39;, &#39;test&#39;, &#39;provision&#39;])
+        .default(&#39;development&#39;),
+      PORT: Joi.number().default(3000),
+      API_AUTH_ENABLED: Joi.boolean().required(),
+    });
+
+    const { error, value: validatedEnvConfig } = Joi.validate(
+      envConfig,
+      envVarsSchema,
+    );
+    if (error) {
+      throw new Error(`Config validation error: ${error.message}`);
+    }
+    return validatedEnvConfig;
+  }
+}
+</pre></div>
+</div>
+<p>Since we set default values for <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT</span></code> the validation
+will not fail if we don’t provide these variables in the environment
+file. Nevertheless, we need to explicitly provide <code class="docutils literal notranslate"><span class="pre">API_AUTH_ENABLED</span></code>.
+The validation will also throw an error if we have variables in our .env
+file which aren’t part of the schema. Additionally, Joi tries to convert
+the env strings into the right type.</p>
+</div>
+<div class="section" id="class-properties">
+<h2>Class properties<a class="headerlink" href="#class-properties" title="永久链接至标题">¶</a></h2>
+<p>For each config property, we have to add a getter function.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(config.service)
+get isApiAuthEnabled(): boolean {
+  return Boolean(this.envConfig.API_AUTH_ENABLED);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-example">
+<h2>Usage example<a class="headerlink" href="#usage-example" title="永久链接至标题">¶</a></h2>
+<p>Now we can directly access the class properties.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.service)
+@Injectable()
+export class AppService {
+  constructor(config: ConfigService) {
+    if (config.isApiAuthEnabled) {
+      // Authorization is enabled
+    }
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="compression.html" class="btn btn-neutral float-right" title="压缩" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="security.html" class="btn btn-neutral float-left" title="安全" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

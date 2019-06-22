@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>异常过滤器 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="管道" href="pipes.html" />
+    <link rel="prev" title="模块" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">异常过滤器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-exceptions">基本异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions-hierarchy">异常层次结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#http-exceptions">HTTP异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-filters-1">异常过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arguments-host">参数主持人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binding-filters">绑定过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#catch-everything">抓住一切</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inheritance">遗产</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>异常过滤器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/exception-filters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="exception-filters">
+<h1>异常过滤器<a class="headerlink" href="#exception-filters" title="永久链接至标题">¶</a></h1>
+<p>Nest comes with a built-in <strong>exceptions layer</strong> which is responsible for
+processing all unhandled exceptions across an application. When an
+exception is not handled by your application code, it is caught by this
+layer, which then automatically sends an appropriate user-friendly
+response.</p>
+<figure></figure><p>Out of the box, this action is performed by a built-in <strong>global
+exception filter</strong>, which handles exceptions of type <code class="docutils literal notranslate"><span class="pre">HttpException</span></code>
+(and subclasses of it). When an exception is <strong>unrecognized</strong> (is
+neither <code class="docutils literal notranslate"><span class="pre">HttpException</span></code> nor a class that inherits from
+<code class="docutils literal notranslate"><span class="pre">HttpException</span></code>), the client receives the following default JSON
+response:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Internal server error&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="base-exceptions">
+<h2>基本异常<a class="headerlink" href="#base-exceptions" title="永久链接至标题">¶</a></h2>
+<p>The built-in <code class="docutils literal notranslate"><span class="pre">HttpException</span></code> class is exposed from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>, we have a <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> method (a <code class="docutils literal notranslate"><span class="pre">GET</span></code>
+route handler). Let’s assume that this route handler throws an exception
+for some reason. To demonstrate this, we’ll hard-code it as follows:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Get()
+async findAll() {
+  throw new HttpException(&#39;Forbidden&#39;, HttpStatus.FORBIDDEN);
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> We used the <code class="docutils literal notranslate"><span class="pre">HttpStatus</span></code> here. This is a helper enum
+imported from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>当客户端调用此端点时，响应如下所示:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="mi">403</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Forbidden&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">HttpException</span></code> constructor takes two arguments which determine
+the JSON response body and the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">HTTP response status
+code</a>
+respectively. The first argument is of type <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">|</span> <span class="pre">object</span></code>. Pass a
+string to customize the error message (as shown in the <code class="docutils literal notranslate"><span class="pre">GET</span></code> handler
+of the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code> above). Pass a plain literal <code class="docutils literal notranslate"><span class="pre">object</span></code> with
+properties <code class="docutils literal notranslate"><span class="pre">status</span></code> (the status code to appear in the JSON response
+body) and <code class="docutils literal notranslate"><span class="pre">error</span></code> (the message string) in the first parameter, instead
+of a <code class="docutils literal notranslate"><span class="pre">string</span></code>, to completely override the response body. The second
+constructor argument should be the actual HTTP response status code.
+Here’s an example overriding the entire response body:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Get()
+async findAll() {
+  throw new HttpException({
+    status: HttpStatus.FORBIDDEN,
+    error: &#39;This is a custom message&#39;,
+  }, 403);
+}
+</pre></div>
+</div>
+<p>使用上面的内容，这就是响应的外观:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="mi">403</span><span class="p">,</span>
+  <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a custom message&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceptions-hierarchy">
+<h2>异常层次结构<a class="headerlink" href="#exceptions-hierarchy" title="永久链接至标题">¶</a></h2>
+<p>It is good practice to create your own <strong>exceptions hierarchy</strong>. This
+means that your custom HTTP exceptions should inherit from the base
+<code class="docutils literal notranslate"><span class="pre">HttpException</span></code> class. As a result, Nest will recognize your
+exceptions, and automatically take care of the error responses. Let’s
+implement such a custom exception:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(forbidden.exception)
+export class ForbiddenException extends HttpException {
+  constructor() {
+    super(&#39;Forbidden&#39;, HttpStatus.FORBIDDEN);
+  }
+}
+</pre></div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">ForbiddenException</span></code> extends the base <code class="docutils literal notranslate"><span class="pre">HttpException</span></code>, it will
+work seamlessly with the built-in exception handler, and therefore we
+can use it inside the <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Get()
+async findAll() {
+  throw new ForbiddenException();
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-exceptions">
+<h2>HTTP异常<a class="headerlink" href="#http-exceptions" title="永久链接至标题">¶</a></h2>
+<p>In order to reduce the need to write boilerplate code, Nest provides a
+set of usable exceptions that inherit from the core <code class="docutils literal notranslate"><span class="pre">HttpException</span></code>.
+All of them are exposed from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BadRequestException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UnauthorizedException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NotFoundException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ForbiddenException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NotAcceptableException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RequestTimeoutException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ConflictException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GoneException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PayloadTooLargeException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UnsupportedMediaTypeException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UnprocessableEntityException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InternalServerErrorException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NotImplementedException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BadGatewayException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ServiceUnavailableException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GatewayTimeoutException</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="exception-filters-1">
+<span id="id1"></span><h2>异常过滤器<a class="headerlink" href="#exception-filters-1" title="永久链接至标题">¶</a></h2>
+<p>While the base (built-in) exception filter can automatically handle many
+cases for you, you may want <strong>full control</strong> over the exceptions layer.
+For example, you may want to add logging or use a different JSON schema
+based on some dynamic factors. <strong>Exception filters</strong> are designed for
+exactly this purpose.</p>
+<p>Let’s create an exception filter which is responsible for catching
+exceptions that are an instance of the <code class="docutils literal notranslate"><span class="pre">HttpException</span></code> class, and
+implementing custom response logic for them.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(http-exception.filter)
+import { ExceptionFilter, Catch, ArgumentsHost, HttpException } from &#39;@nestjs/common&#39;;
+import { Request, Response } from &#39;express&#39;;
+
+@Catch(HttpException)
+export class HttpExceptionFilter implements ExceptionFilter {
+  catch(exception: HttpException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse&lt;Response&gt;();
+    const request = ctx.getRequest&lt;Request&gt;();
+    const status = exception.getStatus();
+
+    response
+      .status(status)
+      .json({
+        statusCode: status,
+        timestamp: new Date().toISOString(),
+        path: request.url,
+      });
+  }
+}
+@@switch
+import { Catch, HttpException } from &#39;@nestjs/common&#39;;
+
+@Catch(HttpException)
+export class HttpExceptionFilter {
+  catch(exception, host) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse();
+    const request = ctx.getRequest();
+    const status = exception.getStatus();
+
+    response
+      .status(status)
+      .json({
+        statusCode: status,
+        timestamp: new Date().toISOString(),
+        path: request.url,
+      });
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> All exception filters should implement the generic
+<code class="docutils literal notranslate"><span class="pre">ExceptionFilter&lt;T&gt;</span></code> interface. This requires you to provide the
+<code class="docutils literal notranslate"><span class="pre">catch(exception:</span> <span class="pre">T,</span> <span class="pre">host:</span> <span class="pre">ArgumentsHost)</span></code> method with its
+indicated signature. <code class="docutils literal notranslate"><span class="pre">T</span></code> indicates the type of the exception.</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;Catch(HttpException)</span></code> decorator binds the required metadata to
+the exception filter, telling Nest that this particular filter is
+looking for exceptions of type <code class="docutils literal notranslate"><span class="pre">HttpException</span></code> and nothing else. The
+<code class="docutils literal notranslate"><span class="pre">&#64;Catch()</span></code> decorator may take a single parameter, or a comma-separated
+list. This lets you set up the filter for several types of exceptions at
+once.</p>
+</div>
+<div class="section" id="arguments-host">
+<h2>参数主持人<a class="headerlink" href="#arguments-host" title="永久链接至标题">¶</a></h2>
+<p>Let’s look at the parameters of the <code class="docutils literal notranslate"><span class="pre">catch()</span></code> method. The
+<code class="docutils literal notranslate"><span class="pre">exception</span></code> parameter is the exception object currently being
+processed. The <code class="docutils literal notranslate"><span class="pre">host</span></code> parameter is an <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code> object.
+<code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code> is a wrapper around the arguments that have been
+passed to the <strong>original</strong> request handler (where the exception
+originated). It contains a specific arguments array based on the type of
+the application (and platform which is being used). Here’s what an
+<code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code> looks like:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">ArgumentsHost</span> <span class="p">{</span>
+  <span class="nx">getArgs</span><span class="o">&lt;</span><span class="nx">T</span> <span class="kr">extends</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">any</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">()</span><span class="o">:</span> <span class="nx">T</span><span class="p">;</span>
+  <span class="nx">getArgByIndex</span><span class="o">&lt;</span><span class="nx">T</span> <span class="o">=</span> <span class="nx">any</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">index</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">T</span><span class="p">;</span>
+  <span class="nx">switchToRpc</span><span class="p">()</span><span class="o">:</span> <span class="nx">RpcArgumentsHost</span><span class="p">;</span>
+  <span class="nx">switchToHttp</span><span class="p">()</span><span class="o">:</span> <span class="nx">HttpArgumentsHost</span><span class="p">;</span>
+  <span class="nx">switchToWs</span><span class="p">()</span><span class="o">:</span> <span class="nx">WsArgumentsHost</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code> supplies us with a set of convenience methods that
+help to pick the correct arguments from the underlying array, across
+different application contexts. In other words, <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code> is
+nothing more than an <strong>array of arguments</strong>. For example, when the
+filter is used within the HTTP application context, <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code>
+will contain a <code class="docutils literal notranslate"><span class="pre">[request,</span> <span class="pre">response]</span></code> array. However, when the current
+context is a web sockets application, it will contain a
+<code class="docutils literal notranslate"><span class="pre">[client,</span> <span class="pre">data]</span></code> array, as appropriate to that context. This approach
+enables you to access any argument that would eventually be passed to
+the original handler in your custom <code class="docutils literal notranslate"><span class="pre">catch()</span></code> method.</p>
+</div>
+<div class="section" id="binding-filters">
+<h2>绑定过滤器<a class="headerlink" href="#binding-filters" title="永久链接至标题">¶</a></h2>
+<p>Let’s tie our new <code class="docutils literal notranslate"><span class="pre">HttpExceptionFilter</span></code> to the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>’s
+<code class="docutils literal notranslate"><span class="pre">create()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+@UseFilters(new HttpExceptionFilter())
+async create(@Body() createCatDto: CreateCatDto) {
+  throw new ForbiddenException();
+}
+@@switch
+@Post()
+@UseFilters(new HttpExceptionFilter())
+@Bind(Body())
+async create(createCatDto) {
+  throw new ForbiddenException();
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;UseFilters()</span></code> decorator is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>We have used the <code class="docutils literal notranslate"><span class="pre">&#64;UseFilters()</span></code> decorator here. Similar to the
+<code class="docutils literal notranslate"><span class="pre">&#64;Catch()</span></code> decorator, it can take a single filter instance, or a
+comma-separated list of filter instances. Here, we created the instance
+of <code class="docutils literal notranslate"><span class="pre">HttpExceptionFilter</span></code> in place. Alternatively, you may pass the
+class (instead of an instance), leaving responsibility for instantiation
+to the framework, and enabling <strong>dependency injection</strong>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+@UseFilters(HttpExceptionFilter)
+async create(@Body() createCatDto: CreateCatDto) {
+  throw new ForbiddenException();
+}
+@@switch
+@Post()
+@UseFilters(HttpExceptionFilter)
+@Bind(Body())
+async create(createCatDto) {
+  throw new ForbiddenException();
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Prefer applying filters by using classes instead of
+instances when possible. It reduces <strong>memory usage</strong> since Nest can
+easily reuse instances of the same class across your entire module.</p>
+</div></blockquote>
+<p>In the example above, the <code class="docutils literal notranslate"><span class="pre">HttpExceptionFilter</span></code> is applied only to the
+single <code class="docutils literal notranslate"><span class="pre">create()</span></code> route handler, making it method-scoped. Exception
+filters can be scoped at different levels: method-scoped,
+controller-scoped, or global-scoped. For example, to set up a filter as
+controller-scoped, you would do the following:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@UseFilters(new HttpExceptionFilter())
+export class CatsController {}
+</pre></div>
+</div>
+<p>This construction sets up the <code class="docutils literal notranslate"><span class="pre">HttpExceptionFilter</span></code> for every route
+handler defined inside the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>.</p>
+<p>要创建全局范围的过滤器，请执行以下操作:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(main)
+async function bootstrap() {
+  const app = await NestFactory.create(ApplicationModule);
+  app.useGlobalFilters(new HttpExceptionFilter());
+  await app.listen(3000);
+}
+bootstrap();
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Warning</strong> The <code class="docutils literal notranslate"><span class="pre">useGlobalFilters()</span></code> method does not set up
+filters for gateways or hybrid applications.</p>
+</div></blockquote>
+<p>Global-scoped filters are used across the whole application, for every
+controller and every route handler. In terms of dependency injection,
+global filters registered from outside of any module (with
+<code class="docutils literal notranslate"><span class="pre">useGlobalFilters()</span></code> as in the example above) cannot inject
+dependencies since this is done outside the context of any module. In
+order to solve this issue, you can register a global-scoped filter
+<strong>directly from any module</strong> using the following construction:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { APP_FILTER } from &#39;@nestjs/core&#39;;
+
+@Module({
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
+  ],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> When using this approach to perform dependency
+injection for the filter, note that regardless of the module where
+this construction is employed, the filter is, in fact, global. Where
+should this be done? Choose the module where the filter
+(<code class="docutils literal notranslate"><span class="pre">HttpExceptionFilter</span></code> in the example above) is defined. Also,
+<code class="docutils literal notranslate"><span class="pre">useClass</span></code> is not the only way of dealing with custom provider
+registration. Learn more <a class="reference external" href="/fundamentals/custom-providers">here</a>.</p>
+</div></blockquote>
+<p>You can add as many filters with this technique as needed; simply add
+each to the providers array.</p>
+</div>
+<div class="section" id="catch-everything">
+<h2>抓住一切<a class="headerlink" href="#catch-everything" title="永久链接至标题">¶</a></h2>
+<p>In order to catch <strong>every</strong> unhandled exception (regardless of the
+exception type), leave the <code class="docutils literal notranslate"><span class="pre">&#64;Catch()</span></code> decorator’s parameter list
+empty, e.g., <code class="docutils literal notranslate"><span class="pre">&#64;Catch()</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ExceptionFilter</span><span class="p">,</span> <span class="nx">Catch</span><span class="p">,</span> <span class="nx">ArgumentsHost</span><span class="p">,</span> <span class="nx">HttpException</span><span class="p">,</span> <span class="nx">HttpStatus</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+
+<span class="kd">@Catch</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AllExceptionsFilter</span> <span class="kr">implements</span> <span class="nx">ExceptionFilter</span> <span class="p">{</span>
+  <span class="k">catch</span><span class="p">(</span><span class="nx">exception</span>: <span class="kt">unknown</span><span class="p">,</span> <span class="nx">host</span>: <span class="kt">ArgumentsHost</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">host</span><span class="p">.</span><span class="nx">switchToHttp</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">getResponse</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">getRequest</span><span class="p">();</span>
+
+    <span class="kr">const</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">exception</span> <span class="k">instanceof</span> <span class="nx">HttpException</span>
+      <span class="o">?</span> <span class="nx">exception</span><span class="p">.</span><span class="nx">getStatus</span><span class="p">()</span>
+      <span class="o">:</span> <span class="nx">HttpStatus</span><span class="p">.</span><span class="nx">INTERNAL_SERVER_ERROR</span><span class="p">;</span>
+
+    <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">status</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span>
+      <span class="nx">statusCode</span>: <span class="kt">status</span><span class="p">,</span>
+      <span class="nx">timestamp</span>: <span class="kt">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+      <span class="nx">path</span>: <span class="kt">request.url</span><span class="p">,</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the example above the filter will catch each exception thrown,
+regardless of its type (class).</p>
+</div>
+<div class="section" id="inheritance">
+<h2>遗产<a class="headerlink" href="#inheritance" title="永久链接至标题">¶</a></h2>
+<p>Typically, you’ll create fully customized exception filters crafted to
+fulfill your application requirements. However, there might be use-cases
+when you would like to simply extend the built-in default <strong>global
+exception filter</strong>, and override the behavior based on certain factors.</p>
+<p>In order to delegate exception processing to the base filter, you need
+to extend <code class="docutils literal notranslate"><span class="pre">BaseExceptionFilter</span></code> and call the inherited <code class="docutils literal notranslate"><span class="pre">catch()</span></code>
+method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(all-exceptions.filter)
+import { Catch, ArgumentsHost } from &#39;@nestjs/common&#39;;
+import { BaseExceptionFilter } from &#39;@nestjs/core&#39;;
+
+@Catch()
+export class AllExceptionsFilter extends BaseExceptionFilter {
+  catch(exception: unknown, host: ArgumentsHost) {
+    super.catch(exception, host);
+  }
+}
+@@switch
+import { Catch } from &#39;@nestjs/common&#39;;
+import { BaseExceptionFilter } from &#39;@nestjs/core&#39;;
+
+@Catch()
+export class AllExceptionsFilter extends BaseExceptionFilter {
+  catch(exception, host) {
+    super.catch(exception, host);
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Warning</strong> Filters that extend base classes have to be
+instantiated by the framework itself (don’t manually create instances
+using the <code class="docutils literal notranslate"><span class="pre">new</span></code> operator).</p>
+</div></blockquote>
+<p>The above implementation is just a shell demonstrating the approach.
+Your implementation of the extended exception filter would include your
+tailored <strong>business</strong> logic (e.g., handling various conditions).</p>
+<p>You can use a global filter that extends the base filter by injecting
+the <code class="docutils literal notranslate"><span class="pre">HttpServer</span></code> reference.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">async</span> <span class="kd">function</span> <span class="nx">bootstrap() {</span>
+  <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">httpAdapter</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">HttpAdapterHost</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">useGlobalFilters</span><span class="p">(</span><span class="k">new</span> <span class="nx">AllExceptionsFilter</span><span class="p">(</span><span class="nx">httpAdapter</span><span class="p">));</span>
+
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">bootstrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pipes.html" class="btn btn-neutral float-right" title="管道" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral float-left" title="模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

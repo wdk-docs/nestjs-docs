@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>循环依赖 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="生命周期事件" href="lifecycle-events.html" />
+    <link rel="prev" title="基本面" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本面</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">循环依赖</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#forward-reference">Forward reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-reference">Module reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle-events.html">生命周期事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform-agnosticism.html">平台不可知论</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">基本面</a> &raquo;</li>
+        
+      <li>循环依赖</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/circular-dependency.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="circular-dependency">
+<h1>循环依赖<a class="headerlink" href="#circular-dependency" title="永久链接至标题">¶</a></h1>
+<p>The circular dependency occurs when for example, class A needs class B,
+and class B needs class A as well. Nest permits creating <strong>circular
+dependencies</strong> between both providers and modules, but we advise you to
+avoid whenever it’s possible. Sometimes it’s really difficult to avoid
+this kind of the relationships, that’s why we have provided some ways to
+deal with this issue.</p>
+<div class="section" id="forward-reference">
+<h2>Forward reference<a class="headerlink" href="#forward-reference" title="永久链接至标题">¶</a></h2>
+<p>The <strong>forward reference</strong> allows Nest referring to references which
+aren’t defined so far. When <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> and <code class="docutils literal notranslate"><span class="pre">CommonService</span></code> depend
+on each other, both sides of the relationship need to use <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code>
+and the <code class="docutils literal notranslate"><span class="pre">forwardRef()</span></code> utility, otherwise Nest won’t instantiate them
+because all of the essential metadata won’t be available. Let’s see the
+following snippet:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.service)
+@Injectable()
+export class CatsService {
+  constructor(
+    @Inject(forwardRef(() =&gt; CommonService))
+    private readonly commonService: CommonService,
+  ) {}
+}
+@@switch
+@Injectable()
+@Dependencies(forwardRef(() =&gt; CommonService))
+export class CatsService {
+  constructor(commonService) {
+    this.commonService = commonService;
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">forwardRef()</span></code> function is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>Here’s the first side of the relationship. Now let’s do the same with
+the <code class="docutils literal notranslate"><span class="pre">CommonService</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(common.service)
+@Injectable()
+export class CommonService {
+  constructor(
+    @Inject(forwardRef(() =&gt; CatsService))
+    private readonly catsService: CatsService,
+  ) {}
+}
+@@switch
+@Injectable()
+@Dependencies(forwardRef(() =&gt; CatsService))
+export class CommonService {
+  constructor(catsService) {
+    this.catsService = catsService;
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Warning</strong> You don’t have guarantee which constructor will
+be called first.</p>
+</div></blockquote>
+<p>In order to create circular dependencies between modules you have to use
+the same <code class="docutils literal notranslate"><span class="pre">forwardRef()</span></code> utility on both parts of the modules
+association:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(common.module)
+@Module({
+  imports: [forwardRef(() =&gt; CatsModule)],
+})
+export class CommonModule {}
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-reference">
+<h2>Module reference<a class="headerlink" href="#module-reference" title="永久链接至标题">¶</a></h2>
+<p>Nest provides the <code class="docutils literal notranslate"><span class="pre">ModuleRef</span></code> class that can be simply injected into
+any component.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.service)
+@Injectable()
+export class CatsService implements OnModuleInit {
+  private service: Service;
+  constructor(private readonly moduleRef: ModuleRef) {}
+
+  onModuleInit() {
+    this.service = this.moduleRef.get(Service);
+  }
+}
+@@switch
+@Injectable()
+@Dependencies(ModuleRef)
+export class CatsService {
+  constructor(moduleRef) {
+    this.moduleRef = moduleRef;
+  }
+
+  onModuleInit() {
+    this.service = this.moduleRef.get(Service);
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">ModuleRef</span></code> class is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/core</span></code> package.</p>
+</div></blockquote>
+<p>The module reference has a <code class="docutils literal notranslate"><span class="pre">get()</span></code> method which allows retrieving a
+provider available in the current module. Additionally, you can switch
+to a non-strict mode, which enables you to pick any existing provider
+among the entire application.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="kr">module</span><span class="nx">Ref.get</span><span class="p">(</span><span class="nx">Service</span><span class="p">,</span> <span class="p">{</span> <span class="nx">strict</span>: <span class="kt">false</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lifecycle-events.html" class="btn btn-neutral float-right" title="生命周期事件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="基本面" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

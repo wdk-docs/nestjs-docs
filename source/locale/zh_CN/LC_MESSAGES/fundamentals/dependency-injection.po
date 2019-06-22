@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/fundamentals/dependency-injection.rst:2
+msgid "Custom providers"
+msgstr "定制供应商"
+
+#: ../../source/fundamentals/dependency-injection.rst:4
+msgid ""
+"There are a lot of scenarios when you might want to bind something "
+"**directly** to the Nest inversion of control container. For example, any"
+" constant values, configuration objects created based on the current "
+"environment, external libraries, or pre-calculated values that depends on"
+" few other defined providers. Moreover, you are able to override default "
+"implementations, e.g. use different classes or make use of various test "
+"doubles (for testing purposes) when needed."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:12
+msgid ""
+"One essential thing that you should always keep in mind is that Nest uses"
+" **tokens** to identify dependencies. Usually, the auto-generated tokens "
+"are equal to classes. If you want to create a custom provider, you’d need"
+" to choose a token. Mostly, the custom tokens are represented by either "
+"plain strings or symbols. Following best practices, you should hold those"
+" tokens in the separated file, for example, inside ``constants.ts``."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:20
+msgid "Let’s go through the available options."
+msgstr "Let’s go through the available options."
+
+#: ../../source/fundamentals/dependency-injection.rst:23
+msgid "Use value"
+msgstr "Use value"
+
+#: ../../source/fundamentals/dependency-injection.rst:25
+msgid ""
+"The ``useValue`` syntax is useful when it comes to either define a "
+"constant value, put external library into Nest container, or replace a "
+"real implementation with the mock object."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:43
+msgid ""
+"In order to inject a custom provider, we use the ``@Inject()`` decorator."
+" This decorator takes a single argument - the token."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:62
+msgid ""
+"info **Hint** The ``@Inject()`` decorator is imported from "
+"``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:65
+msgid ""
+"When you want to override a default provider’s value, let’s say, you’d "
+"like to force Nest to use a mock ``CatsService`` due to testing purposes,"
+" you can simply use an existing class as a token."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:85
+msgid ""
+"In above example, the ``CatsService`` will be overridden by a passed "
+"``mockCatsService`` mock object. It means, that Nest instead of creating "
+"``CatsService`` instance manually, will treat this provider as resolved "
+"already, and use ``mockCatsService`` as its representative value."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:91
+msgid "Use class"
+msgstr "Use class"
+
+#: ../../source/fundamentals/dependency-injection.rst:93
+msgid ""
+"The ``useClass`` syntax allows you using different class per chosen "
+"factors. For example, we have an abstract (or default) ``ConfigService`` "
+"class. Depending on the current environment, Nest should use a different "
+"implementation of the configuration service."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:115
+msgid ""
+"warning **Notice** Instead of a custom token, we have used the "
+"``ConfigService`` class, and therefore we have overridden the default "
+"implementation."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:119
+msgid ""
+"In this case, even if any class depends on ``ConfigService``, Nest will "
+"inject an instance of the provided class (``DevelopmentConfigService`` or"
+" ``ProductionConfigService``) instead."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:124
+msgid "Use factory"
+msgstr "Use factory"
+
+#: ../../source/fundamentals/dependency-injection.rst:126
+msgid ""
+"The ``useFactory`` is a way of creating providers **dynamically**. The "
+"actual provider will be equal to a returned value of the factory "
+"function. The factory function can either depend on several different "
+"providers or stay completely independent. It means that factory may "
+"accept arguments, that Nest will resolve and pass during the "
+"instantiation process. Additionally, this function can return value "
+"**asynchronously**. It’s explained in more detail here. Use it when your "
+"provider has to be dynamically calculated or in case to resolve an "
+"asynchronous operation."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:169
+msgid ""
+"info **Hint** If your factory needs other providers, you have to pass "
+"their tokens inside the ``inject`` array. Nest will pass instances as "
+"arguments of the function in the same order."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:174
+msgid "Use existing"
+msgstr "Use existing"
+
+#: ../../source/fundamentals/dependency-injection.rst:176
+msgid ""
+"The ``useExisting`` allows you creating aliases for existing providers. "
+"For example, the token ``AliasedLoggerService`` is an alias for "
+"``LoggerService``."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:197
+msgid ""
+"info **Hint** The instance of ``LoggerService`` will be equal to the "
+"instance defined by ``AliasedLoggerService`` token."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:201
+msgid "Export custom provider"
+msgstr "Export custom provider"
+
+#: ../../source/fundamentals/dependency-injection.rst:203
+msgid ""
+"In order to export a custom provider, we can either use a token or a "
+"whole object. The following example shows a token case:"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:239
+msgid "But you can use a whole object as well:"
+msgstr "But you can use a whole object as well:"
+

@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/recipes/prisma.rst:2
+msgid "Prisma"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:4
+msgid "`Prisma <https://www.prisma.io/>`__ turns your database into a GraphQL API and enables the use of GraphQL as a universal query language for all databases. Instead of writing SQL or using a NoSQL API, you can query your database with GraphQL. In this chapter we won’t go into details about Prisma, so head over to their website and have a look what `features <https://www.prisma.io/features/>`__ are available."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:11
+msgid "warning **Notice** In this article, you’ll learn how to integrate ``Prisma`` into the Nest framework. We assume that you are already familiar with the GraphQL concepts and the ``@nestjs/graphql`` module."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:17
+msgid "Dependencies"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:19
+msgid "Firstly, we need to install the required packages:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:26
+msgid "Setup Prisma"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:28
+msgid "While working with Prisma you can either host your own instance or use the `Prisma Cloud <https://www.prisma.io/cloud/>`__. In this introduction we are going to use the demo server provided by Prisma."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:32
+msgid "Install the Prisma CLI ``npm install -g prisma``"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:33
+msgid "Create a new service ``prisma init``, choose the demo server and follow the instructions"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:35
+msgid "Deploy your service ``prisma deploy``"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:37
+msgid "If you find yourself in trouble jump over to their `Quick Start <https://www.prisma.io/docs/quickstart/>`__ section for further details. Eventually you should see two new files in your project directory, ``prisma.yaml`` configuration file:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:47
+msgid "and automatically created data model, ``datamodel.graphql``."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:58
+msgid "warning **Notice** In the real-world applications you will create more complex data models. For more information about data modeling in Prisma click `here <https://www.prisma.io/features/data-modeling/>`__."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:63
+msgid "By typing ``prisma playground`` you can open the Prisma GraphQL playground."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:67
+msgid "Create the client"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:69
+msgid "There are a couple of ways to integrate a GraphQL API. We are going to use `GraphQL CLI <https://www.npmjs.com/package/graphql-cli>`__, a command line tool for common GraphQL development workflows. To install the GraphQL CLI use the following command:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:78
+msgid "Next, create your ``.graphqlconfig`` in the root directory of the your Nest application:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:85
+msgid "Put the following content into it:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:101
+msgid "To download your Prisma GraphQL schema to ``prisma/prisma-types.graphql`` and create your Prisma client under ``prisma/prisma.binding.graphql``, run the following commands in your terminal:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:112
+msgid "Integration"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:114
+msgid "Almost done. Now, let’s create a module for our Prisma integration."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:132
+msgid "Once ``PrismaService`` is ready, we need to create a corresponding module."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:149
+msgid "info **Hint** To create new modules and services in no time we can make use of the `Nest CLI </cli/overview>`__. To create a ``PrismaModule`` type ``nest g module prisma`` and for the service ``nest g service prisma``"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:155
+msgid "Usage"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:157
+msgid "To use your new service we are going to import the ``PrismaModule`` and inject the ``PrismaService`` into ``UsersResolver``."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:173
+msgid "Importing ``PrismaModule`` makes exported ``PrismaService`` available in the ``UsersModule`` context."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:194
+msgid "Example"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:196
+msgid "A slightly modified example is available `here <https://github.com/nestjs/nest/tree/master/sample/22-graphql-prisma>`__."
+msgstr ""
+

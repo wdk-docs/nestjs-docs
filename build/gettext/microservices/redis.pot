@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/microservices/redis.rst:2
+msgid "Redis"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:4
+msgid "A second built-in transporter is based on `Redis <https://redis.io/>`__ database. This transporter takes advantage of **publish/subscribe** feature."
+msgstr ""
+
+#: ../../source/microservices/redis.rst:17
+msgid "Installation"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:19
+msgid "Before we start, we have to install required package:"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:26
+msgid "Overview"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:28
+msgid "In order to switch from TCP transport strategy to Redis **pub/sub**, we need to change an options object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/redis.rst:44
+msgid "info **Hint** ``Transport`` enumerator is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/redis.rst:48
+msgid "Options"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:50
+msgid "There are a bunch of available options that determine a transporter behaviour."
+msgstr ""
+
+#: ../../source/microservices/redis.rst:65
+msgid "url"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:75
+msgid "Connection url"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:93
+msgid "retryAttempts"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:103
+msgid "A total amount of connection attempts"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:121
+msgid "retryDelay"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:131
+msgid "A connection retrying delay (ms)"
+msgstr ""
+

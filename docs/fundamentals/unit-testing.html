@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>测试 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="技术" href="../techniques/index.html" />
+    <link rel="prev" title="平台不可知论" href="platform-agnosticism.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dependency-injection.html">定制供应商</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circular-dependency.html">循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provider-scopes.html">注射范围</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle-events.html">生命周期事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform-agnosticism.html">平台不可知论</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unit-testing">Unit testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-utilities">Testing utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#end-to-end-testing">End-to-end testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">基本面</a> &raquo;</li>
+        
+      <li>测试</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/unit-testing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testing">
+<h1>测试<a class="headerlink" href="#testing" title="永久链接至标题">¶</a></h1>
+<p>Automatic tests are an essential part of the fully functional <strong>software
+product</strong>. That is very critical to cover at least the most sensitive
+parts of your system. In order to accomplish that goal, we produce a set
+of different tests like integration tests, unit tests, e2e tests, and so
+on. And Nest provides a bunch of test utilities that improves testing
+experience.</p>
+<p>In general, you can use any <strong>testing framework</strong> that you enjoy working
+with. We don’t enforce tooling, choose whatever fits your requirements.
+The main Nest application starter is integrated with
+<a class="reference external" href="https://github.com/facebook/jest">Jest</a> framework to reduce an
+amount of overhead when it comes to start writing your tests, but still,
+you can get rid of it and use any other tool easily.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>Firstly, we need to install the required package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save-dev @nestjs/testing
+</pre></div>
+</div>
+</div>
+<div class="section" id="unit-testing">
+<h2>Unit testing<a class="headerlink" href="#unit-testing" title="永久链接至标题">¶</a></h2>
+<p>In the following example, we have two different classes,
+<code class="docutils literal notranslate"><span class="pre">CatsController</span></code> and <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> respectively. As mentioned
+before, <a class="reference external" href="https://github.com/facebook/jest">Jest</a> is used as a
+fully-fledged testing framework. That framework behaves like a
+test-runner and also, provides assert functions and test-doubles
+utilities that helps with mocking, spying, etc. We have manually
+enforced <code class="docutils literal notranslate"><span class="pre">catsService.findAll()</span></code> method to return <code class="docutils literal notranslate"><span class="pre">result</span></code> variable,
+once it’s called. Thanks to that, we can test whether
+<code class="docutils literal notranslate"><span class="pre">catsController.findAll()</span></code> returns expected result, or not.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller.spec)
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+describe(&#39;CatsController&#39;, () =&gt; {
+  let catsController: CatsController;
+  let catsService: CatsService;
+
+  beforeEach(() =&gt; {
+    catsService = new CatsService();
+    catsController = new CatsController(catsService);
+  });
+
+  describe(&#39;findAll&#39;, () =&gt; {
+    it(&#39;should return an array of cats&#39;, async () =&gt; {
+      const result = [&#39;test&#39;];
+      jest.spyOn(catsService, &#39;findAll&#39;).mockImplementation(() =&gt; result);
+
+      expect(await catsController.findAll()).toBe(result);
+    });
+  });
+});
+@@switch
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+describe(&#39;CatsController&#39;, () =&gt; {
+  let catsController;
+  let catsService;
+
+  beforeEach(() =&gt; {
+    catsService = new CatsService();
+    catsController = new CatsController(catsService);
+  });
+
+  describe(&#39;findAll&#39;, () =&gt; {
+    it(&#39;should return an array of cats&#39;, async () =&gt; {
+      const result = [&#39;test&#39;];
+      jest.spyOn(catsService, &#39;findAll&#39;).mockImplementation(() =&gt; result);
+
+      expect(await catsController.findAll()).toBe(result);
+    });
+  });
+});
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Keep your test files nearby tested classes. The testing
+files should have a <code class="docutils literal notranslate"><span class="pre">.spec</span></code> or <code class="docutils literal notranslate"><span class="pre">.test</span></code> suffix.</p>
+</div></blockquote>
+<p>We didn’t make use of any existing Nest testing utility so far. Since we
+have manually taken care of instantiating tested classes, above test
+suite has nothing to do with Nest. This type of testing is called
+<strong>isolated tests</strong>.</p>
+</div>
+<div class="section" id="testing-utilities">
+<h2>Testing utilities<a class="headerlink" href="#testing-utilities" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/testing</span></code> package gives us a set of utilities that boost
+the testing process. Let’s rewrite the previous example, but now, using
+exposed <code class="docutils literal notranslate"><span class="pre">Test</span></code> class.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller.spec)
+import { Test } from &#39;@nestjs/testing&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+describe(&#39;CatsController&#39;, () =&gt; {
+  let catsController: CatsController;
+  let catsService: CatsService;
+
+  beforeEach(async () =&gt; {
+    const module = await Test.createTestingModule({
+        controllers: [CatsController],
+        providers: [CatsService],
+      }).compile();
+
+    catsService = module.get&lt;CatsService&gt;(CatsService);
+    catsController = module.get&lt;CatsController&gt;(CatsController);
+  });
+
+  describe(&#39;findAll&#39;, () =&gt; {
+    it(&#39;should return an array of cats&#39;, async () =&gt; {
+      const result = [&#39;test&#39;];
+      jest.spyOn(catsService, &#39;findAll&#39;).mockImplementation(() =&gt; result);
+
+      expect(await catsController.findAll()).toBe(result);
+    });
+  });
+});
+@@switch
+import { Test } from &#39;@nestjs/testing&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+describe(&#39;CatsController&#39;, () =&gt; {
+  let catsController;
+  let catsService;
+
+  beforeEach(async () =&gt; {
+    const module = await Test.createTestingModule({
+        controllers: [CatsController],
+        providers: [CatsService],
+      }).compile();
+
+    catsService = module.get(CatsService);
+    catsController = module.get(CatsController);
+  });
+
+  describe(&#39;findAll&#39;, () =&gt; {
+    it(&#39;should return an array of cats&#39;, async () =&gt; {
+      const result = [&#39;test&#39;];
+      jest.spyOn(catsService, &#39;findAll&#39;).mockImplementation(() =&gt; result);
+
+      expect(await catsController.findAll()).toBe(result);
+    });
+  });
+});
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Test</span></code> class has a <code class="docutils literal notranslate"><span class="pre">createTestingModule()</span></code> method that takes a
+module metadata (the same object as this one passed in <code class="docutils literal notranslate"><span class="pre">&#64;Module()</span></code>
+decorator) as an argument. This method creates a <code class="docutils literal notranslate"><span class="pre">TestingModule</span></code>
+instance which in turn provides a few methods, but only one of them is
+useful when it comes to unit tests - the <code class="docutils literal notranslate"><span class="pre">compile()</span></code>. This function is
+<strong>asynchronous</strong>, therefore it has to be awaited. Once module is
+compiled, you can retrieve any instance using <code class="docutils literal notranslate"><span class="pre">get()</span></code> method.</p>
+<p>In order to mock a real instance, you can override existing provider
+with a <a class="reference external" href="/fundamentals/dependency-injection">custom provider</a>.</p>
+</div>
+<div class="section" id="end-to-end-testing">
+<h2>End-to-end testing<a class="headerlink" href="#end-to-end-testing" title="永久链接至标题">¶</a></h2>
+<p>When the application grows, it is hard to manually test a behavior of
+each API endpoint. The end-to-end tests help us to make sure that
+everything is working correctly and fits project requirements. To
+perform e2e tests we use the same configuration as in the case of <strong>unit
+testing</strong>, but additionally, we take advantage of
+<a class="reference external" href="https://github.com/visionmedia/supertest">supertest</a> library that
+allows simulating HTTP requests.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.e2e-spec)
+import * as request from &#39;supertest&#39;;
+import { Test } from &#39;@nestjs/testing&#39;;
+import { CatsModule } from &#39;../../src/cats/cats.module&#39;;
+import { CatsService } from &#39;../../src/cats/cats.service&#39;;
+import { INestApplication } from &#39;@nestjs/common&#39;;
+
+describe(&#39;Cats&#39;, () =&gt; {
+  let app: INestApplication;
+  let catsService = { findAll: () =&gt; [&#39;test&#39;] };
+
+  beforeAll(async () =&gt; {
+    const module = await Test.createTestingModule({
+      imports: [CatsModule],
+    })
+      .overrideProvider(CatsService)
+      .useValue(catsService)
+      .compile();
+
+    app = module.createNestApplication();
+    await app.init();
+  });
+
+  it(`/GET cats`, () =&gt; {
+    return request(app.getHttpServer())
+      .get(&#39;/cats&#39;)
+      .expect(200)
+      .expect({
+        data: catsService.findAll(),
+      });
+  });
+
+  afterAll(async () =&gt; {
+    await app.close();
+  });
+});
+@@switch
+import * as request from &#39;supertest&#39;;
+import { Test } from &#39;@nestjs/testing&#39;;
+import { CatsModule } from &#39;../../src/cats/cats.module&#39;;
+import { CatsService } from &#39;../../src/cats/cats.service&#39;;
+import { INestApplication } from &#39;@nestjs/common&#39;;
+
+describe(&#39;Cats&#39;, () =&gt; {
+  let app: INestApplication;
+  let catsService = { findAll: () =&gt; [&#39;test&#39;] };
+
+  beforeAll(async () =&gt; {
+    const module = await Test.createTestingModule({
+      imports: [CatsModule],
+    })
+      .overrideProvider(CatsService)
+      .useValue(catsService)
+      .compile();
+
+    app = module.createNestApplication();
+    await app.init();
+  });
+
+  it(`/GET cats`, () =&gt; {
+    return request(app.getHttpServer())
+      .get(&#39;/cats&#39;)
+      .expect(200)
+      .expect({
+        data: catsService.findAll(),
+      });
+  });
+
+  afterAll(async () =&gt; {
+    await app.close();
+  });
+});
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Keep your e2e test files inside the <code class="docutils literal notranslate"><span class="pre">e2e</span></code> directory.
+The testing files should have a <code class="docutils literal notranslate"><span class="pre">.e2e-spec</span></code> or <code class="docutils literal notranslate"><span class="pre">.e2e-test</span></code>
+suffix.</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">cats.e2e-spec.ts</span></code> test file contains a single HTTP endpoint test
+(<code class="docutils literal notranslate"><span class="pre">/cats</span></code>). We have used <code class="docutils literal notranslate"><span class="pre">app.getHttpServer()</span></code> method to pick up an
+underlying HTTP server that runs in the background of Nest application.
+Notice that <code class="docutils literal notranslate"><span class="pre">TestingModule</span></code> instance provides a <code class="docutils literal notranslate"><span class="pre">overrideProvider()</span></code>
+method, and thus we can <strong>override</strong> the existing provider which is
+declared by the imported module. Also, we can successively override the
+guards, interceptors, filters, and pipes using corresponding methods,
+<code class="docutils literal notranslate"><span class="pre">overrideGuard()</span></code>, <code class="docutils literal notranslate"><span class="pre">overrideInterceptor()</span></code>, <code class="docutils literal notranslate"><span class="pre">overrideFilter()</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">overridePipe()</span></code> respectively.</p>
+<p>The compiled module has several methods well described in the following
+table:</p>
+<table><tr><td><p>createNestInstance()</p>
+</td><td><p>Creates a Nest instance based on a given module (returns
+INestApplication). Notice that it’s necessary to manually initialize the
+application using init() method.</p>
+</td></tr><tr><td><p>createNestMicroservice()</p>
+</td><td><p>Creates a Nest microservice instance based on a given module (returns
+INestMicroservice).</p>
+</td></tr><tr><td><p>get()</p>
+</td><td><p>Retrieves an instance of either controller or provider (including
+guards, filters, and so on) available in the application context.</p>
+</td></tr><tr><td><p>select()</p>
+</td><td><p>Navigates through the modules graph, for example, to pull out a specific
+instance from the selected module (used along with enabled strict mode
+strict: true in get() method).</p>
+</td></tr></table></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../techniques/index.html" class="btn btn-neutral float-right" title="技术" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="platform-agnosticism.html" class="btn btn-neutral float-left" title="平台不可知论" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

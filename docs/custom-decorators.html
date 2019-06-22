@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>自定义路线装饰器 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="基本面" href="fundamentals/index.html" />
+    <link rel="prev" title="拦截器" href="interceptors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">自定义路线装饰器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#param-decorators">Param装饰者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passing-data">传递数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-pipes">使用管道</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>自定义路线装饰器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/custom-decorators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="custom-route-decorators">
+<h1>自定义路线装饰器<a class="headerlink" href="#custom-route-decorators" title="永久链接至标题">¶</a></h1>
+<p>Nest is built around a language feature called <strong>decorators</strong>.
+Decorators are a well-known concept in a lot of commonly used
+programming languages, but in the JavaScript world, they’re still
+relatively new. In order to better understand how decorators work, we
+recommend reading <a class="reference external" href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841">this
+article</a>.
+Here’s a simple definition:</p>
+<blockquote class="external"><p>An ES2016 decorator is an expression which returns a function and can
+take a target, name and property descriptor as arguments. You apply it
+by prefixing the decorator with an &#64; character and placing this at the
+very top of what you are trying to decorate. Decorators can be defined
+for either a class or a property.</p>
+</blockquote><div class="section" id="param-decorators">
+<h2>Param装饰者<a class="headerlink" href="#param-decorators" title="永久链接至标题">¶</a></h2>
+<p>Nest provides a set of useful <strong>param decorators</strong> that you can use
+together with the HTTP route handlers. Below is a list of the provided
+decorators and the plain Express (or Fastify) objects they represent</p>
+<table><tbody><tr><td><p>&#64;Request()</p>
+</td><td><p>req</p>
+</td></tr><tr><td><p>&#64;Response()</p>
+</td><td><p>res</p>
+</td></tr><tr><td><p>&#64;Next()</p>
+</td><td><p>next</p>
+</td></tr><tr><td><p>&#64;Session()</p>
+</td><td><p>req.session</p>
+</td></tr><tr><td><p>&#64;Param(param?: string)</p>
+</td><td><p>req.params / req.params[param]</p>
+</td></tr><tr><td><p>&#64;Body(param?: string)</p>
+</td><td><p>req.body / req.body[param]</p>
+</td></tr><tr><td><p>&#64;Query(param?: string)</p>
+</td><td><p>req.query / req.query[param]</p>
+</td></tr><tr><td><p>&#64;Headers(param?: string)</p>
+</td><td><p>req.headers / req.headers[param]</p>
+</td></tr></tbody></table><p>Additionally, you can create your own <strong>custom decorators</strong>. Why is this
+useful?</p>
+<p>In the node.js world, it’s common practice to attach properties to the
+<strong>request</strong> object. Then you manually extract them in each route
+handler, using code like the following:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In order to make your code more readable and transparent, you can create
+a <code class="docutils literal notranslate"><span class="pre">&#64;User()</span></code> decorator and reuse it across all of your controllers.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(user.decorator)
+import { createParamDecorator } from &#39;@nestjs/common&#39;;
+
+export const User = createParamDecorator((data, req) =&gt; {
+  return req.user;
+});
+</pre></div>
+</div>
+<p>Then, you can simply use it wherever it fits your requirements.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Get()
+async findOne(@User() user: UserEntity) {
+  console.log(user);
+}
+@@switch
+@Get()
+@Bind(User())
+async findOne(user) {
+  console.log(user);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="passing-data">
+<h2>传递数据<a class="headerlink" href="#passing-data" title="永久链接至标题">¶</a></h2>
+<p>When the behavior of your decorator depends on some conditions, you can
+use the <code class="docutils literal notranslate"><span class="pre">data</span></code> parameter to pass an argument to the decorator’s
+factory function. One use case for this is a custom decorator that
+extracts properties from the request object by key. Let’s assume, for
+example, that our authentication layer validates requests and attaches a
+user entity to the request object. The user entity for an authenticated
+request might look like:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+  <span class="nt">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Alan&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Turing&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alan@email.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;admin&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s define a decorator that takes a property name as key, and returns
+the associated value if it exists (or undefined if it doesn’t exist, or
+if the <code class="docutils literal notranslate"><span class="pre">user</span></code> object has not been created).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(user.decorator)
+import { createParamDecorator } from &#39;@nestjs/common&#39;;
+
+export const User = createParamDecorator((data: string, req) =&gt; {
+  return data ? req.user &amp;&amp; req.user[data] : req.user;
+});
+@@switch
+import { createParamDecorator } from &#39;@nestjs/common&#39;;
+
+export const User = createParamDecorator((data, req) =&gt; {
+  return data ? req.user &amp;&amp; req.user[data] : req.user;
+});
+</pre></div>
+</div>
+<p>Here’s how you could then access a particular property via the
+<code class="docutils literal notranslate"><span class="pre">&#64;User()</span></code> decorator in the controller:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Get()
+async findOne(@User(&#39;firstName&#39;) firstName: string) {
+  console.log(`Hello ${firstName}`);
+}
+@@switch
+@Get()
+@Bind(User(&#39;firstName&#39;))
+async findOne(firstName) {
+  console.log(`Hello ${firstName}`);
+}
+</pre></div>
+</div>
+<p>You can use this same decorator with different keys to access different
+properties. If the <code class="docutils literal notranslate"><span class="pre">user</span></code> object is deep or complex, this can make for
+easier and more readable request handler implementations.</p>
+</div>
+<div class="section" id="working-with-pipes">
+<h2>使用管道<a class="headerlink" href="#working-with-pipes" title="永久链接至标题">¶</a></h2>
+<p>Nest treats custom param decorators in the same fashion as the built-in
+ones (<code class="docutils literal notranslate"><span class="pre">&#64;Body()</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;Param()</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;Query()</span></code>). This means that pipes
+are executed for the custom annotated parameters as well (in our
+examples, the <code class="docutils literal notranslate"><span class="pre">user</span></code> argument). Moreover, you can apply the pipe
+directly to the custom decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Get()
+async findOne(@User(new ValidationPipe()) user: UserEntity) {
+  console.log(user);
+}
+@@switch
+@Get()
+@Bind(User(new ValidationPipe()))
+async findOne(user) {
+  console.log(user);
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fundamentals/index.html" class="btn btn-neutral float-right" title="基本面" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interceptors.html" class="btn btn-neutral float-left" title="拦截器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/techniques/mongo.rst:2
+msgid "Mongo"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:4
+msgid "There are two ways of dealing with the MongoDB database. You can either use an `ORM <https://github.com/typeorm/typeorm>`__ that provides a MongoDB support or `Mongoose <http://mongoosejs.com>`__ which is the most popular `MongoDB <https://www.mongodb.org/>`__ object modeling tool. If you wanna stay with the **ORM** you can follow these steps. Otherwise, we’ll use the dedicated ``@nestjs/mongoose`` package."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:11
+msgid "Firstly, we need to install all of the required dependencies:"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:17
+msgid "Once the installation process is completed, we can import the ``MongooseModule`` into the root ``ApplicationModule``."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:31
+msgid "The ``forRoot()`` method accepts the same configuration object as ``mongoose.connect()`` from the `Mongoose <http://mongoosejs.com>`__ package."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:36
+msgid "Model injection"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:38
+msgid "With Mongoose, everything is derived from a `Schema <http://mongoosejs.com/docs/guide.html>`__. Let’s define the ``CatSchema``:"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:53
+msgid "The ``CatsSchema`` belongs to the ``cats`` directory. This directory represents the ``CatsModule``. It’s your decision where you gonna keep your schema files. From our point of view, the best way’s to hold them nearly their **domain**, in the appropriate module directory."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:58
+msgid "Let’s have a look at the ``CatsModule``:"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:76
+msgid "This module uses ``forFeature()`` method to define which models shall be registered in the current scope. Thanks to that, we can inject the ``CatModel`` to the ``CatsService`` using the ``@InjectModel()`` decorator:"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:126
+msgid "Testing"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:128
+msgid "When it comes to unit test our application, we usually want to avoid any database connection, making our test suits independent and their execution process quick as possible. But our classes might depend on models that are pulled from the connection instance. What’s then? The solution is to create fake models. In order to achieve that, we should set up `custom providers </fundamentals/custom-providers>`__ . In fact, each registered model is represented by ``NameModel`` token, where ``Name`` is a model’s name."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:137
+msgid "The ``@nestjs/mongoose`` package exposes ``getModelToken()`` function that returns prepared token based on a given model’s name."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:153
+msgid "Now a hardcoded ``catModel`` will be used as a ``Model<Cat>``. Whenever any provider asks for ``Model<Cat>`` using an ``@InjectModel()`` decorator, Nest will use a registered ``catModel`` object."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:158
+msgid "Async configuration"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:160
+msgid "Quite often you might want to asynchronously pass your module options instead of passing them beforehand. In such case, use ``forRootAsync()`` method, that provides a couple of various ways to deal with async data."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:164
+msgid "First possible approach is to use a factory function:"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:174
+msgid "Obviously, our factory behaves like every other one (might be ``async`` and is able to inject dependencies through ``inject``)."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:187
+msgid "Alternatively, you are able to use class instead of a factory."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:195
+msgid "Above construction will instantiate ``MongooseConfigService`` inside ``MongooseModule`` and will leverage it to create options object. The ``MongooseConfigService`` has to implement ``MongooseOptionsFactory`` interface."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:211
+msgid "In order to prevent the creation of ``MongooseConfigService`` inside ``MongooseModule`` and use a provider imported from a different module, you can use the ``useExisting`` syntax."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:222
+msgid "It works the same as ``useClass`` with one critical difference - ``MongooseModule`` will lookup imported modules to reuse already created ``ConfigService``, instead of instantiating it on its own."
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:227
+msgid "Example"
+msgstr ""
+
+#: ../../source/techniques/mongo.rst:229
+msgid "A working example is available `here <https://github.com/nestjs/nest/tree/master/sample/14-mongoose-base>`__."
+msgstr ""
+

@@ -1,0 +1,1364 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/recipes/cqrs.rst:2
+msgid "CQRS"
+msgstr "CQRS"
+
+#: ../../source/recipes/cqrs.rst:4
+msgid ""
+"The flow of the simplest `CRUD "
+"<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__ "
+"applications can be described using the following steps:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:8
+msgid ""
+"Controllers layer handle **HTTP requests** and delegate tasks to the "
+"services."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:10
+msgid ""
+"Services layer is a place where the most of the business logic is being "
+"done."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:12
+msgid "**Services** uses Repositories / DAOs to change / persist entities."
+msgstr "**Services** uses Repositories / DAOs to change / persist entities."
+
+#: ../../source/recipes/cqrs.rst:13
+msgid "Entities act as containers for the values, with setters and getters."
+msgstr "Entities act as containers for the values, with setters and getters."
+
+#: ../../source/recipes/cqrs.rst:15
+msgid ""
+"In most cases, there are no reasons to make small and medium-sized "
+"applications more complex. However, sometimes it’s not enough and when "
+"our needs become **more sophisticated** we want to have scalable systems "
+"with straightforward data flow."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:20
+msgid ""
+"Hence, we provide a lightweight `CQRS module "
+"<https://github.com/nestjs/cqrs>`__ which elements are described below."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:25
+msgid "Commands"
+msgstr "Commands"
+
+#: ../../source/recipes/cqrs.rst:27
+msgid ""
+"In order to make the application easier to understand, each change has to"
+" be preceded by **Command**. When any command is dispatched, the "
+"application has to react on it. Commands can be dispatched from the "
+"services (or directly from the controllers/gateways) and consumed in "
+"corresponding **Command Handlers**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:61
+msgid ""
+"Here’s a sample service that dispatches ``KillDragonCommand``. Let’s see "
+"how the command looks like:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:81
+msgid ""
+"The ``CommandBus`` is a commands **stream**. It delegates commands to the"
+" equivalent handlers. Each command has to have corresponding **Command "
+"Handler**:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:117
+msgid ""
+"Now every application state change is a result of the **Command** "
+"occurrence. The logic is encapsulated in handlers. If we want, we can "
+"simply add logging here or even more, we can persist our commands in the "
+"database (e.g. for the diagnostics purposes)."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:123
+msgid "Events"
+msgstr "Events"
+
+#: ../../source/recipes/cqrs.rst:125
+msgid ""
+"Since we have encapsulated commands in handlers, we prevent interaction "
+"between them - the application structure is still not flexible, not "
+"**reactive**. The solution is to use **events**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:146
+msgid ""
+"Events are asynchronous. They are dispatched either by **models** or "
+"directly using ``EventBus``. In order to dispatch events, models have to "
+"extend the ``AggregateRoot`` class."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:176
+msgid ""
+"The ``apply()`` method does not dispatch events yet because there’s no "
+"relationship between model and the ``EventPublisher`` class. How to "
+"associate the model and the publisher? We need to use a publisher "
+"``mergeObjectContext()`` method inside our command handler."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:219
+msgid ""
+"Now everything works as expected. Notice that we need to ``commit()`` "
+"events since they’re not being dispatched immediately. Obviosuly, an "
+"object doesn’t have to exist upfront. We can easily merge type context as"
+" well:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:229
+msgid ""
+"That’s it. A model has an ability to publish events now. And we have to "
+"handle them. Additionally, we could emit events manually using "
+"``EventBus``:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:239
+msgid "info **Hint** The ``EventBus`` is an injectable class."
+msgstr "info **Hint** The ``EventBus`` is an injectable class."
+
+#: ../../source/recipes/cqrs.rst:241
+msgid "Each event can have multiple **Event Handlers**."
+msgstr "Each event can have multiple **Event Handlers**."
+
+#: ../../source/recipes/cqrs.rst:255
+msgid "Now we can move the **write logic** into the event handlers."
+msgstr "Now we can move the **write logic** into the event handlers."
+
+#: ../../source/recipes/cqrs.rst:258
+msgid "Sagas"
+msgstr "Sagas"
+
+#: ../../source/recipes/cqrs.rst:260
+msgid ""
+"This type of **Event-Driven Architecture** improves application "
+"**reactiveness and scalability**. Now, when we have events, we can simply"
+" react to them in various ways. The **Sagas** are the last building block"
+" from the architecture point of view."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:265
+msgid ""
+"The sagas are an incredibly powerful feature. Single saga may listen for "
+"1..\\* events. It can combine, merge, filter […] events streams. `RxJS "
+"<https://github.com/ReactiveX/rxjs>`__ library is the place where the "
+"magic comes from. In simple words, each saga has to return an Observable "
+"which contains a command. This command is dispatched **asynchronously**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:299
+msgid ""
+"info **Hint** The ``ofType`` operator is exported from the "
+"``@nestjs/cqrs`` package."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:302
+msgid ""
+"We declared a rule - when any hero kills the dragon, the ancient item is "
+"being dropped. Afterwards, the ``DropAncientItemCommand`` will be "
+"dispatched and processed by the appropriate handler."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:307
+msgid "Queries"
+msgstr "Queries"
+
+#: ../../source/recipes/cqrs.rst:309
+msgid ""
+"The ``CqrsModule`` might be also handy for queries processing. The "
+"``QueryBus`` works the same as ``CommandsBus``. Also, query handlers "
+"should implement the ``IQueryHandler`` interface and be marked with the "
+"``@QueryHandler()`` decorator."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:315 ../../source/recipes/documentation.rst:9
+msgid "Setup"
+msgstr "Setup"
+
+#: ../../source/recipes/cqrs.rst:317
+msgid ""
+"The last thing which we have to take care of is to set up the whole "
+"mechanism."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:340
+msgid "Summary"
+msgstr "Summary"
+
+#: ../../source/recipes/cqrs.rst:342
+msgid ""
+"``CommandBus``, ``QueryBus`` and ``EventBus`` are **Observables**. It "
+"means that you can easily subscribe to the whole stream and enrich your "
+"application with **Event Sourcing**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:346
+msgid ""
+"A working example is available `here <https://github.com/kamilmysliwiec"
+"/nest-cqrs-example>`__."
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:2
+msgid "Documentation"
+msgstr "Documentation"
+
+#: ../../source/recipes/documentation.rst:4
+msgid ""
+"**Compodoc** is a documentation tool for Angular applications. Nest and "
+"Angular look very similar, hence, **Compodoc** supports Nest applications"
+" as well."
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:11
+msgid ""
+"Setting up Compodoc inside an existing Nest project is very simple. With "
+"`npm <https://www.npmjs.com/>`__ installed, just add the dev-dependency "
+"with the following command in your OS terminal:"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:20
+msgid "Generation"
+msgstr "Generation"
+
+#: ../../source/recipes/documentation.rst:22
+msgid ""
+"Following `the official documentation "
+"<https://compodoc.app/guides/usage.html>`__, you can generate your "
+"documentation using the below command (npm 6 required):"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:30
+msgid ""
+"Open your browser and navigate to http://localhost:8080. You should see "
+"an initial Nest CLI project:"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:50
+msgid "Contribute"
+msgstr "Contribute"
+
+#: ../../source/recipes/documentation.rst:52
+msgid ""
+"You can participate and contribute to the Compodoc project `here "
+"<https://github.com/compodoc/compodoc>`__."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:2
+msgid "MongoDB (Mongoose)"
+msgstr "MongoDB (Mongoose)"
+
+#: ../../source/recipes/mongodb.rst:4
+msgid ""
+"**Warning** In this article, you’ll learn how to create a "
+"``DatabaseModule`` based on the **Mongoose** package from scratch using "
+"custom components. As a consequence, this solution contains a lot of "
+"overhead that you can omit using ready to use and available out-of-the-"
+"box dedicated ``@nestjs/mongoose`` package. To learn more, see `here "
+"</techniques/mongodb>`__."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:11
+msgid ""
+"`Mongoose <http://mongoosejs.com>`__ is the most popular `MongoDB "
+"<https://www.mongodb.org/>`__ object modeling tool."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:15
+#: ../../source/recipes/sql-sequelize.rst:15
+#: ../../source/recipes/sql-typeorm.rst:20 ../../source/recipes/terminus.rst:12
+msgid "Getting started"
+msgstr "Getting started"
+
+#: ../../source/recipes/mongodb.rst:17 ../../source/recipes/sql-typeorm.rst:22
+msgid ""
+"To start the adventure with this library we have to install all required "
+"dependencies:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:28
+msgid ""
+"The first step we need to do is to establish the connection with our "
+"database using ``connect()`` function. The ``connect()`` function returns"
+" a ``Promise``, and therefore we have to create an `async provider "
+"</fundamentals/async-components>`__."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:57
+msgid ""
+"info **Hint** Following best practices, we declared the custom provider "
+"in the separated file which has a ``*.providers.ts`` suffix."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:60
+#: ../../source/recipes/sql-sequelize.rst:60
+msgid ""
+"Then, we need to export these providers to make them **accessible** for "
+"the rest part of the application."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:75 ../../source/recipes/sql-typeorm.rst:78
+msgid ""
+"Now we can inject the ``Connection`` object using ``@Inject()`` "
+"decorator. Each class that would depend on the ``Connection`` async "
+"provider will wait until a ``Promise`` is resolved."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:80
+#: ../../source/recipes/sql-sequelize.rst:79
+msgid "Model injection"
+msgstr "Model injection"
+
+#: ../../source/recipes/mongodb.rst:82
+msgid ""
+"With Mongoose, everything is derived from a `Schema "
+"<http://mongoosejs.com/docs/guide.html>`__. Let’s define the "
+"``CatSchema``:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:97
+msgid ""
+"The ``CatsSchema`` belongs to the ``cats`` directory. This directory "
+"represents the ``CatsModule``."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:100
+msgid "Now it’s time to create a **Model** provider:"
+msgstr "Now it’s time to create a **Model** provider:"
+
+#: ../../source/recipes/mongodb.rst:128
+msgid ""
+"**Notice** In the real-world applications you should avoid **magic "
+"strings**. Both ``CAT_MODEL`` and ``DATABASE_CONNECTION`` should be kept "
+"in the separated ``constants.ts`` file."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:132
+msgid ""
+"Now we can inject the ``CAT_MODEL`` to the ``CatsService`` using the "
+"``@Inject()`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:179
+msgid ""
+"In the above example we have used the ``Cat`` interface. This interface "
+"extends the ``Document`` from the mongoose package:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:192
+msgid ""
+"The database connection is **asynchronous**, but Nest makes this process "
+"completely invisible for the end-user. The ``CatModel`` class is waiting "
+"for the db connection, and the ``CatsService`` is delayed until model is "
+"ready to use. The entire application can start when each class is "
+"instantiated."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:198
+#: ../../source/recipes/sql-sequelize.rst:153
+msgid "Here is a final ``CatsModule``:"
+msgstr "Here is a final ``CatsModule``:"
+
+#: ../../source/recipes/mongodb.rst:221
+#: ../../source/recipes/sql-sequelize.rst:176
+msgid ""
+"warning **Hint** Do not forget to import the ``CatsModule`` into the root"
+" ``ApplicationModule``."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:2
+msgid "Prisma"
+msgstr "Prisma"
+
+#: ../../source/recipes/prisma.rst:4
+msgid ""
+"`Prisma <https://www.prisma.io/>`__ turns your database into a GraphQL "
+"API and enables the use of GraphQL as a universal query language for all "
+"databases. Instead of writing SQL or using a NoSQL API, you can query "
+"your database with GraphQL. In this chapter we won’t go into details "
+"about Prisma, so head over to their website and have a look what "
+"`features <https://www.prisma.io/features/>`__ are available."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:11
+msgid ""
+"warning **Notice** In this article, you’ll learn how to integrate "
+"``Prisma`` into the Nest framework. We assume that you are already "
+"familiar with the GraphQL concepts and the ``@nestjs/graphql`` module."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:17
+msgid "Dependencies"
+msgstr "Dependencies"
+
+#: ../../source/recipes/prisma.rst:19
+msgid "Firstly, we need to install the required packages:"
+msgstr "Firstly, we need to install the required packages:"
+
+#: ../../source/recipes/prisma.rst:26
+msgid "Setup Prisma"
+msgstr "Setup Prisma"
+
+#: ../../source/recipes/prisma.rst:28
+msgid ""
+"While working with Prisma you can either host your own instance or use "
+"the `Prisma Cloud <https://www.prisma.io/cloud/>`__. In this introduction"
+" we are going to use the demo server provided by Prisma."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:32
+msgid "Install the Prisma CLI ``npm install -g prisma``"
+msgstr "Install the Prisma CLI ``npm install -g prisma``"
+
+#: ../../source/recipes/prisma.rst:33
+msgid ""
+"Create a new service ``prisma init``, choose the demo server and follow "
+"the instructions"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:35
+msgid "Deploy your service ``prisma deploy``"
+msgstr "Deploy your service ``prisma deploy``"
+
+#: ../../source/recipes/prisma.rst:37
+msgid ""
+"If you find yourself in trouble jump over to their `Quick Start "
+"<https://www.prisma.io/docs/quickstart/>`__ section for further details. "
+"Eventually you should see two new files in your project directory, "
+"``prisma.yaml`` configuration file:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:47
+msgid "and automatically created data model, ``datamodel.graphql``."
+msgstr "and automatically created data model, ``datamodel.graphql``."
+
+#: ../../source/recipes/prisma.rst:58
+msgid ""
+"warning **Notice** In the real-world applications you will create more "
+"complex data models. For more information about data modeling in Prisma "
+"click `here <https://www.prisma.io/features/data-modeling/>`__."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:63
+msgid ""
+"By typing ``prisma playground`` you can open the Prisma GraphQL "
+"playground."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:67
+msgid "Create the client"
+msgstr "Create the client"
+
+#: ../../source/recipes/prisma.rst:69
+msgid ""
+"There are a couple of ways to integrate a GraphQL API. We are going to "
+"use `GraphQL CLI <https://www.npmjs.com/package/graphql-cli>`__, a "
+"command line tool for common GraphQL development workflows. To install "
+"the GraphQL CLI use the following command:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:78
+msgid ""
+"Next, create your ``.graphqlconfig`` in the root directory of the your "
+"Nest application:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:85
+msgid "Put the following content into it:"
+msgstr "Put the following content into it:"
+
+#: ../../source/recipes/prisma.rst:101
+msgid ""
+"To download your Prisma GraphQL schema to ``prisma/prisma-types.graphql``"
+" and create your Prisma client under ``prisma/prisma.binding.graphql``, "
+"run the following commands in your terminal:"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:112
+msgid "Integration"
+msgstr "Integration"
+
+#: ../../source/recipes/prisma.rst:114
+msgid "Almost done. Now, let’s create a module for our Prisma integration."
+msgstr "Almost done. Now, let’s create a module for our Prisma integration."
+
+#: ../../source/recipes/prisma.rst:132
+msgid "Once ``PrismaService`` is ready, we need to create a corresponding module."
+msgstr "Once ``PrismaService`` is ready, we need to create a corresponding module."
+
+#: ../../source/recipes/prisma.rst:149
+msgid ""
+"info **Hint** To create new modules and services in no time we can make "
+"use of the `Nest CLI </cli/overview>`__. To create a ``PrismaModule`` "
+"type ``nest g module prisma`` and for the service ``nest g service "
+"prisma``"
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:155
+msgid "Usage"
+msgstr "Usage"
+
+#: ../../source/recipes/prisma.rst:157
+msgid ""
+"To use your new service we are going to import the ``PrismaModule`` and "
+"inject the ``PrismaService`` into ``UsersResolver``."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:173
+msgid ""
+"Importing ``PrismaModule`` makes exported ``PrismaService`` available in "
+"the ``UsersModule`` context."
+msgstr ""
+
+#: ../../source/recipes/prisma.rst:194
+msgid "Example"
+msgstr "Example"
+
+#: ../../source/recipes/prisma.rst:196
+msgid ""
+"A slightly modified example is available `here "
+"<https://github.com/nestjs/nest/tree/master/sample/22-graphql-prisma>`__."
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:2
+msgid "SQL (Sequelize)"
+msgstr "SQL (Sequelize)"
+
+#: ../../source/recipes/sql-sequelize.rst:5
+#: ../../source/recipes/sql-typeorm.rst:5 ../../source/recipes/swagger.rst:5
+msgid "This chapter applies only to TypeScript"
+msgstr "This chapter applies only to TypeScript"
+
+#: ../../source/recipes/sql-sequelize.rst:7
+msgid ""
+"`Sequelize <https://github.com/sequelize/sequelize>`__ is a popular "
+"Object Relational Mapper (ORM) written in a vanilla JavaScript, but there"
+" is a `sequelize-typescript <https://github.com/RobinBuschmann/sequelize-"
+"typescript>`__ TypeScript wrapper which provides a set of decorators and "
+"other extras for the base sequelize."
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:17
+msgid ""
+"To start the adventure with this library we have to install the following"
+" dependencies:"
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:25
+msgid ""
+"The first step we need to do is create a **Sequelize** instance with an "
+"options object passed into the constructor. Also, we need to add all "
+"models (the alternative is to use ``modelPaths`` property) and ``sync()``"
+" our database tables."
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:57
+#: ../../source/recipes/sql-typeorm.rst:60
+msgid ""
+"warning **Hint** Following best practices, we declared the custom "
+"provider in the separated file which has a ``*.providers.ts`` suffix."
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:74
+msgid ""
+"Now we can inject the ``Sequelize`` object using ``@Inject()`` decorator."
+" Each class that would depend on the ``Sequelize`` async provider will "
+"wait until a ``Promise`` is resolved."
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:81
+msgid ""
+"In `Sequelize <https://github.com/sequelize/sequelize>`__ the **Model** "
+"defines a table in the database. Instances of this class represent a "
+"database row. Firstly, we need at least one entity:"
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:102
+msgid ""
+"The ``Cat`` entity belongs to the ``cats`` directory. This directory "
+"represents the ``CatsModule``. Now it’s time to create a **Repository** "
+"provider:"
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:120
+msgid ""
+"**Notice** In the real-world applications you should avoid **magic "
+"strings**. Both ``CATS_REPOSITORY`` and ``SEQUELIZE`` should be kept in "
+"the separated ``constants.ts`` file."
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:124
+msgid ""
+"In Sequelize, we use static methods to manipulate the data, and thus we "
+"created an **alias** here."
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:127
+msgid ""
+"Now we can inject the ``CATS_REPOSITORY`` to the ``CatsService`` using "
+"the ``@Inject()`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/sql-sequelize.rst:147
+msgid ""
+"The database connection is **asynchronous**, but Nest makes this process "
+"completely invisible for the end-user. The ``CATS_REPOSITORY`` provider "
+"is waiting for the db connection, and the ``CatsService`` is delayed "
+"until repository is ready to use. The entire application can start when "
+"each class is instantiated."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:2
+msgid "SQL (TypeORM)"
+msgstr "SQL (TypeORM)"
+
+#: ../../source/recipes/sql-typeorm.rst:7
+msgid ""
+"**Warning** In this article, you’ll learn how to create a "
+"``DatabaseModule`` based on the **TypeORM** package from scratch using "
+"custom providers mechanism. As a consequence, this solution contains a "
+"lot of overhead that you can omit using ready to use and available out-"
+"of-the-box dedicated ``@nestjs/typeorm`` package. To learn more, see "
+"`here </techniques/sql>`__."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:14
+msgid ""
+"`TypeORM <https://github.com/typeorm/typeorm>`__ is definitely the most "
+"mature Object Relational Mapper (ORM) available in the node.js world. "
+"Since it’s written in TypeScript, it works pretty well with the Nest "
+"framework."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:29
+msgid ""
+"The first step we need to do is to establish the connection with our "
+"database using ``createConnection()`` function imported from the "
+"``typeorm`` package. The ``createConnection()`` function returns a "
+"``Promise``, and therefore we have to create an `async provider "
+"</fundamentals/async-components>`__."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:63
+msgid ""
+"Then, we need to export these providers to make them **accessible** for "
+"the rest of the application."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:83
+msgid "Repository pattern"
+msgstr "Repository pattern"
+
+#: ../../source/recipes/sql-typeorm.rst:85
+msgid ""
+"The `TypeORM <https://github.com/typeorm/typeorm>`__ supports the "
+"repository design pattern, thus each entity has its own Repository. These"
+" repositories can be obtained from the database connection."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:89
+msgid ""
+"But firstly, we need at least one entity. We are going to reuse the "
+"``Photo`` entity from the official documentation."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:118
+msgid ""
+"The ``Photo`` entity belongs to the ``photo`` directory. This directory "
+"represents the ``PhotoModule``. Now, let’s create a **Repository** "
+"provider:"
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:138
+msgid ""
+"warning **Notice** In the real-world applications you should avoid "
+"**magic strings**. Both ``PHOTO_REPOSITORY`` and ``DATABASE_CONNECTION`` "
+"should be kept in the separated ``constants.ts`` file."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:143
+msgid ""
+"Now we can inject the ``Repository<Photo>`` to the ``PhotoService`` using"
+" the ``@Inject()`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:165
+msgid ""
+"The database connection is **asynchronous**, but Nest makes this process "
+"completely invisible for the end-user. The ``PhotoRepository`` is waiting"
+" for the db connection, and the ``PhotoService`` is delayed until "
+"repository is ready to use. The entire application can start when each "
+"class is instantiated."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:171
+msgid "Here is a final ``PhotoModule``:"
+msgstr "Here is a final ``PhotoModule``:"
+
+#: ../../source/recipes/sql-typeorm.rst:192
+msgid ""
+"warning **Hint** Do not forget to import the ``PhotoModule`` into the "
+"root ``ApplicationModule``."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:2
+msgid "OpenAPI (Swagger)"
+msgstr "OpenAPI (Swagger)"
+
+#: ../../source/recipes/swagger.rst:7
+msgid ""
+"The `OpenAPI <https://swagger.io/specification/>`__ (Swagger) "
+"specification is a powerful definition format to describe RESTful APIs. "
+"Nest provides a dedicated `module <https://github.com/nestjs/swagger>`__ "
+"to work with it."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:13
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../source/recipes/swagger.rst:15
+msgid "Firstly, you have to install the required packages:"
+msgstr "Firstly, you have to install the required packages:"
+
+#: ../../source/recipes/swagger.rst:21
+msgid ""
+"If you are using fastify, you have to install ``fastify-swagger`` instead"
+" of ``swagger-ui-express``:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:29
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+#: ../../source/recipes/swagger.rst:31
+msgid ""
+"Once the installation process is done, open your bootstrap file (mostly "
+"``main.ts``) and initialize the Swagger using ``SwaggerModule`` class:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:56
+msgid ""
+"The ``DocumentBuilder`` is a helper class that helps to structure a base "
+"document for the ``SwaggerModule``. It contains several methods that "
+"allow setting such properties like title, description, version, and so "
+"on."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:61
+msgid ""
+"In order to create a full document (with defined HTTP routes) we use the "
+"``createDocument()`` method of the ``SwaggerModule`` class. This method "
+"takes two arguments, the application instance and the base Swagger "
+"options respectively."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:66
+msgid ""
+"The last step is to call ``setup()``. It accepts sequentially **(1)** "
+"path to mount the Swagger, **(2)** application instance, and **(3)** the "
+"document that describes the Nest application."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:70
+msgid "Now you can run the following command to start the HTTP server:"
+msgstr "Now you can run the following command to start the HTTP server:"
+
+#: ../../source/recipes/swagger.rst:76
+msgid ""
+"While the application is running, open your browser and navigate to "
+"``http://localhost:3000/api``. You should see a similar page:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:87
+msgid ""
+"The ``SwaggerModule`` automatically reflects all of your endpoints. In "
+"the background, it’s making use of ``swagger-ui-express`` and creates a "
+"live documentation."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:91
+msgid ""
+"info **Hint** If you want to download the corresponding Swagger JSON "
+"file, you can simply call ``http://localhost:3000/api-json`` in your "
+"browser (if your Swagger documentation is published under "
+"``http://localhost:3000/api``)."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:97
+msgid "Body, query, path parameters"
+msgstr "Body, query, path parameters"
+
+#: ../../source/recipes/swagger.rst:99
+msgid ""
+"During the examination of the defined controllers, the ``SwaggerModule`` "
+"is looking for all used ``@Body()``, ``@Query()``, and ``@Param()`` "
+"decorators in the route handlers. Hence, the valid document can be "
+"created."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:104
+msgid ""
+"Moreover, the module creates the **models definitions** by taking "
+"advantage of the reflection. Take a look at the following code:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:116
+msgid ""
+"warning **Notice** To implicitly set the body definition you can use the "
+"``@ApiImplicitBody()`` decorator (``@nestjs/swagger`` package)."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:119
+msgid "Based on the ``CreateCatDto``, the module definition will be created:"
+msgstr "Based on the ``CreateCatDto``, the module definition will be created:"
+
+#: ../../source/recipes/swagger.rst:129
+msgid ""
+"As you can see, the definition is empty although the class has a few "
+"declared properties. In order to make the class properties accessible to "
+"the ``SwaggerModule``, we have to mark all of them with "
+"``@ApiModelProperty()`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:149
+msgid "Let’s open the browser and verify the generated ``CreateCatDto`` model:"
+msgstr "Let’s open the browser and verify the generated ``CreateCatDto`` model:"
+
+#: ../../source/recipes/swagger.rst:159
+msgid "The ``@ApiModelProperty()`` decorator accepts options object:"
+msgstr "The ``@ApiModelProperty()`` decorator accepts options object:"
+
+#: ../../source/recipes/swagger.rst:192
+msgid ""
+"warning **Hint** There’s an ``@ApiModelPropertyOptional()`` shortcut "
+"decorator which helps to avoid continuous typing "
+"``@ApiModelProperty(&#123 required: false &#125)``."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:196
+msgid ""
+"Thanks to that we can simply set the **default** value, determine whether"
+" the property is required or explicitly set the type."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:200
+msgid "Multiple specifications"
+msgstr "Multiple specifications"
+
+#: ../../source/recipes/swagger.rst:202
+msgid ""
+"Swagger module also provides a way to support multiple specifications. In"
+" other words, you can serve different documentations with different "
+"``SwaggerUI`` on different endpoints."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:206
+msgid ""
+"In order to allow ``SwaggerModule`` to support multi-spec, your "
+"application must be written with modular approach. The "
+"``createDocument()`` method takes in a 3rd argument: ``extraOptions`` "
+"which is an object where a property ``include`` expects an array of "
+"modules."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:212
+msgid "You can setup Multiple Specifications support as shown below:"
+msgstr "You can setup Multiple Specifications support as shown below:"
+
+#: ../../source/recipes/swagger.rst:261
+msgid "Now you can start your server with the following command:"
+msgstr "Now you can start your server with the following command:"
+
+#: ../../source/recipes/swagger.rst:267
+msgid ""
+"Navigate to ``http://localhost:3000/api/cats`` to see SwaggerUI for your "
+"cats:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:278
+msgid ""
+"While ``http://localhost:3000/api/dogs`` will expose a SwaggerUI for your"
+" dogs:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:291
+msgid ""
+"warning **Notice** You have to construct a **SwaggerOptions** with "
+"``DocumentBuilder``, run ``createDocument()`` against newly constructed "
+"``options`` then immediately “serve” it with ``setup()`` before you can "
+"start working on a second **SwaggerOptions** for a second Swagger "
+"Specification. This specific order is to prevent Swagger configurations "
+"being overridden by different options."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:299
+msgid "Working with enums"
+msgstr "Working with enums"
+
+#: ../../source/recipes/swagger.rst:301
+msgid ""
+"To be able for ``SwaggerModule`` to identify an ``Enum``, we have to "
+"manually set the ``enum`` property on ``@ApiModelProperty`` with an array"
+" of values."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:310
+msgid "``UserRole`` enum can be defined as following:"
+msgstr "``UserRole`` enum can be defined as following:"
+
+#: ../../source/recipes/swagger.rst:322
+msgid ""
+"warning **Note** The above usage can only be applied to a **property** as"
+" part of a **model definition.**"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:325
+msgid ""
+"Enums can be used by itself with the ``@Query()`` parameter decorator in "
+"combination with the ``@ApiImplicitQuery()`` decorator."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:345
+msgid ""
+"warning **Hint** ``enum`` and ``isArray`` can also be used in combination"
+" in ``@ApiImplicitQuery()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:348
+msgid ""
+"With ``isArray`` set to **true**, the ``enum`` can be selected as a "
+"**multi-select**:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:360
+msgid "Working with arrays"
+msgstr "Working with arrays"
+
+#: ../../source/recipes/swagger.rst:362
+msgid ""
+"We have to manually indicate a type when the property is actually an "
+"array:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:370
+msgid ""
+"Simply put your type as the first element of an array (as shown above) or"
+" set an ``isArray`` property to ``true``."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:374
+msgid "Tags"
+msgstr "Tags"
+
+#: ../../source/recipes/swagger.rst:376
+msgid ""
+"At the beginning, we created a ``cats`` tag (by making use of "
+"``DocumentBuilder``). In order to attach the controller to the specified "
+"tag, we need to use ``@ApiUseTags(...tags)`` decorator."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:387
+msgid "Responses"
+msgstr "Responses"
+
+#: ../../source/recipes/swagger.rst:389
+msgid "To define a custom HTTP response, we use ``@ApiResponse()`` decorator."
+msgstr "To define a custom HTTP response, we use ``@ApiResponse()`` decorator."
+
+#: ../../source/recipes/swagger.rst:400
+msgid ""
+"Same as common HTTP exceptions defined in Exception Filters section, Nest"
+" also provides a set of usable **API responses** that inherits from the "
+"core ``@ApiResponse`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:404
+msgid "``@ApiOkResponse()``"
+msgstr "``@ApiOkResponse()``"
+
+#: ../../source/recipes/swagger.rst:405
+msgid "``@ApiCreatedResponse()``"
+msgstr "``@ApiCreatedResponse()``"
+
+#: ../../source/recipes/swagger.rst:406
+msgid "``@ApiBadRequestResponse()``"
+msgstr "``@ApiBadRequestResponse()``"
+
+#: ../../source/recipes/swagger.rst:407
+msgid "``@ApiUnauthorizedResponse()``"
+msgstr "``@ApiUnauthorizedResponse()``"
+
+#: ../../source/recipes/swagger.rst:408
+msgid "``@ApiNotFoundResponse()``"
+msgstr "``@ApiNotFoundResponse()``"
+
+#: ../../source/recipes/swagger.rst:409
+msgid "``@ApiForbiddenResponse()``"
+msgstr "``@ApiForbiddenResponse()``"
+
+#: ../../source/recipes/swagger.rst:410
+msgid "``@ApiMethodNotAllowedResponse()``"
+msgstr "``@ApiMethodNotAllowedResponse()``"
+
+#: ../../source/recipes/swagger.rst:411
+msgid "``@ApiNotAcceptableResponse()``"
+msgstr "``@ApiNotAcceptableResponse()``"
+
+#: ../../source/recipes/swagger.rst:412
+msgid "``@ApiRequestTimeoutResponse()``"
+msgstr "``@ApiRequestTimeoutResponse()``"
+
+#: ../../source/recipes/swagger.rst:413
+msgid "``@ApiConflictResponse()``"
+msgstr "``@ApiConflictResponse()``"
+
+#: ../../source/recipes/swagger.rst:414
+msgid "``@ApiGoneResponse()``"
+msgstr "``@ApiGoneResponse()``"
+
+#: ../../source/recipes/swagger.rst:415
+msgid "``@ApiPayloadTooLargeResponse()``"
+msgstr "``@ApiPayloadTooLargeResponse()``"
+
+#: ../../source/recipes/swagger.rst:416
+msgid "``@ApiUnsupportedMediaTypeResponse()``"
+msgstr "``@ApiUnsupportedMediaTypeResponse()``"
+
+#: ../../source/recipes/swagger.rst:417
+msgid "``@ApiUnprocessableEntityResponse()``"
+msgstr "``@ApiUnprocessableEntityResponse()``"
+
+#: ../../source/recipes/swagger.rst:418
+msgid "``@ApiInternalServerErrorResponse()``"
+msgstr "``@ApiInternalServerErrorResponse()``"
+
+#: ../../source/recipes/swagger.rst:419
+msgid "``@ApiNotImplementedResponse()``"
+msgstr "``@ApiNotImplementedResponse()``"
+
+#: ../../source/recipes/swagger.rst:420
+msgid "``@ApiBadGatewayResponse()``"
+msgstr "``@ApiBadGatewayResponse()``"
+
+#: ../../source/recipes/swagger.rst:421
+msgid "``@ApiServiceUnavailableResponse()``"
+msgstr "``@ApiServiceUnavailableResponse()``"
+
+#: ../../source/recipes/swagger.rst:422
+msgid "``@ApiGatewayTimeoutResponse()``"
+msgstr "``@ApiGatewayTimeoutResponse()``"
+
+#: ../../source/recipes/swagger.rst:424
+msgid ""
+"In addition to the available HTTP exceptions, Nest provides short-hand "
+"decorators for: ``HttpStatus.OK``, ``HttpStatus.CREATED`` and "
+"``HttpStatus.METHOD_NOT_ALLOWED``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:438
+msgid "Authentication"
+msgstr "Authentication"
+
+#: ../../source/recipes/swagger.rst:440
+msgid ""
+"You can enable the bearer authorization using ``addBearerAuth()`` method "
+"of the ``DocumentBuilder`` class. Then to restrict the chosen route or "
+"entire controller, use ``@ApiBearerAuth()`` decorator."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:451
+msgid "That’s how the OpenAPI documentation should look like now:"
+msgstr "That’s how the OpenAPI documentation should look like now:"
+
+#: ../../source/recipes/swagger.rst:462
+msgid "File upload"
+msgstr "File upload"
+
+#: ../../source/recipes/swagger.rst:464
+msgid ""
+"You can enable file upload for a specific method with the "
+"``@ApiImplicitFile`` decorator together with ``@ApiConsumes()``. Here’s a"
+" full example using `File Upload </techniques/file-upload>`__ technique:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:477
+msgid "Decorators"
+msgstr "Decorators"
+
+#: ../../source/recipes/swagger.rst:479
+msgid ""
+"All of the available OpenAPI decorators has an ``Api`` prefix to be "
+"clearly distinguishable from the core decorators. Below is a full list of"
+" the exported decorators with a defined use-level (where might be "
+"applied)."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:485
+msgid "``@ApiOperation()``"
+msgstr "``@ApiOperation()``"
+
+#: ../../source/recipes/swagger.rst:485 ../../source/recipes/swagger.rst:491
+#: ../../source/recipes/swagger.rst:492 ../../source/recipes/swagger.rst:493
+#: ../../source/recipes/swagger.rst:494 ../../source/recipes/swagger.rst:495
+#: ../../source/recipes/swagger.rst:496
+msgid "Method"
+msgstr "Method"
+
+#: ../../source/recipes/swagger.rst:486
+msgid "``@ApiResponse()``"
+msgstr "``@ApiResponse()``"
+
+#: ../../source/recipes/swagger.rst:486 ../../source/recipes/swagger.rst:487
+#: ../../source/recipes/swagger.rst:488 ../../source/recipes/swagger.rst:489
+#: ../../source/recipes/swagger.rst:490 ../../source/recipes/swagger.rst:497
+msgid "Method / Controller"
+msgstr "Method / Controller"
+
+#: ../../source/recipes/swagger.rst:487
+msgid "``@ApiProduces()``"
+msgstr "``@ApiProduces()``"
+
+#: ../../source/recipes/swagger.rst:488
+msgid "``@ApiConsumes()``"
+msgstr "``@ApiConsumes()``"
+
+#: ../../source/recipes/swagger.rst:489
+msgid "``@ApiBearerAuth()``"
+msgstr "``@ApiBearerAuth()``"
+
+#: ../../source/recipes/swagger.rst:490
+msgid "``@ApiOAuth2Auth()``"
+msgstr "``@ApiOAuth2Auth()``"
+
+#: ../../source/recipes/swagger.rst:491
+msgid "``@ApiImplicitBody()``"
+msgstr "``@ApiImplicitBody()``"
+
+#: ../../source/recipes/swagger.rst:492
+msgid "``@ApiImplicitParam()``"
+msgstr "``@ApiImplicitParam()``"
+
+#: ../../source/recipes/swagger.rst:493
+msgid "``@ApiImplicitQuery()``"
+msgstr "``@ApiImplicitQuery()``"
+
+#: ../../source/recipes/swagger.rst:494
+msgid "``@ApiImplicitHeader()``"
+msgstr "``@ApiImplicitHeader()``"
+
+#: ../../source/recipes/swagger.rst:495
+msgid "``@ApiImplicitFile()``"
+msgstr "``@ApiImplicitFile()``"
+
+#: ../../source/recipes/swagger.rst:496
+msgid "``@ApiExcludeEndpoint()``"
+msgstr "``@ApiExcludeEndpoint()``"
+
+#: ../../source/recipes/swagger.rst:497
+msgid "``@ApiUseTags()``"
+msgstr "``@ApiUseTags()``"
+
+#: ../../source/recipes/swagger.rst:498
+msgid "``@ApiModelProperty()``"
+msgstr "``@ApiModelProperty()``"
+
+#: ../../source/recipes/swagger.rst:498 ../../source/recipes/swagger.rst:499
+msgid "Model"
+msgstr "Model"
+
+#: ../../source/recipes/swagger.rst:499
+msgid "``@ApiModelPropertyOptional()``"
+msgstr "``@ApiModelPropertyOptional()``"
+
+#: ../../source/recipes/swagger.rst:502
+msgid ""
+"A working example is available `here "
+"<https://github.com/nestjs/nest/tree/master/sample/11-swagger>`__."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:2
+msgid "Health checks (Terminus)"
+msgstr "Health checks (Terminus)"
+
+#: ../../source/recipes/terminus.rst:4
+msgid ""
+"The `terminus <https://github.com/godaddy/terminus>`__ offers hooks to "
+"react on graceful shutdowns and supports you creating proper `Kubernetes "
+"<https://kubernetes.io/>`__ readiness / liveness checks for any HTTP "
+"application. The module "
+"[@nestjs/terminus](https://github.com/nestjs/terminus) integrates the "
+"terminus library with the Nest ecosystem."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:14
+msgid ""
+"To get started with ``@nestjs/terminus`` we need to install the required "
+"dependencies."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:22
+msgid "Setting up a health check"
+msgstr "Setting up a health check"
+
+#: ../../source/recipes/terminus.rst:24
+msgid ""
+"A health check represents a summary of **health indicators**. A health "
+"indicator executes a check of a service, whether it is in a healthy state"
+" or not. A health check is positive, if all the assigned health "
+"indicators are up and running. Because a lot of applications will need "
+"similar health indicators, "
+"[@nestjs/terminus](https://github.com/nestjs/terminus) provides a set of "
+"predefined health indicators, such as:"
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:32
+msgid "``DNSHealthIndicator``"
+msgstr "``DNSHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:33
+msgid "``TypeOrmHealthIndicator``"
+msgstr "``TypeOrmHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:34
+msgid "``MongooseHealthIndicator``"
+msgstr "``MongooseHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:35
+msgid "``MicroserviceHealthIndicator``"
+msgstr "``MicroserviceHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:36
+msgid "``MemoryHealthIndicator``"
+msgstr "``MemoryHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:37
+msgid "``DiskHealthIndicator``"
+msgstr "``DiskHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:40
+msgid "DNS Health Check"
+msgstr "DNS Health Check"
+
+#: ../../source/recipes/terminus.rst:42
+msgid ""
+"The first step to get started with our first health check, is to setup a "
+"service which will associate health indicators to an endpoint."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:98
+msgid ""
+"Once we have set up our ``TerminusOptionsService``, we can import the "
+"``TerminusModule`` into the root ``ApplicationModule``. The "
+"``TerminusOptionsService`` will provide the settings, which in turn will "
+"be used by the ``TerminusModule``."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:121
+msgid ""
+"info **Hint** If done correctly, Nest will expose the defined health "
+"check(s), which are reachable through a GET request to the defined route."
+" For example ``curl -X GET 'http://localhost:3000/health'``"
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:126
+msgid "Custom health indicator"
+msgstr "Custom health indicator"
+
+#: ../../source/recipes/terminus.rst:128
+msgid ""
+"In some cases, the predefined health indicators provided by "
+"``@nestjs/terminus`` do not cover all of your health check requirements. "
+"In this case you can set up a custom health indicator according to your "
+"needs."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:133
+msgid ""
+"Let’s get started by creating a service which will represent our custom "
+"health indicator. To get a basic understanding how a health indicator is "
+"structured, we will create an example ``DogHealthIndicator``. This health"
+" indicator should have the state “up”, if every ``Dog`` object has the "
+"type ``goodboy``, otherwise it will throw an error, which then the health"
+" indicator will be seen as “down”."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:193
+msgid ""
+"The next thing we need to do is registering the health indicator as a "
+"provider."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:218
+msgid ""
+"info **Hint** In a real world application the ``DogHealthIndicator`` "
+"should be provided in a separate module, for example ``DogsModule``, "
+"which then will be imported by the ``ApplicationModule``. But keep in "
+"mind to add the ``DogHealthIndicator`` to the ``exports`` array of the "
+"``DogModule`` and add the ``DogModule`` in ``imports`` array of the "
+"``TerminusModule.forRootAsync()`` parameter object."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:225
+msgid ""
+"The last required thing to do is to add the now available health "
+"indicator in the required health check endpoint. For that we go back to "
+"our ``TerminusOptionsService`` and implement it to the ``/health`` "
+"endpoint."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:283
+msgid ""
+"If everything has been done correctly, the ``/health`` endpoint should "
+"respond with a ``503`` response code and the following data."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:298
+msgid ""
+"You can view working examples in the ``@nestjs/terminus`` `repository "
+"<https://github.com/nestjs/terminus/tree/master/sample>`__."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:302
+msgid "Custom Logger"
+msgstr "Custom Logger"
+
+#: ../../source/recipes/terminus.rst:304
+msgid ""
+"The ``Terminus`` module automatically logs every error during a health "
+"check request. By default, it will use the globally defined Nest logger. "
+"You can read more about the global logger in the `Logger chapter "
+"<https://docs.nestjs.com/techniques/logger>`__. In some cases, you want "
+"to handle the logs of ``Terminus`` explicitly. In this case, the "
+"``TerminusModule.forRoot[Async]`` function offers an option for a custom "
+"logger."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:322
+msgid "The logger can also be disabled by setting the logger option to ``null``."
+msgstr "The logger can also be disabled by setting the logger option to ``null``."
+

@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>定制供应商 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>定制供应商</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/dependency-injection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="custom-providers">
+<h1>定制供应商<a class="headerlink" href="#custom-providers" title="永久链接至标题">¶</a></h1>
+<p>There are a lot of scenarios when you might want to bind something
+<strong>directly</strong> to the Nest inversion of control container. For example,
+any constant values, configuration objects created based on the current
+environment, external libraries, or pre-calculated values that depends
+on few other defined providers. Moreover, you are able to override
+default implementations, e.g. use different classes or make use of
+various test doubles (for testing purposes) when needed.</p>
+<p>One essential thing that you should always keep in mind is that Nest
+uses <strong>tokens</strong> to identify dependencies. Usually, the auto-generated
+tokens are equal to classes. If you want to create a custom provider,
+you’d need to choose a token. Mostly, the custom tokens are represented
+by either plain strings or symbols. Following best practices, you should
+hold those tokens in the separated file, for example, inside
+<code class="docutils literal notranslate"><span class="pre">constants.ts</span></code>.</p>
+<p>Let’s go through the available options.</p>
+<div class="section" id="use-value">
+<h2>Use value<a class="headerlink" href="#use-value" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">useValue</span></code> syntax is useful when it comes to either define a
+constant value, put external library into Nest container, or replace a
+real implementation with the mock object.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./connection&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">connectionProvider</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">provide</span><span class="o">:</span> <span class="s1">&#39;CONNECTION&#39;</span><span class="p">,</span>
+  <span class="nx">useValue</span>: <span class="kt">connection</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">connectionProvider</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>In order to inject a custom provider, we use the <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code>
+decorator. This decorator takes a single argument - the token.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Injectable()
+export class CatsRepository {
+  constructor(@Inject(&#39;CONNECTION&#39;) connection: Connection) {}
+}
+@@switch
+@Injectable()
+@Dependencies(&#39;CONNECTION&#39;)
+export class CatsRepository {
+  constructor(connection) {}
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code> decorator is imported from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>When you want to override a default provider’s value, let’s say, you’d
+like to force Nest to use a mock <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> due to testing
+purposes, you can simply use an existing class as a token.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CatsService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./cats.service&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">mockCatsService</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kr">const</span> <span class="nx">catsServiceProvider</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">provide</span>: <span class="kt">CatsService</span><span class="p">,</span>
+  <span class="nx">useValue</span>: <span class="kt">mockCatsService</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">CatsModule</span><span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">catsServiceProvider</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>In above example, the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> will be overridden by a passed
+<code class="docutils literal notranslate"><span class="pre">mockCatsService</span></code> mock object. It means, that Nest instead of creating
+<code class="docutils literal notranslate"><span class="pre">CatsService</span></code> instance manually, will treat this provider as resolved
+already, and use <code class="docutils literal notranslate"><span class="pre">mockCatsService</span></code> as its representative value.</p>
+</div>
+<div class="section" id="use-class">
+<h2>Use class<a class="headerlink" href="#use-class" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">useClass</span></code> syntax allows you using different class per chosen
+factors. For example, we have an abstract (or default) <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>
+class. Depending on the current environment, Nest should use a different
+implementation of the configuration service.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">configServiceProvider</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">provide</span>: <span class="kt">ConfigService</span><span class="p">,</span>
+  <span class="nx">useClass</span>:
+    <span class="kt">process.env.NODE_ENV</span> <span class="o">===</span> <span class="s1">&#39;development&#39;</span>
+      <span class="o">?</span> <span class="nx">DevelopmentConfigService</span>
+      : <span class="kt">ProductionConfigService</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">configServiceProvider</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> Instead of a custom token, we have used the
+<code class="docutils literal notranslate"><span class="pre">ConfigService</span></code> class, and therefore we have overridden the default
+implementation.</p>
+</div></blockquote>
+<p>In this case, even if any class depends on <code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>, Nest will
+inject an instance of the provided class (<code class="docutils literal notranslate"><span class="pre">DevelopmentConfigService</span></code>
+or <code class="docutils literal notranslate"><span class="pre">ProductionConfigService</span></code>) instead.</p>
+</div>
+<div class="section" id="use-factory">
+<h2>Use factory<a class="headerlink" href="#use-factory" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">useFactory</span></code> is a way of creating providers <strong>dynamically</strong>. The
+actual provider will be equal to a returned value of the factory
+function. The factory function can either depend on several different
+providers or stay completely independent. It means that factory may
+accept arguments, that Nest will resolve and pass during the
+instantiation process. Additionally, this function can return value
+<strong>asynchronously</strong>. It’s explained in more detail here. Use it when your
+provider has to be dynamically calculated or in case to resolve an
+asynchronous operation.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+const connectionFactory = {
+  provide: &#39;CONNECTION&#39;,
+  useFactory: (optionsProvider: OptionsProvider) =&gt; {
+    const options = optionsProvider.get();
+    return new DatabaseConnection(options);
+  },
+  inject: [OptionsProvider],
+};
+
+@Module({
+  providers: [connectionFactory],
+})
+export class ApplicationModule {}
+@@switch
+const connectionFactory = {
+  provide: &#39;CONNECTION&#39;,
+  useFactory: (optionsProvider) =&gt; {
+    const options = optionsProvider.get();
+    return new DatabaseConnection(options);
+  },
+  inject: [OptionsProvider],
+};
+
+@Module({
+  providers: [connectionFactory],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> If your factory needs other providers, you have to pass
+their tokens inside the <code class="docutils literal notranslate"><span class="pre">inject</span></code> array. Nest will pass instances as
+arguments of the function in the same order.</p>
+</div></blockquote>
+</div>
+<div class="section" id="use-existing">
+<h2>Use existing<a class="headerlink" href="#use-existing" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">useExisting</span></code> allows you creating aliases for existing providers.
+For example, the token <code class="docutils literal notranslate"><span class="pre">AliasedLoggerService</span></code> is an alias for
+<code class="docutils literal notranslate"><span class="pre">LoggerService</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">class</span> <span class="nx">LoggerService</span> <span class="p">{}</span>
+
+<span class="kr">const</span> <span class="nx">loggerAliasProvider</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">provide</span><span class="o">:</span> <span class="s1">&#39;AliasedLoggerService&#39;</span><span class="p">,</span>
+  <span class="nx">useExisting</span>: <span class="kt">LoggerService</span>
+<span class="p">};</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">LoggerService</span><span class="p">,</span> <span class="nx">loggerAliasProvider</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The instance of <code class="docutils literal notranslate"><span class="pre">LoggerService</span></code> will be equal to the
+instance defined by <code class="docutils literal notranslate"><span class="pre">AliasedLoggerService</span></code> token.</p>
+</div></blockquote>
+</div>
+<div class="section" id="export-custom-provider">
+<h2>Export custom provider<a class="headerlink" href="#export-custom-provider" title="永久链接至标题">¶</a></h2>
+<p>In order to export a custom provider, we can either use a token or a
+whole object. The following example shows a token case:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+const connectionFactory = {
+  provide: &#39;CONNECTION&#39;,
+  useFactory: (optionsProvider: OptionsProvider) =&gt; {
+    const options = optionsProvider.get();
+    return new DatabaseConnection(options);
+  },
+  inject: [OptionsProvider],
+};
+
+@Module({
+  providers: [connectionFactory],
+  exports: [&#39;CONNECTION&#39;],
+})
+export class ApplicationModule {}
+@@switch
+const connectionFactory = {
+  provide: &#39;CONNECTION&#39;,
+  useFactory: (optionsProvider) =&gt; {
+    const options = optionsProvider.get();
+    return new DatabaseConnection(options);
+  },
+  inject: [OptionsProvider],
+};
+
+@Module({
+  providers: [connectionFactory],
+  exports: [&#39;CONNECTION&#39;],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<p>But you can use a whole object as well:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+const connectionFactory = {
+  provide: &#39;CONNECTION&#39;,
+  useFactory: (optionsProvider: OptionsProvider) =&gt; {
+    const options = optionsProvider.get();
+    return new DatabaseConnection(options);
+  },
+  inject: [OptionsProvider],
+};
+
+@Module({
+  providers: [connectionFactory],
+  exports: [connectionFactory],
+})
+export class ApplicationModule {}
+@@switch
+const connectionFactory = {
+  provide: &#39;CONNECTION&#39;,
+  useFactory: (optionsProvider) =&gt; {
+    const options = optionsProvider.get();
+    return new DatabaseConnection(options);
+  },
+  inject: [OptionsProvider],
+};
+
+@Module({
+  providers: [connectionFactory],
+  exports: [connectionFactory],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

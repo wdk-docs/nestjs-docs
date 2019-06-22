@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SQL (TypeORM) &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>SQL (TypeORM)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/recipes/sql-typeorm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sql-typeorm">
+<h1>SQL (TypeORM)<a class="headerlink" href="#sql-typeorm" title="永久链接至标题">¶</a></h1>
+<div class="section" id="this-chapter-applies-only-to-typescript">
+<h2>This chapter applies only to TypeScript<a class="headerlink" href="#this-chapter-applies-only-to-typescript" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p><strong>Warning</strong> In this article, you’ll learn how to create a
+<code class="docutils literal notranslate"><span class="pre">DatabaseModule</span></code> based on the <strong>TypeORM</strong> package from scratch
+using custom providers mechanism. As a consequence, this solution
+contains a lot of overhead that you can omit using ready to use and
+available out-of-the-box dedicated <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/typeorm</span></code> package. To
+learn more, see <a class="reference external" href="/techniques/sql">here</a>.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://github.com/typeorm/typeorm">TypeORM</a> is definitely the most
+mature Object Relational Mapper (ORM) available in the node.js world.
+Since it’s written in TypeScript, it works pretty well with the Nest
+framework.</p>
+<div class="section" id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">¶</a></h3>
+<p>To start the adventure with this library we have to install all required
+dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save typeorm mysql
+</pre></div>
+</div>
+<p>The first step we need to do is to establish the connection with our
+database using <code class="docutils literal notranslate"><span class="pre">createConnection()</span></code> function imported from the
+<code class="docutils literal notranslate"><span class="pre">typeorm</span></code> package. The <code class="docutils literal notranslate"><span class="pre">createConnection()</span></code> function returns a
+<code class="docutils literal notranslate"><span class="pre">Promise</span></code>, and therefore we have to create an <a class="reference external" href="/fundamentals/async-components">async
+provider</a>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(database.providers)
+import { createConnection } from &#39;typeorm&#39;;
+
+export const databaseProviders = [
+  {
+    provide: &#39;DATABASE_CONNECTION&#39;,
+    useFactory: async () =&gt; await createConnection({
+      type: &#39;mysql&#39;,
+      host: &#39;localhost&#39;,
+      port: 3306,
+      username: &#39;root&#39;,
+      password: &#39;root&#39;,
+      database: &#39;test&#39;,
+      entities: [
+          __dirname + &#39;/../**/*.entity{.ts,.js}&#39;,
+      ],
+      synchronize: true,
+    }),
+  },
+];
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Hint</strong> Following best practices, we declared the custom
+provider in the separated file which has a <code class="docutils literal notranslate"><span class="pre">*.providers.ts</span></code> suffix.</p>
+</div></blockquote>
+<p>Then, we need to export these providers to make them <strong>accessible</strong> for
+the rest of the application.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(database.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { databaseProviders } from &#39;./database.providers&#39;;
+
+@Module({
+  providers: [...databaseProviders],
+  exports: [...databaseProviders],
+})
+export class DatabaseModule {}
+</pre></div>
+</div>
+<p>Now we can inject the <code class="docutils literal notranslate"><span class="pre">Connection</span></code> object using <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code>
+decorator. Each class that would depend on the <code class="docutils literal notranslate"><span class="pre">Connection</span></code> async
+provider will wait until a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> is resolved.</p>
+</div>
+<div class="section" id="repository-pattern">
+<h3>Repository pattern<a class="headerlink" href="#repository-pattern" title="永久链接至标题">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/typeorm/typeorm">TypeORM</a> supports the
+repository design pattern, thus each entity has its own Repository.
+These repositories can be obtained from the database connection.</p>
+<p>But firstly, we need at least one entity. We are going to reuse the
+<code class="docutils literal notranslate"><span class="pre">Photo</span></code> entity from the official documentation.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(photo.entity)
+import { Entity, Column, PrimaryGeneratedColumn } from &#39;typeorm&#39;;
+
+@Entity()
+export class Photo {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ length: 500 })
+  name: string;
+
+  @Column(&#39;text&#39;)
+  description: string;
+
+  @Column()
+  filename: string;
+
+  @Column(&#39;int&#39;)
+  views: number;
+
+  @Column()
+  isPublished: boolean;
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Photo</span></code> entity belongs to the <code class="docutils literal notranslate"><span class="pre">photo</span></code> directory. This directory
+represents the <code class="docutils literal notranslate"><span class="pre">PhotoModule</span></code>. Now, let’s create a <strong>Repository</strong>
+provider:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(photo.providers)
+import { Connection, Repository } from &#39;typeorm&#39;;
+import { Photo } from &#39;./photo.entity&#39;;
+
+export const photoProviders = [
+  {
+    provide: &#39;PHOTO_REPOSITORY&#39;,
+    useFactory: (connection: Connection) =&gt; connection.getRepository(Photo),
+    inject: [&#39;DATABASE_CONNECTION&#39;],
+  },
+];
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> In the real-world applications you should avoid
+<strong>magic strings</strong>. Both <code class="docutils literal notranslate"><span class="pre">PHOTO_REPOSITORY</span></code> and
+<code class="docutils literal notranslate"><span class="pre">DATABASE_CONNECTION</span></code> should be kept in the separated
+<code class="docutils literal notranslate"><span class="pre">constants.ts</span></code> file.</p>
+</div></blockquote>
+<p>Now we can inject the <code class="docutils literal notranslate"><span class="pre">Repository&lt;Photo&gt;</span></code> to the <code class="docutils literal notranslate"><span class="pre">PhotoService</span></code>
+using the <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code> decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(photo.service)
+import { Injectable, Inject } from &#39;@nestjs/common&#39;;
+import { Repository } from &#39;typeorm&#39;;
+import { Photo } from &#39;./photo.entity&#39;;
+
+@Injectable()
+export class PhotoService {
+  constructor(
+    @Inject(&#39;PHOTO_REPOSITORY&#39;)
+    private readonly photoRepository: Repository&lt;Photo&gt;,
+  ) {}
+
+  async findAll(): Promise&lt;Photo[]&gt; {
+    return await this.photoRepository.find();
+  }
+}
+</pre></div>
+</div>
+<p>The database connection is <strong>asynchronous</strong>, but Nest makes this process
+completely invisible for the end-user. The <code class="docutils literal notranslate"><span class="pre">PhotoRepository</span></code> is
+waiting for the db connection, and the <code class="docutils literal notranslate"><span class="pre">PhotoService</span></code> is delayed until
+repository is ready to use. The entire application can start when each
+class is instantiated.</p>
+<p>Here is a final <code class="docutils literal notranslate"><span class="pre">PhotoModule</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(photo.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { DatabaseModule } from &#39;../database/database.module&#39;;
+import { photoProviders } from &#39;./photo.providers&#39;;
+import { PhotoService } from &#39;./photo.service&#39;;
+
+@Module({
+  imports: [DatabaseModule],
+  providers: [
+    ...photoProviders,
+    PhotoService,
+  ],
+})
+export class PhotoModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Hint</strong> Do not forget to import the <code class="docutils literal notranslate"><span class="pre">PhotoModule</span></code> into the
+root <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

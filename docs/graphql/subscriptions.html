@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>订阅 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="标量" href="scalars.html" />
+    <link rel="prev" title="突变" href="mutations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Graphql</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutations.html">突变</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">订阅</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#schema-first">Schema first</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-definitions">Type definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-first">Code first</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pubsub">PubSub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module">Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scalars.html">标量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Graphql</a> &raquo;</li>
+        
+      <li>订阅</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/graphql/subscriptions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subscriptions">
+<h1>订阅<a class="headerlink" href="#subscriptions" title="永久链接至标题">¶</a></h1>
+<p>Subscription is just another GraphQL operation type like Query and
+Mutation. It allows creating real-time subscriptions over a
+bidirectional transport layer, mainly over websockets. Read more about
+the subscriptions
+<a class="reference external" href="https://www.apollographql.com/docs/graphql-subscriptions">here</a>.
+Below is a <code class="docutils literal notranslate"><span class="pre">commentAdded</span></code> subscription example, copied directly from
+the official
+<a class="reference external" href="https://www.apollographql.com/docs/graphql-subscriptions/subscriptions-to-schema.html">Apollo</a>
+documentation:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">Subscription</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">commentAdded</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">subscribe</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">pubSub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> The <code class="docutils literal notranslate"><span class="pre">pubsub</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">PubSub</span></code> class.
+Read more about it
+<a class="reference external" href="https://www.apollographql.com/docs/graphql-subscriptions/setup.html">here</a>.</p>
+</div></blockquote>
+<div class="section" id="schema-first">
+<h2>Schema first<a class="headerlink" href="#schema-first" title="永久链接至标题">¶</a></h2>
+<p>To create an equivalent subscription in Nest, we’ll make use of the
+<code class="docutils literal notranslate"><span class="pre">&#64;Subscription()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">pubSub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PubSub</span><span class="p">();</span>
+
+<span class="kd">@Resolver</span><span class="p">(</span><span class="s1">&#39;Author&#39;</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthorResolver</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">authorsService</span>: <span class="kt">AuthorsService</span><span class="p">,</span>
+    <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">postsService</span>: <span class="kt">PostsService</span><span class="p">,</span>
+  <span class="p">)</span> <span class="p">{}</span>
+
+  <span class="kd">@Query</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">)</span>
+  <span class="nx">async</span> <span class="nx">getAuthor</span><span class="p">(</span><span class="kd">@Args</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="nx">id</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">authorsService</span><span class="p">.</span><span class="nx">findOneById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">@ResolveProperty</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">)</span>
+  <span class="nx">async</span> <span class="nx">getPosts</span><span class="p">(</span><span class="kd">@Parent</span><span class="p">()</span> <span class="nx">author</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">author</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">postsService</span><span class="p">.</span><span class="nx">findAll</span><span class="p">({</span> <span class="nx">authorId</span>: <span class="kt">id</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="kd">@Subscription</span><span class="p">()</span>
+  <span class="nx">commentAdded() {</span>
+    <span class="k">return</span> <span class="nx">pubSub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to filter out specific events based on context and arguments,
+we can set a <code class="docutils literal notranslate"><span class="pre">filter</span></code> property.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Subscription</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">filter</span><span class="o">:</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="nx">variables</span><span class="p">)</span> <span class="o">=&gt;</span>
+    <span class="nx">payload</span><span class="p">.</span><span class="nx">commentAdded</span><span class="p">.</span><span class="nx">repositoryName</span> <span class="o">===</span> <span class="nx">variables</span><span class="p">.</span><span class="nx">repoFullName</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nx">commentAdded() {</span>
+  <span class="k">return</span> <span class="nx">pubSub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To mutate the published payload, we can use a <code class="docutils literal notranslate"><span class="pre">resolve</span></code> function.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Subscription</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">resolve</span>: <span class="kt">value</span> <span class="o">=&gt;</span> <span class="nx">value</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nx">commentAdded() {</span>
+  <span class="k">return</span> <span class="nx">pubSub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-definitions">
+<h2>Type definitions<a class="headerlink" href="#type-definitions" title="永久链接至标题">¶</a></h2>
+<p>The last step is to update type definitions file.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">type</span> <span class="n">Author</span> <span class="o">{</span>
+  <span class="n">id</span><span class="o">:</span> <span class="n">Int</span><span class="o">!</span>
+  <span class="n">firstName</span><span class="o">:</span> <span class="n">String</span>
+  <span class="n">lastName</span><span class="o">:</span> <span class="n">String</span>
+  <span class="n">posts</span><span class="o">:</span> <span class="o">[</span><span class="n">Post</span><span class="o">]</span>
+<span class="o">}</span>
+
+<span class="n">type</span> <span class="n">Post</span> <span class="o">{</span>
+  <span class="n">id</span><span class="o">:</span> <span class="n">Int</span><span class="o">!</span>
+  <span class="n">title</span><span class="o">:</span> <span class="n">String</span>
+  <span class="n">votes</span><span class="o">:</span> <span class="n">Int</span>
+<span class="o">}</span>
+
+<span class="n">type</span> <span class="n">Query</span> <span class="o">{</span>
+  <span class="n">author</span><span class="o">(</span><span class="n">id</span><span class="o">:</span> <span class="n">Int</span><span class="o">!):</span> <span class="n">Author</span>
+<span class="o">}</span>
+
+<span class="n">type</span> <span class="n">Comment</span> <span class="o">{</span>
+  <span class="n">id</span><span class="o">:</span> <span class="n">String</span>
+  <span class="n">content</span><span class="o">:</span> <span class="n">String</span>
+<span class="o">}</span>
+
+<span class="n">type</span> <span class="n">Subscription</span> <span class="o">{</span>
+  <span class="n">commentAdded</span><span class="o">(</span><span class="n">repoFullName</span><span class="o">:</span> <span class="n">String</span><span class="o">!):</span> <span class="n">Comment</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Well done. We created a single
+<code class="docutils literal notranslate"><span class="pre">commentAdded(repoFullName:</span> <span class="pre">String!):</span> <span class="pre">Comment</span></code> subscription. You can
+find a full sample implementation
+<a class="reference external" href="https://github.com/nestjs/nest/blob/master/sample/12-graphql-apollo">here</a>.</p>
+</div>
+<div class="section" id="code-first">
+<h2>Code first<a class="headerlink" href="#code-first" title="永久链接至标题">¶</a></h2>
+<p>To create a subscription using the class-first approach, we’ll make use
+of the <code class="docutils literal notranslate"><span class="pre">&#64;Subscription()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">pubSub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PubSub</span><span class="p">();</span>
+
+<span class="kd">@Resolver</span><span class="p">(</span><span class="s1">&#39;Author&#39;</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthorResolver</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">authorsService</span>: <span class="kt">AuthorsService</span><span class="p">,</span>
+    <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">postsService</span>: <span class="kt">PostsService</span><span class="p">,</span>
+  <span class="p">)</span> <span class="p">{}</span>
+
+  <span class="kd">@Query</span><span class="p">(</span><span class="nx">returns</span> <span class="o">=&gt;</span> <span class="nx">Author</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;author&#39;</span> <span class="p">})</span>
+  <span class="nx">async</span> <span class="nx">getAuthor</span><span class="p">(</span><span class="kd">@Args</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Int</span> <span class="p">})</span> <span class="nx">id</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">authorsService</span><span class="p">.</span><span class="nx">findOneById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">@ResolveProperty</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">)</span>
+  <span class="nx">async</span> <span class="nx">getPosts</span><span class="p">(</span><span class="kd">@Parent</span><span class="p">()</span> <span class="nx">author</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">author</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">postsService</span><span class="p">.</span><span class="nx">findAll</span><span class="p">({</span> <span class="nx">authorId</span>: <span class="kt">id</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="kd">@Subscription</span><span class="p">(</span><span class="nx">returns</span> <span class="o">=&gt;</span> <span class="nx">Comment</span><span class="p">)</span>
+  <span class="nx">commentAdded() {</span>
+    <span class="k">return</span> <span class="nx">pubSub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to filter out specific events based on context and arguments,
+we can set a <code class="docutils literal notranslate"><span class="pre">filter</span></code> property.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Subscription</span><span class="p">(</span><span class="nx">returns</span> <span class="o">=&gt;</span> <span class="nx">Comment</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">filter</span><span class="o">:</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="nx">variables</span><span class="p">)</span> <span class="o">=&gt;</span>
+    <span class="nx">payload</span><span class="p">.</span><span class="nx">commentAdded</span><span class="p">.</span><span class="nx">repositoryName</span> <span class="o">===</span> <span class="nx">variables</span><span class="p">.</span><span class="nx">repoFullName</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nx">commentAdded() {</span>
+  <span class="k">return</span> <span class="nx">pubSub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To mutate the published payload, we can use a <code class="docutils literal notranslate"><span class="pre">resolve</span></code> function.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Subscription</span><span class="p">(</span><span class="nx">returns</span> <span class="o">=&gt;</span> <span class="nx">Comment</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">resolve</span>: <span class="kt">value</span> <span class="o">=&gt;</span> <span class="nx">value</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nx">commentAdded() {</span>
+  <span class="k">return</span> <span class="nx">pubSub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="s1">&#39;commentAdded&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pubsub">
+<h2>PubSub<a class="headerlink" href="#pubsub" title="永久链接至标题">¶</a></h2>
+<p>We used a local <code class="docutils literal notranslate"><span class="pre">PubSub</span></code> instance here. Instead, we should define
+<code class="docutils literal notranslate"><span class="pre">PubSub</span></code> as a <strong>provider</strong>, inject it through the constructor (using
+<code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code> decorator), and reuse it among the whole application. You
+can read more about Nest custom providers
+<a class="reference external" href="/fundamentals/custom-providers">here</a>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">provide</span><span class="o">:</span> <span class="s1">&#39;PUB_SUB&#39;</span><span class="p">,</span>
+  <span class="nx">useValue</span>: <span class="kt">new</span> <span class="nx">PubSub</span><span class="p">(),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module">
+<h2>Module<a class="headerlink" href="#module" title="永久链接至标题">¶</a></h2>
+<p>In order to enable subscriptions, we have to set
+<code class="docutils literal notranslate"><span class="pre">installSubscriptionHandlers</span></code> property to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">GraphQLModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+  <span class="nx">typePaths</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./**/*.graphql&#39;</span><span class="p">],</span>
+  <span class="nx">installSubscriptionHandlers</span>: <span class="kt">true</span><span class="p">,</span>
+<span class="p">}),</span>
+</pre></div>
+</div>
+<p>To customize the subscriptions server (e.g. change port), you can use
+<code class="docutils literal notranslate"><span class="pre">subscriptions</span></code> property (read
+<a class="reference external" href="https://www.apollographql.com/docs/apollo-server/v2/api/apollo-server.html#constructor-options-lt-ApolloServer-gt">more</a>).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scalars.html" class="btn btn-neutral float-right" title="标量" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mutations.html" class="btn btn-neutral float-left" title="突变" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

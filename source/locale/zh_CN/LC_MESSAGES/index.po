@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 14:03+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/index.rst:2
+msgid "Introduction"
+msgstr "介绍"
+
+#: ../../source/index.rst:4
+msgid ""
+"Nest is a framework for building efficient, scalable `Node.js "
+"<https://nodejs.org/>`__ server-side applications. It uses progressive "
+"JavaScript, is built with and fully supports `TypeScript "
+"<http://www.typescriptlang.org/>`__ (yet still enables developers to code"
+" in pure JavaScript) and combines elements of OOP (Object Oriented "
+"Programming), FP (Functional Programming), and FRP (Functional Reactive "
+"Programming)."
+msgstr "Nest是一个用于构建高效，可扩展的 `Node.js <https://nodejs.org/>`__ 服务器端应用程序的框架。它使用渐进式JavaScript，内置并完全支持 `TypeScript <http://www.typescriptlang.org/>`__ （仍然允许开发人员使用纯JavaScript编写代码）并结合OOP（面向对象编程），FP的元素（功能编程）和FRP（功能反应编程）。"
+
+#: ../../source/index.rst:12
+msgid ""
+"Under the hood, Nest makes use of robust HTTP Server frameworks like "
+"`Express <https://expressjs.com/>`__ (the default) and `Fastify "
+"<https://github.com/fastify/fastify>`__. Nest provides a level of "
+"abstraction above these frameworks, but can also expose their APIs "
+"directly to the developer. This allows for easy use of the myriad third-"
+"party modules which are available for each platform."
+msgstr "在引擎盖下，Nest利用强大的HTTP Server框架，如 `Express <https://expressjs.com/>`__ （默认）和 `Fastify <https://github.com/fastify/fastify>`__ 。 Nest在这些框架之上提供了一定程度的抽象，但也可以将其API直接暴露给开发人员。这样可以轻松使用每个平台可用的无数第三方模块。"
+
+#: ../../source/index.rst:20
+msgid "Philosophy"
+msgstr "哲学"
+
+#: ../../source/index.rst:22
+msgid ""
+"In recent years, thanks to Node.js, JavaScript has become the “lingua "
+"franca” of the web for both front and backend applications. This has "
+"given rise to awesome projects like `Angular <https://angular.io/>`__, "
+"`React <https://github.com/facebook/react>`__ and `Vue "
+"<https://github.com/vuejs/vue>`__, which improve developer productivity "
+"and enable the construction of fast, testable, and extensible frontend "
+"applications. However, while plenty of superb libraries, helpers, and "
+"tools exist for Node (and server-side JavaScript), none of them "
+"effectively solve the main problem - **architecture**."
+msgstr "近年来，感谢Node.js，JavaScript已成为前端和后端应用程序的网络“通用语言”。这引发了令人敬畏的项目，如 `Angular <https://angular.io/>`__ ， `React <https://github.com/facebook/react>`__ 和 `Vue <https://github.com/vuejs/vue>`__ ，它可以提高开发人员的工作效率，并支持构建快速，可测试和可扩展的前端应用程序。然而，虽然Node（和服务器端JavaScript）存在大量优秀的库，帮助器和工具，但它们都没有有效地解决主要问题 -  **架构**。"
+
+#: ../../source/index.rst:33
+msgid ""
+"Nest provides an out-of-the-box application architecture which allows "
+"developers and teams to create highly testable, scalable, loosely "
+"coupled, and easily maintainable applications."
+msgstr "Nest提供了一个开箱即用的应用程序架构，允许开发人员和团队创建高度可测试，可扩展，松散耦合且易于维护的应用程序。"
+
+#: ../../source/index.rst:38
+msgid "Installation"
+msgstr "安装"
+
+#: ../../source/index.rst:40
+msgid ""
+"To get started, you can either scaffold the project with the `Nest CLI "
+"</cli/overview>`__, or clone a starter project (both will produce the "
+"same outcome)."
+msgstr ""
+
+#: ../../source/index.rst:44
+msgid ""
+"To scaffold the project with the Nest CLI, run the following commands. "
+"This will create a new project directory, and populate the directory with"
+" the initial core Nest files and supporting modules, creating a "
+"conventional base structure for your project. Creating a new project with"
+" the **Nest CLI** is recommended for first-time users. We’ll continue "
+"with this approach in `First Steps <first-steps>`__."
+msgstr ""
+
+#: ../../source/index.rst:56
+msgid "Alternatively, to install the TypeScript starter project with **Git**:"
+msgstr "Alternatively, to install the TypeScript starter project with **Git**:"
+
+#: ../../source/index.rst:65
+msgid ""
+"To install the JavaScript flavor of the starter project, use "
+"``javascript-starter.git`` in the command sequence above."
+msgstr ""
+
+#: ../../source/index.rst:68
+msgid ""
+"You can also manually create a new project from scratch by installing the"
+" core and supporting files with **npm** (or **yarn**). In this case, of "
+"course, you’ll be responsible for creating the project boilerplate files "
+"yourself."
+msgstr ""
+
+#: ../../source/index.rst:78
+msgid "Stay in touch"
+msgstr "保持联系"
+
+#: ../../source/index.rst:80
+msgid "Website - `https://nestjs.com <https://nestjs.com/>`__"
+msgstr "Website - `https://nestjs.com <https://nestjs.com/>`__"
+
+#: ../../source/index.rst:81
+msgid "Twitter - [@nestframework](https://twitter.com/nestframework)"
+msgstr "Twitter - [@nestframework](https://twitter.com/nestframework)"
+
+#~ msgid "Contents:"
+#~ msgstr ""
+
+#~ msgid "Welcome to nestjs docs's documentation!"
+#~ msgstr ""
+
+#~ msgid "Indices and tables"
+#~ msgstr ""
+
+#~ msgid ":ref:`genindex`"
+#~ msgstr ""
+
+#~ msgid ":ref:`modindex`"
+#~ msgstr ""
+
+#~ msgid ":ref:`search`"
+#~ msgstr ""
+

@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/techniques/serialization.rst:2
+msgid "Serialization"
+msgstr "序列化"
+
+#: ../../source/techniques/serialization.rst:4
+msgid ""
+"Serializers provides clean abstraction layer towards **data "
+"manipulation** before sending the actual response. For instance, "
+"sensitive data like user’s password should be always excluded from the "
+"eventual response. Furthermore, certain properties might require "
+"additional transformation, let’s say, we don’t want to send the whole "
+"database entity. Instead, we would like to pick only ``id`` and ``name``."
+" The rest should be automatically stripped. Unluckily, manually mapping "
+"all entities may bring a lot of confusion."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:14
+msgid "Overview"
+msgstr "Overview"
+
+#: ../../source/techniques/serialization.rst:16
+msgid ""
+"In order to provide a straightforward way to carry out these operations, "
+"Nest comes with the ``ClassSerializerInterceptor`` class. It uses `class-"
+"transformer <https://github.com/typestack/class-transformer>`__ package "
+"to provide a declarative and extensible way of transforming objects. "
+"Basically, the ``ClassSerializerInterceptor`` takes the value returned "
+"from the method and call ``classToPlain()`` function from `class-"
+"transformer <https://github.com/typestack/class-transformer>`__ package."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:26
+msgid "Exclude properties"
+msgstr "Exclude properties"
+
+#: ../../source/techniques/serialization.rst:28
+msgid ""
+"Let’s assume that we want to automatically exclude a ``password`` "
+"property from the following entity:"
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:48
+msgid ""
+"Then, return the instance of this class directly from the controller’s "
+"method."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:66
+msgid ""
+"info **Hint** The ``ClassSerializerInterceptor`` is imported from "
+"``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:69
+msgid "Now, when you call this endpoint, you’ll receive a following response:"
+msgstr "Now, when you call this endpoint, you’ll receive a following response:"
+
+#: ../../source/techniques/serialization.rst:80
+msgid "Expose properties"
+msgstr "Expose properties"
+
+#: ../../source/techniques/serialization.rst:82
+msgid ""
+"If you want to expose earlier precalculated property, simply use "
+"``@Expose()`` decorator."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:93
+msgid "Transform"
+msgstr "Transform"
+
+#: ../../source/techniques/serialization.rst:95
+msgid ""
+"You can perform additional data transformation using ``@Transform()`` "
+"decorator. For example, you want to pick a name of the ``RoleEntity`` "
+"instead of returning the whole object."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:105
+msgid "Pass options"
+msgstr "Pass options"
+
+#: ../../source/techniques/serialization.rst:107
+msgid ""
+"The transform options may vary depending on the certain factors. In order"
+" to override default settings, use ``@SerializeOptions()`` decorator."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:123
+msgid ""
+"info **Hint** The ``@SerializeOptions()`` decorator is imported from "
+"``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:126
+msgid ""
+"These options will be passed as a second argument of the "
+"``classToPlain()`` function."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:130
+msgid "Websockets & Microservices"
+msgstr "Websockets & Microservices"
+
+#: ../../source/techniques/serialization.rst:132
+msgid ""
+"All these guidelines concern both WebSockets as well as microservices, "
+"regardless of transport method that is being used."
+msgstr ""
+
+#: ../../source/techniques/serialization.rst:136
+msgid "Learn more"
+msgstr "Learn more"
+
+#: ../../source/techniques/serialization.rst:138
+msgid ""
+"In order to read more about available decorators, options, visit this "
+"`page <https://github.com/typestack/class-transformer>`__."
+msgstr ""
+

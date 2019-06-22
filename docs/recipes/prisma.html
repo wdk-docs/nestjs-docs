@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Prisma &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="健康检查 (Terminus)" href="terminus.html" />
+    <link rel="prev" title="OpenAPI (Swagger)" href="swagger.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">食谱</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cqrs.html">CQRS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swagger.html">OpenAPI (Swagger)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Prisma</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-prisma">Setup Prisma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-client">Create the client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration">Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="terminus.html">健康检查 (Terminus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">食谱</a> &raquo;</li>
+        
+      <li>Prisma</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/recipes/prisma.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="prisma">
+<h1>Prisma<a class="headerlink" href="#prisma" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://www.prisma.io/">Prisma</a> turns your database into a GraphQL
+API and enables the use of GraphQL as a universal query language for all
+databases. Instead of writing SQL or using a NoSQL API, you can query
+your database with GraphQL. In this chapter we won’t go into details
+about Prisma, so head over to their website and have a look what
+<a class="reference external" href="https://www.prisma.io/features/">features</a> are available.</p>
+<blockquote>
+<div><p>warning <strong>Notice</strong> In this article, you’ll learn how to integrate
+<code class="docutils literal notranslate"><span class="pre">Prisma</span></code> into the Nest framework. We assume that you are already
+familiar with the GraphQL concepts and the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/graphql</span></code>
+module.</p>
+</div></blockquote>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="永久链接至标题">¶</a></h2>
+<p>Firstly, we need to install the required packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save prisma-binding
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-prisma">
+<h2>Setup Prisma<a class="headerlink" href="#setup-prisma" title="永久链接至标题">¶</a></h2>
+<p>While working with Prisma you can either host your own instance or use
+the <a class="reference external" href="https://www.prisma.io/cloud/">Prisma Cloud</a>. In this
+introduction we are going to use the demo server provided by Prisma.</p>
+<ol class="arabic simple">
+<li><p>Install the Prisma CLI <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">prisma</span></code></p></li>
+<li><p>Create a new service <code class="docutils literal notranslate"><span class="pre">prisma</span> <span class="pre">init</span></code>, choose the demo server and
+follow the instructions</p></li>
+<li><p>Deploy your service <code class="docutils literal notranslate"><span class="pre">prisma</span> <span class="pre">deploy</span></code></p></li>
+</ol>
+<p>If you find yourself in trouble jump over to their <a class="reference external" href="https://www.prisma.io/docs/quickstart/">Quick
+Start</a> section for further
+details. Eventually you should see two new files in your project
+directory, <code class="docutils literal notranslate"><span class="pre">prisma.yaml</span></code> configuration file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://us1.prisma.sh/nest-f6ec12/prisma/dev</span>
+<span class="nt">datamodel</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">datamodel.graphql</span>
+</pre></div>
+</div>
+<p>and automatically created data model, <code class="docutils literal notranslate"><span class="pre">datamodel.graphql</span></code>.</p>
+<div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span>type User {
+  id: ID! @unique
+  name: String!
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> In the real-world applications you will create
+more complex data models. For more information about data modeling in
+Prisma click
+<a class="reference external" href="https://www.prisma.io/features/data-modeling/">here</a>.</p>
+</div></blockquote>
+<p>By typing <code class="docutils literal notranslate"><span class="pre">prisma</span> <span class="pre">playground</span></code> you can open the Prisma GraphQL
+playground.</p>
+</div>
+<div class="section" id="create-the-client">
+<h2>Create the client<a class="headerlink" href="#create-the-client" title="永久链接至标题">¶</a></h2>
+<p>There are a couple of ways to integrate a GraphQL API. We are going to
+use <a class="reference external" href="https://www.npmjs.com/package/graphql-cli">GraphQL CLI</a>, a
+command line tool for common GraphQL development workflows. To install
+the GraphQL CLI use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install -g graphql-cli
+</pre></div>
+</div>
+<p>Next, create your <code class="docutils literal notranslate"><span class="pre">.graphqlconfig</span></code> in the root directory of the your
+Nest application:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ touch .graphqlconfig.yml
+</pre></div>
+</div>
+<p>Put the following content into it:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">projects</span><span class="p">:</span>
+  <span class="nt">database</span><span class="p">:</span>
+    <span class="nt">schemaPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">src/prisma/prisma-types.graphql</span>
+    <span class="nt">extensions</span><span class="p">:</span>
+      <span class="nt">endpoints</span><span class="p">:</span>
+        <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://us1.prisma.sh/nest-f6ec12/prisma/dev</span>
+      <span class="nt">codegen</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">generator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prisma-binding</span>
+          <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">typescript</span>
+          <span class="nt">output</span><span class="p">:</span>
+            <span class="nt">binding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">src/prisma/prisma.binding.ts</span>
+</pre></div>
+</div>
+<p>To download your Prisma GraphQL schema to
+<code class="docutils literal notranslate"><span class="pre">prisma/prisma-types.graphql</span></code> and create your Prisma client under
+<code class="docutils literal notranslate"><span class="pre">prisma/prisma.binding.graphql</span></code>, run the following commands in your
+terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ graphql get-schema --project database
+$ graphql codegen --project database
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="永久链接至标题">¶</a></h2>
+<p>Almost done. Now, let’s create a module for our Prisma integration.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(prisma.service)
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { Prisma } from &#39;./prisma.binding&#39;;
+
+@Injectable()
+export class PrismaService extends Prisma {
+  constructor() {
+    super({
+      endpoint: &#39;https://us1.prisma.sh/nest-f6ec12/prisma/dev&#39;,
+      debug: false,
+    });
+  }
+}
+</pre></div>
+</div>
+<p>Once <code class="docutils literal notranslate"><span class="pre">PrismaService</span></code> is ready, we need to create a corresponding
+module.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(prisma.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { PrismaService } from &#39;./prisma.service&#39;;
+
+@Module({
+  providers: [PrismaService],
+  exports: [PrismaService],
+})
+export class PrismaModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> To create new modules and services in no time we can
+make use of the <a class="reference external" href="/cli/overview">Nest CLI</a>. To create a
+<code class="docutils literal notranslate"><span class="pre">PrismaModule</span></code> type <code class="docutils literal notranslate"><span class="pre">nest</span> <span class="pre">g</span> <span class="pre">module</span> <span class="pre">prisma</span></code> and for the service
+<code class="docutils literal notranslate"><span class="pre">nest</span> <span class="pre">g</span> <span class="pre">service</span> <span class="pre">prisma</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
+<p>To use your new service we are going to import the <code class="docutils literal notranslate"><span class="pre">PrismaModule</span></code> and
+inject the <code class="docutils literal notranslate"><span class="pre">PrismaService</span></code> into <code class="docutils literal notranslate"><span class="pre">UsersResolver</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(users.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { UsersResolver } from &#39;./users.resolver&#39;;
+import { PrismaModule } from &#39;../prisma/prisma.module&#39;;
+
+@Module({
+  imports: [PrismaModule],
+  providers: [UsersResolver],
+})
+export class UsersModule {}
+</pre></div>
+</div>
+<p>Importing <code class="docutils literal notranslate"><span class="pre">PrismaModule</span></code> makes exported <code class="docutils literal notranslate"><span class="pre">PrismaService</span></code> available in
+the <code class="docutils literal notranslate"><span class="pre">UsersModule</span></code> context.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(users.resolver)
+import { Query, Resolver, Args, Info } from &#39;@nestjs/graphql&#39;;
+import { PrismaService } from &#39;../prisma/prisma.service&#39;;
+import { User } from &#39;../graphql.schema&#39;;
+
+@Resolver()
+export class UsersResolver {
+  constructor(private readonly prisma: PrismaService) {}
+
+  @Query(&#39;users&#39;)
+  async getUsers(@Args() args, @Info() info): Promise&lt;User[]&gt; {
+    return await this.prisma.query.users(args, info);
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>A slightly modified example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/22-graphql-prisma">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="terminus.html" class="btn btn-neutral float-right" title="健康检查 (Terminus)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="swagger.html" class="btn btn-neutral float-left" title="OpenAPI (Swagger)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

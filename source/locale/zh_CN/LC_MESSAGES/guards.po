@@ -1,0 +1,325 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guards.rst:2
+msgid "Guards"
+msgstr "警卫"
+
+#: ../../source/guards.rst:4
+msgid ""
+"A guard is a class annotated with the ``@Injectable()`` decorator. Guards"
+" should implement the ``CanActivate`` interface."
+msgstr "guard是一个用 ``@Injectable()`` 装饰器注释的类。警卫应该实现 ``CanActivate`` 界面。"
+
+#: ../../source/guards.rst:15
+msgid ""
+"Guards have a **single responsibility**. They determine whether a given "
+"request will be handled by the route handler or not, depending on certain"
+" conditions (like permissions, roles, ACLs, etc.) present at run-time. "
+"This is often referred to as **authorization**. Authorization (and its "
+"cousin, **authentication**, with which it usually collaborates) has "
+"typically been handled by `middleware </middleware>`__ in traditional "
+"Express applications. Middleware is a fine choice for authentication, "
+"since things like token validation and attaching properties to the "
+"``request`` object are not strongly connected with a particular route "
+"context (and its metadata)."
+msgstr ""
+
+#: ../../source/guards.rst:26
+msgid ""
+"But middleware, by its nature, is dumb. It doesn’t know which handler "
+"will be executed after calling the ``next()`` function. On the other "
+"hand, **Guards** have access to the ``ExecutionContext`` instance, and "
+"thus know exactly what’s going to be executed next. They’re designed, "
+"much like exception filters, pipes, and interceptors, to let you "
+"interpose processing logic at exactly the right point in the "
+"request/response cycle, and to do so declaratively. This helps keep your "
+"code DRY and declarative."
+msgstr ""
+
+#: ../../source/guards.rst:35
+msgid ""
+"info **Hint** Guards are executed **after** each middleware, but "
+"**before** any interceptor or pipe."
+msgstr ""
+
+#: ../../source/guards.rst:39
+msgid "Authorization guard"
+msgstr "授权守卫"
+
+#: ../../source/guards.rst:41
+msgid ""
+"As mentioned, **authorization** is a great use case for Guards because "
+"specific routes should be available only when the caller (usually a "
+"specific authenticated user) has sufficient permissions. The "
+"``AuthGuard`` that we’ll build now assumes an authenticated user (and "
+"that, therefore, a token is attached to the request headers). It will "
+"extract and validate the token, and use the extracted information to "
+"determine whether the request can proceed or not."
+msgstr ""
+
+#: ../../source/guards.rst:75
+msgid ""
+"The logic inside the ``validateRequest()`` function can be as simple or "
+"sophisticated as needed. The main point of this example is to show how "
+"guards fit into the request/response cycle."
+msgstr ""
+
+#: ../../source/guards.rst:79
+msgid ""
+"Every guard must implement a ``canActivate()`` function. This function "
+"should return a boolean, indicating whether the current request is "
+"allowed or not. It can return the response either synchronously or "
+"asynchronously (via a ``Promise`` or ``Observable``). Nest uses the "
+"return value to control the next action:"
+msgstr ""
+
+#: ../../source/guards.rst:85
+msgid "if it returns ``true``, the request will be processed."
+msgstr "if it returns ``true``, the request will be processed."
+
+#: ../../source/guards.rst:86
+msgid "if it returns ``false``, Nest will deny the request."
+msgstr "if it returns ``false``, Nest will deny the request."
+
+#: ../../source/guards.rst:88
+msgid ""
+"The ``canActivate()`` function takes a single argument, the "
+"``ExecutionContext`` instance. The ``ExecutionContext`` inherits from "
+"``ArgumentsHost``. We saw ``ArgumentsHost`` before in the exception "
+"filters chapter. There, we saw that it’s a wrapper around arguments that "
+"have been passed to the **original** handler, and contains different "
+"arguments arrays based on the type of the application. You can refer back"
+" to `the exception filters chapter <https://docs.nestjs.com/exception-"
+"filters#arguments-host>`__ for more on this topic."
+msgstr ""
+
+#: ../../source/guards.rst:99
+msgid "Execution context"
+msgstr "执行上下文"
+
+#: ../../source/guards.rst:101
+msgid ""
+"By extending ``ArgumentsHost``, ``ExecutionContext`` provides additional "
+"details about the current execution process. Here’s what it looks like:"
+msgstr ""
+
+#: ../../source/guards.rst:111
+msgid ""
+"The ``getHandler()`` method returns a reference to the handler about to "
+"be invoked. The ``getClass()`` method returns the type of the "
+"``Controller`` class which this particular handler belongs to. For "
+"example, if the currently processed request is a ``POST`` request, "
+"destined for the ``create()`` method on the ``CatsController``, "
+"``getHandler()`` will return a reference to the ``create()`` method and "
+"``getClass()`` will return a ``CatsController`` **type** (not instance)."
+msgstr ""
+
+#: ../../source/guards.rst:120
+msgid "Role-based authentication"
+msgstr "基于角色的身份验证"
+
+#: ../../source/guards.rst:122
+msgid ""
+"Let’s build a more functional guard that permits access only to users "
+"with a specific role. We’ll start with a basic guard template, and build "
+"on it in the coming sections. For now, it allows all requests to proceed:"
+msgstr ""
+
+#: ../../source/guards.rst:152
+msgid "Binding guards"
+msgstr "绑定警卫"
+
+#: ../../source/guards.rst:154
+msgid ""
+"Like pipes and exception filters, guards can be **controller-scoped**, "
+"method-scoped, or global-scoped. Below, we set up a controller-scoped "
+"guard using the ``@UseGuards()`` decorator. This decorator may take a "
+"single argument, or a comma-separated list of arguments. This lets you "
+"easily apply the appropriate set of guards with one declaration."
+msgstr ""
+
+#: ../../source/guards.rst:169
+msgid ""
+"info **Hint** The ``@UseGuards()`` decorator is imported from the "
+"``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/guards.rst:172
+msgid ""
+"Above, we passed the ``RolesGuard`` type (instead of an instance), "
+"leaving responsibility for instantiation to the framework and enabling "
+"dependency injection. As with pipes and exception filters, we can also "
+"pass an in-place instance:"
+msgstr ""
+
+#: ../../source/guards.rst:184
+msgid ""
+"The construction above attaches the guard to every handler declared by "
+"this controller. If we wish the guard to apply only to a single method, "
+"we apply the ``@UseGuards()`` decorator at the **method level**."
+msgstr ""
+
+#: ../../source/guards.rst:188
+msgid ""
+"In order to set up a global guard, use the ``useGlobalGuards()`` method "
+"of the Nest application instance:"
+msgstr ""
+
+#: ../../source/guards.rst:199
+msgid ""
+"warning **Notice** In the case of hybrid apps the ``useGlobalGuards()`` "
+"method doesn’t set up guards for gateways and micro services. For "
+"“standard” (non-hybrid) microservice apps, ``useGlobalGuards()`` does "
+"mount the guards globally."
+msgstr ""
+
+#: ../../source/guards.rst:204
+msgid ""
+"Global guards are used across the whole application, for every controller"
+" and every route handler. In terms of dependency injection, global guards"
+" registered from outside of any module (with ``useGlobalGuards()`` as in "
+"the example above) cannot inject dependencies since this is done outside "
+"the context of any module. In order to solve this issue, you can set up a"
+" guard directly from any module using the following construction:"
+msgstr ""
+
+#: ../../source/guards.rst:230
+msgid ""
+"info **Hint** When using this approach to perform dependency injection "
+"for the guard, note that regardless of the module where this construction"
+" is employed, the guard is, in fact, global. Where should this be done? "
+"Choose the module where the guard (``RolesGuard`` in the example above) "
+"is defined. Also, ``useClass`` is not the only way of dealing with custom"
+" provider registration. Learn more `here </fundamentals/custom-"
+"providers>`__."
+msgstr ""
+
+#: ../../source/guards.rst:239
+msgid "Reflection"
+msgstr "反射"
+
+#: ../../source/guards.rst:241
+msgid ""
+"Our ``RolesGuard`` is working, but it’s not very smart yet. We’re not yet"
+" taking advantage of the most important guard feature - the **execution "
+"context**. It doesn’t yet know about roles, or which roles are allowed "
+"for each handler. The ``CatsController``, for example, could have "
+"different permission schemes for different routes. Some might be "
+"available only for an admin user, and others could be open for everyone. "
+"How can we match roles to routes in a flexible and reusable way?"
+msgstr ""
+
+#: ../../source/guards.rst:249
+msgid ""
+"This is where **custom metadata** comes into play. Nest provides the "
+"ability to attach custom **metadata** to route handlers through the "
+"``@SetMetadata()`` decorator. This metadata supplies our missing ``role``"
+" data, which a smart guard needs to make decisions. Let’s take a look at "
+"using ``@SetMetadata()``:"
+msgstr ""
+
+#: ../../source/guards.rst:273
+msgid ""
+"info **Hint** The ``@SetMetadata()`` decorator is imported from the "
+"``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/guards.rst:276
+msgid ""
+"With the construction above, we attached the ``roles`` metadata "
+"(``roles`` is a key, while ``['admin']`` is a particular value) to the "
+"``create()`` method. While this works, it’s not good practice to use "
+"``@SetMetadata()`` directly in your routes. Instead, create your own "
+"decorators, as shown below:"
+msgstr ""
+
+#: ../../source/guards.rst:293
+msgid ""
+"This approach is much cleaner and more readable, and is strongly typed. "
+"Now that we have a custom ``@Roles()`` decorator, we can use it to "
+"decorate the ``create()`` method."
+msgstr ""
+
+#: ../../source/guards.rst:314
+msgid "Putting it all together"
+msgstr "把它们放在一起"
+
+#: ../../source/guards.rst:316
+msgid ""
+"Let’s now go back and tie this together with our ``RolesGuard``. "
+"Currently, it simply returns ``true`` in all cases, allowing every "
+"request to proceed. We want to make the return value conditional based on"
+" the comparing the **roles assigned to the current user** to the actual "
+"roles required by the current route being processed. In order to access "
+"the route’s role(s) (custom metadata), we’ll use the ``Reflector`` helper"
+" class, which is provided out of the box by the framework and exposed "
+"from the ``@nestjs/core`` package."
+msgstr ""
+
+#: ../../source/guards.rst:372
+msgid ""
+"info **Hint** In the node.js world, it’s common practice to attach the "
+"authorized user to the ``request`` object. Thus, in our sample code "
+"above, we are assuming that ``request.user`` contains the user instance "
+"and allowed roles. In your app, you will probably make that association "
+"in your custom **authentication guard** (or middleware)."
+msgstr ""
+
+#: ../../source/guards.rst:378
+msgid ""
+"The ``Reflector`` class allows us to easily access the metadata by the "
+"specified **key** (in this case, the key is ``'roles'``; refer back to "
+"the ``roles.decorator.ts`` file and the ``SetMetadata()`` call made "
+"there). In the example above, we passed ``context.getHandler()`` in order"
+" to extract the metadata for the currently processed request method. "
+"Remember, ``getHandler()`` gives us a **reference** to the route handler "
+"function."
+msgstr ""
+
+#: ../../source/guards.rst:386
+msgid ""
+"We can make this guard more generic by extracting the **controller "
+"metadata** and using that to determine the current user role. To extract "
+"controller metadata, we pass ``context.getClass()`` instead of "
+"``context.getHandler()``:"
+msgstr ""
+
+#: ../../source/guards.rst:398
+msgid ""
+"When a user with insufficient privileges requests an endpoint, Nest "
+"automatically returns the following response:"
+msgstr ""
+
+#: ../../source/guards.rst:408
+msgid ""
+"Note that behind the scenes, when a guard returns ``false``, the "
+"framework throws a ``ForbiddenException``. If you want to return a "
+"different error response, you should throw your own specific exception. "
+"For example:"
+msgstr ""
+
+#: ../../source/guards.rst:417
+msgid ""
+"Any exception thrown by a guard will be handled by the `exceptions layer "
+"</exception-filters>`__ (global exceptions filter and any exceptions "
+"filters that are applied to the current context)."
+msgstr ""
+

@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/fundamentals/circular-dependency.rst:2
+msgid "Circular dependency"
+msgstr "循环依赖"
+
+#: ../../source/fundamentals/circular-dependency.rst:4
+msgid ""
+"The circular dependency occurs when for example, class A needs class B, "
+"and class B needs class A as well. Nest permits creating **circular "
+"dependencies** between both providers and modules, but we advise you to "
+"avoid whenever it’s possible. Sometimes it’s really difficult to avoid "
+"this kind of the relationships, that’s why we have provided some ways to "
+"deal with this issue."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:12
+msgid "Forward reference"
+msgstr "Forward reference"
+
+#: ../../source/fundamentals/circular-dependency.rst:14
+msgid ""
+"The **forward reference** allows Nest referring to references which "
+"aren’t defined so far. When ``CatsService`` and ``CommonService`` depend "
+"on each other, both sides of the relationship need to use ``@Inject()`` "
+"and the ``forwardRef()`` utility, otherwise Nest won’t instantiate them "
+"because all of the essential metadata won’t be available. Let’s see the "
+"following snippet:"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:42
+msgid ""
+"info **Hint** The ``forwardRef()`` function is imported from the "
+"``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:45
+msgid ""
+"Here’s the first side of the relationship. Now let’s do the same with the"
+" ``CommonService``:"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:69
+msgid ""
+"warning **Warning** You don’t have guarantee which constructor will be "
+"called first."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:72
+msgid ""
+"In order to create circular dependencies between modules you have to use "
+"the same ``forwardRef()`` utility on both parts of the modules "
+"association:"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:85
+msgid "Module reference"
+msgstr "Module reference"
+
+#: ../../source/fundamentals/circular-dependency.rst:87
+msgid ""
+"Nest provides the ``ModuleRef`` class that can be simply injected into "
+"any component."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:117
+msgid ""
+"info **Hint** The ``ModuleRef`` class is imported from the "
+"``@nestjs/core`` package."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:120
+msgid ""
+"The module reference has a ``get()`` method which allows retrieving a "
+"provider available in the current module. Additionally, you can switch to"
+" a non-strict mode, which enables you to pick any existing provider among"
+" the entire application."
+msgstr ""
+

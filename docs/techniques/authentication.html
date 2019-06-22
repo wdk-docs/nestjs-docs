@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>认证 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Mongo" href="mongo.html" />
+    <link rel="prev" title="技术" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">技术</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">认证</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bearer-strategy">Bearer strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-strategy">Default strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-object">User object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customize-passport">Customize passport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inheritance">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jwt-strategy">JWT strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-strategies">Multiple strategies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graphql">GraphQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mongo.html">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file-upload.html">上传文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">高速缓存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">序列化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">记录仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compression.html">压缩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http-module.html">HTTP 模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">性能 (Fastify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hot-reload.html">热重新加载 (Webpack)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">技术</a> &raquo;</li>
+        
+      <li>认证</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/techniques/authentication.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="authentication">
+<h1>认证<a class="headerlink" href="#authentication" title="永久链接至标题">¶</a></h1>
+<p>Authentication is an <strong>essential</strong> part of most existing applications.
+There are a lot of different approaches, strategies, and ways to handle
+user authorization. What we eventually decide to use depends on the
+particular application requirements and is strongly associated with
+their needs.</p>
+<p><a class="reference external" href="https://github.com/jaredhanson/passport">Passport</a> is the most
+popular node.js authentication library, well-known by community and
+successively used in many production applications. It’s really simple to
+integrate this tool with <strong>Nest</strong> framework using dedicated passport
+utilities. For demonstration purposes, we’ll set up both
+<a class="reference external" href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a>
+and <a class="reference external" href="https://github.com/themikenicholson/passport-jwt">passport-jwt</a>
+strategy.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>In order to start the adventure with this library, we have to install a
+few fundamental packages. Additionally, we’ll start by implementing the
+bearer strategy, and thus we need to install <code class="docutils literal notranslate"><span class="pre">passport-http-bearer</span></code>
+package.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save @nestjs/passport passport passport-http-bearer
+</pre></div>
+</div>
+</div>
+<div class="section" id="bearer-strategy">
+<h2>Bearer strategy<a class="headerlink" href="#bearer-strategy" title="永久链接至标题">¶</a></h2>
+<p>As has been said already, firstly, we’ll implement
+<a class="reference external" href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a>
+library. Bearer tokens are typically used to protect API endpoints, and
+are often issued using OAuth 2.0. The HTTP Bearer authentication
+strategy authenticates users using a bearer token.</p>
+<p>Let’s start by creating the <code class="docutils literal notranslate"><span class="pre">AuthService</span></code> class that will expose a
+single method, <code class="docutils literal notranslate"><span class="pre">validateUser()</span></code> which responsibility is to query user
+using provided bearer <strong>token</strong>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(auth.service)
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { UsersService } from &#39;../users/users.service&#39;;
+
+@Injectable()
+export class AuthService {
+  constructor(private readonly usersService: UsersService) {}
+
+  async validateUser(token: string): Promise&lt;any&gt; {
+    // Validate if token passed along with HTTP request
+    // is associated with any registered account in the database
+    return await this.usersService.findOneByToken(token);
+  }
+}
+@@switch
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+import { UsersService } from &#39;../users/users.service&#39;;
+
+@Injectable()
+@Dependencies(UsersService)
+export class AuthService {
+  constructor(usersService) {
+    this.usersService = usersService;
+  }
+
+  async validateUser(token) {
+    // Validate if token passed along with HTTP request
+    // is associated with any registered account in the database
+    return await this.usersService.findOneByToken(token);
+  }
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">validateUser()</span></code> method takes <code class="docutils literal notranslate"><span class="pre">token</span></code> as an argument. This token
+is extracted from <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header that has been passed along
+with HTTP request. The <code class="docutils literal notranslate"><span class="pre">findOneByToken()</span></code> method’s responsibility is
+to validate if passed token truly exists and is associated with any
+registered account in the database.</p>
+<p>Once <code class="docutils literal notranslate"><span class="pre">AuthService</span></code> class is done, we have to create a corresponding
+<strong>strategy</strong> that passport will use to authenticate requests.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(http.strategy)
+import { Strategy } from &#39;passport-http-bearer&#39;;
+import { PassportStrategy } from &#39;@nestjs/passport&#39;;
+import { Injectable, UnauthorizedException } from &#39;@nestjs/common&#39;;
+import { AuthService } from &#39;./auth.service&#39;;
+
+@Injectable()
+export class HttpStrategy extends PassportStrategy(Strategy) {
+  constructor(private readonly authService: AuthService) {
+    super();
+  }
+
+  async validate(token: string) {
+    const user = await this.authService.validateUser(token);
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+    return user;
+  }
+}
+@@switch
+import { Strategy } from &#39;passport-http-bearer&#39;;
+import { PassportStrategy } from &#39;@nestjs/passport&#39;;
+import { Injectable, Dependencies, UnauthorizedException } from &#39;@nestjs/common&#39;;
+import { AuthService } from &#39;./auth.service&#39;;
+
+@Injectable()
+@Dependencies(AuthService)
+export class HttpStrategy extends PassportStrategy(Strategy) {
+  constructor(authService) {
+    super();
+    this.authService = authService;
+  }
+
+  async validate(token) {
+    const user = await this.authService.validateUser(token);
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+    return user;
+  }
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">HttpStrategy</span></code> uses <code class="docutils literal notranslate"><span class="pre">AuthService</span></code> to validate the token. When
+the token is valid, passport allows further request processing.
+Otherwise, the user receives <code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code> response.</p>
+<p>Afterwards, we can create the <code class="docutils literal notranslate"><span class="pre">AuthModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(auth.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { AuthService } from &#39;./auth.service&#39;;
+import { HttpStrategy } from &#39;./http.strategy&#39;;
+import { UsersModule } from &#39;../users/users.module&#39;;
+
+@Module({
+  imports: [UsersModule],
+  providers: [AuthService, HttpStrategy],
+})
+export class AuthModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> In order to make use of <code class="docutils literal notranslate"><span class="pre">UsersService</span></code>, the
+<code class="docutils literal notranslate"><span class="pre">AuthModule</span></code> imports <code class="docutils literal notranslate"><span class="pre">UsersModule</span></code>. The internal implementation
+is unimportant here and heavily depends on your technical project
+requirements (e.g. database).</p>
+</div></blockquote>
+<p>Then, you can simply use the <code class="docutils literal notranslate"><span class="pre">AuthGuard</span></code> wherever you want to enable
+the authentication.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="kd">@UseGuards</span><span class="p">(</span><span class="nx">AuthGuard</span><span class="p">(</span><span class="s1">&#39;bearer&#39;</span><span class="p">))</span>
+<span class="nx">findAll() {</span>
+  <span class="k">return</span> <span class="p">[];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;AuthGuard()</span></code> is imported from <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/passport</span></code> package.
+Also, <code class="docutils literal notranslate"><span class="pre">bearer</span></code> is a name of the strategy that passport will make use
+of. Let us check if endpoint is effectively secured. To ensure that
+everything work correctly, we’ll perform a GET request to the <code class="docutils literal notranslate"><span class="pre">users</span></code>
+resource without setting a valid token.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl localhost:3000/users
+</pre></div>
+</div>
+<p>Application should respond with <code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code> status code and
+following response body:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;statusCode&quot;</span><span class="o">:</span> <span class="mi">401</span><span class="p">,</span>
+<span class="s2">&quot;error&quot;</span><span class="o">:</span> <span class="s2">&quot;Unauthorized&quot;</span>
+</pre></div>
+</div>
+<p>If you create a valid token beforehand and pass it along with the HTTP
+request, the application will respectively identify a user, attach its
+object to the request, and allow further request processing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl localhost:3000/users -H <span class="s2">&quot;Authorization: Bearer TOKEN&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-strategy">
+<h2>Default strategy<a class="headerlink" href="#default-strategy" title="永久链接至标题">¶</a></h2>
+<p>To determine default passport behavior, you can register the
+<code class="docutils literal notranslate"><span class="pre">PassportModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(auth.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { AuthService } from &#39;./auth.service&#39;;
+import { HttpStrategy } from &#39;./http.strategy&#39;;
+import { UsersModule } from &#39;../users/users.module&#39;;
+import { PassportModule } from &#39;@nestjs/passport&#39;;
+
+@Module({
+  imports: [
+    PassportModule.register({ defaultStrategy: &#39;bearer&#39; }),
+    UsersModule,
+  ],
+  providers: [AuthService, HttpStrategy],
+  exports: [PassportModule, AuthService]
+})
+export class AuthModule {}
+</pre></div>
+</div>
+<p>Once you set <code class="docutils literal notranslate"><span class="pre">defaultStrategy</span></code>, you no longer need to manually pass
+the strategy name in the <code class="docutils literal notranslate"><span class="pre">&#64;AuthGuard()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="kd">@UseGuards</span><span class="p">(</span><span class="nx">AuthGuard</span><span class="p">())</span>
+<span class="nx">findAll() {</span>
+  <span class="k">return</span> <span class="p">[];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> Keep in mind that either <code class="docutils literal notranslate"><span class="pre">PassportModule</span></code> or
+<code class="docutils literal notranslate"><span class="pre">AuthModule</span></code> has to be imported by every module that makes use of
+the <code class="docutils literal notranslate"><span class="pre">AuthGuard</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="user-object">
+<h2>User object<a class="headerlink" href="#user-object" title="永久链接至标题">¶</a></h2>
+<p>When request is validated correctly, the user entity will be attached to
+the request object and accessible through <code class="docutils literal notranslate"><span class="pre">user</span></code> property
+(e.g. <code class="docutils literal notranslate"><span class="pre">req.user</span></code>). To change the property name, set <code class="docutils literal notranslate"><span class="pre">property</span></code> of
+the options object.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">PassportModule</span><span class="p">.</span><span class="nx">register</span><span class="p">({</span> <span class="nx">property</span><span class="o">:</span> <span class="s1">&#39;profile&#39;</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="customize-passport">
+<h2>Customize passport<a class="headerlink" href="#customize-passport" title="永久链接至标题">¶</a></h2>
+<p>Depending on the strategy that is being used, passport takes a bunch of
+properties that shape the library behavior. Use <code class="docutils literal notranslate"><span class="pre">register()</span></code> method to
+pass down options object directly to the passport instance.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">PassportModule</span><span class="p">.</span><span class="nx">register</span><span class="p">({</span> <span class="nx">session</span>: <span class="kt">true</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="永久链接至标题">¶</a></h2>
+<p>In most cases, <code class="docutils literal notranslate"><span class="pre">AuthGuard</span></code> will be sufficient. However, in order to
+adjust either default error handling or authentication logic, you can
+extend the class and override methods within a subclass.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span>
+  <span class="nx">ExecutionContext</span><span class="p">,</span>
+  <span class="nx">Injectable</span><span class="p">,</span>
+  <span class="nx">UnauthorizedException</span><span class="p">,</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">AuthGuard</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/passport&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">JwtAuthGuard</span> <span class="kr">extends</span> <span class="nx">AuthGuard</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">canActivate</span><span class="p">(</span><span class="nx">context</span>: <span class="kt">ExecutionContext</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Add your custom authentication logic here</span>
+    <span class="c1">// for example, call super.logIn(request) to establish a session.</span>
+    <span class="k">return</span> <span class="kr">super</span><span class="p">.</span><span class="nx">canActivate</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleRequest</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">||</span> <span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="nx">err</span> <span class="o">||</span> <span class="k">new</span> <span class="nx">UnauthorizedException</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">user</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> In order to use your custom <code class="docutils literal notranslate"><span class="pre">JwtAuthGuard</span></code>, you must
+add it as a guard to your specific routes (e.g.,
+<code class="docutils literal notranslate"><span class="pre">&#64;UseGuards(JwtAuthGuard)</span></code>)</p>
+</div></blockquote>
+</div>
+<div class="section" id="jwt-strategy">
+<h2>JWT strategy<a class="headerlink" href="#jwt-strategy" title="永久链接至标题">¶</a></h2>
+<p>A second described approach is to authenticate endpoints using a <strong>JSON
+web token</strong> (JWT). To implement a JWT-based authentication flow, we need
+to install required packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save @nestjs/jwt passport-jwt
+</pre></div>
+</div>
+<p>Once the installation process is done, we can focus on <code class="docutils literal notranslate"><span class="pre">AuthService</span></code>
+class. We need to switch from the token validation to a payload-based
+validation logic as well as provide a way to create a JWT token for the
+particular user which then could be used to authenticate the incoming
+request.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(auth.service)
+import { JwtService } from &#39;@nestjs/jwt&#39;;
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { UsersService } from &#39;../users/users.service&#39;;
+import { JwtPayload } from &#39;./interfaces/jwt-payload.interface&#39;;
+
+@Injectable()
+export class AuthService {
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+  ) {}
+
+  async signIn(): Promise&lt;string&gt; {
+    // In the real-world app you shouldn&#39;t expose this method publicly
+    // instead, return a token once you verify user credentials
+    const user: JwtPayload = { email: &#39;user@email.com&#39; };
+    return this.jwtService.sign(user);
+  }
+
+  async validateUser(payload: JwtPayload): Promise&lt;any&gt; {
+    return await this.usersService.findOneByEmail(payload.email);
+  }
+}
+@@switch
+import { JwtService } from &#39;@nestjs/jwt&#39;;
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+import { UsersService } from &#39;../users/users.service&#39;;
+import { JwtPayload } from &#39;./interfaces/jwt-payload.interface&#39;;
+
+@Injectable()
+@Dependencies(UsersService, JwtService)
+export class AuthService {
+  constructor(usersService, jwtService) {
+    this.usersService = usersService;
+    this.jwtService = jwtService;
+  }
+
+  async signIn() {
+    // In the real-world app you shouldn&#39;t expose this method publicly
+    // instead, return a token once you verify user credentials
+    const user = { email: &#39;user@email.com&#39; };
+    return this.jwtService.sign(user);
+  }
+
+  async validateUser(payload) {
+    return await this.usersService.findOneByEmail(payload.email);
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">JwtPayload</span></code> is an interface with a single
+property, an <code class="docutils literal notranslate"><span class="pre">email</span></code>, and represents decoded JWT token.</p>
+</div></blockquote>
+<p>In order to simplify an example, we created a fake user. The second step
+is to create a corresponding <code class="docutils literal notranslate"><span class="pre">JwtStrategy</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(jwt.strategy)
+import { ExtractJwt, Strategy } from &#39;passport-jwt&#39;;
+import { AuthService } from &#39;./auth.service&#39;;
+import { PassportStrategy } from &#39;@nestjs/passport&#39;;
+import { Injectable, UnauthorizedException } from &#39;@nestjs/common&#39;;
+import { JwtPayload } from &#39;./interfaces/jwt-payload.interface&#39;;
+
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor(private readonly authService: AuthService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: &#39;secretKey&#39;,
+    });
+  }
+
+  async validate(payload: JwtPayload) {
+    const user = await this.authService.validateUser(payload);
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+    return user;
+  }
+}
+@@switch
+import { ExtractJwt, Strategy } from &#39;passport-jwt&#39;;
+import { AuthService } from &#39;./auth.service&#39;;
+import { PassportStrategy } from &#39;@nestjs/passport&#39;;
+import { Injectable, Dependencies, UnauthorizedException } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+@Dependencies(AuthService)
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor(authService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: &#39;secretKey&#39;,
+    });
+    this.authService = authService;
+  }
+
+  async validate(payload, done) {
+    const user = await this.authService.validateUser(payload);
+    if (!user) {
+      return done(new UnauthorizedException(), false);
+    }
+    done(null, user);
+  }
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">JwtStrategy</span></code> uses <code class="docutils literal notranslate"><span class="pre">AuthService</span></code> to validate the decoded
+payload. When the payload is valid (user exists), passport allows
+further request processing. Otherwise, the user receives
+<code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">(Unauthorized)</span></code> response.</p>
+<p>Afterward, we can move to the <code class="docutils literal notranslate"><span class="pre">AuthModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(auth.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { JwtModule } from &#39;@nestjs/jwt&#39;;
+import { AuthService } from &#39;./auth.service&#39;;
+import { JwtStrategy } from &#39;./jwt.strategy&#39;;
+import { UsersModule } from &#39;../users/users.module&#39;;
+import { PassportModule } from &#39;@nestjs/passport&#39;;
+
+@Module({
+  imports: [
+    PassportModule.register({ defaultStrategy: &#39;jwt&#39; }),
+    JwtModule.register({
+      secretOrPrivateKey: &#39;secretKey&#39;,
+      signOptions: {
+        expiresIn: 3600,
+      },
+    }),
+    UsersModule,
+  ],
+  providers: [AuthService, JwtStrategy],
+  exports: [PassportModule, AuthService],
+})
+export class AuthModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> In order to make use of <code class="docutils literal notranslate"><span class="pre">UsersService</span></code>, the
+<code class="docutils literal notranslate"><span class="pre">AuthModule</span></code> imports <code class="docutils literal notranslate"><span class="pre">UsersModule</span></code>. The internal implementation
+is unimportant here. Besides, <code class="docutils literal notranslate"><span class="pre">JwtModule</span></code> has been registered
+statically. To switch to asynchronous configuration, read more
+<a class="reference external" href="https://github.com/nestjs/passport">here</a>.</p>
+</div></blockquote>
+<p>Both expiration time and <code class="docutils literal notranslate"><span class="pre">secretKey</span></code> are hardcoded (in a real-world
+application you should rather consider using environment variables).</p>
+<p>Then, you can simply use the <code class="docutils literal notranslate"><span class="pre">AuthGuard</span></code> wherever you want to enable
+the authentication.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="kd">@UseGuards</span><span class="p">(</span><span class="nx">AuthGuard</span><span class="p">())</span>
+<span class="nx">findAll() {</span>
+  <span class="k">return</span> <span class="p">[];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let us check if endpoint is effectively secured. To ensure that
+everything work correctly, we’ll perform a GET request to the <code class="docutils literal notranslate"><span class="pre">users</span></code>
+resource without setting a valid token.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl localhost:3000/users
+</pre></div>
+</div>
+<p>Application should respond with <code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code> status code and
+following response body:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;statusCode&quot;</span><span class="o">:</span> <span class="mi">401</span><span class="p">,</span>
+<span class="s2">&quot;error&quot;</span><span class="o">:</span> <span class="s2">&quot;Unauthorized&quot;</span>
+</pre></div>
+</div>
+<p>If you create a valid token beforehand and pass it along with the HTTP
+request, the application will respectively identify a user, attach its
+object to the request, and allow further request processing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl localhost:3000/users -H <span class="s2">&quot;Authorization: Bearer TOKEN&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>A full working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/19-auth">here</a>.</p>
+</div>
+<div class="section" id="multiple-strategies">
+<h2>Multiple strategies<a class="headerlink" href="#multiple-strategies" title="永久链接至标题">¶</a></h2>
+<p>Usually, you’ll end up with single strategy reused across the whole
+application. However, there might be cases when you’d prefer to use
+different strategies for different scopes. In the case of multiple
+strategies, pass the second argument to the <code class="docutils literal notranslate"><span class="pre">PassportStrategy</span></code>
+function. Generally, this argument is a name of the strategy.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">JwtStrategy</span> <span class="kr">extends</span> <span class="nx">PassportStrategy</span><span class="p">(</span><span class="nx">Strategy</span><span class="p">,</span> <span class="s1">&#39;jwt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In above example, the <code class="docutils literal notranslate"><span class="pre">jwt</span></code> becomes the name of the <code class="docutils literal notranslate"><span class="pre">JwtStrategy</span></code>.
+Afterward, you can use <code class="docutils literal notranslate"><span class="pre">&#64;AuthGuard('jwt')</span></code>, just the same as before.</p>
+</div>
+<div class="section" id="graphql">
+<h2>GraphQL<a class="headerlink" href="#graphql" title="永久链接至标题">¶</a></h2>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">AuthGuard</span></code> together with
+<a class="reference external" href="/graphql/quick-start">GraphQL</a>, you have to extend the built-in
+<code class="docutils literal notranslate"><span class="pre">AuthGuard</span></code> class and override <code class="docutils literal notranslate"><span class="pre">getRequest()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">GqlAuthGuard</span> <span class="kr">extends</span> <span class="nx">AuthGuard</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">getRequest</span><span class="p">(</span><span class="nx">context</span>: <span class="kt">ExecutionContext</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">GqlExecutionContext</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">getContext</span><span class="p">().</span><span class="nx">req</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We assumed that <code class="docutils literal notranslate"><span class="pre">req</span></code> (request) has been passed as a part of the
+context value. We have to set this behavior in the module settings.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">GraphQLModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+  <span class="nx">context</span><span class="o">:</span> <span class="p">({</span> <span class="nx">req</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">req</span> <span class="p">}),</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>And now, context value will have <code class="docutils literal notranslate"><span class="pre">req</span></code> property.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mongo.html" class="btn btn-neutral float-right" title="Mongo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="技术" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

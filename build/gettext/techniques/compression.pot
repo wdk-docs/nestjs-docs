@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/techniques/compression.rst:2
+msgid "Compression"
+msgstr ""
+
+#: ../../source/techniques/compression.rst:4
+msgid "Compression can greatly decrease the size of the response body and hence increase the speed of a web app. Use the `compression <https://github.com/expressjs/compression>`__ middleware to enable gzip compression."
+msgstr ""
+
+#: ../../source/techniques/compression.rst:10
+msgid "Installation"
+msgstr ""
+
+#: ../../source/techniques/compression.rst:12
+msgid "Firstly, install the required package:"
+msgstr ""
+
+#: ../../source/techniques/compression.rst:18
+msgid "Once the installation is completed, apply it as a global middleware."
+msgstr ""
+
+#: ../../source/techniques/compression.rst:28
+msgid "info **Hint** If you work with ``FastifyAdapter``, consider using `fastify-compress <https://github.com/fastify/fastify-compress>`__ instead."
+msgstr ""
+
+#: ../../source/techniques/compression.rst:32
+msgid "For a **high-traffic** website in production, the best way to put compression in place is to implement it at a reverse proxy level. In that case, you do not need to use compression middleware."
+msgstr ""
+

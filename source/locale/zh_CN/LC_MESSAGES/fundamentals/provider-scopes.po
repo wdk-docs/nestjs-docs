@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/fundamentals/provider-scopes.rst:2
+msgid "Injection scopes"
+msgstr "注射范围"
+
+#: ../../source/fundamentals/provider-scopes.rst:4
+msgid ""
+"For the people coming from different languages, it might be awkward that "
+"in Nest almost everything is shared across the incoming requests. We have"
+" a connection pool to the database, singleton services with a global "
+"state etc. Generally, Node.js doesn’t follow request/response Multi-"
+"Threaded Stateless Model in which every request is being processed by the"
+" separate thread. Hence, using singleton instances is fully **safe** for "
+"our applications."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:12
+msgid ""
+"However, there are edge-cases when request-based lifetime of the "
+"controller may be an intentional behavior, for instance per-request cache"
+" in GraphQL applications, request tracking or multi-tenancy. How can we "
+"handle them?"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:18
+msgid "Scopes"
+msgstr "Scopes"
+
+#: ../../source/fundamentals/provider-scopes.rst:20
+msgid ""
+"Basically, every provider can act as a singleton, be request-scoped, and "
+"be switched to the transient mode. See the following table to get "
+"familiar with the differences between them."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:36
+msgid "SINGLETON"
+msgstr "SINGLETON"
+
+#: ../../source/fundamentals/provider-scopes.rst:46
+msgid ""
+"Each provider can be shared across multiple classes. The provider "
+"lifetime is strictly tied to the application lifecycle. Once the "
+"application has bootstrapped, all providers are already instantiated. The"
+" singleton scope is being used by default."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:67
+msgid "REQUEST"
+msgstr "REQUEST"
+
+#: ../../source/fundamentals/provider-scopes.rst:77
+msgid ""
+"A new instance of the provider is going to be exclusively created for "
+"every incoming request and garbage collected after the request processing"
+" is completed."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:97
+msgid "TRANSIENT"
+msgstr "TRANSIENT"
+
+#: ../../source/fundamentals/provider-scopes.rst:107
+msgid ""
+"Transient providers cannot be shared between providers. Every time when "
+"another provider asks the Nest container for particular transient "
+"provider, the container will create a new, dedicated instance."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:125
+msgid ""
+"info **Hint** Using a singleton scope is always the **recommended** way. "
+"Sharing providers among requests leads to lower memory consumption and "
+"thus to better performance of your application (no requirement to "
+"instantiate class every time)."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:131
+msgid "Usage"
+msgstr "Usage"
+
+#: ../../source/fundamentals/provider-scopes.rst:133
+msgid ""
+"In order to switch to another injection scope, you have to pass an "
+"argument to the ``@Injectable()`` decorator:"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:143
+msgid ""
+"In the case of `custom providers </fundamentals/custom-providers>`__, you"
+" have to set an extra ``scope`` property:"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:154
+msgid "And when it comes to controllers, pass the ``ControllerOptions`` object:"
+msgstr "And when it comes to controllers, pass the ``ControllerOptions`` object:"
+
+#: ../../source/fundamentals/provider-scopes.rst:166
+msgid ""
+"warning **Notice** Gateways should never rely on request-scoped providers"
+" because they act as singletons. One gateway encapsulates a real socket "
+"inside and cannot be instantiated multiple times."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:171
+msgid "Per-request injection"
+msgstr "Per-request injection"
+
+#: ../../source/fundamentals/provider-scopes.rst:173
+msgid ""
+"The request-scoped providers have to be used very carefully. Keep in mind"
+" that the scope actually bubbles up in the **injection chain**. If your "
+"controller depends on a provider which is request-scoped, it means that "
+"your controller is actually request-scoped as well."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:178
+msgid ""
+"Imagine the following chain: ``CatsController <- CatsService <- "
+"CatsRepository``. If your ``CatsService`` is request-scoped (and the rest"
+" are, theoretically, singletons), the ``CatsController`` would become "
+"request-scoped too (because request-scoped instance have to be injected "
+"into a newly created controller), whereas ``CatsRepository`` would remain"
+" as a singleton."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:186
+msgid ""
+"**Warning** The circular dependencies in this case will lead to very "
+"painful side-effects and thus, you should certainly avoid creating them."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:191
+msgid "Request provider"
+msgstr "Request provider"
+
+#: ../../source/fundamentals/provider-scopes.rst:193
+msgid ""
+"In the HTTP application, using request-scoped providers gives you a "
+"capability to inject an original request reference."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:207
+msgid ""
+"However, this functionality doesn’t work with either micro services or "
+"GraphQL applications. In `GraphQL </graphql/quick-start>`__ applications,"
+" you can inject ``CONTEXT`` instead."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:221
+msgid ""
+"Afterwards, you can configure your ``context`` value (in the "
+"``GraphQLModule``) to contain ``request`` as its property."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:225
+msgid "Performance"
+msgstr "Performance"
+
+#: ../../source/fundamentals/provider-scopes.rst:227
+msgid ""
+"Using request-scoped providers will obviously affect application "
+"performance. Even though Nest is trying to cache as much metadata as "
+"possible, it will still have to create an instance of your class on each "
+"request. Hence, it will slow down your average response time and overall "
+"benchmarking result. If your provider doesn’t necessarily need to be "
+"request-scoped, you should rather stick with the singleton scope."
+msgstr ""
+

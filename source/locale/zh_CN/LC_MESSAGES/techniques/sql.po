@@ -1,0 +1,278 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/techniques/sql.rst:2
+msgid "Database (TypeORM)"
+msgstr "Database (TypeORM)"
+
+#: ../../source/techniques/sql.rst:4
+msgid ""
+"In order to reduce a boilerplate necessary to start the adventure with "
+"any database, Nest comes with the ready to use ``@nestjs/typeorm`` "
+"package. We have selected `TypeORM "
+"<https://github.com/typeorm/typeorm>`__ because it’s definitely the most "
+"mature Object Relational Mapper (ORM) available so far. Since it’s "
+"written in TypeScript, it works pretty well with the Nest framework."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:12
+msgid "Firstly, we need to install all of the required dependencies:"
+msgstr "Firstly, we need to install all of the required dependencies:"
+
+#: ../../source/techniques/sql.rst:20
+msgid ""
+"info **Notice** In this chapter we’ll use a MySQL database, but "
+"**TypeORM** provides a support for a lot of different databases such as "
+"PostgreSQL, SQLite, and even MongoDB (NoSQL)."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:24
+msgid ""
+"Once the installation process is completed, we can import the "
+"``TypeOrmModule`` into the root ``ApplicationModule``."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:49
+msgid ""
+"The ``forRoot()`` method accepts the same configuration object as "
+"``createConnection()`` from the `TypeORM "
+"<https://github.com/typeorm/typeorm>`__ package. Futhermore, instead of "
+"passing anything to the ``forRoot()``, we can create an "
+"``ormconfig.json`` file in the project root directory."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:68
+msgid "Then, we can simply leave the parenthesis empty:"
+msgstr "Then, we can simply leave the parenthesis empty:"
+
+#: ../../source/techniques/sql.rst:81
+msgid ""
+"Afterward, the ``Connection`` and ``EntityManager`` will be available to "
+"inject across entire project (without importing any module elsewhere), "
+"for example, in this way:"
+msgstr ""
+
+#: ../../source/techniques/sql.rst:110
+msgid "Repository pattern"
+msgstr "Repository pattern"
+
+#: ../../source/techniques/sql.rst:112
+msgid ""
+"The `TypeORM <https://github.com/typeorm/typeorm>`__ supports the "
+"repository design pattern, so each entity has its own Repository. These "
+"repositories can be obtained from the database connection."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:116
+msgid ""
+"Firstly, we need at least one entity. We’re gonna reuse the ``Photo`` "
+"entity from the official documentation."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:145
+msgid ""
+"The ``Photo`` entity belongs to the ``photo`` directory. This directory "
+"represents the ``PhotoModule``. It’s your decision where you gonna keep "
+"your model files. From our point of view, the best way’s to hold them "
+"nearly their **domain**, in the corresponding module directory."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:150
+msgid "Let’s have a look at the ``PhotoModule``:"
+msgstr "Let’s have a look at the ``PhotoModule``:"
+
+#: ../../source/techniques/sql.rst:168
+msgid ""
+"This module uses ``forFeature()`` method to define which repositories "
+"shall be registered in the current scope. Thanks to that we can inject "
+"the ``PhotoRepository`` to the ``PhotoService`` using the "
+"``@InjectRepository()`` decorator:"
+msgstr ""
+
+#: ../../source/techniques/sql.rst:211
+msgid ""
+"warning **Notice** Do not forget to import the ``PhotoModule`` into the "
+"root ``ApplicationModule``."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:215
+msgid "Multiple databases"
+msgstr "Multiple databases"
+
+#: ../../source/techniques/sql.rst:217
+msgid ""
+"Some of your projects may require multiple database connections. "
+"Fortunately, this can also be achieved with this module. To work with "
+"multiple connections, the first thing to do is to create those "
+"connections. In this case, the connection naming becomes **mandatory**."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:222
+msgid ""
+"Say you have a ``Person`` entity and an ``Album`` entity, each stored in "
+"their own database."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:261
+msgid ""
+"warning **Notice** If you don’t set any ``name`` for a connection, its "
+"name is set to ``default``. Please note that you shouldn’t have multiple "
+"connections without a name, or with the same name, otherwise they simply "
+"get overridden."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:266
+msgid ""
+"At this point, you have each of your ``Photo``, ``Person`` and ``Album`` "
+"entities registered in their own connection. With this setup, you have to"
+" tell the ``TypeOrmModule.forFeature()`` function and the "
+"``@InjectRepository()`` decorator which connection should be used. If you"
+" do not pass any connection name, the ``default`` connection is used."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:283
+msgid ""
+"You can also inject the ``Connection`` or ``EntityManager`` for a given "
+"connection:"
+msgstr ""
+
+#: ../../source/techniques/sql.rst:299
+msgid "Testing"
+msgstr "Testing"
+
+#: ../../source/techniques/sql.rst:301
+msgid ""
+"When it comes to unit test our application, we usually want to avoid any "
+"database connection, making our test suits independent and their "
+"execution process quick as possible. But our classes might depend on "
+"repositories that are pulled from the connection instance. What’s then? "
+"The solution is to create fake repositories. In order to achieve that, we"
+" should set up `custom providers </fundamentals/custom-providers>`__. In "
+"fact, each registered repository is represented by "
+"``EntityNameRepository`` token, where ``EntityName`` is a name of your "
+"entity class."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:311
+msgid ""
+"The ``@nestjs/typeorm`` package exposes ``getRepositoryToken()`` function"
+" that returns prepared token based on a given entity."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:327
+msgid ""
+"Now a hardcoded ``mockRepository`` will be used as a ``PhotoRepository``."
+" Whenever any provider asks for ``PhotoRepository`` using an "
+"``@InjectRepository()`` decorator, Nest will use a registered "
+"``mockRepository`` object."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:333
+msgid "Custom repository"
+msgstr "Custom repository"
+
+#: ../../source/techniques/sql.rst:335
+msgid ""
+"TypeORM provides feature called **custom repositories**. To learn more "
+"about it, visit `this <http://typeorm.io/#/custom-repository>`__ page. "
+"Basically, custom repository allows you extending a base repository "
+"class, and enrich it with a couple of special methods."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:340
+msgid ""
+"In order to create your custom repository, use ``@EntityRepository()`` "
+"decorator and extend ``Repository`` class."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:350
+msgid ""
+"info **Hint** Both ``@EntityRepository()`` and ``Repository`` are exposed"
+" from ``typeorm`` package."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:353
+msgid ""
+"Once the class is created, the next step is to hand over the "
+"instantiation responsibility to Nest. For this, we have to pass "
+"``AuthorRepository`` class to the ``TypeOrm.forFeature()`` method."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:366
+msgid "Afterward, simply inject the repository using the following construction:"
+msgstr "Afterward, simply inject the repository using the following construction:"
+
+#: ../../source/techniques/sql.rst:377
+msgid "Async configuration"
+msgstr "Async configuration"
+
+#: ../../source/techniques/sql.rst:379
+msgid ""
+"Quite often you might want to asynchronously pass your module options "
+"instead of passing them beforehand. In such case, use ``forRootAsync()`` "
+"method, that provides a couple of various ways to deal with async data."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:383
+msgid "First possible approach is to use a factory function:"
+msgstr "First possible approach is to use a factory function:"
+
+#: ../../source/techniques/sql.rst:400
+msgid ""
+"Obviously, our factory behaves like every other one (might be ``async`` "
+"and is able to inject dependencies through ``inject``)."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:420
+msgid "Alternatively, you are able to use class instead of a factory."
+msgstr "Alternatively, you are able to use class instead of a factory."
+
+#: ../../source/techniques/sql.rst:428
+msgid ""
+"Above construction will instantiate ``TypeOrmConfigService`` inside "
+"``TypeOrmModule`` and will leverage it to create options object. The "
+"``TypeOrmConfigService`` has to implement ``TypeOrmOptionsFactory`` "
+"interface."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:451
+msgid ""
+"In order to prevent the creation of ``TypeOrmConfigService`` inside "
+"``TypeOrmModule`` and use a provider imported from a different module, "
+"you can use the ``useExisting`` syntax."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:462
+msgid ""
+"It works the same as ``useClass`` with one critical difference - "
+"``TypeOrmModule`` will lookup imported modules to reuse already created "
+"``ConfigService``, instead of instantiating it on its own."
+msgstr ""
+
+#: ../../source/techniques/sql.rst:467
+msgid "Example"
+msgstr "Example"
+
+#: ../../source/techniques/sql.rst:469
+msgid ""
+"A working example is available `here "
+"<https://github.com/nestjs/nest/tree/master/sample/05-sql-typeorm>`__."
+msgstr ""
+

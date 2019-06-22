@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>验证 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="高速缓存" href="caching.html" />
+    <link rel="prev" title="上传文件" href="file-upload.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">技术</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo.html">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file-upload.html">上传文件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">验证</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto-validation">Auto-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disable-detailed-errors">Disable detailed errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stripping-properties">Stripping properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto-payload-transforming">Auto payload transforming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websockets-microservices">Websockets &amp; Microservices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#learn-more">Learn more</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">高速缓存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">序列化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">记录仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compression.html">压缩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http-module.html">HTTP 模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">性能 (Fastify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hot-reload.html">热重新加载 (Webpack)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">技术</a> &raquo;</li>
+        
+      <li>验证</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/techniques/validation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="validation">
+<h1>验证<a class="headerlink" href="#validation" title="永久链接至标题">¶</a></h1>
+<p>The validation is an essential functionality of any existing web
+application. To automatically validate incoming requests, we leverage
+<a class="reference external" href="https://github.com/typestack/class-validator">class-validator</a>
+package which built-in <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> makes use of underneath. The
+<code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> provides a convenient method to validate incoming
+client payloads with a variety of powerful validation rules.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="永久链接至标题">¶</a></h2>
+<p>In <a class="reference external" href="/pipes">Pipes</a> chapter, we went through the process of building a
+simplified validation pipe. To better understand what we’re doing under
+the hood, we heavily recommend to read this article. Here, we’ll mainly
+focus on the real use-cases instead.</p>
+</div>
+<div class="section" id="auto-validation">
+<h2>Auto-validation<a class="headerlink" href="#auto-validation" title="永久链接至标题">¶</a></h2>
+<p>For the sake of this tutorial, we’ll bind <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> to the
+whole application, thus, all endpoints will be automatically protected
+from the incorrect data.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">async</span> <span class="kd">function</span> <span class="nx">bootstrap() {</span>
+  <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">useGlobalPipes</span><span class="p">(</span><span class="k">new</span> <span class="nx">ValidationPipe</span><span class="p">());</span>
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">bootstrap</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>To test our pipe, let’s create a basic endpoint.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Post</span><span class="p">()</span>
+<span class="nx">create</span><span class="p">(</span><span class="kd">@Body</span><span class="p">()</span> <span class="nx">createUserDto</span>: <span class="kt">CreateUserDto</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">&#39;This action adds a new user&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, add a few validation rules in our <code class="docutils literal notranslate"><span class="pre">CreateUserDto</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">IsEmail</span><span class="p">,</span> <span class="nx">IsNotEmpty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;class-validator&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CreateUserDto</span> <span class="p">{</span>
+  <span class="kd">@IsEmail</span><span class="p">()</span>
+  <span class="nx">email</span>: <span class="kt">string</span><span class="p">;</span>
+
+  <span class="kd">@IsNotEmpty</span><span class="p">()</span>
+  <span class="nx">password</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, when someone requests our endpoint with an invalid <code class="docutils literal notranslate"><span class="pre">email</span></code>, the
+application would respond with a <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code> code and the
+following response body.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+  <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;property&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;children&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;isEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;email must be an email&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Obviously, the response body is not a sole use-case for
+the<code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code>. Imagine, that we would like to accept <code class="docutils literal notranslate"><span class="pre">:id</span></code>
+in the endpoint path. Only numbers shall be valid though. This is pretty
+simple as well.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Get</span><span class="p">(</span><span class="s1">&#39;:id&#39;</span><span class="p">)</span>
+<span class="nx">findOne</span><span class="p">(</span><span class="kd">@Param</span><span class="p">()</span> <span class="nx">params</span>: <span class="kt">FindOneParams</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">&#39;This action returns a user&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And <code class="docutils literal notranslate"><span class="pre">FindOneParams</span></code> looks like below.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">IsNumberString</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;class-validator&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">FindOneParams</span> <span class="p">{</span>
+  <span class="kd">@IsNumberString</span><span class="p">()</span>
+  <span class="nx">id</span>: <span class="kt">number</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disable-detailed-errors">
+<h2>Disable detailed errors<a class="headerlink" href="#disable-detailed-errors" title="永久链接至标题">¶</a></h2>
+<p>Error messages help a lot in order to comprehend what was wrong with the
+data sent through the network. However, in some production environments,
+you might want to disable detailed errors.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">useGlobalPipes</span><span class="p">(</span>
+  <span class="k">new</span> <span class="nx">ValidationPipe</span><span class="p">({</span>
+    <span class="nx">disableErrorMessages</span>: <span class="kt">true</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, error messages won’t be populated to the end user.</p>
+</div>
+<div class="section" id="stripping-properties">
+<h2>Stripping properties<a class="headerlink" href="#stripping-properties" title="永久链接至标题">¶</a></h2>
+<p>Quite frequently, we would like only predefined (whitelisted) properties
+to be passed on. For instance, if we expect <code class="docutils literal notranslate"><span class="pre">email</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code>
+properties, when someone sends <code class="docutils literal notranslate"><span class="pre">age</span></code>, this property should be stripped
+and not available in the DTO. To enable such behavior, set <code class="docutils literal notranslate"><span class="pre">whitelist</span></code>
+to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">useGlobalPipes</span><span class="p">(</span>
+  <span class="k">new</span> <span class="nx">ValidationPipe</span><span class="p">({</span>
+    <span class="nx">whitelist</span>: <span class="kt">true</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>This setting will enable auto-stripping of non-whitelisted (without any
+decorator on top of them) properties. However, if you want to stop the
+request processing entirely, and return an error response to the user,
+use <code class="docutils literal notranslate"><span class="pre">forbidNonWhitelisted</span></code> instead.</p>
+</div>
+<div class="section" id="auto-payload-transforming">
+<h2>Auto payload transforming<a class="headerlink" href="#auto-payload-transforming" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> doesn’t automatically transform your payloads to
+the corresponding DTO classes. If you take a look at either
+<code class="docutils literal notranslate"><span class="pre">createUserDto</span></code> or <code class="docutils literal notranslate"><span class="pre">findOneParams</span></code> in your controller methods, you
+will notice that they’re not actual instances of these classes. To
+enable auto-transformation, set <code class="docutils literal notranslate"><span class="pre">transform</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">useGlobalPipes</span><span class="p">(</span>
+  <span class="k">new</span> <span class="nx">ValidationPipe</span><span class="p">({</span>
+    <span class="nx">transform</span>: <span class="kt">true</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="websockets-microservices">
+<h2>Websockets &amp; Microservices<a class="headerlink" href="#websockets-microservices" title="永久链接至标题">¶</a></h2>
+<p>All these guidelines cornern both WebSockets as well as microservices,
+regardless of transport method that is being used.</p>
+</div>
+<div class="section" id="learn-more">
+<h2>Learn more<a class="headerlink" href="#learn-more" title="永久链接至标题">¶</a></h2>
+<p>In order to read more about custom validators, error messages, and
+available decorators, visit this
+<a class="reference external" href="https://github.com/typestack/class-validator">page</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="caching.html" class="btn btn-neutral float-right" title="高速缓存" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file-upload.html" class="btn btn-neutral float-left" title="上传文件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>高速缓存 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="序列化" href="serialization.html" />
+    <link rel="prev" title="验证" href="validation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">技术</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo.html">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file-upload.html">上传文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">验证</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">高速缓存</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#in-memory-cache">In-memory cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-cache">Global cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websockets-microservices">WebSockets &amp; Microservices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customize-caching">Customize caching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#different-stores">Different stores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjust-tracking">Adjust tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#async-configuration">Async configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">序列化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">记录仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compression.html">压缩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http-module.html">HTTP 模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">性能 (Fastify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hot-reload.html">热重新加载 (Webpack)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">技术</a> &raquo;</li>
+        
+      <li>高速缓存</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/techniques/caching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="caching">
+<h1>高速缓存<a class="headerlink" href="#caching" title="永久链接至标题">¶</a></h1>
+<p>Cache is a great and simple <strong>technique</strong> that helps in improving your
+app’s performance. It acts as a temporary data store, which accessing is
+really performant.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>We need to install the required package at first:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save cache-manager
+</pre></div>
+</div>
+</div>
+<div class="section" id="in-memory-cache">
+<h2>In-memory cache<a class="headerlink" href="#in-memory-cache" title="永久链接至标题">¶</a></h2>
+<p>Nest provides a unified API for various cache storage providers. The
+built-in one is an in-memory data store. However, you can easily switch
+to a more comprehensive solution, like Redis. In order to enable
+caching, firstly import <code class="docutils literal notranslate"><span class="pre">CacheModule</span></code> and call its <code class="docutils literal notranslate"><span class="pre">register()</span></code>
+method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CacheModule</span><span class="p">,</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">AppController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.controller&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">CacheModule</span><span class="p">.</span><span class="nx">register</span><span class="p">()],</span>
+  <span class="nx">controllers</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppController</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Then just tie <code class="docutils literal notranslate"><span class="pre">CacheInterceptor</span></code> somewhere.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Controller</span><span class="p">()</span>
+<span class="kd">@UseInterceptors</span><span class="p">(</span><span class="nx">CacheInterceptor</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AppController</span> <span class="p">{</span>
+  <span class="kd">@Get</span><span class="p">()</span>
+  <span class="nx">findAll</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning<strong>Warning</strong> Only <code class="docutils literal notranslate"><span class="pre">GET</span></code> endpoints are cached.</p>
+</div></blockquote>
+</div>
+<div class="section" id="global-cache">
+<h2>Global cache<a class="headerlink" href="#global-cache" title="永久链接至标题">¶</a></h2>
+<p>To reduce an amount of the required boilerplate, you can bind
+<code class="docutils literal notranslate"><span class="pre">CacheInterceptor</span></code> to each existing endpoint at once.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CacheModule</span><span class="p">,</span> <span class="nx">Module</span><span class="p">,</span> <span class="nx">CacheInterceptor</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">AppController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.controller&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">APP_INTERCEPTOR</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/core&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">CacheModule</span><span class="p">.</span><span class="nx">register</span><span class="p">()],</span>
+  <span class="nx">controllers</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppController</span><span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">provide</span>: <span class="kt">APP_INTERCEPTOR</span><span class="p">,</span>
+      <span class="nx">useClass</span>: <span class="kt">CacheInterceptor</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="websockets-microservices">
+<h2>WebSockets &amp; Microservices<a class="headerlink" href="#websockets-microservices" title="永久链接至标题">¶</a></h2>
+<p>Obviously, you can effortlessly apply <code class="docutils literal notranslate"><span class="pre">CacheInterceptor</span></code> to WebSocket
+subscribers as well as Microservice’s patterns (regardless of transport
+method that is being used).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@CacheKey(&#39;events&#39;)
+@UseInterceptors(CacheInterceptor)
+@SubscribeMessage(&#39;events&#39;)
+handleEvent(client: Client, data: string[]): Observable&lt;string[]&gt; {
+  return [];
+}
+@@switch
+@CacheKey(&#39;events&#39;)
+@UseInterceptors(CacheInterceptor)
+@SubscribeMessage(&#39;events&#39;)
+handleEvent(client, data) {
+  return [];
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;CacheKey()</span></code> decorator is imported from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>However, the additional <code class="docutils literal notranslate"><span class="pre">&#64;CacheKey()</span></code> decorator is required in order
+to specify a key used to subsequently store and retrieve cached data.
+Besides, please note that you <strong>shouldn’t cache everything</strong>. Actions
+which responsibility is to perform some business operations rather than
+simply querying the data should never be cached.</p>
+</div>
+<div class="section" id="customize-caching">
+<h2>Customize caching<a class="headerlink" href="#customize-caching" title="永久链接至标题">¶</a></h2>
+<p>All cached data have its own expiration time (TTL). To customize default
+values, pass options object to the <code class="docutils literal notranslate"><span class="pre">register()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">CacheModule</span><span class="p">.</span><span class="nx">register</span><span class="p">({</span>
+  <span class="nx">ttl</span>: <span class="kt">5</span><span class="p">,</span> <span class="c1">// seconds</span>
+  <span class="nx">max</span>: <span class="kt">10</span><span class="p">,</span> <span class="c1">// maximum number of items in cache</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="different-stores">
+<h2>Different stores<a class="headerlink" href="#different-stores" title="永久链接至标题">¶</a></h2>
+<p>We take advantage of
+<a class="reference external" href="https://github.com/BryanDonovan/node-cache-manager">cache-manager</a>
+under the hood. This package supports a wide-range of useful stores, for
+example,
+<a class="reference external" href="https://github.com/dabroek/node-cache-manager-redis-store">Redis</a>
+store (full list
+<a class="reference external" href="https://github.com/BryanDonovan/node-cache-manager#store-engines">here</a>).
+To set up the Redis store, simple pass the package together with
+corresponding options to the <code class="docutils literal notranslate"><span class="pre">register()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">redisStore</span> <span class="nx">from</span> <span class="s1">&#39;cache-manager-redis-store&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">CacheModule</span><span class="p">,</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">AppController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.controller&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CacheModule</span><span class="p">.</span><span class="nx">register</span><span class="p">({</span>
+      <span class="nx">store</span>: <span class="kt">redisStore</span><span class="p">,</span>
+      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+      <span class="nx">port</span>: <span class="kt">6379</span><span class="p">,</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+  <span class="nx">controllers</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppController</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adjust-tracking">
+<h2>Adjust tracking<a class="headerlink" href="#adjust-tracking" title="永久链接至标题">¶</a></h2>
+<p>By default, Nest uses request URL (in HTTP app) or cache key (in
+websockets and microservices) set through <code class="docutils literal notranslate"><span class="pre">&#64;CacheKey()</span></code> decorator to
+associate cache records with your endpoints. Nevertheless, sometimes you
+might want to set up tracking based on different factors, for example,
+using HTTP headers (e.g. <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> to properly identify
+<code class="docutils literal notranslate"><span class="pre">profile</span></code> endpoints).</p>
+<p>In order to accomplish that, create a subclass of <code class="docutils literal notranslate"><span class="pre">CacheInterceptor</span></code>
+and override <code class="docutils literal notranslate"><span class="pre">trackBy()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">class</span> <span class="nx">HttpCacheInterceptor</span> <span class="kr">extends</span> <span class="nx">CacheInterceptor</span> <span class="p">{</span>
+  <span class="nx">trackBy</span><span class="p">(</span><span class="nx">context</span>: <span class="kt">ExecutionContext</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;key&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="async-configuration">
+<h2>Async configuration<a class="headerlink" href="#async-configuration" title="永久链接至标题">¶</a></h2>
+<p>Quite often you might want to asynchronously pass your module options
+instead of passing them beforehand. In such case, use
+<code class="docutils literal notranslate"><span class="pre">registerAsync()</span></code> method, that provides a couple of various ways to
+deal with async data.</p>
+<p>First possible approach is to use a factory function:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">CacheModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">useFactory</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="nx">ttl</span>: <span class="kt">5</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Obviously, our factory behaves like every other one (might be <code class="docutils literal notranslate"><span class="pre">async</span></code>
+and is able to inject dependencies through <code class="docutils literal notranslate"><span class="pre">inject</span></code>).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">CacheModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigModule</span><span class="p">],</span>
+  <span class="nx">useFactory</span>: <span class="kt">async</span> <span class="p">(</span><span class="nx">configService</span>: <span class="kt">ConfigService</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="nx">ttl</span>: <span class="kt">configService.getString</span><span class="p">(</span><span class="s1">&#39;CACHE_TTL&#39;</span><span class="p">),</span>
+  <span class="p">}),</span>
+  <span class="nx">inject</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigService</span><span class="p">],</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Alternatively, you are able to use class instead of a factory.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">CacheModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">useClass</span>: <span class="kt">CacheConfigService</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Above construction will instantiate <code class="docutils literal notranslate"><span class="pre">CacheConfigService</span></code> inside
+<code class="docutils literal notranslate"><span class="pre">CacheModule</span></code> and will leverage it to create options object. The
+<code class="docutils literal notranslate"><span class="pre">CacheConfigService</span></code> has to implement <code class="docutils literal notranslate"><span class="pre">CacheOptionsFactory</span></code>
+interface.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">class</span> <span class="nx">CacheConfigService</span> <span class="kr">implements</span> <span class="nx">CacheOptionsFactory</span> <span class="p">{</span>
+  <span class="nx">createCacheOptions</span><span class="p">()</span><span class="o">:</span> <span class="nx">CacheModuleOptions</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">ttl</span>: <span class="kt">5</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to prevent the creation of <code class="docutils literal notranslate"><span class="pre">CacheConfigService</span></code> inside
+<code class="docutils literal notranslate"><span class="pre">CacheModule</span></code> and use a provider imported from a different module, you
+can use the <code class="docutils literal notranslate"><span class="pre">useExisting</span></code> syntax.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">CacheModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigModule</span><span class="p">],</span>
+  <span class="nx">useExisting</span>: <span class="kt">ConfigService</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>It works the same as <code class="docutils literal notranslate"><span class="pre">useClass</span></code> with one critical difference -
+<code class="docutils literal notranslate"><span class="pre">CacheModule</span></code> will lookup imported modules to reuse already created
+<code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>, instead of instantiating it on its own.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="serialization.html" class="btn btn-neutral float-right" title="序列化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="validation.html" class="btn btn-neutral float-left" title="验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gRPC &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="异常过滤器" href="exception-filters.html" />
+    <link rel="prev" title="RabbitMQ" href="rabbitmq.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">微服务</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redis.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt.html">MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nats.html">NATS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rabbitmq.html">RabbitMQ</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">gRPC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transporter">Transporter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client">Client</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html">Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html">守护</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">微服务</a> &raquo;</li>
+        
+      <li>gRPC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/microservices/grpc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="grpc">
+<h1>gRPC<a class="headerlink" href="#grpc" title="永久链接至标题">¶</a></h1>
+<p>The <a class="reference external" href="https://github.com/grpc/grpc-node">gRPC</a> is a high-performance,
+open-source universal RPC framework.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>Before we start, we have to install required package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save grpc @grpc/proto-loader
+</pre></div>
+</div>
+</div>
+<div class="section" id="transporter">
+<h2>Transporter<a class="headerlink" href="#transporter" title="永久链接至标题">¶</a></h2>
+<p>In order to switch to <strong>gRPC</strong> transporter, we need to modify an options
+object passed to the <code class="docutils literal notranslate"><span class="pre">createMicroservice()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(main)
+const app = await NestFactory.createMicroservice(ApplicationModule, {
+  transport: Transport.GRPC,
+  options: {
+    package: &#39;hero&#39;,
+    protoPath: join(__dirname, &#39;hero/hero.proto&#39;),
+  },
+});
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">join()</span></code> function is imported from <code class="docutils literal notranslate"><span class="pre">path</span></code>
+package, while <code class="docutils literal notranslate"><span class="pre">Transport</span></code> enum is coming from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
+<p>There are a bunch of available options that determine a transporter
+behavior.</p>
+<table><tr><td><p>url</p>
+</td><td><p>Connection url</p>
+</td></tr><tr><td><p>protoLoader</p>
+</td><td><p>NPM package name (if you want to use another proto-loader)</p>
+</td></tr><tr><td><p>protoPath</p>
+</td><td><p>Absolute (or relative to the root dir) path to the .proto file</p>
+</td></tr><tr><td><p>loader</p>
+</td><td><p>&#64;grpc/proto-loader options. They are well-described here.</p>
+</td></tr><tr><td><p>package</p>
+</td><td><p>Protobuf package name</p>
+</td></tr><tr><td><p>credentials</p>
+</td><td><p>Server credentials (read more)</p>
+</td></tr></table></div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="永久链接至标题">¶</a></h2>
+<p>In general, a <code class="docutils literal notranslate"><span class="pre">package</span></code> property sets a
+<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/proto">protobuf</a>
+package name, while <code class="docutils literal notranslate"><span class="pre">protoPath</span></code> is a path to the <code class="docutils literal notranslate"><span class="pre">.proto</span></code>
+definitions file. The <code class="docutils literal notranslate"><span class="pre">hero.proto</span></code> file is structured using protocol
+buffer language.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">syntax</span> <span class="o">=</span> <span class="s2">&quot;proto3&quot;</span><span class="p">;</span>
+
+<span class="kr">package</span> <span class="nx">hero</span><span class="p">;</span>
+
+<span class="nx">service</span> <span class="nx">HeroService</span> <span class="p">{</span>
+  <span class="nx">rpc</span> <span class="nx">FindOne</span> <span class="p">(</span><span class="nx">HeroById</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">Hero</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="nx">message</span> <span class="nx">HeroById</span> <span class="p">{</span>
+  <span class="nx">int32</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">message</span> <span class="nx">Hero</span> <span class="p">{</span>
+  <span class="nx">int32</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kt">string</span> <span class="nx">name</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above example, we defined a <code class="docutils literal notranslate"><span class="pre">HeroService</span></code> that exposes a
+<code class="docutils literal notranslate"><span class="pre">FindOne()</span></code> gRPC handler which expects <code class="docutils literal notranslate"><span class="pre">HeroById</span></code> as an input and
+returns a <code class="docutils literal notranslate"><span class="pre">Hero</span></code> message. In order to define a handler that fulfills
+this protobuf definition, we have to use a <code class="docutils literal notranslate"><span class="pre">&#64;GrpcMethod()</span></code> decorator.
+The previously known <code class="docutils literal notranslate"><span class="pre">&#64;MessagePattern()</span></code> is no longer useful.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(hero.controller)
+@GrpcMethod(&#39;HeroService&#39;, &#39;FindOne&#39;)
+findOne(data: HeroById, metadata: any): Hero {
+  const items = [
+    { id: 1, name: &#39;John&#39; },
+    { id: 2, name: &#39;Doe&#39; },
+  ];
+  return items.find(({ id }) =&gt; id === data.id);
+}
+@@switch
+@GrpcMethod(&#39;HeroService&#39;, &#39;FindOne&#39;)
+findOne(data, metadata) {
+  const items = [
+    { id: 1, name: &#39;John&#39; },
+    { id: 2, name: &#39;Doe&#39; },
+  ];
+  return items.find(({ id }) =&gt; id === data.id);
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;GrpcMethod()</span></code> decorator is imported from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code> package.</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">HeroService</span></code> is a service name, while <code class="docutils literal notranslate"><span class="pre">FindOne</span></code> points to a
+<code class="docutils literal notranslate"><span class="pre">FindOne()</span></code> gRPC handler. The corresponding <code class="docutils literal notranslate"><span class="pre">findOne()</span></code> method takes
+two arguments, the <code class="docutils literal notranslate"><span class="pre">data</span></code> passed from the caller and <code class="docutils literal notranslate"><span class="pre">metadata</span></code> that
+stores gRPC request’s metadata.</p>
+<p>Furthermore, the <code class="docutils literal notranslate"><span class="pre">FindOne</span></code> is actually redundant here. If you don’t
+pass a second argument to the <code class="docutils literal notranslate"><span class="pre">&#64;GrpcMethod()</span></code>, Nest will automatically
+use the method name with the capitalized first letter, for example,
+<code class="docutils literal notranslate"><span class="pre">findOne</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">FindOne</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(hero.controller)
+@Controller()
+export class HeroService {
+  @GrpcMethod()
+  findOne(data: HeroById, metadata: any): Hero {
+    const items = [
+      { id: 1, name: &#39;John&#39; },
+      { id: 2, name: &#39;Doe&#39; },
+    ];
+    return items.find(({ id }) =&gt; id === data.id);
+  }
+}
+@@switch
+@Controller()
+export class HeroService {
+  @GrpcMethod()
+  findOne(data, metadata) {
+    const items = [
+      { id: 1, name: &#39;John&#39; },
+      { id: 2, name: &#39;Doe&#39; },
+    ];
+    return items.find(({ id }) =&gt; id === data.id);
+  }
+}
+</pre></div>
+</div>
+<p>Likewise, you might not pass any argument. In this case, Nest would use
+a class name.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(hero.controller)
+@Controller()
+export class HeroService {
+  @GrpcMethod()
+  findOne(data: HeroById, metadata: any): Hero {
+    const items = [
+      { id: 1, name: &#39;John&#39; },
+      { id: 2, name: &#39;Doe&#39; },
+    ];
+    return items.find(({ id }) =&gt; id === data.id);
+  }
+}
+@@switch
+@Controller()
+export class HeroService {
+  @GrpcMethod()
+  findOne(data, metadata) {
+    const items = [
+      { id: 1, name: &#39;John&#39; },
+      { id: 2, name: &#39;Doe&#39; },
+    ];
+    return items.find(({ id }) =&gt; id === data.id);
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="永久链接至标题">¶</a></h2>
+<p>In order to create a client instance, we need to use <code class="docutils literal notranslate"><span class="pre">&#64;Client()</span></code>
+decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Client</span><span class="p">({</span>
+  <span class="nx">transport</span>: <span class="kt">Transport.GRPC</span><span class="p">,</span>
+  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+    <span class="kr">package</span><span class="o">:</span> <span class="s1">&#39;hero&#39;</span><span class="p">,</span>
+    <span class="nx">protoPath</span>: <span class="kt">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;hero/hero.proto&#39;</span><span class="p">),</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+<span class="nx">client</span>: <span class="kt">ClientGrpc</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>There is a small difference compared to the previous examples. Instead
+of the <code class="docutils literal notranslate"><span class="pre">ClientProxy</span></code> class, we use the <code class="docutils literal notranslate"><span class="pre">ClientGrpc</span></code> that provides a
+<code class="docutils literal notranslate"><span class="pre">getService()</span></code> method. The <code class="docutils literal notranslate"><span class="pre">getService()</span></code> generic method takes
+service name as an argument and returns its instance if available.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(hero.controller)
+onModuleInit() {
+  this.heroService = this.client.getService&lt;HeroService&gt;(&#39;HeroService&#39;);
+}
+@@switch
+onModuleInit() {
+  this.heroService = this.client.getService(&#39;HeroService&#39;);
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">heroService</span></code> object exposes the same set of methods that have
+been defined inside <code class="docutils literal notranslate"><span class="pre">.proto</span></code> file. Note, all of them are
+<strong>lowercased</strong> (in order to follow the natural convention). Basically,
+our gRPC <code class="docutils literal notranslate"><span class="pre">HeroService</span></code> definition contains <code class="docutils literal notranslate"><span class="pre">FindOne()</span></code> function. It
+means that <code class="docutils literal notranslate"><span class="pre">heroService</span></code> instance will provide the <code class="docutils literal notranslate"><span class="pre">findOne()</span></code>
+method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">HeroService</span> <span class="p">{</span>
+  <span class="nx">findOne</span><span class="p">(</span><span class="nx">data</span><span class="o">:</span> <span class="p">{</span> <span class="nx">id</span>: <span class="kt">number</span> <span class="p">})</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All service methods return <code class="docutils literal notranslate"><span class="pre">Observable</span></code>. Since Nest supports
+<a class="reference external" href="https://github.com/reactivex/rxjs">RxJS</a> streams and works pretty
+well with them, we can return them within HTTP handler as well.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(hero.controller)
+@Get()
+call(): Observable&lt;any&gt; {
+  return this.heroService.findOne({ id: 1 });
+}
+@@switch
+@Get()
+call() {
+  return this.heroService.findOne({ id: 1 });
+}
+</pre></div>
+</div>
+<p>A full working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/04-grpc">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exception-filters.html" class="btn btn-neutral float-right" title="异常过滤器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rabbitmq.html" class="btn btn-neutral float-left" title="RabbitMQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

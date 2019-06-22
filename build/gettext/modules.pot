@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/modules.rst:2
+msgid "Modules"
+msgstr ""
+
+#: ../../source/modules.rst:4
+msgid "A module is a class annotated with a ``@Module()`` decorator. The ``@Module()`` decorator provides metadata that **Nest** makes use of to organize the application structure."
+msgstr ""
+
+#: ../../source/modules.rst:16
+msgid "Each application has at least one module, a **root module**. The root module is the starting point Nest uses to build the **application graph** - the internal data structure Nest uses to resolve module and provider relationships and dependencies. While very small applications may theoretically have just the root module, this is not the typical case. We want to emphasize that modules are **strongly** recommended as an effective way to organize your components. Thus, for most applications, the resulting architecture will employ multiple modules, each encapsulating a closely related set of **capabilities**."
+msgstr ""
+
+#: ../../source/modules.rst:26
+msgid "The ``@Module()`` decorator takes a single object whose properties describe the module:"
+msgstr ""
+
+#: ../../source/modules.rst:41
+msgid "providers"
+msgstr ""
+
+#: ../../source/modules.rst:51
+msgid "the providers that will be instantiated by the Nest injector and that may be shared at least across this module"
+msgstr ""
+
+#: ../../source/modules.rst:70
+msgid "controllers"
+msgstr ""
+
+#: ../../source/modules.rst:80
+msgid "the set of controllers defined in this module which have to be instantiated"
+msgstr ""
+
+#: ../../source/modules.rst:99
+msgid "imports"
+msgstr ""
+
+#: ../../source/modules.rst:109
+msgid "the list of imported modules that export the providers which are required in this module"
+msgstr ""
+
+#: ../../source/modules.rst:128
+msgid "exports"
+msgstr ""
+
+#: ../../source/modules.rst:138
+msgid "the subset of providers that are provided by this module and should be available in other modules which import this module"
+msgstr ""
+
+#: ../../source/modules.rst:153
+msgid "The module **encapsulates** providers by default. This means that it’s impossible to inject providers that are neither directly part of the current module nor exported from the imported modules. Thus, you may consider the exported providers from a module as the module’s public interface, or API."
+msgstr ""
+
+#: ../../source/modules.rst:160
+msgid "Feature modules"
+msgstr ""
+
+#: ../../source/modules.rst:162
+msgid "The ``CatsController`` and ``CatsService`` belong to the same application domain. As they are closely related, it makes sense to move them into a feature module. A feature module simply organizes code relevant for a specific feature, keeping code organized and establishing clear boundaries. This helps us manage complexity and develop with `SOLID <https://en.wikipedia.org/wiki/SOLID>`__ principles, especially as the size of the application and/or team grow."
+msgstr ""
+
+#: ../../source/modules.rst:170
+msgid "To demonstrate this, we’ll create the ``CatsModule``."
+msgstr ""
+
+#: ../../source/modules.rst:187
+msgid "info **Hint** To create a module using the CLI, simply execute the ``$ nest g module cats`` command."
+msgstr ""
+
+#: ../../source/modules.rst:190
+msgid "Above, we defined the ``CatsModule`` in the ``cats.module.ts`` file, and moved everything related to this module into the ``cats`` directory. The last thing we need to do is import this module into the root module (the ``ApplicationModule``, defined in the ``app.module.ts`` file)."
+msgstr ""
+
+#: ../../source/modules.rst:206
+msgid "Here is how our directory structure looks now:"
+msgstr ""
+
+#: ../../source/modules.rst:212
+msgid "src"
+msgstr ""
+
+#: ../../source/modules.rst:236
+msgid "Shared modules"
+msgstr ""
+
+#: ../../source/modules.rst:238
+msgid "In Nest, modules are **singletons** by default, and thus you can share the same instance of any provider between multiple modules effortlessly."
+msgstr ""
+
+#: ../../source/modules.rst:249
+msgid "Every module is automatically a **shared module**. Once created it can be reused by any module. Let’s imagine that we want to share an instance of the ``CatsService`` between several other modules. In order to do that, we first need to **export** the ``CatsService`` provider by adding it to the module’s ``exports`` array, as shown below:"
+msgstr ""
+
+#: ../../source/modules.rst:269
+msgid "Now any module that imports the ``CatsModule`` has access to the ``CatsService`` and will share the same instance with all other modules that import it as well."
+msgstr ""
+
+#: ../../source/modules.rst:274
+msgid "Module re-exporting"
+msgstr ""
+
+#: ../../source/modules.rst:276
+msgid "As seen above, Modules can export their internal providers. In addition, they can re-export modules that they import. In the example below, the ``CommonModule`` is both imported into **and** exported from the ``CoreModule``, making it available for other modules which import this one."
+msgstr ""
+
+#: ../../source/modules.rst:291
+msgid "Dependency injection"
+msgstr ""
+
+#: ../../source/modules.rst:293
+msgid "A module class can **inject** providers as well (e.g., for configuration purposes):"
+msgstr ""
+
+#: ../../source/modules.rst:326
+msgid "However, module classes themselves cannot be injected as providers due to `circular dependency </fundamentals/circular-dependency>`__ ."
+msgstr ""
+
+#: ../../source/modules.rst:330
+msgid "Global modules"
+msgstr ""
+
+#: ../../source/modules.rst:332
+msgid "If you have to import the same set of modules everywhere, it can get tedious. In `Angular <https://angular.io>`__, ``providers`` are registered in the global scope. Once defined, they’re available everywhere. Nest, however, encapsulates providers inside the module scope. You aren’t able to use a module’s providers elsewhere without first importing them. When you want to provide a set of providers which should be available everywhere out-of-the-box, (e.g., helpers, database connections, etc.) you can make the module **global** with the ``@Global()`` decorator."
+msgstr ""
+
+#: ../../source/modules.rst:356
+msgid "The ``@Global()`` decorator makes the module global-scoped. Global modules should be registered **only once**, generally by the root or core module. In the above example, the ``CatsService`` provider will be ubiquitous, and modules that wish to inject the service will not need to import the ``CatsModule`` in their imports array."
+msgstr ""
+
+#: ../../source/modules.rst:362
+msgid "info **Hint** Making everything global is not a good design decision. Global modules are available to reduce the amount of necessary boilerplate. The ``imports`` array is generally the preferred way to make the module’s API available to consumers."
+msgstr ""
+
+#: ../../source/modules.rst:368
+msgid "Dynamic modules"
+msgstr ""
+
+#: ../../source/modules.rst:370
+msgid "The Nest module system includes a feature called **dynamic modules**. This feature enables you to easily create customizable modules. Following is an example of such a dynamic module, a ``DatabaseModule``:"
+msgstr ""
+
+#: ../../source/modules.rst:415
+msgid "info **Hint** The ``forRoot()`` method may return a dynamic module either synchronously or asynchronously (i.e., via a ``Promise``)."
+msgstr ""
+
+#: ../../source/modules.rst:418
+msgid "This module defines the ``Connection`` provider by default, but additionally - depending on the ``entities`` and ``options`` objects passed to it - exposes a collection of providers, for example, repositories. Note that the dynamic module **extends** (rather than overrides) the base module metadata. That’s how both the statically declared ``Connection`` provider **and** the dynamically configured repository providers are exported from the module."
+msgstr ""
+
+#: ../../source/modules.rst:426
+msgid "This substantial feature is useful when you need to register and configure providers dynamically. Once defined in this way, the ``DatabaseModule`` can be imported and configured in the following manner:"
+msgstr ""
+
+#: ../../source/modules.rst:442
+msgid "If you want to in turn re-export a dynamic module, you can omit the ``forRoot()`` method call in the exports array:"
+msgstr ""
+

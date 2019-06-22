@@ -1,0 +1,474 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>中间件 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>中间件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/middlewares.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="middleware">
+<h1>中间件<a class="headerlink" href="#middleware" title="永久链接至标题">¶</a></h1>
+<p>Middleware is a function which is called <strong>before</strong> the route handler.
+Middleware functions have access to the
+<a class="reference external" href="http://expressjs.com/en/4x/api.html#req">request</a> and
+<a class="reference external" href="http://expressjs.com/en/4x/api.html#res">response</a> objects, and the
+<code class="docutils literal notranslate"><span class="pre">next()</span></code> middleware function in the application’s request-response
+cycle. The <strong>next</strong> middleware function is commonly denoted by a
+variable named <code class="docutils literal notranslate"><span class="pre">next</span></code>.</p>
+<figure></figure><p>Nest middleware are, by default, equivalent to
+<a class="reference external" href="http://expressjs.com/en/guide/using-middleware.html">express</a>
+middleware. The following description from the official express
+documentation describes the capabilities of middleware:</p>
+<blockquote class="external"><p>Middleware functions can perform the following tasks:</p>
+<ul><li><p>execute any code.</p>
+</li><li><p>make changes to the request and the response objects.</p>
+</li><li><p>end the request-response cycle.</p>
+</li><li><p>call the next middleware function in the stack.</p>
+</li><li><p>if the current middleware function does not end the request-response
+cycle, it must call next() to pass control to the next middleware
+function. Otherwise, the request will be left hanging.</p>
+</li></ul></blockquote><p>You implement custom Nest middleware in either a function, or in a class
+with an <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> decorator. The class should implement the
+<code class="docutils literal notranslate"><span class="pre">NestMiddleware</span></code> interface, while the function does not have any
+special requirements. Let’s start by implementing a simple middleware
+feature using the class method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(logger.middleware)
+import { Injectable, NestMiddleware } from &#39;@nestjs/common&#39;;
+import { Request, Response } from &#39;express&#39;;
+
+@Injectable()
+export class LoggerMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: Function) {
+    console.log(&#39;Request...&#39;);
+    next();
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class LoggerMiddleware {
+  use(req, res, next) {
+    console.log(&#39;Request...&#39;);
+    next();
+  }
+}
+</pre></div>
+</div>
+<div class="section" id="dependency-injection">
+<h2>Dependency injection<a class="headerlink" href="#dependency-injection" title="永久链接至标题">¶</a></h2>
+<p>Nest middleware fully supports Dependency Injection. Just as with
+providers and controllers, they are able to <strong>inject dependencies</strong> that
+are available within the same module. As usual, this is done through the
+<code class="docutils literal notranslate"><span class="pre">constructor</span></code>.</p>
+</div>
+<div class="section" id="applying-middleware">
+<h2>Applying middleware<a class="headerlink" href="#applying-middleware" title="永久链接至标题">¶</a></h2>
+<p>There is no place for middleware in the <code class="docutils literal notranslate"><span class="pre">&#64;Module()</span></code> decorator.
+Instead, we set them up using the <code class="docutils literal notranslate"><span class="pre">configure()</span></code> method of the module
+class. Modules that include middleware have to implement the
+<code class="docutils literal notranslate"><span class="pre">NestModule</span></code> interface. Let’s set up the <code class="docutils literal notranslate"><span class="pre">LoggerMiddleware</span></code> at the
+<code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code> level.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module, NestModule, MiddlewareConsumer } from &#39;@nestjs/common&#39;;
+import { LoggerMiddleware } from &#39;./common/middleware/logger.middleware&#39;;
+import { CatsModule } from &#39;./cats/cats.module&#39;;
+
+@Module({
+  imports: [CatsModule],
+})
+export class ApplicationModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes(&#39;cats&#39;);
+  }
+}
+@@switch
+import { Module } from &#39;@nestjs/common&#39;;
+import { LoggerMiddleware } from &#39;./common/middleware/logger.middleware&#39;;
+import { CatsModule } from &#39;./cats/cats.module&#39;;
+
+@Module({
+  imports: [CatsModule],
+})
+export class ApplicationModule {
+  configure(consumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes(&#39;cats&#39;);
+  }
+}
+</pre></div>
+</div>
+<p>In the above example we have set up the <code class="docutils literal notranslate"><span class="pre">LoggerMiddleware</span></code> for the
+<code class="docutils literal notranslate"><span class="pre">/cats</span></code> route handlers that were previously defined inside the
+<code class="docutils literal notranslate"><span class="pre">CatsController</span></code>. We may also further restrict a middleware to a
+particular request method by passing an object containing the route
+<code class="docutils literal notranslate"><span class="pre">path</span></code> and request <code class="docutils literal notranslate"><span class="pre">method</span></code> to the <code class="docutils literal notranslate"><span class="pre">forRoutes()</span></code> method when
+configuring the middleware. In the example below, notice that we import
+the <code class="docutils literal notranslate"><span class="pre">RequestMethod</span></code> enum to reference the desired request method type.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module, NestModule, RequestMethod, MiddlewareConsumer } from &#39;@nestjs/common&#39;;
+import { LoggerMiddleware } from &#39;./common/middleware/logger.middleware&#39;;
+import { CatsModule } from &#39;./cats/cats.module&#39;;
+
+@Module({
+  imports: [CatsModule],
+})
+export class ApplicationModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes({ path: &#39;cats&#39;, method: RequestMethod.GET });
+  }
+}
+@@switch
+import { Module, RequestMethod } from &#39;@nestjs/common&#39;;
+import { LoggerMiddleware } from &#39;./common/middleware/logger.middleware&#39;;
+import { CatsModule } from &#39;./cats/cats.module&#39;;
+
+@Module({
+  imports: [CatsModule],
+})
+export class ApplicationModule {
+  configure(consumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes({ path: &#39;cats&#39;, method: RequestMethod.GET });
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="route-wildcards">
+<h2>Route wildcards<a class="headerlink" href="#route-wildcards" title="永久链接至标题">¶</a></h2>
+<p>Pattern based routes are supported as well. For instance, the asterisk
+is used as a <strong>wildcard</strong>, and will match any combination of characters:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">forRoutes</span><span class="p">({</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;ab*cd&#39;</span><span class="p">,</span> <span class="nx">method</span>: <span class="kt">RequestMethod.ALL</span> <span class="p">});</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">'ab*cd'</span></code> route path will match <code class="docutils literal notranslate"><span class="pre">abcd</span></code>, <code class="docutils literal notranslate"><span class="pre">ab_cd</span></code>, <code class="docutils literal notranslate"><span class="pre">abecd</span></code>,
+and so on. The characters <code class="docutils literal notranslate"><span class="pre">?</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, and <code class="docutils literal notranslate"><span class="pre">()</span></code> may be used in
+a route path, and are subsets of their regular expression counterparts.
+The hyphen ( <code class="docutils literal notranslate"><span class="pre">-</span></code>) and the dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) are interpreted literally by
+string-based paths.</p>
+</div>
+<div class="section" id="middleware-consumer">
+<h2>Middleware consumer<a class="headerlink" href="#middleware-consumer" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">MiddlewareConsumer</span></code> is a helper class. It provides several
+built-in methods to manage middleware. All of them can be simply
+<strong>chained</strong> in the <a class="reference external" href="https://en.wikipedia.org/wiki/Fluent_interface">fluent
+style</a>. The
+<code class="docutils literal notranslate"><span class="pre">forRoutes()</span></code> method can take a single string, multiple strings, a
+<code class="docutils literal notranslate"><span class="pre">RouteInfo</span></code> object, a controller class and even multiple controller
+classes. In most cases you’ll probably just pass a list of
+<strong>controllers</strong> separated by commas. Below is an example with a single
+controller:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module, NestModule, MiddlewareConsumer } from &#39;@nestjs/common&#39;;
+import { LoggerMiddleware } from &#39;./common/middleware/logger.middleware&#39;;
+import { CatsModule } from &#39;./cats/cats.module&#39;;
+
+@Module({
+  imports: [CatsModule],
+})
+export class ApplicationModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes(CatsController);
+  }
+}
+@@switch
+import { Module } from &#39;@nestjs/common&#39;;
+import { LoggerMiddleware } from &#39;./common/middleware/logger.middleware&#39;;
+import { CatsModule } from &#39;./cats/cats.module&#39;;
+
+@Module({
+  imports: [CatsModule],
+})
+export class ApplicationModule {
+  configure(consumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes(CatsController);
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">apply()</span></code> method may either take a single
+middleware, or multiple arguments to specify multiple middlewares.</p>
+</div></blockquote>
+<p>Quite often we might want to <strong>exclude</strong> certain routes from having the
+middleware applied. When defining middleware with a class (as we have
+been doing so far, as opposed to using the alternative functional
+middleware), we can easily exclude certain routes with the <code class="docutils literal notranslate"><span class="pre">exclude()</span></code>
+method. This method takes one or more objects identifying the <code class="docutils literal notranslate"><span class="pre">path</span></code>
+and <code class="docutils literal notranslate"><span class="pre">method</span></code> to be excluded, as shown below:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span>
+  <span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">LoggerMiddleware</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">exclude</span><span class="p">(</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="nx">method</span>: <span class="kt">RequestMethod.GET</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="nx">method</span>: <span class="kt">RequestMethod.POST</span> <span class="p">}</span>
+  <span class="p">)</span>
+  <span class="p">.</span><span class="nx">forRoutes</span><span class="p">(</span><span class="nx">CatsController</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>With the example above, <code class="docutils literal notranslate"><span class="pre">LoggerMiddleware</span></code> will be bound to all routes
+defined inside <code class="docutils literal notranslate"><span class="pre">CatsController</span></code> <strong>except</strong> the two passed to the
+<code class="docutils literal notranslate"><span class="pre">exclude()</span></code> method. Please note that the <code class="docutils literal notranslate"><span class="pre">exclude()</span></code> method <strong>does
+not work</strong> with functional middleware (middleware defined in a function
+rather than in a class; see below for more details). In addition, this
+method doesn’t exclude paths from more generic routes (e.g., wildcards).
+If you need that level of control, you should put your paths-restriction
+logic directly into the middleware and, for example, access the
+request’s URL to conditionally apply the middleware logic.</p>
+</div>
+<div class="section" id="functional-middleware">
+<h2>Functional middleware<a class="headerlink" href="#functional-middleware" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">LoggerMiddleware</span></code> class we’ve been using is quite simple. It has
+no members, no additional methods, and no dependencies. Why can’t we
+just define it in a simple function instead of a class? In fact, we can.
+This type of middleware is called <strong>functional middleware</strong>. Let’s
+transform the logger middleware from class-based into functional
+middleware to illustrate the difference:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(logger.middleware)
+export function logger(req, res, next) {
+  console.log(`Request...`);
+  next();
+};
+</pre></div>
+</div>
+<p>And use it within the <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+consumer
+  .apply(logger)
+  .forRoutes(CatsController);
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Consider using the simpler <strong>functional middleware</strong>
+alternative any time your middleware doesn’t need any dependencies.</p>
+</div></blockquote>
+</div>
+<div class="section" id="multiple-middleware">
+<h2>Multiple middleware<a class="headerlink" href="#multiple-middleware" title="永久链接至标题">¶</a></h2>
+<p>As mentioned above, in order to bind multiple middleware that are
+executed sequentially, simply provide a comma separated list inside the
+<code class="docutils literal notranslate"><span class="pre">apply()</span></code> method:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">cors</span><span class="p">(),</span> <span class="nx">helmet</span><span class="p">(),</span> <span class="nx">logger</span><span class="p">).</span><span class="nx">forRoutes</span><span class="p">(</span><span class="nx">CatsController</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-middleware">
+<h2>Global middleware<a class="headerlink" href="#global-middleware" title="永久链接至标题">¶</a></h2>
+<p>If we want to bind middleware to every registered route at once, we can
+use the <code class="docutils literal notranslate"><span class="pre">use()</span></code> method that is supplied by the <code class="docutils literal notranslate"><span class="pre">INestApplication</span></code>
+instance:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">logger</span><span class="p">);</span>
+<span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>拦截器 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="自定义路线装饰器" href="custom-decorators.html" />
+    <link rel="prev" title="警卫" href="guards.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">拦截器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-context">执行上下文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#call-handler">Call handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aspect-interception">截取方面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binding-interceptors">绑定拦截器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#response-mapping">响应映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-mapping">异常映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stream-overriding">流重写</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-operators">更多运营商</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>拦截器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/interceptors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="interceptors">
+<h1>拦截器<a class="headerlink" href="#interceptors" title="永久链接至标题">¶</a></h1>
+<p>An interceptor is a class annotated with the <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code>
+decorator. Interceptors should implement the <code class="docutils literal notranslate"><span class="pre">NestInterceptor</span></code>
+interface.</p>
+<figure></figure><p>Interceptors have a set of useful capabilities which are inspired by the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect Oriented
+Programming</a>
+(AOP) technique. They make it possible to:</p>
+<ul class="simple">
+<li><p>bind <strong>extra logic</strong> before / after method execution</p></li>
+<li><p><strong>transform</strong> the result returned from a function</p></li>
+<li><p><strong>transform</strong> the exception thrown from a function</p></li>
+<li><p><strong>extend</strong> the basic function behavior</p></li>
+<li><p>completely <strong>override</strong> a function depending on specific conditions
+(e.g., for caching purposes)</p></li>
+</ul>
+<div class="section" id="basics">
+<h2>基本<a class="headerlink" href="#basics" title="永久链接至标题">¶</a></h2>
+<p>Each interceptor implements the <code class="docutils literal notranslate"><span class="pre">intercept()</span></code> method, which takes two
+arguments. The first one is the <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> instance (exactly
+the same object as for <a class="reference external" href="/guards">guards</a>). The <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code>
+inherits from <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code>. We saw <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code> before in the
+exception filters chapter. There, we saw that it’s a wrapper around
+arguments that have been passed to the original handler, and contains
+different arguments arrays based on the type of the application. You can
+refer back to the <a class="reference external" href="https://docs.nestjs.com/exception-filters#arguments-host">exception
+filters</a>
+for more on this topic.</p>
+</div>
+<div class="section" id="execution-context">
+<h2>执行上下文<a class="headerlink" href="#execution-context" title="永久链接至标题">¶</a></h2>
+<p>By extending <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code>, <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> provides additional
+details about the current execution process. Here’s what it looks like:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">ExecutionContext</span> <span class="kr">extends</span> <span class="nx">ArgumentsHost</span> <span class="p">{</span>
+  <span class="nx">getClass</span><span class="o">&lt;</span><span class="nx">T</span> <span class="o">=</span> <span class="nx">any</span><span class="o">&gt;</span><span class="p">()</span><span class="o">:</span> <span class="nx">Type</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="nx">getHandler</span><span class="p">()</span><span class="o">:</span> <span class="nb">Function</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">getHandler()</span></code> method returns a reference to the route handler
+about to be invoked. The <code class="docutils literal notranslate"><span class="pre">getClass()</span></code> method returns the type of the
+<code class="docutils literal notranslate"><span class="pre">Controller</span></code> class which this particular handler belongs to. For
+example, if the currently processed request is a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request,
+destined for the <code class="docutils literal notranslate"><span class="pre">create()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>,
+<code class="docutils literal notranslate"><span class="pre">getHandler()</span></code> will return a reference to the <code class="docutils literal notranslate"><span class="pre">create()</span></code> method and
+<code class="docutils literal notranslate"><span class="pre">getClass()</span></code> will return a <code class="docutils literal notranslate"><span class="pre">CatsController</span></code> <strong>type</strong> (not instance).</p>
+</div>
+<div class="section" id="call-handler">
+<h2>Call handler<a class="headerlink" href="#call-handler" title="永久链接至标题">¶</a></h2>
+<p>The second argument is a <code class="docutils literal notranslate"><span class="pre">CallHandler</span></code>. The <code class="docutils literal notranslate"><span class="pre">CallHandler</span></code> interface
+implements the <code class="docutils literal notranslate"><span class="pre">handle()</span></code> method, which you can use to invoke the
+route handler method at some point in your interceptor. If you don’t
+call the <code class="docutils literal notranslate"><span class="pre">handle()</span></code> method in your implementation of the
+<code class="docutils literal notranslate"><span class="pre">intercept()</span></code> method, the route handler method won’t be executed at
+all.</p>
+<p>This approach means that the <code class="docutils literal notranslate"><span class="pre">intercept()</span></code> method effectively
+<strong>wraps</strong> the request/response stream. As a result, you may implement
+custom logic <strong>both before and after</strong> the execution of the final route
+handler. It’s clear that you can write code in your <code class="docutils literal notranslate"><span class="pre">intercept()</span></code>
+method that executes <strong>before</strong> calling <code class="docutils literal notranslate"><span class="pre">handle()</span></code>, but how do you
+affect what happens afterward? Because the <code class="docutils literal notranslate"><span class="pre">handle()</span></code> method returns
+an <code class="docutils literal notranslate"><span class="pre">Observable</span></code>, we can use powerful
+<a class="reference external" href="https://github.com/ReactiveX/rxjs">RxJS</a> operators to further
+manipulate the response. Using Aspect Oriented Programming terminology,
+the invocation of the route handler (i.e., calling <code class="docutils literal notranslate"><span class="pre">handle()</span></code>) is
+called a <a class="reference external" href="https://en.wikipedia.org/wiki/Pointcut">Pointcut</a>,
+indicating that it’s the point at which our additional logic is
+inserted.</p>
+<p>Consider, for example, an incoming <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/cats</span></code> request. This request
+is destined for the <code class="docutils literal notranslate"><span class="pre">create()</span></code> handler defined inside the
+<code class="docutils literal notranslate"><span class="pre">CatsController</span></code>. If an interceptor which does not call the
+<code class="docutils literal notranslate"><span class="pre">handle()</span></code> method is called anywhere along the way, the <code class="docutils literal notranslate"><span class="pre">create()</span></code>
+method won’t be executed. Once <code class="docutils literal notranslate"><span class="pre">handle()</span></code> is called (and its
+<code class="docutils literal notranslate"><span class="pre">Observable</span></code> has been returned), the <code class="docutils literal notranslate"><span class="pre">create()</span></code> handler will be
+triggered. And once the response stream is received via the
+<code class="docutils literal notranslate"><span class="pre">Observable</span></code>, additional operations can be performed on the stream,
+and a final result returned to the caller.</p>
+</div>
+<div class="section" id="aspect-interception">
+<h2>截取方面<a class="headerlink" href="#aspect-interception" title="永久链接至标题">¶</a></h2>
+<p>The first use case we’ll look at is to use an interceptor to log user
+interaction (e.g., storing user calls, asynchronously dispatching events
+or calculating a timestamp). We show a simple <code class="docutils literal notranslate"><span class="pre">LoggingInterceptor</span></code>
+below:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(logging.interceptor)
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { tap } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class LoggingInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+    console.log(&#39;Before...&#39;);
+
+    const now = Date.now();
+    return next
+      .handle()
+      .pipe(
+        tap(() =&gt; console.log(`After... ${Date.now() - now}ms`)),
+      );
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { tap } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class LoggingInterceptor {
+  intercept(context, next) {
+    console.log(&#39;Before...&#39;);
+
+    const now = Date.now();
+    return next
+      .handle()
+      .pipe(
+        tap(() =&gt; console.log(`After... ${Date.now() - now}ms`)),
+      );
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">NestInterceptor&lt;T,</span> <span class="pre">R&gt;</span></code> is a generic interface in
+which <code class="docutils literal notranslate"><span class="pre">T</span></code> indicates the type of an <code class="docutils literal notranslate"><span class="pre">Observable&lt;T&gt;</span></code> (supporting
+the response stream), and <code class="docutils literal notranslate"><span class="pre">R</span></code> is the type of the value wrapped by
+<code class="docutils literal notranslate"><span class="pre">Observable&lt;R&gt;</span></code>.</p>
+<p>warning <strong>Notice</strong> Interceptors, like controllers, providers, guards,
+and so on, can <strong>inject dependencies</strong> through their <code class="docutils literal notranslate"><span class="pre">constructor</span></code>.</p>
+</div></blockquote>
+<p>Since <code class="docutils literal notranslate"><span class="pre">handle()</span></code> returns an RxJS <code class="docutils literal notranslate"><span class="pre">Observable</span></code>, we have a wide choice
+of operators we can use to manipulate the stream. In the example above,
+we used the <code class="docutils literal notranslate"><span class="pre">tap()</span></code> operator, which invokes our anonymous logging
+function upon graceful or exceptional termination of the observable
+stream, but doesn’t otherwise interfere with the response cycle.</p>
+</div>
+<div class="section" id="binding-interceptors">
+<h2>绑定拦截器<a class="headerlink" href="#binding-interceptors" title="永久链接至标题">¶</a></h2>
+<p>In order to set up the interceptor, we use the <code class="docutils literal notranslate"><span class="pre">&#64;UseInterceptors()</span></code>
+decorator imported from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package. Like
+<a class="reference external" href="/pipes">pipes</a> and <a class="reference external" href="/guards">guards</a>, interceptors can be
+controller-scoped, method-scoped, or global-scoped.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@UseInterceptors(LoggingInterceptor)
+export class CatsController {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;UseInterceptors()</span></code> decorator is imported from
+the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>Using the above construction, each route handler defined in
+<code class="docutils literal notranslate"><span class="pre">CatsController</span></code> will use <code class="docutils literal notranslate"><span class="pre">LoggingInterceptor</span></code>. When someone calls
+the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/cats</span></code> endpoint, you’ll see the following output in your
+standard output:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">Before</span><span class="p">...</span>
+<span class="nx">After</span><span class="p">...</span> <span class="mi">1</span><span class="nx">ms</span>
+</pre></div>
+</div>
+<p>Note that we passed the <code class="docutils literal notranslate"><span class="pre">LoggingInterceptor</span></code> type (instead of an
+instance), leaving responsibility for instantiation to the framework and
+enabling dependency injection. As with pipes, guards, and exception
+filters, we can also pass an in-place instance:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@UseInterceptors(new LoggingInterceptor())
+export class CatsController {}
+</pre></div>
+</div>
+<p>As mentioned, the construction above attaches the interceptor to every
+handler declared by this controller. If we want to restrict the
+interceptor’s scope to a single method, we simply apply the decorator at
+the <strong>method level</strong>.</p>
+<p>In order to set up a global interceptor, we use the
+<code class="docutils literal notranslate"><span class="pre">useGlobalInterceptors()</span></code> method of the Nest application instance:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">useGlobalInterceptors</span><span class="p">(</span><span class="k">new</span> <span class="nx">LoggingInterceptor</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Global interceptors are used across the whole application, for every
+controller and every route handler. In terms of dependency injection,
+global interceptors registered from outside of any module (with
+<code class="docutils literal notranslate"><span class="pre">useGlobalInterceptors()</span></code>, as in the example above) cannot inject
+dependencies since this is done outside the context of any module. In
+order to solve this issue, you can set up an interceptor <strong>directly from
+any module</strong> using the following construction:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { APP_INTERCEPTOR } from &#39;@nestjs/core&#39;;
+
+@Module({
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: LoggingInterceptor,
+    },
+  ],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> When using this approach to perform dependency
+injection for the interceptor, note that regardless of the module
+where this construction is employed, the interceptor is, in fact,
+global. Where should this be done? Choose the module where the
+interceptor (<code class="docutils literal notranslate"><span class="pre">LoggingInterceptor</span></code> in the example above) is defined.
+Also, <code class="docutils literal notranslate"><span class="pre">useClass</span></code> is not the only way of dealing with custom
+provider registration. Learn more
+<a class="reference external" href="/fundamentals/custom-providers">here</a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="response-mapping">
+<h2>响应映射<a class="headerlink" href="#response-mapping" title="永久链接至标题">¶</a></h2>
+<p>We already know that <code class="docutils literal notranslate"><span class="pre">handle()</span></code> returns an <code class="docutils literal notranslate"><span class="pre">Observable</span></code>. The stream
+contains the value <strong>returned</strong> from the route handler, and thus we can
+easily mutate it using RxJS’s <code class="docutils literal notranslate"><span class="pre">map()</span></code> operator.</p>
+<blockquote>
+<div><p>warning <strong>Warning</strong> The response mapping feature doesn’t work with
+the library-specific response strategy (using the <code class="docutils literal notranslate"><span class="pre">&#64;Res()</span></code> object
+directly is forbidden).</p>
+</div></blockquote>
+<p>Let’s create the <code class="docutils literal notranslate"><span class="pre">TransformInterceptor</span></code>, which will modify each
+response in a trivial way to demonstrate the process. It will use RxJS’s
+<code class="docutils literal notranslate"><span class="pre">map()</span></code> operator to assign the response object to the <code class="docutils literal notranslate"><span class="pre">data</span></code>
+property of a newly created object, returning the new object to the
+client.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(transform.interceptor)
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { map } from &#39;rxjs/operators&#39;;
+
+export interface Response&lt;T&gt; {
+  data: T;
+}
+
+@Injectable()
+export class TransformInterceptor&lt;T&gt; implements NestInterceptor&lt;T, Response&lt;T&gt;&gt; {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;Response&lt;T&gt;&gt; {
+    return next.handle().pipe(map(data =&gt; ({ data })));
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { map } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class TransformInterceptor {
+  intercept(context, next) {
+    return next.handle().pipe(map(data =&gt; ({ data })));
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Nest interceptors work with both synchronous and
+asynchronous <code class="docutils literal notranslate"><span class="pre">intercept()</span></code> methods. You can simply switch the
+method to <code class="docutils literal notranslate"><span class="pre">async</span></code> if necessary.</p>
+</div></blockquote>
+<p>With the above construction, when someone calls the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/cats</span></code>
+endpoint, the response would look like the following (assuming that
+route handler returns an empty array <code class="docutils literal notranslate"><span class="pre">[]</span></code>):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Interceptors have great value in creating re-usable solutions to
+requirements that occur across an entire application. For example,
+imagine we need to transform each occurrence of a <code class="docutils literal notranslate"><span class="pre">null</span></code> value to an
+empty string <code class="docutils literal notranslate"><span class="pre">''</span></code>. We can do it using one line of code and bind the
+interceptor globally so that it will automatically be used by each
+registered handler.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { map } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class ExcludeNullInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+    return next
+      .handle()
+      .pipe(map(value =&gt; value === null ? &#39;&#39; : value ));
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { map } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class ExcludeNullInterceptor {
+  intercept(context, next) {
+    return next
+      .handle()
+      .pipe(map(value =&gt; value === null ? &#39;&#39; : value ));
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="exception-mapping">
+<h2>异常映射<a class="headerlink" href="#exception-mapping" title="永久链接至标题">¶</a></h2>
+<p>Another interesting use-case is to take advantage of RxJS’s
+<code class="docutils literal notranslate"><span class="pre">catchError()</span></code> operator to override thrown exceptions:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(errors.interceptor)
+import {
+  Injectable,
+  NestInterceptor,
+  ExecutionContext,
+  BadGatewayException,
+  CallHandler,
+} from &#39;@nestjs/common&#39;;
+import { Observable, throwError } from &#39;rxjs&#39;;
+import { catchError } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class ErrorsInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+    return next
+      .handle()
+      .pipe(
+        catchError(err =&gt; throwError(new BadGatewayException())),
+      );
+  }
+}
+@@switch
+import { Injectable, BadGatewayException } from &#39;@nestjs/common&#39;;
+import { throwError } from &#39;rxjs&#39;;
+import { catchError } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class ErrorsInterceptor {
+  intercept(context, next) {
+    return next
+      .handle()
+      .pipe(
+        catchError(err =&gt; throwError(new BadGatewayException())),
+      );
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="stream-overriding">
+<h2>流重写<a class="headerlink" href="#stream-overriding" title="永久链接至标题">¶</a></h2>
+<p>There are several reasons why we may sometimes want to completely
+prevent calling the handler and return a different value instead. An
+obvious example is to implement a cache to improve response time. Let’s
+take a look at a simple <strong>cache interceptor</strong> that returns its response
+from a cache. In a realistic example, we’d want to consider other
+factors like TTL, cache invalidation, cache size, etc., but that’s
+beyond the scope of this discussion. Here we’ll provide a basic example
+that demonstrates the main concept.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cache.interceptor)
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from &#39;@nestjs/common&#39;;
+import { Observable, of } from &#39;rxjs&#39;;
+
+@Injectable()
+export class CacheInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+    const isCached = true;
+    if (isCached) {
+      return of([]);
+    }
+    return next.handle();
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { of } from &#39;rxjs&#39;;
+
+@Injectable()
+export class CacheInterceptor {
+  intercept(context, next) {
+    const isCached = true;
+    if (isCached) {
+      return of([]);
+    }
+    return next.handle();
+  }
+}
+</pre></div>
+</div>
+<p>Our <code class="docutils literal notranslate"><span class="pre">CacheInterceptor</span></code> has a hardcoded <code class="docutils literal notranslate"><span class="pre">isCached</span></code> variable and a
+hardcoded response <code class="docutils literal notranslate"><span class="pre">[]</span></code> as well. The key point to note is that we
+return a new stream here, created by the RxJS <code class="docutils literal notranslate"><span class="pre">of()</span></code> operator,
+therefore the route handler <strong>won’t be called</strong> at all. When someone
+calls an endpoint that makes use of <code class="docutils literal notranslate"><span class="pre">CacheInterceptor</span></code>, the response
+(a hardcoded, empty array) will be returned immediately. In order to
+create a generic solution, you can take advantage of <code class="docutils literal notranslate"><span class="pre">Reflector</span></code> and
+create a custom decorator. The <code class="docutils literal notranslate"><span class="pre">Reflector</span></code> is well described in the
+<a class="reference external" href="/guards">guards</a> chapter.</p>
+</div>
+<div class="section" id="more-operators">
+<h2>更多运营商<a class="headerlink" href="#more-operators" title="永久链接至标题">¶</a></h2>
+<p>The possibility of manipulating the stream using RxJS operators gives us
+many capabilities. Let’s consider another common use case. Imagine you
+would like to handle <strong>timeouts</strong> on route requests. When your endpoint
+doesn’t return anything after a period of time, you want to terminate
+with an error response. The following construction enables this:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(timeout.interceptor)
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { timeout } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class TimeoutInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+    return next.handle().pipe(timeout(5000))
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { timeout } from &#39;rxjs/operators&#39;;
+
+@Injectable()
+export class TimeoutInterceptor {
+  intercept(context, next) {
+    return next.handle().pipe(timeout(5000))
+  }
+}
+</pre></div>
+</div>
+<p>5秒后，请求处理将被取消。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="custom-decorators.html" class="btn btn-neutral float-right" title="自定义路线装饰器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="guards.html" class="btn btn-neutral float-left" title="警卫" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

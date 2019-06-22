@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/websockets/adapter.rst:2
+msgid "Adapters"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:4
+msgid "The WebSockets module is platform-agnostic, hence, you can bring your own library (or even a native implementation) by making use of ``WebSocketAdapter`` interface. This interface forces to implement few methods described in the following table:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:21
+msgid "create"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:31
+msgid "Creates a socket instance based on passed arguments"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:49
+msgid "bindClientConnect"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:59
+msgid "Binds the client connection event"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:77
+msgid "bindClientDisconnect"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:87
+msgid "Binds the client disconnection event (optional*)"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:105
+msgid "bindMessageHandlers"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:115
+msgid "Binds the incoming message to the corresponding message handler"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:133
+msgid "close"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:143
+msgid "Terminates a server instance"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:158
+msgid "Extend socket.io"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:160
+msgid "The `socket.io <https://github.com/socketio/socket.io>`__ package is wrapped in an ``IoAdapter`` class. What if you would like to enhance the basic functionality of the adapter? For instance, your technical requirements require a capability to broadcast events across multiple load-balanced instances of your web service. For this, you can extend ``IoAdapter`` and override a single method which responsibility is to instantiate new socket.io servers. But first of all, let’s install the required package."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:173
+msgid "Once the package is installed, we can create a ``RedisIoAdapter`` class."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:190
+msgid "Afterward, simply switch to your newly created Redis adapter."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:198
+msgid "Ws library"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:200
+msgid "Another available adapter is a ``WsAdapter`` which in turn acts like a proxy between the framework and integrate blazing fast and thoroughly tested `ws <https://github.com/websockets/ws>`__ library. This adapter is fully compatible with native browser WebSockets and is far faster than socket.io package. Unluckily, it has significantly fewer functionalities available out-of-the-box. In some cases, you may just don’t necessarily need them though."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:208
+msgid "In order to use ``ws``, we firstly have to install the required package:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:214
+msgid "Once the package is installed, we can switch an adapter:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:223
+msgid "info **Hint** The ``WsAdapter`` is imported from ``@nestjs/platform-ws``."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:227
+msgid "Advanced (custom adapter)"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:229
+msgid "For demonstration purposes, we are going to integrate the `ws <https://github.com/websockets/ws>`__ library manually. As mentioned, the adapter for this library is already created and is exposed from the ``@nestjs/platform-ws`` package as a ``WsAdapter`` class. Here is how the simplified implementation could potentially look like:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:290
+msgid "info **Hint** When you want to take advantage of `ws <https://github.com/websockets/ws>`__ library, use built-in ``WsAdapter`` instead of creating your own one."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:294
+msgid "Then, we can set up a custom adapter using ``useWebSocketAdapter()`` method:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:304
+msgid "Example"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:306
+msgid "A working example that uses ``WsAdapter`` is available `here <https://github.com/nestjs/nest/tree/master/sample/16-gateways-ws>`__."
+msgstr ""
+

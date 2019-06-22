@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/fundamentals/platform-agnosticism.rst:2
+msgid "Platform agnosticism"
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:4
+msgid "The whole point of Nest is staying as a platform-agnostic framework. A platform independence makes possible creating **reusable logical parts**, that people can take advantage of across several different types of applications. A framework’s architecture is focused on being applicable to any kind of server-side solution."
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:11
+msgid "Build once, use everywhere"
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:13
+msgid "An **overview** category is mostly referring to HTTP server (REST APIs). However, all those building blocks can be easily used in different transport layers (``microservices`` or ``websockets`` packages). Furthermore, Nest comes with a dedicated `GraphQL </graphql/quick-start>`__ module. Last but not least, an `application context </application-context>`__ feature helps to create everything that runs on Node.js on top of Nest."
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:21
+msgid "Nest inspires to be a fully-fledged platform, that brings a higher-level of reusability for your applications. Build once, use everywhere!"
+msgstr ""
+

@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>应用背景 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="食谱" href="recipes/index.html" />
+    <link rel="prev" title="Interceptors" href="microservices/interceptors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">逆天</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">应用背景</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>应用背景</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/application-context.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application-context">
+<h1>应用背景<a class="headerlink" href="#application-context" title="永久链接至标题">¶</a></h1>
+<p>There are several ways of mounting the Nest application. You can create
+either a web app, microservice or just a Nest <strong>application context</strong>.
+Nest context is a wrapper around the Nest container, which holds all
+instantiated classes. We can grab an existing instance from within any
+imported module directly using application object. Hence, you can take
+advantage of the Nest framework everywhere, including <strong>CRON</strong> jobs and
+even build a <strong>CLI</strong> on top of it.</p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">¶</a></h2>
+<p>In order to create a Nest application context, we use the following
+syntax:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(ApplicationModule);
+  // application logic...
+}
+bootstrap();
+</pre></div>
+</div>
+<p>Afterward, Nest allows you to pick any instance registered within Nest
+application. Let’s imagine that we have a <code class="docutils literal notranslate"><span class="pre">TasksService</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">TasksModule</span></code>. This class provides a set of usable methods, which we
+want to call from within CRON job.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+const app = await NestFactory.create(ApplicationModule);
+const tasksService = app.get(TasksService);
+</pre></div>
+</div>
+<p>And that’s it. To grab <code class="docutils literal notranslate"><span class="pre">TasksService</span></code> instance we had to use <code class="docutils literal notranslate"><span class="pre">get()</span></code>
+method. We didn’t have to go through entire modules tree, the <code class="docutils literal notranslate"><span class="pre">get()</span></code>
+method act like a <strong>query</strong> that search for an instance in each
+registered module automatically. However, if you prefer a strict context
+checking, you can always switch to it using <code class="docutils literal notranslate"><span class="pre">strict:</span> <span class="pre">true</span></code> options
+object that has to be passed as the second argument of <code class="docutils literal notranslate"><span class="pre">get()</span></code> method.
+Then, you have to go through all modules to pick up a particular
+instance from the selected context.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+const app = await NestFactory.create(ApplicationModule);
+const tasksService = app.select(TasksModule).get(TasksService, { strict: true });
+</pre></div>
+</div>
+<table><tr><td><p>get()</p>
+</td><td><p>Retrieves an instance of either controller or provider (including
+guards, filters, and so on) available in the application context.</p>
+</td></tr><tr><td><p>select()</p>
+</td><td><p>Navigates through the modules graph, for example, to pull out a specific
+instance from the selected module (used together with enabled strict
+mode).</p>
+</td></tr></table><blockquote>
+<div><p>info <strong>Hint</strong> In non-strict mode, the root module is selected by
+default. In order to select any other module, you need to go through
+entire modules tree (step by step).</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recipes/index.html" class="btn btn-neutral float-right" title="食谱" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="microservices/interceptors.html" class="btn btn-neutral float-left" title="Interceptors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MongoDB (Mongoose) &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>MongoDB (Mongoose)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/recipes/mongodb.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mongodb-mongoose">
+<h1>MongoDB (Mongoose)<a class="headerlink" href="#mongodb-mongoose" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p><strong>Warning</strong> In this article, you’ll learn how to create a
+<code class="docutils literal notranslate"><span class="pre">DatabaseModule</span></code> based on the <strong>Mongoose</strong> package from scratch
+using custom components. As a consequence, this solution contains a
+lot of overhead that you can omit using ready to use and available
+out-of-the-box dedicated <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/mongoose</span></code> package. To learn more,
+see <a class="reference external" href="/techniques/mongodb">here</a>.</p>
+</div></blockquote>
+<p><a class="reference external" href="http://mongoosejs.com">Mongoose</a> is the most popular
+<a class="reference external" href="https://www.mongodb.org/">MongoDB</a> object modeling tool.</p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">¶</a></h2>
+<p>To start the adventure with this library we have to install all required
+dependencies:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+$ npm install --save mongoose
+$ npm install --save-dev @types/mongoose
+@@switch
+$ npm install --save mongoose
+</pre></div>
+</div>
+<p>The first step we need to do is to establish the connection with our
+database using <code class="docutils literal notranslate"><span class="pre">connect()</span></code> function. The <code class="docutils literal notranslate"><span class="pre">connect()</span></code> function
+returns a <code class="docutils literal notranslate"><span class="pre">Promise</span></code>, and therefore we have to create an <a class="reference external" href="/fundamentals/async-components">async
+provider</a>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(database.providers)
+import * as mongoose from &#39;mongoose&#39;;
+
+export const databaseProviders = [
+  {
+    provide: &#39;DATABASE_CONNECTION&#39;,
+    useFactory: (): Promise&lt;typeof mongoose&gt; =&gt;
+      mongoose.connect(&#39;mongodb://localhost/nest&#39;),
+  },
+];
+@@switch
+import * as mongoose from &#39;mongoose&#39;;
+
+export const databaseProviders = [
+  {
+    provide: &#39;DATABASE_CONNECTION&#39;,
+    useFactory: () =&gt; mongoose.connect(&#39;mongodb://localhost/nest&#39;),
+  },
+];
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Following best practices, we declared the custom
+provider in the separated file which has a <code class="docutils literal notranslate"><span class="pre">*.providers.ts</span></code> suffix.</p>
+</div></blockquote>
+<p>Then, we need to export these providers to make them <strong>accessible</strong> for
+the rest part of the application.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(database.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { databaseProviders } from &#39;./database.providers&#39;;
+
+@Module({
+  providers: [...databaseProviders],
+  exports: [...databaseProviders],
+})
+export class DatabaseModule {}
+</pre></div>
+</div>
+<p>Now we can inject the <code class="docutils literal notranslate"><span class="pre">Connection</span></code> object using <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code>
+decorator. Each class that would depend on the <code class="docutils literal notranslate"><span class="pre">Connection</span></code> async
+provider will wait until a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> is resolved.</p>
+</div>
+<div class="section" id="model-injection">
+<h2>Model injection<a class="headerlink" href="#model-injection" title="永久链接至标题">¶</a></h2>
+<p>With Mongoose, everything is derived from a
+<a class="reference external" href="http://mongoosejs.com/docs/guide.html">Schema</a>. Let’s define the
+<code class="docutils literal notranslate"><span class="pre">CatSchema</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(schemas/cats.schema)
+import * as mongoose from &#39;mongoose&#39;;
+
+export const CatSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  breed: String,
+});
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">CatsSchema</span></code> belongs to the <code class="docutils literal notranslate"><span class="pre">cats</span></code> directory. This directory
+represents the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code>.</p>
+<p>Now it’s time to create a <strong>Model</strong> provider:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.providers)
+import { Connection } from &#39;mongoose&#39;;
+import { CatSchema } from &#39;./schemas/cat.schema&#39;;
+
+export const catsProviders = [
+  {
+    provide: &#39;CAT_MODEL&#39;,
+    useFactory: (connection: Connection) =&gt; connection.model(&#39;Cat&#39;, CatSchema),
+    inject: [&#39;DATABASE_CONNECTION&#39;],
+  },
+];
+@@switch
+import { CatSchema } from &#39;./schemas/cat.schema&#39;;
+
+export const catsProviders = [
+  {
+    provide: &#39;CAT_MODEL&#39;,
+    useFactory: (connection) =&gt; connection.model(&#39;Cat&#39;, CatSchema),
+    inject: [&#39;DATABASE_CONNECTION&#39;],
+  },
+];
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Notice</strong> In the real-world applications you should avoid <strong>magic
+strings</strong>. Both <code class="docutils literal notranslate"><span class="pre">CAT_MODEL</span></code> and <code class="docutils literal notranslate"><span class="pre">DATABASE_CONNECTION</span></code> should be
+kept in the separated <code class="docutils literal notranslate"><span class="pre">constants.ts</span></code> file.</p>
+</div></blockquote>
+<p>Now we can inject the <code class="docutils literal notranslate"><span class="pre">CAT_MODEL</span></code> to the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> using the
+<code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code> decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.service)
+import { Model } from &#39;mongoose&#39;;
+import { Injectable, Inject } from &#39;@nestjs/common&#39;;
+import { Cat } from &#39;./interfaces/cat.interface&#39;;
+import { CreateCatDto } from &#39;./dto/create-cat.dto&#39;;
+
+@Injectable()
+export class CatsService {
+  constructor(
+    @Inject(&#39;CAT_MODEL&#39;)
+    private readonly catModel: Model&lt;Cat&gt;,
+  ) {}
+
+  async create(createCatDto: CreateCatDto): Promise&lt;Cat&gt; {
+    const createdCat = new this.catModel(createCatDto);
+    return await createdCat.save();
+  }
+
+  async findAll(): Promise&lt;Cat[]&gt; {
+    return await this.catModel.find().exec();
+  }
+}
+@@switch
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+@Dependencies(&#39;CAT_MODEL&#39;)
+export class CatsService {
+  constructor(catModel) {
+    this.catModel = catModel;
+  }
+
+  async create(createCatDto) {
+    const createdCat = new this.catModel(createCatDto);
+    return await createdCat.save();
+  }
+
+  async findAll() {
+    return await this.catModel.find().exec();
+  }
+}
+</pre></div>
+</div>
+<p>In the above example we have used the <code class="docutils literal notranslate"><span class="pre">Cat</span></code> interface. This interface
+extends the <code class="docutils literal notranslate"><span class="pre">Document</span></code> from the mongoose package:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Document</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Cat</span> <span class="kr">extends</span> <span class="nx">Document</span> <span class="p">{</span>
+  <span class="nx">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="nx">readonly</span> <span class="nx">age</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">readonly</span> <span class="nx">breed</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The database connection is <strong>asynchronous</strong>, but Nest makes this process
+completely invisible for the end-user. The <code class="docutils literal notranslate"><span class="pre">CatModel</span></code> class is waiting
+for the db connection, and the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> is delayed until model is
+ready to use. The entire application can start when each class is
+instantiated.</p>
+<p>Here is a final <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+import { catsProviders } from &#39;./cats.providers&#39;;
+import { DatabaseModule } from &#39;../database/database.module&#39;;
+
+@Module({
+  imports: [DatabaseModule],
+  controllers: [CatsController],
+  providers: [
+    CatsService,
+    ...catsProviders,
+  ],
+})
+export class CatsModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Hint</strong> Do not forget to import the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code> into the
+root <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

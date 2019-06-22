@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SQL (Sequelize) &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>SQL (Sequelize)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/recipes/sql-sequelize.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sql-sequelize">
+<h1>SQL (Sequelize)<a class="headerlink" href="#sql-sequelize" title="永久链接至标题">¶</a></h1>
+<div class="section" id="this-chapter-applies-only-to-typescript">
+<h2>This chapter applies only to TypeScript<a class="headerlink" href="#this-chapter-applies-only-to-typescript" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/sequelize/sequelize">Sequelize</a> is a popular
+Object Relational Mapper (ORM) written in a vanilla JavaScript, but
+there is a
+<a class="reference external" href="https://github.com/RobinBuschmann/sequelize-typescript">sequelize-typescript</a>
+TypeScript wrapper which provides a set of decorators and other extras
+for the base sequelize.</p>
+<div class="section" id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">¶</a></h3>
+<p>To start the adventure with this library we have to install the
+following dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save sequelize sequelize-typescript mysql2
+$ npm install --save-dev @types/sequelize
+</pre></div>
+</div>
+<p>The first step we need to do is create a <strong>Sequelize</strong> instance with an
+options object passed into the constructor. Also, we need to add all
+models (the alternative is to use <code class="docutils literal notranslate"><span class="pre">modelPaths</span></code> property) and
+<code class="docutils literal notranslate"><span class="pre">sync()</span></code> our database tables.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(database.providers)
+import { Sequelize } from &#39;sequelize-typescript&#39;;
+import { Cat } from &#39;../cats/cat.entity&#39;;
+
+export const databaseProviders = [
+  {
+    provide: &#39;SEQUELIZE&#39;,
+    useFactory: async () =&gt; {
+      const sequelize = new Sequelize({
+        dialect: &#39;mysql&#39;,
+        host: &#39;localhost&#39;,
+        port: 3306,
+        username: &#39;root&#39;,
+        password: &#39;password&#39;,
+        database: &#39;nest&#39;,
+      });
+      sequelize.addModels([Cat]);
+      await sequelize.sync();
+      return sequelize;
+    },
+  },
+];
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Hint</strong> Following best practices, we declared the custom
+provider in the separated file which has a <code class="docutils literal notranslate"><span class="pre">*.providers.ts</span></code> suffix.</p>
+</div></blockquote>
+<p>Then, we need to export these providers to make them <strong>accessible</strong> for
+the rest part of the application.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">databaseProviders</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./database.providers&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[...</span><span class="nx">databaseProviders</span><span class="p">],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[...</span><span class="nx">databaseProviders</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">DatabaseModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Now we can inject the <code class="docutils literal notranslate"><span class="pre">Sequelize</span></code> object using <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code>
+decorator. Each class that would depend on the <code class="docutils literal notranslate"><span class="pre">Sequelize</span></code> async
+provider will wait until a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> is resolved.</p>
+</div>
+<div class="section" id="model-injection">
+<h3>Model injection<a class="headerlink" href="#model-injection" title="永久链接至标题">¶</a></h3>
+<p>In <a class="reference external" href="https://github.com/sequelize/sequelize">Sequelize</a> the <strong>Model</strong>
+defines a table in the database. Instances of this class represent a
+database row. Firstly, we need at least one entity:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cat.entity)
+import { Table, Column, Model } from &#39;sequelize-typescript&#39;;
+
+@Table
+export class Cat extends Model&lt;Cat&gt; {
+  @Column
+  name: string;
+
+  @Column
+  age: number;
+
+  @Column
+  breed: string;
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Cat</span></code> entity belongs to the <code class="docutils literal notranslate"><span class="pre">cats</span></code> directory. This directory
+represents the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code>. Now it’s time to create a <strong>Repository</strong>
+provider:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.providers)
+import { Cat } from &#39;./cat.entity&#39;;
+
+export const catsProviders = [
+  {
+    provide: &#39;CATS_REPOSITORY&#39;,
+    useValue: Cat,
+  },
+];
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Notice</strong> In the real-world applications you should avoid <strong>magic
+strings</strong>. Both <code class="docutils literal notranslate"><span class="pre">CATS_REPOSITORY</span></code> and <code class="docutils literal notranslate"><span class="pre">SEQUELIZE</span></code> should be kept
+in the separated <code class="docutils literal notranslate"><span class="pre">constants.ts</span></code> file.</p>
+</div></blockquote>
+<p>In Sequelize, we use static methods to manipulate the data, and thus we
+created an <strong>alias</strong> here.</p>
+<p>Now we can inject the <code class="docutils literal notranslate"><span class="pre">CATS_REPOSITORY</span></code> to the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> using
+the <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code> decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.service)
+import { Injectable, Inject } from &#39;@nestjs/common&#39;;
+import { CreateCatDto } from &#39;./dto/create-cat.dto&#39;;
+import { Cat } from &#39;./cat.entity&#39;;
+
+@Injectable()
+export class CatsService {
+  constructor(
+    @Inject(&#39;CATS_REPOSITORY&#39;) private readonly CATS_REPOSITORY: typeof Cat) {}
+
+  async findAll(): Promise&lt;Cat[]&gt; {
+    return await this.CATS_REPOSITORY.findAll&lt;Cat&gt;();
+  }
+}
+</pre></div>
+</div>
+<p>The database connection is <strong>asynchronous</strong>, but Nest makes this process
+completely invisible for the end-user. The <code class="docutils literal notranslate"><span class="pre">CATS_REPOSITORY</span></code> provider
+is waiting for the db connection, and the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> is delayed
+until repository is ready to use. The entire application can start when
+each class is instantiated.</p>
+<p>Here is a final <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+import { catsProviders } from &#39;./cats.providers&#39;;
+import { DatabaseModule } from &#39;../database/database.module&#39;;
+
+@Module({
+  imports: [DatabaseModule],
+  controllers: [CatsController],
+  providers: [
+    CatsService,
+    ...catsProviders,
+  ],
+})
+export class CatsModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Hint</strong> Do not forget to import the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code> into the
+root <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

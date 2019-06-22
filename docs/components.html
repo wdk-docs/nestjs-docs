@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>供应商 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">逆天</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>供应商</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/components.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="providers">
+<h1>供应商<a class="headerlink" href="#providers" title="永久链接至标题">¶</a></h1>
+<p>Providers are a fundamental concept in Nest. Many of the basic Nest
+classes may be treated as a provider – services, repositories,
+factories, helpers, and so on. The main idea of a provider is that it
+can <strong>inject</strong> dependencies; this means objects can create various
+relationships with each other, and the function of “wiring up” instances
+of objects can largely be delegated to the Nest runtime system. A
+provider is simply a class annotated with an <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code>
+decorator.</p>
+<figure></figure><p>In the previous chapter, we built a simple <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>.
+Controllers should handle HTTP requests and delegate more complex tasks
+to <strong>providers</strong>. Providers are plain JavaScript classes with an
+<code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> decorator preceding their class declaration.</p>
+<blockquote>
+<div><p>info <strong>Hint</strong> Since Nest enables the possibility to design and
+organize dependencies in a more OO-way, we strongly recommend
+following the <a class="reference external" href="https://en.wikipedia.org/wiki/SOLID">SOLID</a>
+principles.</p>
+</div></blockquote>
+<div class="section" id="services">
+<h2>Services<a class="headerlink" href="#services" title="永久链接至标题">¶</a></h2>
+<p>Let’s start by creating a simple <code class="docutils literal notranslate"><span class="pre">CatsService</span></code>. This service will be
+responsible for data storage and retrieval, and is designed to be used
+by the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>, so it’s a good candidate to be defined as a
+provider. Thus, we decorate the class with <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.service)
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { Cat } from &#39;./interfaces/cat.interface&#39;;
+
+@Injectable()
+export class CatsService {
+  private readonly cats: Cat[] = [];
+
+  create(cat: Cat) {
+    this.cats.push(cat);
+  }
+
+  findAll(): Cat[] {
+    return this.cats;
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class CatsService {
+  constructor() {
+    this.cats = [];
+  }
+
+  create(cat) {
+    this.cats.push(cat);
+  }
+
+  findAll() {
+    return this.cats;
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> To create a service using the CLI, simply execute the
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nest</span> <span class="pre">g</span> <span class="pre">service</span> <span class="pre">cats</span></code> command.</p>
+</div></blockquote>
+<p>Our <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> is a basic class with one property and two methods.
+The only new feature is that it uses the <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> decorator.
+The <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> decorator attaches metadata, which tells Nest that
+this class is a Nest provider. By the way, this example also uses a
+<code class="docutils literal notranslate"><span class="pre">Cat</span></code> interface, which probably looks something like this:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Cat</span> <span class="p">{</span>
+  <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="nx">age</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">breed</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now that we have a service class to retrieve cats, let’s use it inside
+the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+import { Controller, Get, Post, Body } from &#39;@nestjs/common&#39;;
+import { CreateCatDto } from &#39;./dto/create-cat.dto&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+import { Cat } from &#39;./interfaces/cat.interface&#39;;
+
+@Controller(&#39;cats&#39;)
+export class CatsController {
+  constructor(private readonly catsService: CatsService) {}
+
+  @Post()
+  async create(@Body() createCatDto: CreateCatDto) {
+    this.catsService.create(createCatDto);
+  }
+
+  @Get()
+  async findAll(): Promise&lt;Cat[]&gt; {
+    return this.catsService.findAll();
+  }
+}
+@@switch
+import { Controller, Get, Post, Body, Bind, Dependencies } from &#39;@nestjs/common&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+@Controller(&#39;cats&#39;)
+@Dependencies(CatsService)
+export class CatsController {
+  constructor(catsService) {
+    this.catsService = catsService;
+  }
+
+  @Post()
+  @Bind(Body())
+  async create(createCatDto) {
+    this.catsService.create(createCatDto);
+  }
+
+  @Get()
+  async findAll() {
+    return this.catsService.findAll();
+  }
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> is <strong>injected</strong> through the class constructor.
+Notice the use of the <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">readonly</span></code> syntax. This shorthand allows
+us to both declare and initialize the <code class="docutils literal notranslate"><span class="pre">catsService</span></code> member immediately
+in the same location.</p>
+</div>
+<div class="section" id="dependency-injection">
+<h2>Dependency injection<a class="headerlink" href="#dependency-injection" title="永久链接至标题">¶</a></h2>
+<p>Nest is built around the strong design pattern commonly known as
+<strong>Dependency injection</strong>. We recommend reading a great article about
+this concept in the official
+<a class="reference external" href="https://angular.io/guide/dependency-injection">Angular</a>
+documentation.</p>
+<p>In Nest, thanks to TypeScript capabilities, it’s extremely easy to
+manage dependencies because they are resolved just by type. In the
+example below, Nest will resolve the <code class="docutils literal notranslate"><span class="pre">catsService</span></code> by creating and
+returning an instance of <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> (or, in the normal case of a
+singleton, returning the existing instance if it has already been
+requested elsewhere). This dependency is resolved and passed to your
+controller’s constructor (or assigned to the indicated property):</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">catsService</span>: <span class="kt">CatsService</span><span class="p">)</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scopes">
+<h2>Scopes<a class="headerlink" href="#scopes" title="永久链接至标题">¶</a></h2>
+<p>Providers normally have a lifetime (‘scope’) synchronized with the
+application lifecycle. When the application is bootstrapped, every
+dependency must be resolved, and therefore every provider has to be
+instantiated. Similarly, when the application shuts down, each provider
+will be destroyed. However, there are ways to make your provider
+lifetime <strong>request-scoped</strong> as well. You can read more about these
+techniques <a class="reference external" href="/fundamentals/injection-scopes">here</a>.</p>
+</div>
+<div class="section" id="custom-providers">
+<h2>Custom providers<a class="headerlink" href="#custom-providers" title="永久链接至标题">¶</a></h2>
+<p>Nest has a built-in inversion of control (“IoC”) container that resolves
+relationships between providers. This feature underlies the dependency
+injection feature described above, but is in fact far more powerful than
+what we’ve described so far. The <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> decorator is only the
+tip of the iceberg, and is not the only way to define providers. In
+fact, you can use plain values, classes, and either asynchronous or
+synchronous factories. More examples are provided
+<a class="reference external" href="/fundamentals/dependency-injection">here</a>.</p>
+</div>
+<div class="section" id="optional-providers">
+<h2>Optional providers<a class="headerlink" href="#optional-providers" title="永久链接至标题">¶</a></h2>
+<p>Occasionally, you might have dependencies which do not necessarily have
+to be resolved. For instance, your class may depend on a <strong>configuration
+object</strong>, but if none is passed, the default values should be used. In
+such a case, the dependency becomes optional, because lack of the
+configuration provider wouldn’t lead to errors.</p>
+<p>To indicate a provider is optional , use the <code class="docutils literal notranslate"><span class="pre">&#64;Optional()</span></code> decorator
+in the <code class="docutils literal notranslate"><span class="pre">constructor</span></code> signature.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span><span class="p">,</span> <span class="nx">Optional</span><span class="p">,</span> <span class="nx">Inject</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">HttpService</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="kd">@Optional</span><span class="p">()</span> <span class="kd">@Inject</span><span class="p">(</span><span class="s1">&#39;HTTP_OPTIONS&#39;</span><span class="p">)</span> <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">httpClient</span>: <span class="kt">T</span>
+  <span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note, in the example above we are using a custom provider, which is the
+reason we include the <code class="docutils literal notranslate"><span class="pre">HTTP_OPTIONS</span></code> custom <strong>token</strong>. Previous
+examples showed constructor-based injection indicating a dependency
+through a class in the constructor. Read more about custom providers and
+their associated tokens <a class="reference external" href="/fundamentals/custom-providers">here</a>.</p>
+</div>
+<div class="section" id="property-based-injection">
+<h2>Property-based injection<a class="headerlink" href="#property-based-injection" title="永久链接至标题">¶</a></h2>
+<p>The technique we’ve used so far is called constuctor-based injection, as
+providers are injected via the constructor method. In some very specific
+cases, <strong>property-based injection</strong> might be useful. For instance, if
+your top-level class depends on either one or multiple providers,
+passing them all the way up by calling <code class="docutils literal notranslate"><span class="pre">super()</span></code> in sub-classes from
+the constructor can be very tedious. In order to avoid this, you can use
+the <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code> decorator at the property level.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span><span class="p">,</span> <span class="nx">Inject</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">HttpService</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kd">@Inject</span><span class="p">(</span><span class="s1">&#39;HTTP_OPTIONS&#39;</span><span class="p">)</span>
+  <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">httpClient</span>: <span class="kt">T</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Warning</strong> If your class doesn’t extend another provider,
+you should always prefer using <strong>constructor-based</strong> injection.</p>
+</div></blockquote>
+</div>
+<div class="section" id="provider-registration">
+<h2>Provider registration<a class="headerlink" href="#provider-registration" title="永久链接至标题">¶</a></h2>
+<p>Now that we have defined a provider (<code class="docutils literal notranslate"><span class="pre">CatsService</span></code>), and we have a
+consumer of that service (<code class="docutils literal notranslate"><span class="pre">CatsController</span></code>), we need to register the
+service with Nest so that it can perform the injection. We do this by
+editing our module file (<code class="docutils literal notranslate"><span class="pre">app.module.ts</span></code>) and adding the service to
+the <code class="docutils literal notranslate"><span class="pre">providers</span></code> array of the <code class="docutils literal notranslate"><span class="pre">&#64;Module()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { CatsController } from &#39;./cats/cats.controller&#39;;
+import { CatsService } from &#39;./cats/cats.service&#39;;
+
+@Module({
+  controllers: [CatsController],
+  providers: [CatsService],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<p>Nest will now be able to resolve the dependencies of the
+<code class="docutils literal notranslate"><span class="pre">CatsController</span></code> class.</p>
+<p>This is how our directory structure should look now:</p>
+<div class="file-tree docutils container">
+<div class="item docutils container">
+<p>src</p>
+</div>
+<div class="children docutils container">
+<div class="item docutils container">
+<p>cats</p>
+</div>
+<div class="children docutils container">
+<div class="item docutils container">
+<p>dto</p>
+</div>
+<div class="children docutils container">
+<div class="item docutils container">
+<p>create-cat.dto.ts</p>
+</div>
+</div>
+<div class="item docutils container">
+<p>interfaces</p>
+</div>
+<div class="children docutils container">
+<div class="item docutils container">
+<p>cat.interface.ts</p>
+</div>
+</div>
+<div class="item docutils container">
+<p>cats.service.ts</p>
+</div>
+<div class="item docutils container">
+<p>cats.controller.ts</p>
+</div>
+</div>
+<div class="item docutils container">
+<p>app.module.ts</p>
+</div>
+<div class="item docutils container">
+<p>main.ts</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

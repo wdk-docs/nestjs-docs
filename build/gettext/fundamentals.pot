@@ -1,0 +1,487 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/fundamentals/async-components.rst:2
+msgid "Asynchronous providers"
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:4
+msgid "When the application start has to be delayed until some **asynchronous tasks** will be finished, for example, until the connection with the database will be established, you should consider using asynchronous providers. In order to create an ``async`` provider, we use the ``useFactory``. The factory has to return a ``Promise`` (thus ``async`` functions fit as well)."
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:23
+msgid "info **Hint** Learn more about the custom providers syntax `here </fundamentals/custom-providers>`__."
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:27
+msgid "Injection"
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:29
+msgid "The asynchronous providers can be simply injected to other components by their tokens (in the above case, by the ``ASYNC_CONNECTION`` token). Each class that depends on the asynchronous provider will be instantiated once the async provider is **already resolved**."
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:34
+msgid "The above example is for demonstration purposes. If you’re looking for more detailed one, `see here </recipes/sql-typeorm>`__."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:2
+msgid "Circular dependency"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:4
+msgid "The circular dependency occurs when for example, class A needs class B, and class B needs class A as well. Nest permits creating **circular dependencies** between both providers and modules, but we advise you to avoid whenever it’s possible. Sometimes it’s really difficult to avoid this kind of the relationships, that’s why we have provided some ways to deal with this issue."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:12
+msgid "Forward reference"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:14
+msgid "The **forward reference** allows Nest referring to references which aren’t defined so far. When ``CatsService`` and ``CommonService`` depend on each other, both sides of the relationship need to use ``@Inject()`` and the ``forwardRef()`` utility, otherwise Nest won’t instantiate them because all of the essential metadata won’t be available. Let’s see the following snippet:"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:42
+msgid "info **Hint** The ``forwardRef()`` function is imported from the ``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:45
+msgid "Here’s the first side of the relationship. Now let’s do the same with the ``CommonService``:"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:69
+msgid "warning **Warning** You don’t have guarantee which constructor will be called first."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:72
+msgid "In order to create circular dependencies between modules you have to use the same ``forwardRef()`` utility on both parts of the modules association:"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:85
+msgid "Module reference"
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:87
+msgid "Nest provides the ``ModuleRef`` class that can be simply injected into any component."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:117
+msgid "info **Hint** The ``ModuleRef`` class is imported from the ``@nestjs/core`` package."
+msgstr ""
+
+#: ../../source/fundamentals/circular-dependency.rst:120
+msgid "The module reference has a ``get()`` method which allows retrieving a provider available in the current module. Additionally, you can switch to a non-strict mode, which enables you to pick any existing provider among the entire application."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:2
+msgid "Custom providers"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:4
+msgid "There are a lot of scenarios when you might want to bind something **directly** to the Nest inversion of control container. For example, any constant values, configuration objects created based on the current environment, external libraries, or pre-calculated values that depends on few other defined providers. Moreover, you are able to override default implementations, e.g. use different classes or make use of various test doubles (for testing purposes) when needed."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:12
+msgid "One essential thing that you should always keep in mind is that Nest uses **tokens** to identify dependencies. Usually, the auto-generated tokens are equal to classes. If you want to create a custom provider, you’d need to choose a token. Mostly, the custom tokens are represented by either plain strings or symbols. Following best practices, you should hold those tokens in the separated file, for example, inside ``constants.ts``."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:20
+msgid "Let’s go through the available options."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:23
+msgid "Use value"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:25
+msgid "The ``useValue`` syntax is useful when it comes to either define a constant value, put external library into Nest container, or replace a real implementation with the mock object."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:43
+msgid "In order to inject a custom provider, we use the ``@Inject()`` decorator. This decorator takes a single argument - the token."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:62
+msgid "info **Hint** The ``@Inject()`` decorator is imported from ``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:65
+msgid "When you want to override a default provider’s value, let’s say, you’d like to force Nest to use a mock ``CatsService`` due to testing purposes, you can simply use an existing class as a token."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:85
+msgid "In above example, the ``CatsService`` will be overridden by a passed ``mockCatsService`` mock object. It means, that Nest instead of creating ``CatsService`` instance manually, will treat this provider as resolved already, and use ``mockCatsService`` as its representative value."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:91
+msgid "Use class"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:93
+msgid "The ``useClass`` syntax allows you using different class per chosen factors. For example, we have an abstract (or default) ``ConfigService`` class. Depending on the current environment, Nest should use a different implementation of the configuration service."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:115
+msgid "warning **Notice** Instead of a custom token, we have used the ``ConfigService`` class, and therefore we have overridden the default implementation."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:119
+msgid "In this case, even if any class depends on ``ConfigService``, Nest will inject an instance of the provided class (``DevelopmentConfigService`` or ``ProductionConfigService``) instead."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:124
+msgid "Use factory"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:126
+msgid "The ``useFactory`` is a way of creating providers **dynamically**. The actual provider will be equal to a returned value of the factory function. The factory function can either depend on several different providers or stay completely independent. It means that factory may accept arguments, that Nest will resolve and pass during the instantiation process. Additionally, this function can return value **asynchronously**. It’s explained in more detail here. Use it when your provider has to be dynamically calculated or in case to resolve an asynchronous operation."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:169
+msgid "info **Hint** If your factory needs other providers, you have to pass their tokens inside the ``inject`` array. Nest will pass instances as arguments of the function in the same order."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:174
+msgid "Use existing"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:176
+msgid "The ``useExisting`` allows you creating aliases for existing providers. For example, the token ``AliasedLoggerService`` is an alias for ``LoggerService``."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:197
+msgid "info **Hint** The instance of ``LoggerService`` will be equal to the instance defined by ``AliasedLoggerService`` token."
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:201
+msgid "Export custom provider"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:203
+msgid "In order to export a custom provider, we can either use a token or a whole object. The following example shows a token case:"
+msgstr ""
+
+#: ../../source/fundamentals/dependency-injection.rst:239
+msgid "But you can use a whole object as well:"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:2
+msgid "Lifecycle Events"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:4
+msgid "Every application element has a lifecycle managed by Nest. Nest offers **lifecycle hooks** that provide visibility into key life moments and the ability to act when they occur."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:9
+msgid "Lifecycle sequence"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:11
+msgid "After creating a injectable/controller by calling its constructor, Nest calls the lifecycle hook methods in the following sequence at specific moments:"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:16
+msgid "``OnModuleIn it``"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:16
+msgid "Called once the host module has been initialized"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:19
+msgid "``OnApplicat ionBootstrap ``"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:19
+msgid "Called once the application has fully started and is bootstrapped"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:23
+msgid "``OnModuleDe stroy``"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:23
+msgid "Cleanup just before Nest destroys the host module (``app.close()`` method has been evaluated)"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:26
+msgid "``OnApplicat ionShutdown` `"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:26
+msgid "Responds to the system signals (when application gets shutdown by e.g. \\ ``SIGTERM``)"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:32
+#: ../../source/fundamentals/provider-scopes.rst:131
+msgid "Usage"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:34
+msgid "Each lifecycle hook is represented by interface. Interfaces are technically optional because they do not exist anyway after TypeScript compilation. Nonetheless, it’s a good practice to use them in order to benefit from strong typing and editor tooling."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:60
+msgid "Additionally, both ``OnModuleInit`` and ``OnApplicationBootstrap`` hooks allow you to defer the application initialization process (return a ``Promise`` or mark the method as ``async``)."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:76
+msgid "OnApplicationShutdown"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:78
+msgid "The ``OnApplicationShutdown`` responds to the system signals (when application gets shutdown by e.g. \\ ``SIGTERM``). Use this hook to gracefully shutdown a Nest application. This feature is often used with `Kubernetes <https://kubernetes.io/>`__, `Heroku <https://www.heroku.com/>`__ or similar services."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:84
+msgid "To use this hook you must activate a listener which listens to shutdown signals."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:100
+msgid "If the application receives a signal it will call the ``onApplicationShutdown`` function of your ``Injectable`` with the corresponding signal as first parameter. If your function does return a promise, it will not shutdown your Nest application until the promise is resolved or rejected."
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:2
+msgid "Platform agnosticism"
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:4
+msgid "The whole point of Nest is staying as a platform-agnostic framework. A platform independence makes possible creating **reusable logical parts**, that people can take advantage of across several different types of applications. A framework’s architecture is focused on being applicable to any kind of server-side solution."
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:11
+msgid "Build once, use everywhere"
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:13
+msgid "An **overview** category is mostly referring to HTTP server (REST APIs). However, all those building blocks can be easily used in different transport layers (``microservices`` or ``websockets`` packages). Furthermore, Nest comes with a dedicated `GraphQL </graphql/quick-start>`__ module. Last but not least, an `application context </application-context>`__ feature helps to create everything that runs on Node.js on top of Nest."
+msgstr ""
+
+#: ../../source/fundamentals/platform-agnosticism.rst:21
+msgid "Nest inspires to be a fully-fledged platform, that brings a higher-level of reusability for your applications. Build once, use everywhere!"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:2
+msgid "Injection scopes"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:4
+msgid "For the people coming from different languages, it might be awkward that in Nest almost everything is shared across the incoming requests. We have a connection pool to the database, singleton services with a global state etc. Generally, Node.js doesn’t follow request/response Multi-Threaded Stateless Model in which every request is being processed by the separate thread. Hence, using singleton instances is fully **safe** for our applications."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:12
+msgid "However, there are edge-cases when request-based lifetime of the controller may be an intentional behavior, for instance per-request cache in GraphQL applications, request tracking or multi-tenancy. How can we handle them?"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:18
+msgid "Scopes"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:20
+msgid "Basically, every provider can act as a singleton, be request-scoped, and be switched to the transient mode. See the following table to get familiar with the differences between them."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:36
+msgid "SINGLETON"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:46
+msgid "Each provider can be shared across multiple classes. The provider lifetime is strictly tied to the application lifecycle. Once the application has bootstrapped, all providers are already instantiated. The singleton scope is being used by default."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:67
+msgid "REQUEST"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:77
+msgid "A new instance of the provider is going to be exclusively created for every incoming request and garbage collected after the request processing is completed."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:97
+msgid "TRANSIENT"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:107
+msgid "Transient providers cannot be shared between providers. Every time when another provider asks the Nest container for particular transient provider, the container will create a new, dedicated instance."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:125
+msgid "info **Hint** Using a singleton scope is always the **recommended** way. Sharing providers among requests leads to lower memory consumption and thus to better performance of your application (no requirement to instantiate class every time)."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:133
+msgid "In order to switch to another injection scope, you have to pass an argument to the ``@Injectable()`` decorator:"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:143
+msgid "In the case of `custom providers </fundamentals/custom-providers>`__, you have to set an extra ``scope`` property:"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:154
+msgid "And when it comes to controllers, pass the ``ControllerOptions`` object:"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:166
+msgid "warning **Notice** Gateways should never rely on request-scoped providers because they act as singletons. One gateway encapsulates a real socket inside and cannot be instantiated multiple times."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:171
+msgid "Per-request injection"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:173
+msgid "The request-scoped providers have to be used very carefully. Keep in mind that the scope actually bubbles up in the **injection chain**. If your controller depends on a provider which is request-scoped, it means that your controller is actually request-scoped as well."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:178
+msgid "Imagine the following chain: ``CatsController <- CatsService <- CatsRepository``. If your ``CatsService`` is request-scoped (and the rest are, theoretically, singletons), the ``CatsController`` would become request-scoped too (because request-scoped instance have to be injected into a newly created controller), whereas ``CatsRepository`` would remain as a singleton."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:186
+msgid "**Warning** The circular dependencies in this case will lead to very painful side-effects and thus, you should certainly avoid creating them."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:191
+msgid "Request provider"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:193
+msgid "In the HTTP application, using request-scoped providers gives you a capability to inject an original request reference."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:207
+msgid "However, this functionality doesn’t work with either micro services or GraphQL applications. In `GraphQL </graphql/quick-start>`__ applications, you can inject ``CONTEXT`` instead."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:221
+msgid "Afterwards, you can configure your ``context`` value (in the ``GraphQLModule``) to contain ``request`` as its property."
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:225
+msgid "Performance"
+msgstr ""
+
+#: ../../source/fundamentals/provider-scopes.rst:227
+msgid "Using request-scoped providers will obviously affect application performance. Even though Nest is trying to cache as much metadata as possible, it will still have to create an instance of your class on each request. Hence, it will slow down your average response time and overall benchmarking result. If your provider doesn’t necessarily need to be request-scoped, you should rather stick with the singleton scope."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:2
+msgid "Testing"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:4
+msgid "Automatic tests are an essential part of the fully functional **software product**. That is very critical to cover at least the most sensitive parts of your system. In order to accomplish that goal, we produce a set of different tests like integration tests, unit tests, e2e tests, and so on. And Nest provides a bunch of test utilities that improves testing experience."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:11
+msgid "In general, you can use any **testing framework** that you enjoy working with. We don’t enforce tooling, choose whatever fits your requirements. The main Nest application starter is integrated with `Jest <https://github.com/facebook/jest>`__ framework to reduce an amount of overhead when it comes to start writing your tests, but still, you can get rid of it and use any other tool easily."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:19
+msgid "Installation"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:21
+msgid "Firstly, we need to install the required package:"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:28
+msgid "Unit testing"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:30
+msgid "In the following example, we have two different classes, ``CatsController`` and ``CatsService`` respectively. As mentioned before, `Jest <https://github.com/facebook/jest>`__ is used as a fully-fledged testing framework. That framework behaves like a test-runner and also, provides assert functions and test-doubles utilities that helps with mocking, spying, etc. We have manually enforced ``catsService.findAll()`` method to return ``result`` variable, once it’s called. Thanks to that, we can test whether ``catsController.findAll()`` returns expected result, or not."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:89
+msgid "info **Hint** Keep your test files nearby tested classes. The testing files should have a ``.spec`` or ``.test`` suffix."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:92
+msgid "We didn’t make use of any existing Nest testing utility so far. Since we have manually taken care of instantiating tested classes, above test suite has nothing to do with Nest. This type of testing is called **isolated tests**."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:98
+msgid "Testing utilities"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:100
+msgid "The ``@nestjs/testing`` package gives us a set of utilities that boost the testing process. Let’s rewrite the previous example, but now, using exposed ``Test`` class."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:163
+msgid "``Test`` class has a ``createTestingModule()`` method that takes a module metadata (the same object as this one passed in ``@Module()`` decorator) as an argument. This method creates a ``TestingModule`` instance which in turn provides a few methods, but only one of them is useful when it comes to unit tests - the ``compile()``. This function is **asynchronous**, therefore it has to be awaited. Once module is compiled, you can retrieve any instance using ``get()`` method."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:171
+msgid "In order to mock a real instance, you can override existing provider with a `custom provider </fundamentals/dependency-injection>`__."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:175
+msgid "End-to-end testing"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:177
+msgid "When the application grows, it is hard to manually test a behavior of each API endpoint. The end-to-end tests help us to make sure that everything is working correctly and fits project requirements. To perform e2e tests we use the same configuration as in the case of **unit testing**, but additionally, we take advantage of `supertest <https://github.com/visionmedia/supertest>`__ library that allows simulating HTTP requests."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:262
+msgid "info **Hint** Keep your e2e test files inside the ``e2e`` directory. The testing files should have a ``.e2e-spec`` or ``.e2e-test`` suffix."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:266
+msgid "The ``cats.e2e-spec.ts`` test file contains a single HTTP endpoint test (``/cats``). We have used ``app.getHttpServer()`` method to pick up an underlying HTTP server that runs in the background of Nest application. Notice that ``TestingModule`` instance provides a ``overrideProvider()`` method, and thus we can **override** the existing provider which is declared by the imported module. Also, we can successively override the guards, interceptors, filters, and pipes using corresponding methods, ``overrideGuard()``, ``overrideInterceptor()``, ``overrideFilter()``, and ``overridePipe()`` respectively."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:276
+msgid "The compiled module has several methods well described in the following table:"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:291
+msgid "createNestInstance()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:301
+msgid "Creates a Nest instance based on a given module (returns INestApplication). Notice that it’s necessary to manually initialize the application using init() method."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:321
+msgid "createNestMicroservice()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:331
+msgid "Creates a Nest microservice instance based on a given module (returns INestMicroservice)."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:350
+msgid "get()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:360
+msgid "Retrieves an instance of either controller or provider (including guards, filters, and so on) available in the application context."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:379
+msgid "select()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:389
+msgid "Navigates through the modules graph, for example, to pull out a specific instance from the selected module (used along with enabled strict mode strict: true in get() method)."
+msgstr ""
+

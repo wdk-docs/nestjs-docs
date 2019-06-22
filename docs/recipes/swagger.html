@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OpenAPI (Swagger) &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Prisma" href="prisma.html" />
+    <link rel="prev" title="CQRS" href="cqrs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">食谱</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cqrs.html">CQRS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OpenAPI (Swagger)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#this-chapter-applies-only-to-typescript">This chapter applies only to TypeScript</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bootstrap">Bootstrap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#body-query-path-parameters">Body, query, path parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiple-specifications">Multiple specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-enums">Working with enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-arrays">Working with arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tags">Tags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#responses">Responses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-upload">File upload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decorators">Decorators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="prisma.html">Prisma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terminus.html">健康检查 (Terminus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">食谱</a> &raquo;</li>
+        
+      <li>OpenAPI (Swagger)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/recipes/swagger.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="openapi-swagger">
+<h1>OpenAPI (Swagger)<a class="headerlink" href="#openapi-swagger" title="永久链接至标题">¶</a></h1>
+<div class="section" id="this-chapter-applies-only-to-typescript">
+<h2>This chapter applies only to TypeScript<a class="headerlink" href="#this-chapter-applies-only-to-typescript" title="永久链接至标题">¶</a></h2>
+<p>The <a class="reference external" href="https://swagger.io/specification/">OpenAPI</a> (Swagger)
+specification is a powerful definition format to describe RESTful APIs.
+Nest provides a dedicated <a class="reference external" href="https://github.com/nestjs/swagger">module</a>
+to work with it.</p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h3>
+<p>Firstly, you have to install the required packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save @nestjs/swagger swagger-ui-express
+</pre></div>
+</div>
+<p>If you are using fastify, you have to install <code class="docutils literal notranslate"><span class="pre">fastify-swagger</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">swagger-ui-express</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save @nestjs/swagger fastify-swagger
+</pre></div>
+</div>
+</div>
+<div class="section" id="bootstrap">
+<h3>Bootstrap<a class="headerlink" href="#bootstrap" title="永久链接至标题">¶</a></h3>
+<p>Once the installation process is done, open your bootstrap file (mostly
+<code class="docutils literal notranslate"><span class="pre">main.ts</span></code>) and initialize the Swagger using <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code> class:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/core&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">SwaggerModule</span><span class="p">,</span> <span class="nx">DocumentBuilder</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/swagger&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.module&#39;</span><span class="p">;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">bootstrap() {</span>
+  <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+
+  <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DocumentBuilder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="s1">&#39;Cats example&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setDescription</span><span class="p">(</span><span class="s1">&#39;The cats API description&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setVersion</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addTag</span><span class="p">(</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">();</span>
+  <span class="kr">const</span> <span class="nb">document</span> <span class="o">=</span> <span class="nx">SwaggerModule</span><span class="p">.</span><span class="nx">createDocument</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+  <span class="nx">SwaggerModule</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="s1">&#39;api&#39;</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nb">document</span><span class="p">);</span>
+
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">bootstrap</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">DocumentBuilder</span></code> is a helper class that helps to structure a base
+document for the <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code>. It contains several methods that
+allow setting such properties like title, description, version, and so
+on.</p>
+<p>In order to create a full document (with defined HTTP routes) we use the
+<code class="docutils literal notranslate"><span class="pre">createDocument()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code> class. This method
+takes two arguments, the application instance and the base Swagger
+options respectively.</p>
+<p>The last step is to call <code class="docutils literal notranslate"><span class="pre">setup()</span></code>. It accepts sequentially <strong>(1)</strong>
+path to mount the Swagger, <strong>(2)</strong> application instance, and <strong>(3)</strong> the
+document that describes the Nest application.</p>
+<p>Now you can run the following command to start the HTTP server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm run start
+</pre></div>
+</div>
+<p>While the application is running, open your browser and navigate to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:3000/api</span></code>. You should see a similar page:</p>
+<figure></figure><p>The <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code> automatically reflects all of your endpoints. In
+the background, it’s making use of <code class="docutils literal notranslate"><span class="pre">swagger-ui-express</span></code> and creates a
+live documentation.</p>
+<blockquote>
+<div><p>info <strong>Hint</strong> If you want to download the corresponding Swagger JSON
+file, you can simply call <code class="docutils literal notranslate"><span class="pre">http://localhost:3000/api-json</span></code> in your
+browser (if your Swagger documentation is published under
+<code class="docutils literal notranslate"><span class="pre">http://localhost:3000/api</span></code>).</p>
+</div></blockquote>
+</div>
+<div class="section" id="body-query-path-parameters">
+<h3>Body, query, path parameters<a class="headerlink" href="#body-query-path-parameters" title="永久链接至标题">¶</a></h3>
+<p>During the examination of the defined controllers, the <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code>
+is looking for all used <code class="docutils literal notranslate"><span class="pre">&#64;Body()</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;Query()</span></code>, and <code class="docutils literal notranslate"><span class="pre">&#64;Param()</span></code>
+decorators in the route handlers. Hence, the valid document can be
+created.</p>
+<p>Moreover, the module creates the <strong>models definitions</strong> by taking
+advantage of the reflection. Take a look at the following code:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Post</span><span class="p">()</span>
+<span class="nx">async</span> <span class="nx">create</span><span class="p">(</span><span class="kd">@Body</span><span class="p">()</span> <span class="nx">createCatDto</span>: <span class="kt">CreateCatDto</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">catsService</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">createCatDto</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> To implicitly set the body definition you can use
+the <code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitBody()</span></code> decorator (<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/swagger</span></code> package).</p>
+</div></blockquote>
+<p>Based on the <code class="docutils literal notranslate"><span class="pre">CreateCatDto</span></code>, the module definition will be created:</p>
+<figure></figure><p>As you can see, the definition is empty although the class has a few
+declared properties. In order to make the class properties accessible to
+the <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code>, we have to mark all of them with
+<code class="docutils literal notranslate"><span class="pre">&#64;ApiModelProperty()</span></code> decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ApiModelProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/swagger&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CreateCatDto</span> <span class="p">{</span>
+  <span class="kd">@ApiModelProperty</span><span class="p">()</span>
+  <span class="nx">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+
+  <span class="kd">@ApiModelProperty</span><span class="p">()</span>
+  <span class="nx">readonly</span> <span class="nx">age</span>: <span class="kt">number</span><span class="p">;</span>
+
+  <span class="kd">@ApiModelProperty</span><span class="p">()</span>
+  <span class="nx">readonly</span> <span class="nx">breed</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s open the browser and verify the generated <code class="docutils literal notranslate"><span class="pre">CreateCatDto</span></code> model:</p>
+<figure></figure><p>The <code class="docutils literal notranslate"><span class="pre">&#64;ApiModelProperty()</span></code> decorator accepts options object:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">const</span> <span class="nx">ApiModelProperty</span><span class="o">:</span> <span class="p">(</span><span class="nx">metadata</span><span class="o">?:</span> <span class="p">{</span>
+  <span class="nx">description?</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="nx">required?</span>: <span class="kt">boolean</span><span class="p">;</span>
+  <span class="nx">type?</span>: <span class="kt">any</span><span class="p">;</span>
+  <span class="nx">isArray?</span>: <span class="kt">boolean</span><span class="p">;</span>
+  <span class="nx">collectionFormat?</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="k">default</span><span class="o">?:</span> <span class="nx">any</span><span class="p">;</span>
+  <span class="kr">enum</span><span class="o">?:</span> <span class="nx">SwaggerEnumType</span><span class="p">;</span>
+  <span class="nx">format?</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="nx">multipleOf?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">maximum?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">exclusiveMaximum?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">minimum?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">exclusiveMinimum?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">maxLength?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">minLength?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">pattern?</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="nx">maxItems?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">minItems?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">uniqueItems?</span>: <span class="kt">boolean</span><span class="p">;</span>
+  <span class="nx">maxProperties?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">minProperties?</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">readOnly?</span>: <span class="kt">boolean</span><span class="p">;</span>
+  <span class="nx">xml?</span>: <span class="kt">any</span><span class="p">;</span>
+  <span class="nx">example?</span>: <span class="kt">any</span><span class="p">;</span>
+<span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">PropertyDecorator</span><span class="p">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Hint</strong> There’s an <code class="docutils literal notranslate"><span class="pre">&#64;ApiModelPropertyOptional()</span></code> shortcut
+decorator which helps to avoid continuous typing
+<code class="docutils literal notranslate"><span class="pre">&#64;ApiModelProperty(&amp;#123</span> <span class="pre">required:</span> <span class="pre">false</span> <span class="pre">&amp;#125)</span></code>.</p>
+</div></blockquote>
+<p>Thanks to that we can simply set the <strong>default</strong> value, determine
+whether the property is required or explicitly set the type.</p>
+</div>
+<div class="section" id="multiple-specifications">
+<h3>Multiple specifications<a class="headerlink" href="#multiple-specifications" title="永久链接至标题">¶</a></h3>
+<p>Swagger module also provides a way to support multiple specifications.
+In other words, you can serve different documentations with different
+<code class="docutils literal notranslate"><span class="pre">SwaggerUI</span></code> on different endpoints.</p>
+<p>In order to allow <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code> to support multi-spec, your
+application must be written with modular approach. The
+<code class="docutils literal notranslate"><span class="pre">createDocument()</span></code> method takes in a 3rd argument: <code class="docutils literal notranslate"><span class="pre">extraOptions</span></code>
+which is an object where a property <code class="docutils literal notranslate"><span class="pre">include</span></code> expects an array of
+modules.</p>
+<p>You can setup Multiple Specifications support as shown below:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/core&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">SwaggerModule</span><span class="p">,</span> <span class="nx">DocumentBuilder</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/swagger&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.module&#39;</span><span class="p">;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">bootstrap() {</span>
+  <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * createDocument(application, configurationOptions, extraOptions);</span>
+<span class="cm">   *</span>
+<span class="cm">   * createDocument method takes in an optional 3rd argument &quot;extraOptions&quot;</span>
+<span class="cm">   * which is an object with &quot;include&quot; property where you can pass an Array</span>
+<span class="cm">   * of Modules that you want to include in that Swagger Specification</span>
+<span class="cm">   * E.g: CatsModule and DogsModule will have two separate Swagger Specifications which</span>
+<span class="cm">   * will be exposed on two different SwaggerUI with two different endpoints.</span>
+<span class="cm">   */</span>
+
+  <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DocumentBuilder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="s1">&#39;Cats example&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setDescription</span><span class="p">(</span><span class="s1">&#39;The cats API description&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setVersion</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addTag</span><span class="p">(</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">();</span>
+
+  <span class="kr">const</span> <span class="nx">catDocument</span> <span class="o">=</span> <span class="nx">SwaggerModule</span><span class="p">.</span><span class="nx">createDocument</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">include</span><span class="o">:</span> <span class="p">[</span><span class="nx">CatsModule</span><span class="p">],</span>
+  <span class="p">});</span>
+  <span class="nx">SwaggerModule</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="s1">&#39;api/cats&#39;</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">catDocument</span><span class="p">);</span>
+
+  <span class="kr">const</span> <span class="nx">secondOptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DocumentBuilder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="s1">&#39;Dogs example&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setDescription</span><span class="p">(</span><span class="s1">&#39;The dogs API description&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setVersion</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addTag</span><span class="p">(</span><span class="s1">&#39;dogs&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">();</span>
+
+  <span class="kr">const</span> <span class="nx">dogDocument</span> <span class="o">=</span> <span class="nx">SwaggerModule</span><span class="p">.</span><span class="nx">createDocument</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">secondOptions</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">include</span><span class="o">:</span> <span class="p">[</span><span class="nx">DogsModule</span><span class="p">],</span>
+  <span class="p">});</span>
+  <span class="nx">SwaggerModule</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="s1">&#39;api/dogs&#39;</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">dogDocument</span><span class="p">);</span>
+
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">bootstrap</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Now you can start your server with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm run start
+</pre></div>
+</div>
+<p>Navigate to <code class="docutils literal notranslate"><span class="pre">http://localhost:3000/api/cats</span></code> to see SwaggerUI for your
+cats:</p>
+<figure></figure><p>While <code class="docutils literal notranslate"><span class="pre">http://localhost:3000/api/dogs</span></code> will expose a SwaggerUI for
+your dogs:</p>
+<figure></figure><blockquote>
+<div><p>warning <strong>Notice</strong> You have to construct a <strong>SwaggerOptions</strong> with
+<code class="docutils literal notranslate"><span class="pre">DocumentBuilder</span></code>, run <code class="docutils literal notranslate"><span class="pre">createDocument()</span></code> against newly
+constructed <code class="docutils literal notranslate"><span class="pre">options</span></code> then immediately “serve” it with <code class="docutils literal notranslate"><span class="pre">setup()</span></code>
+before you can start working on a second <strong>SwaggerOptions</strong> for a
+second Swagger Specification. This specific order is to prevent
+Swagger configurations being overridden by different options.</p>
+</div></blockquote>
+</div>
+<div class="section" id="working-with-enums">
+<h3>Working with enums<a class="headerlink" href="#working-with-enums" title="永久链接至标题">¶</a></h3>
+<p>To be able for <code class="docutils literal notranslate"><span class="pre">SwaggerModule</span></code> to identify an <code class="docutils literal notranslate"><span class="pre">Enum</span></code>, we have to
+manually set the <code class="docutils literal notranslate"><span class="pre">enum</span></code> property on <code class="docutils literal notranslate"><span class="pre">&#64;ApiModelProperty</span></code> with an
+array of values.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@ApiModelProperty</span><span class="p">({</span> <span class="kr">enum</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Admin&#39;</span><span class="p">,</span> <span class="s1">&#39;Moderator&#39;</span><span class="p">,</span> <span class="s1">&#39;User&#39;</span><span class="p">]})</span>
+<span class="nx">role</span>: <span class="kt">UserRole</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">UserRole</span></code> enum can be defined as following:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">enum</span> <span class="nx">UserRole</span> <span class="p">{</span>
+  <span class="nx">Admin</span> <span class="o">=</span> <span class="s1">&#39;Admin&#39;</span><span class="p">,</span>
+  <span class="nx">Moderator</span> <span class="o">=</span> <span class="s1">&#39;Moderator&#39;</span><span class="p">,</span>
+  <span class="nx">User</span> <span class="o">=</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Note</strong> The above usage can only be applied to a
+<strong>property</strong> as part of a <strong>model definition.</strong></p>
+</div></blockquote>
+<p>Enums can be used by itself with the <code class="docutils literal notranslate"><span class="pre">&#64;Query()</span></code> parameter decorator in
+combination with the <code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitQuery()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@ApiImplicitQuery</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="kr">enum</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Admin&#39;</span><span class="p">,</span> <span class="s1">&#39;Moderator&#39;</span><span class="p">,</span> <span class="s1">&#39;User&#39;</span><span class="p">]</span> <span class="p">})</span>
+<span class="nx">async</span> <span class="nx">filterByRole</span><span class="p">(</span><span class="kd">@Query</span><span class="p">(</span><span class="s1">&#39;role&#39;</span><span class="p">)</span> <span class="nx">role</span>: <span class="kt">UserRole</span> <span class="o">=</span> <span class="nx">UserRole</span><span class="p">.</span><span class="nx">User</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// role returns: UserRole.Admin, UserRole.Moderator OR UserRole.User</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<figure></figure><blockquote>
+<div><p>warning <strong>Hint</strong> <code class="docutils literal notranslate"><span class="pre">enum</span></code> and <code class="docutils literal notranslate"><span class="pre">isArray</span></code> can also be used in
+combination in <code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitQuery()</span></code></p>
+</div></blockquote>
+<p>With <code class="docutils literal notranslate"><span class="pre">isArray</span></code> set to <strong>true</strong>, the <code class="docutils literal notranslate"><span class="pre">enum</span></code> can be selected as a
+<strong>multi-select</strong>:</p>
+<figure></figure></div>
+<div class="section" id="working-with-arrays">
+<h3>Working with arrays<a class="headerlink" href="#working-with-arrays" title="永久链接至标题">¶</a></h3>
+<p>We have to manually indicate a type when the property is actually an
+array:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@ApiModelProperty</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">})</span>
+<span class="nx">readonly</span> <span class="nx">names</span>: <span class="kt">string</span><span class="p">[];</span>
+</pre></div>
+</div>
+<p>Simply put your type as the first element of an array (as shown above)
+or set an <code class="docutils literal notranslate"><span class="pre">isArray</span></code> property to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</div>
+<div class="section" id="tags">
+<h3>Tags<a class="headerlink" href="#tags" title="永久链接至标题">¶</a></h3>
+<p>At the beginning, we created a <code class="docutils literal notranslate"><span class="pre">cats</span></code> tag (by making use of
+<code class="docutils literal notranslate"><span class="pre">DocumentBuilder</span></code>). In order to attach the controller to the specified
+tag, we need to use <code class="docutils literal notranslate"><span class="pre">&#64;ApiUseTags(...tags)</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@ApiUseTags</span><span class="p">(</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+<span class="kd">@Controller</span><span class="p">(</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsController</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="responses">
+<h3>Responses<a class="headerlink" href="#responses" title="永久链接至标题">¶</a></h3>
+<p>To define a custom HTTP response, we use <code class="docutils literal notranslate"><span class="pre">&#64;ApiResponse()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Post</span><span class="p">()</span>
+<span class="kd">@ApiResponse</span><span class="p">({</span> <span class="nx">status</span>: <span class="kt">201</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;The record has been successfully created.&#39;</span><span class="p">})</span>
+<span class="kd">@ApiResponse</span><span class="p">({</span> <span class="nx">status</span>: <span class="kt">403</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Forbidden.&#39;</span><span class="p">})</span>
+<span class="nx">async</span> <span class="nx">create</span><span class="p">(</span><span class="kd">@Body</span><span class="p">()</span> <span class="nx">createCatDto</span>: <span class="kt">CreateCatDto</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">catsService</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">createCatDto</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Same as common HTTP exceptions defined in Exception Filters section,
+Nest also provides a set of usable <strong>API responses</strong> that inherits from
+the core <code class="docutils literal notranslate"><span class="pre">&#64;ApiResponse</span></code> decorator:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiOkResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiCreatedResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiBadRequestResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiUnauthorizedResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiNotFoundResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiForbiddenResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiMethodNotAllowedResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiNotAcceptableResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiRequestTimeoutResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiConflictResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiGoneResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiPayloadTooLargeResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiUnsupportedMediaTypeResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiUnprocessableEntityResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiInternalServerErrorResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiNotImplementedResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiBadGatewayResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiServiceUnavailableResponse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiGatewayTimeoutResponse()</span></code></p></li>
+</ul>
+<p>In addition to the available HTTP exceptions, Nest provides short-hand
+decorators for: <code class="docutils literal notranslate"><span class="pre">HttpStatus.OK</span></code>, <code class="docutils literal notranslate"><span class="pre">HttpStatus.CREATED</span></code> and
+<code class="docutils literal notranslate"><span class="pre">HttpStatus.METHOD_NOT_ALLOWED</span></code></p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Post</span><span class="p">()</span>
+<span class="kd">@ApiCreatedResponse</span><span class="p">({</span> <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;The record has been successfully created.&#39;</span><span class="p">})</span>
+<span class="kd">@ApiForbiddenResponse</span><span class="p">({</span> <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Forbidden.&#39;</span><span class="p">})</span>
+<span class="nx">async</span> <span class="nx">create</span><span class="p">(</span><span class="kd">@Body</span><span class="p">()</span> <span class="nx">createCatDto</span>: <span class="kt">CreateCatDto</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">catsService</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">createCatDto</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="authentication">
+<h3>Authentication<a class="headerlink" href="#authentication" title="永久链接至标题">¶</a></h3>
+<p>You can enable the bearer authorization using <code class="docutils literal notranslate"><span class="pre">addBearerAuth()</span></code> method
+of the <code class="docutils literal notranslate"><span class="pre">DocumentBuilder</span></code> class. Then to restrict the chosen route or
+entire controller, use <code class="docutils literal notranslate"><span class="pre">&#64;ApiBearerAuth()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@ApiUseTags</span><span class="p">(</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+<span class="kd">@ApiBearerAuth</span><span class="p">()</span>
+<span class="kd">@Controller</span><span class="p">(</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsController</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>That’s how the OpenAPI documentation should look like now:</p>
+<figure></figure></div>
+<div class="section" id="file-upload">
+<h3>File upload<a class="headerlink" href="#file-upload" title="永久链接至标题">¶</a></h3>
+<p>You can enable file upload for a specific method with the
+<code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitFile</span></code> decorator together with <code class="docutils literal notranslate"><span class="pre">&#64;ApiConsumes()</span></code>. Here’s
+a full example using <a class="reference external" href="/techniques/file-upload">File Upload</a>
+technique:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@UseInterceptors</span><span class="p">(</span><span class="nx">FileInterceptor</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">))</span>
+<span class="kd">@ApiConsumes</span><span class="p">(</span><span class="s1">&#39;multipart/form-data&#39;</span><span class="p">)</span>
+<span class="kd">@ApiImplicitFile</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;List of cats&#39;</span> <span class="p">})</span>
+<span class="nx">uploadFile</span><span class="p">(</span><span class="kd">@UploadedFile</span><span class="p">()</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="decorators">
+<h3>Decorators<a class="headerlink" href="#decorators" title="永久链接至标题">¶</a></h3>
+<p>All of the available OpenAPI decorators has an <code class="docutils literal notranslate"><span class="pre">Api</span></code> prefix to be
+clearly distinguishable from the core decorators. Below is a full list
+of the exported decorators with a defined use-level (where might be
+applied).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiOperation()</span></code></p></td>
+<td><p>Method</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiResponse()</span></code></p></td>
+<td><p>Method / Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiProduces()</span></code></p></td>
+<td><p>Method / Controller</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiConsumes()</span></code></p></td>
+<td><p>Method / Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiBearerAuth()</span></code></p></td>
+<td><p>Method / Controller</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiOAuth2Auth()</span></code></p></td>
+<td><p>Method / Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitBody()</span></code></p></td>
+<td><p>Method</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitParam()</span></code></p></td>
+<td><p>Method</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitQuery()</span></code></p></td>
+<td><p>Method</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitHeader()</span></code></p></td>
+<td><p>Method</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiImplicitFile()</span></code></p></td>
+<td><p>Method</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiExcludeEndpoint()</span></code></p></td>
+<td><p>Method</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiUseTags()</span></code></p></td>
+<td><p>Method / Controller</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiModelProperty()</span></code></p></td>
+<td><p>Model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;ApiModelPropertyOptional()</span></code></p></td>
+<td><p>Model</p></td>
+</tr>
+</tbody>
+</table>
+<p>A working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/11-swagger">here</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="prisma.html" class="btn btn-neutral float-right" title="Prisma" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cqrs.html" class="btn btn-neutral float-left" title="CQRS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

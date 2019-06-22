@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/graphql/guards-interceptors.rst:2
+msgid "Tooling"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:4
+msgid "In the GraphQL world, a lot of articles complain how to handle stuff like **authentication**, or **side-effects** of operations. Should we put it inside the business logic? Shall we use a higher-order function to enhance queries and mutations as well, for example, with an authorization logic? Or maybe use `schema directives <https://www.apollographql.com/docs/apollo-server/v2/features/directives.html>`__. There is no single answer anyway."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:12
+msgid "Nest ecosystem is trying to help with this issue using existing features like `guards </guards>`__ and `interceptors </interceptors>`__. The idea behind them is to reduce redundancy and also, supply you with tooling that helps creating well-structured, readable, and consistent applications."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:19
+msgid "Overview"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:21
+msgid "You can use either `guards </guards>`__, `interceptors </interceptors>`__, `filters </exception-filters>`__ or `pipes </pipes>`__ in the same fashion as in the simple REST application. Additionally, you are able to easily create your own decorators, by leveraging `custom decorators </custom-decorators>`__ feature. They all act equivalently. Let’s have a look at the following code:"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:37
+msgid "As you can see, GraphQL works pretty well with both guards and pipes. Thanks to that you can, for instance, move your authentication logic to the guard, or even reuse the same guard class as in the REST application. The interceptors works in the exact same way:"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:51
+msgid "Execution context"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:53
+msgid "However, the ``ExecutionContext`` received by both guards and interceptors is somewhat different. GraphQL resolvers have a separate set of arguments, respectively, ``root``, ``args``, ``context``, and ``info``. Hence, we need to transform given ``ExecutionContext`` to ``GqlExecutionContext``, which is basically very simple."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:72
+msgid "``GqlExecutionContext`` exposes corresponding methods for each argument, like ``getArgs()``, ``getContext()``, and so on. Now we can effortlessly pick up every argument specific for currently processed request."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:77
+msgid "Exception filters"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:79
+msgid "The `exception filters </exception-filters>`__ are compatible with GraphQL applications as well."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:94
+msgid "info **Hint** Both ``GqlExceptionFilter`` and ``GqlArgumentsHost`` are imported from the ``@nestjs/graphql`` package."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:97
+msgid "However, you don’t have an access to the native ``response`` object in this case (as in the HTTP app)."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:101
+msgid "Custom decorators"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:103
+msgid "As mentioned before, the `custom decorators </custom-decorators>`__ feature works like a charm with GraphQL resolvers as well. Though, the factory function takes an array of arguments, instead of a ``request`` object."
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:114
+msgid "And then:"
+msgstr ""
+
+#: ../../source/graphql/guards-interceptors.rst:126
+msgid "info **Hint** In the above example, we have assumed that your ``user`` object is assigned to the context of your GraphQL application."
+msgstr ""
+

@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>内容 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="介绍" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>内容</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/contents.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contents">
+<h1>内容<a class="headerlink" href="#contents" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#philosophy">哲学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#installation">安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#stay-in-touch">保持联系</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#language">语言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#prerequisites">先决条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#setup">建立</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#platform">平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#running-the-application">运行应用程序</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#routing">路由</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#request-object">请求对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#resources">资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#route-wildcards">路由通配符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#status-code">状态代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#headers">头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#route-parameters">路由参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#routes-order">路由顺序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#scopes">领域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#asynchronicity">异步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#request-payloads">请求有效负载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#handling-errors">处理错误</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#full-resource-sample">完整的资源样本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#getting-up-and-running">起床和跑步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html#appendix-library-specific-approach">附录：特定于图书馆的方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#feature-modules">功能模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#shared-modules">共享模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-re-exporting">模块重新导出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#dependency-injection">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#global-modules">全球模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#dynamic-modules">动态模块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#base-exceptions">基本异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#exceptions-hierarchy">异常层次结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#http-exceptions">HTTP异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#exception-filters-1">异常过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#arguments-host">参数主持人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#binding-filters">绑定过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#catch-everything">抓住一切</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html#inheritance">遗产</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#built-in-pipes">内置管道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#validation-use-case">验证用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#object-schema-validation">对象模式验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#binding-pipes">绑管</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#class-validator">类验证器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#transformation-use-case">转型用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#the-built-in-validationpipe">内置的ValidationPipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guards.html#authorization-guard">授权守卫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html#execution-context">执行上下文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html#role-based-authentication">基于角色的身份验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html#binding-guards">绑定警卫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html#reflection">反射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html#putting-it-all-together">把它们放在一起</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#basics">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#execution-context">执行上下文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#call-handler">Call handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#aspect-interception">截取方面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#binding-interceptors">绑定拦截器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#response-mapping">响应映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#exception-mapping">异常映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#stream-overriding">流重写</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html#more-operators">更多运营商</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom-decorators.html#param-decorators">Param装饰者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-decorators.html#passing-data">传递数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-decorators.html#working-with-pipes">使用管道</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/dependency-injection.html">定制供应商</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/circular-dependency.html">循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/provider-scopes.html">注射范围</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/lifecycle-events.html">生命周期事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/platform-agnosticism.html">平台不可知论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/unit-testing.html">测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="techniques/authentication.html">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/mongo.html">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/file-upload.html">上传文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/validation.html">验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/caching.html">高速缓存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/serialization.html">序列化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/logger.html">记录仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/security.html">安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/configuration.html">配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/compression.html">压缩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/http-module.html">HTTP 模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/performance.html">性能 (Fastify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techniques/hot-reload.html">热重新加载 (Webpack)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphql/quick-start.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphql/mutations.html">突变</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphql/subscriptions.html">订阅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphql/scalars.html">标量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="websockets/gateways.html">网关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websockets/exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websockets/pipes.html">管道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websockets/guards.html">守卫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websockets/interceptors.html">拦截器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="microservices/basics.html">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/redis.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/mqtt.html">MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/nats.html">NATS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/rabbitmq.html">RabbitMQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/grpc.html">gRPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/pipes.html">Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/guards.html">守护</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices/interceptors.html">拦截器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application-context.html#getting-started">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes/cqrs.html">CQRS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes/swagger.html">OpenAPI (Swagger)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes/prisma.html">Prisma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes/terminus.html">健康检查 (Terminus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes/documentation.html">文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli/overview.html">概观</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq/http-adapter.html">HTTP 适配器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq/hybrid-application.html">混合应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq/multiple-servers.html">HTTPS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="index.html" class="btn btn-neutral float-right" title="介绍" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

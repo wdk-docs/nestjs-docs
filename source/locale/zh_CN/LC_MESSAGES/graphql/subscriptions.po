@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/graphql/subscriptions.rst:2
+msgid "Subscriptions"
+msgstr "订阅"
+
+#: ../../source/graphql/subscriptions.rst:4
+msgid ""
+"Subscription is just another GraphQL operation type like Query and "
+"Mutation. It allows creating real-time subscriptions over a bidirectional"
+" transport layer, mainly over websockets. Read more about the "
+"subscriptions `here <https://www.apollographql.com/docs/graphql-"
+"subscriptions>`__. Below is a ``commentAdded`` subscription example, "
+"copied directly from the official `Apollo "
+"<https://www.apollographql.com/docs/graphql-subscriptions/subscriptions-"
+"to-schema.html>`__ documentation:"
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:24
+msgid ""
+"warning **Notice** The ``pubsub`` is an instance of ``PubSub`` class. "
+"Read more about it `here <https://www.apollographql.com/docs/graphql-"
+"subscriptions/setup.html>`__."
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:29
+msgid "Schema first"
+msgstr "Schema first"
+
+#: ../../source/graphql/subscriptions.rst:31
+msgid ""
+"To create an equivalent subscription in Nest, we’ll make use of the "
+"``@Subscription()`` decorator."
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:62
+#: ../../source/graphql/subscriptions.rst:158
+msgid ""
+"In order to filter out specific events based on context and arguments, we"
+" can set a ``filter`` property."
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:75
+#: ../../source/graphql/subscriptions.rst:171
+msgid "To mutate the published payload, we can use a ``resolve`` function."
+msgstr "To mutate the published payload, we can use a ``resolve`` function."
+
+#: ../../source/graphql/subscriptions.rst:87
+msgid "Type definitions"
+msgstr "Type definitions"
+
+#: ../../source/graphql/subscriptions.rst:89
+msgid "The last step is to update type definitions file."
+msgstr "The last step is to update type definitions file."
+
+#: ../../source/graphql/subscriptions.rst:119
+msgid ""
+"Well done. We created a single ``commentAdded(repoFullName: String!): "
+"Comment`` subscription. You can find a full sample implementation `here "
+"<https://github.com/nestjs/nest/blob/master/sample/12-graphql-apollo>`__."
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:125
+msgid "Code first"
+msgstr "Code first"
+
+#: ../../source/graphql/subscriptions.rst:127
+msgid ""
+"To create a subscription using the class-first approach, we’ll make use "
+"of the ``@Subscription()`` decorator."
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:183
+msgid "PubSub"
+msgstr "PubSub"
+
+#: ../../source/graphql/subscriptions.rst:185
+msgid ""
+"We used a local ``PubSub`` instance here. Instead, we should define "
+"``PubSub`` as a **provider**, inject it through the constructor (using "
+"``@Inject()`` decorator), and reuse it among the whole application. You "
+"can read more about Nest custom providers `here </fundamentals/custom-"
+"providers>`__."
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:199
+msgid "Module"
+msgstr "Module"
+
+#: ../../source/graphql/subscriptions.rst:201
+msgid ""
+"In order to enable subscriptions, we have to set "
+"``installSubscriptionHandlers`` property to ``true``."
+msgstr ""
+
+#: ../../source/graphql/subscriptions.rst:211
+msgid ""
+"To customize the subscriptions server (e.g. change port), you can use "
+"``subscriptions`` property (read `more "
+"<https://www.apollographql.com/docs/apollo-server/v2/api/apollo-"
+"server.html#constructor-options-lt-ApolloServer-gt>`__)."
+msgstr ""
+

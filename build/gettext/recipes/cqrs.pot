@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/recipes/cqrs.rst:2
+msgid "CQRS"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:4
+msgid "The flow of the simplest `CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__ applications can be described using the following steps:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:8
+msgid "Controllers layer handle **HTTP requests** and delegate tasks to the services."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:10
+msgid "Services layer is a place where the most of the business logic is being done."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:12
+msgid "**Services** uses Repositories / DAOs to change / persist entities."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:13
+msgid "Entities act as containers for the values, with setters and getters."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:15
+msgid "In most cases, there are no reasons to make small and medium-sized applications more complex. However, sometimes it’s not enough and when our needs become **more sophisticated** we want to have scalable systems with straightforward data flow."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:20
+msgid "Hence, we provide a lightweight `CQRS module <https://github.com/nestjs/cqrs>`__ which elements are described below."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:25
+msgid "Commands"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:27
+msgid "In order to make the application easier to understand, each change has to be preceded by **Command**. When any command is dispatched, the application has to react on it. Commands can be dispatched from the services (or directly from the controllers/gateways) and consumed in corresponding **Command Handlers**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:61
+msgid "Here’s a sample service that dispatches ``KillDragonCommand``. Let’s see how the command looks like:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:81
+msgid "The ``CommandBus`` is a commands **stream**. It delegates commands to the equivalent handlers. Each command has to have corresponding **Command Handler**:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:117
+msgid "Now every application state change is a result of the **Command** occurrence. The logic is encapsulated in handlers. If we want, we can simply add logging here or even more, we can persist our commands in the database (e.g. for the diagnostics purposes)."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:123
+msgid "Events"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:125
+msgid "Since we have encapsulated commands in handlers, we prevent interaction between them - the application structure is still not flexible, not **reactive**. The solution is to use **events**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:146
+msgid "Events are asynchronous. They are dispatched either by **models** or directly using ``EventBus``. In order to dispatch events, models have to extend the ``AggregateRoot`` class."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:176
+msgid "The ``apply()`` method does not dispatch events yet because there’s no relationship between model and the ``EventPublisher`` class. How to associate the model and the publisher? We need to use a publisher ``mergeObjectContext()`` method inside our command handler."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:219
+msgid "Now everything works as expected. Notice that we need to ``commit()`` events since they’re not being dispatched immediately. Obviosuly, an object doesn’t have to exist upfront. We can easily merge type context as well:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:229
+msgid "That’s it. A model has an ability to publish events now. And we have to handle them. Additionally, we could emit events manually using ``EventBus``:"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:239
+msgid "info **Hint** The ``EventBus`` is an injectable class."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:241
+msgid "Each event can have multiple **Event Handlers**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:255
+msgid "Now we can move the **write logic** into the event handlers."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:258
+msgid "Sagas"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:260
+msgid "This type of **Event-Driven Architecture** improves application **reactiveness and scalability**. Now, when we have events, we can simply react to them in various ways. The **Sagas** are the last building block from the architecture point of view."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:265
+msgid "The sagas are an incredibly powerful feature. Single saga may listen for 1..\\* events. It can combine, merge, filter […] events streams. `RxJS <https://github.com/ReactiveX/rxjs>`__ library is the place where the magic comes from. In simple words, each saga has to return an Observable which contains a command. This command is dispatched **asynchronously**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:299
+msgid "info **Hint** The ``ofType`` operator is exported from the ``@nestjs/cqrs`` package."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:302
+msgid "We declared a rule - when any hero kills the dragon, the ancient item is being dropped. Afterwards, the ``DropAncientItemCommand`` will be dispatched and processed by the appropriate handler."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:307
+msgid "Queries"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:309
+msgid "The ``CqrsModule`` might be also handy for queries processing. The ``QueryBus`` works the same as ``CommandsBus``. Also, query handlers should implement the ``IQueryHandler`` interface and be marked with the ``@QueryHandler()`` decorator."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:315
+msgid "Setup"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:317
+msgid "The last thing which we have to take care of is to set up the whole mechanism."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:340
+msgid "Summary"
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:342
+msgid "``CommandBus``, ``QueryBus`` and ``EventBus`` are **Observables**. It means that you can easily subscribe to the whole stream and enrich your application with **Event Sourcing**."
+msgstr ""
+
+#: ../../source/recipes/cqrs.rst:346
+msgid "A working example is available `here <https://github.com/kamilmysliwiec/nest-cqrs-example>`__."
+msgstr ""
+

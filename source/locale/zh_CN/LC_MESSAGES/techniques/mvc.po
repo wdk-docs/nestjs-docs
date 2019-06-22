@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/techniques/mvc.rst:2
+msgid "Model-View-Controller"
+msgstr "模型 - 视图 - 控制器"
+
+#: ../../source/techniques/mvc.rst:4
+msgid ""
+"Nest, by default, makes use of `express "
+"<https://github.com/expressjs/express>`__ library under the hood. Hence, "
+"every tutorial about MVC (Model-View-Controller) pattern in express "
+"concerns Nest as well. Firstly, let’s scaffold a simple Nest application "
+"using `CLI <https://github.com/nestjs/nest-cli>`__ tool:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:15
+msgid ""
+"In order to create a MVC app, we have to install a `template engine "
+"<http://expressjs.com/en/guide/using-template-engines.html>`__:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:22
+msgid ""
+"We decided to use a ``hbs`` engine, though, you can use whatever fits "
+"your requirements. Once the installation process is completed, we need to"
+" configure the express instance using following code:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:64
+msgid ""
+"We told `express <https://github.com/expressjs/express>`__ that the "
+"``public`` directory will be used for storing static assets, ``views`` "
+"will contain templates, and a ``hbs`` template engine should be used to "
+"render an HTML output."
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:69
+msgid ""
+"Now, let’s create a ``views`` directory and ``index.hbs`` template inside"
+" it. In the template, we are gonna print a ``message`` passed from the "
+"controller:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:86
+msgid ""
+"Afterward, open the ``app.controller`` file and replace the ``root()`` "
+"method with the following code:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:105
+msgid ""
+"info **Hint** In fact, when Nest detects ``@Res()`` decorator, it injects"
+" library-specific ``response`` object. We can use such an object to "
+"dynamically render the template. Learn more about its abilities `here "
+"<http://expressjs.com/en/api.html>`__."
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:110 ../../source/techniques/mvc.rst:229
+msgid ""
+"While the application is running, open your browser and navigate to "
+"``http://localhost:3000/``. You should see the ``Hello world!`` message."
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:114
+msgid "Dynamic template rendering"
+msgstr "Dynamic template rendering"
+
+#: ../../source/techniques/mvc.rst:116
+msgid ""
+"If the application logic must dynamically decide which template to "
+"render, then we should use ``@Res()`` decorator:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:140 ../../source/techniques/mvc.rst:235
+msgid "Example"
+msgstr "Example"
+
+#: ../../source/techniques/mvc.rst:142
+msgid ""
+"A working example is available `here "
+"<https://github.com/nestjs/nest/tree/master/sample/15-mvc>`__."
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:146
+msgid "Fastify"
+msgstr "Fastify"
+
+#: ../../source/techniques/mvc.rst:148
+msgid ""
+"As mentioned in this `chapter </techniques/http-performance>`__, we are "
+"able to use any compatible HTTP provider together with Nest. One of them "
+"is a `fastify <https://github.com/fastify/fastify>`__ library. In order "
+"to create a MVC application with fastify, we have to install following "
+"packages:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:158
+msgid ""
+"The next steps cover almost the same stuff as in case of express library "
+"(with small differences). Once the installation process is completed, we "
+"need to open ``main.ts`` file and update its contents:"
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:210
+msgid ""
+"The API is different a little but the idea that sits behind those methods"
+" calls remains the same. Also, we have to ensure that the template name "
+"passed into the ``@Render()`` decorators include a file extension."
+msgstr ""
+
+#: ../../source/techniques/mvc.rst:237
+msgid ""
+"A working example is available `here "
+"<https://github.com/nestjs/nest/tree/master/sample/17-mvc-fastify>`__."
+msgstr ""
+

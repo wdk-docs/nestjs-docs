@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/fundamentals/unit-testing.rst:2
+msgid "Testing"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:4
+msgid "Automatic tests are an essential part of the fully functional **software product**. That is very critical to cover at least the most sensitive parts of your system. In order to accomplish that goal, we produce a set of different tests like integration tests, unit tests, e2e tests, and so on. And Nest provides a bunch of test utilities that improves testing experience."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:11
+msgid "In general, you can use any **testing framework** that you enjoy working with. We don’t enforce tooling, choose whatever fits your requirements. The main Nest application starter is integrated with `Jest <https://github.com/facebook/jest>`__ framework to reduce an amount of overhead when it comes to start writing your tests, but still, you can get rid of it and use any other tool easily."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:19
+msgid "Installation"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:21
+msgid "Firstly, we need to install the required package:"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:28
+msgid "Unit testing"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:30
+msgid "In the following example, we have two different classes, ``CatsController`` and ``CatsService`` respectively. As mentioned before, `Jest <https://github.com/facebook/jest>`__ is used as a fully-fledged testing framework. That framework behaves like a test-runner and also, provides assert functions and test-doubles utilities that helps with mocking, spying, etc. We have manually enforced ``catsService.findAll()`` method to return ``result`` variable, once it’s called. Thanks to that, we can test whether ``catsController.findAll()`` returns expected result, or not."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:89
+msgid "info **Hint** Keep your test files nearby tested classes. The testing files should have a ``.spec`` or ``.test`` suffix."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:92
+msgid "We didn’t make use of any existing Nest testing utility so far. Since we have manually taken care of instantiating tested classes, above test suite has nothing to do with Nest. This type of testing is called **isolated tests**."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:98
+msgid "Testing utilities"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:100
+msgid "The ``@nestjs/testing`` package gives us a set of utilities that boost the testing process. Let’s rewrite the previous example, but now, using exposed ``Test`` class."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:163
+msgid "``Test`` class has a ``createTestingModule()`` method that takes a module metadata (the same object as this one passed in ``@Module()`` decorator) as an argument. This method creates a ``TestingModule`` instance which in turn provides a few methods, but only one of them is useful when it comes to unit tests - the ``compile()``. This function is **asynchronous**, therefore it has to be awaited. Once module is compiled, you can retrieve any instance using ``get()`` method."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:171
+msgid "In order to mock a real instance, you can override existing provider with a `custom provider </fundamentals/dependency-injection>`__."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:175
+msgid "End-to-end testing"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:177
+msgid "When the application grows, it is hard to manually test a behavior of each API endpoint. The end-to-end tests help us to make sure that everything is working correctly and fits project requirements. To perform e2e tests we use the same configuration as in the case of **unit testing**, but additionally, we take advantage of `supertest <https://github.com/visionmedia/supertest>`__ library that allows simulating HTTP requests."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:262
+msgid "info **Hint** Keep your e2e test files inside the ``e2e`` directory. The testing files should have a ``.e2e-spec`` or ``.e2e-test`` suffix."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:266
+msgid "The ``cats.e2e-spec.ts`` test file contains a single HTTP endpoint test (``/cats``). We have used ``app.getHttpServer()`` method to pick up an underlying HTTP server that runs in the background of Nest application. Notice that ``TestingModule`` instance provides a ``overrideProvider()`` method, and thus we can **override** the existing provider which is declared by the imported module. Also, we can successively override the guards, interceptors, filters, and pipes using corresponding methods, ``overrideGuard()``, ``overrideInterceptor()``, ``overrideFilter()``, and ``overridePipe()`` respectively."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:276
+msgid "The compiled module has several methods well described in the following table:"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:291
+msgid "createNestInstance()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:301
+msgid "Creates a Nest instance based on a given module (returns INestApplication). Notice that it’s necessary to manually initialize the application using init() method."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:321
+msgid "createNestMicroservice()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:331
+msgid "Creates a Nest microservice instance based on a given module (returns INestMicroservice)."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:350
+msgid "get()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:360
+msgid "Retrieves an instance of either controller or provider (including guards, filters, and so on) available in the application context."
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:379
+msgid "select()"
+msgstr ""
+
+#: ../../source/fundamentals/unit-testing.rst:389
+msgid "Navigates through the modules graph, for example, to pull out a specific instance from the selected module (used along with enabled strict mode strict: true in get() method)."
+msgstr ""
+

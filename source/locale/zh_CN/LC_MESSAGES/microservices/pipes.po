@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/microservices/pipes.rst:2
+msgid "Pipes"
+msgstr "Pipes"
+
+#: ../../source/microservices/pipes.rst:4
+msgid ""
+"There is no difference between microservices **pipes** and the `regular "
+"pipes </pipes>`__. The only thing you should be aware of is that instead "
+"of throwing ``HttpException``, you should use the ``RpcException``."
+msgstr ""
+
+#: ../../source/microservices/pipes.rst:8
+msgid ""
+"info **Hint** The ``RpcException`` class is exposed from "
+"``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/pipes.rst:12
+msgid "Binding pipes"
+msgstr "Binding pipes"
+
+#: ../../source/microservices/pipes.rst:14
+msgid ""
+"Here is an example that makes use of a manually instantiated method-"
+"scoped pipe (class-scoped works too):"
+msgstr ""
+

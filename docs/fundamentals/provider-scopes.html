@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>注射范围 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>注射范围</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/provider-scopes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="injection-scopes">
+<h1>注射范围<a class="headerlink" href="#injection-scopes" title="永久链接至标题">¶</a></h1>
+<p>For the people coming from different languages, it might be awkward that
+in Nest almost everything is shared across the incoming requests. We
+have a connection pool to the database, singleton services with a global
+state etc. Generally, Node.js doesn’t follow request/response
+Multi-Threaded Stateless Model in which every request is being processed
+by the separate thread. Hence, using singleton instances is fully
+<strong>safe</strong> for our applications.</p>
+<p>However, there are edge-cases when request-based lifetime of the
+controller may be an intentional behavior, for instance per-request
+cache in GraphQL applications, request tracking or multi-tenancy. How
+can we handle them?</p>
+<div class="section" id="scopes">
+<h2>Scopes<a class="headerlink" href="#scopes" title="永久链接至标题">¶</a></h2>
+<p>Basically, every provider can act as a singleton, be request-scoped, and
+be switched to the transient mode. See the following table to get
+familiar with the differences between them.</p>
+<table><tr><td><p>SINGLETON</p>
+</td><td><p>Each provider can be shared across multiple classes. The provider
+lifetime is strictly tied to the application lifecycle. Once the
+application has bootstrapped, all providers are already instantiated.
+The singleton scope is being used by default.</p>
+</td></tr><tr><td><p>REQUEST</p>
+</td><td><p>A new instance of the provider is going to be exclusively created for
+every incoming request and garbage collected after the request
+processing is completed.</p>
+</td></tr><tr><td><p>TRANSIENT</p>
+</td><td><p>Transient providers cannot be shared between providers. Every time when
+another provider asks the Nest container for particular transient
+provider, the container will create a new, dedicated instance.</p>
+</td></tr></table><blockquote>
+<div><p>info <strong>Hint</strong> Using a singleton scope is always the <strong>recommended</strong>
+way. Sharing providers among requests leads to lower memory
+consumption and thus to better performance of your application (no
+requirement to instantiate class every time).</p>
+</div></blockquote>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
+<p>In order to switch to another injection scope, you have to pass an
+argument to the <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span><span class="p">,</span> <span class="nx">Scope</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">({</span> <span class="nx">scope</span>: <span class="kt">Scope.REQUEST</span> <span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsService</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>In the case of <a class="reference external" href="/fundamentals/custom-providers">custom providers</a>,
+you have to set an extra <code class="docutils literal notranslate"><span class="pre">scope</span></code> property:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">provide</span><span class="o">:</span> <span class="s1">&#39;CACHE_MANAGER&#39;</span><span class="p">,</span>
+  <span class="nx">useClass</span>: <span class="kt">CacheManager</span><span class="p">,</span>
+  <span class="nx">scope</span>: <span class="kt">Scope.TRANSIENT</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And when it comes to controllers, pass the <code class="docutils literal notranslate"><span class="pre">ControllerOptions</span></code> object:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Controller</span><span class="p">({</span>
+  <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;cats&#39;</span><span class="p">,</span>
+  <span class="nx">scope</span>: <span class="kt">Scope.REQUEST</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsController</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> Gateways should never rely on request-scoped
+providers because they act as singletons. One gateway encapsulates a
+real socket inside and cannot be instantiated multiple times.</p>
+</div></blockquote>
+</div>
+<div class="section" id="per-request-injection">
+<h2>Per-request injection<a class="headerlink" href="#per-request-injection" title="永久链接至标题">¶</a></h2>
+<p>The request-scoped providers have to be used very carefully. Keep in
+mind that the scope actually bubbles up in the <strong>injection chain</strong>. If
+your controller depends on a provider which is request-scoped, it means
+that your controller is actually request-scoped as well.</p>
+<p>Imagine the following chain:
+<code class="docutils literal notranslate"><span class="pre">CatsController</span> <span class="pre">&lt;-</span> <span class="pre">CatsService</span> <span class="pre">&lt;-</span> <span class="pre">CatsRepository</span></code>. If your
+<code class="docutils literal notranslate"><span class="pre">CatsService</span></code> is request-scoped (and the rest are, theoretically,
+singletons), the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code> would become request-scoped too
+(because request-scoped instance have to be injected into a newly
+created controller), whereas <code class="docutils literal notranslate"><span class="pre">CatsRepository</span></code> would remain as a
+singleton.</p>
+<blockquote>
+<div><p><strong>Warning</strong> The circular dependencies in this case will lead to very
+painful side-effects and thus, you should certainly avoid creating
+them.</p>
+</div></blockquote>
+</div>
+<div class="section" id="request-provider">
+<h2>Request provider<a class="headerlink" href="#request-provider" title="永久链接至标题">¶</a></h2>
+<p>In the HTTP application, using request-scoped providers gives you a
+capability to inject an original request reference.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span><span class="p">,</span> <span class="nx">Scope</span><span class="p">,</span> <span class="nx">Inject</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">REQUEST</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/core&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Request</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;express&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">({</span> <span class="nx">scope</span>: <span class="kt">Scope.REQUEST</span> <span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsService</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="kd">@Inject</span><span class="p">(</span><span class="nx">REQUEST</span><span class="p">)</span> <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">request</span>: <span class="kt">Request</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>However, this functionality doesn’t work with either micro services or
+GraphQL applications. In <a class="reference external" href="/graphql/quick-start">GraphQL</a>
+applications, you can inject <code class="docutils literal notranslate"><span class="pre">CONTEXT</span></code> instead.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span><span class="p">,</span> <span class="nx">Scope</span><span class="p">,</span> <span class="nx">Inject</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">CONTEXT</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/graphql&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">({</span> <span class="nx">scope</span>: <span class="kt">Scope.REQUEST</span> <span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsService</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="kd">@Inject</span><span class="p">(</span><span class="nx">CONTEXT</span><span class="p">)</span> <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Afterwards, you can configure your <code class="docutils literal notranslate"><span class="pre">context</span></code> value (in the
+<code class="docutils literal notranslate"><span class="pre">GraphQLModule</span></code>) to contain <code class="docutils literal notranslate"><span class="pre">request</span></code> as its property.</p>
+</div>
+<div class="section" id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="永久链接至标题">¶</a></h2>
+<p>Using request-scoped providers will obviously affect application
+performance. Even though Nest is trying to cache as much metadata as
+possible, it will still have to create an instance of your class on each
+request. Hence, it will slow down your average response time and overall
+benchmarking result. If your provider doesn’t necessarily need to be
+request-scoped, you should rather stick with the singleton scope.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

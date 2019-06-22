@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/techniques/performance.rst:2
+msgid "Performance (Fastify)"
+msgstr ""
+
+#: ../../source/techniques/performance.rst:4
+msgid "Under the hood, Nest makes use of `Express <https://expressjs.com/>`__, but as mentioned already, provides compatibility with a wide range of other libraries, like e.g. \\ `Fastify <https://github.com/fastify/fastify>`__. How does it work? In fact, what Nest needs to use your favorite library, is a compatible adapter, that primarily proxies corresponding handlers to appropriate library-specific methods. Additionally, your library has to provide at least similar request-response cycle management as express."
+msgstr ""
+
+#: ../../source/techniques/performance.rst:13
+msgid "A `Fastify <https://github.com/fastify/fastify>`__ fits here very well because it solves design issues in a similar manner as express does. However, fastify is much **faster**, achieving almost two times better benchmarks results. The question, why Nest still uses express as a default HTTP provider then? Because express is widely-used, well-known, and has a huge set of compatible middleware."
+msgstr ""
+
+#: ../../source/techniques/performance.rst:20
+msgid "But we don’t lock people in a single paradigm. We let them use whatever they need. Fastify is a better choice when you care about really good performance, that’s why we provide a built-in ``FastifyAdapter`` that helps to integrate this library with Nest."
+msgstr ""
+
+#: ../../source/techniques/performance.rst:26
+msgid "Installation"
+msgstr ""
+
+#: ../../source/techniques/performance.rst:28
+msgid "Firstly, we need to install required package:"
+msgstr ""
+
+#: ../../source/techniques/performance.rst:35
+msgid "Adapter"
+msgstr ""
+
+#: ../../source/techniques/performance.rst:37
+msgid "Once fastify platform is installed, we can use the ``FastifyAdapter``."
+msgstr ""
+
+#: ../../source/techniques/performance.rst:57
+msgid "If you’re running your Nest instance inside of a **docker container** you will need to specify the host, like so:"
+msgstr ""
+
+#: ../../source/techniques/performance.rst:64
+msgid "And that’s all. Also, you are able to pass options into fastify constructor through ``FastifyAdapter`` constructor. Keep in mind that now, Nest uses fastify as an **HTTP provider**, meaning, each recipe that relies on express won’t work anymore. You should rather use fastify equivalent packages."
+msgstr ""
+
+#: ../../source/techniques/performance.rst:70
+msgid "A working example is available `here <https://github.com/nestjs/nest/tree/master/sample/10-fastify>`__."
+msgstr ""
+

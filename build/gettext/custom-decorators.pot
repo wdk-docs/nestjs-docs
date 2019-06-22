@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/custom-decorators.rst:2
+msgid "Custom route decorators"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:4
+msgid "Nest is built around a language feature called **decorators**. Decorators are a well-known concept in a lot of commonly used programming languages, but in the JavaScript world, they’re still relatively new. In order to better understand how decorators work, we recommend reading `this article <https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841>`__. Here’s a simple definition:"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:16
+msgid "An ES2016 decorator is an expression which returns a function and can take a target, name and property descriptor as arguments. You apply it by prefixing the decorator with an @ character and placing this at the very top of what you are trying to decorate. Decorators can be defined for either a class or a property."
+msgstr ""
+
+#: ../../source/custom-decorators.rst:27
+msgid "Param decorators"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:29
+msgid "Nest provides a set of useful **param decorators** that you can use together with the HTTP route handlers. Below is a list of the provided decorators and the plain Express (or Fastify) objects they represent"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:49
+msgid "@Request()"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:59
+msgid "req"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:77
+msgid "@Response()"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:87
+msgid "res"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:105
+msgid "@Next()"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:115
+msgid "next"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:133
+msgid "@Session()"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:143
+msgid "req.session"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:161
+msgid "@Param(param?: string)"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:171
+msgid "req.params / req.params[param]"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:189
+msgid "@Body(param?: string)"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:199
+msgid "req.body / req.body[param]"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:217
+msgid "@Query(param?: string)"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:227
+msgid "req.query / req.query[param]"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:245
+msgid "@Headers(param?: string)"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:255
+msgid "req.headers / req.headers[param]"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:273
+msgid "Additionally, you can create your own **custom decorators**. Why is this useful?"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:276
+msgid "In the node.js world, it’s common practice to attach properties to the **request** object. Then you manually extract them in each route handler, using code like the following:"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:284
+msgid "In order to make your code more readable and transparent, you can create a ``@User()`` decorator and reuse it across all of your controllers."
+msgstr ""
+
+#: ../../source/custom-decorators.rst:296
+msgid "Then, you can simply use it wherever it fits your requirements."
+msgstr ""
+
+#: ../../source/custom-decorators.rst:313
+msgid "Passing data"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:315
+msgid "When the behavior of your decorator depends on some conditions, you can use the ``data`` parameter to pass an argument to the decorator’s factory function. One use case for this is a custom decorator that extracts properties from the request object by key. Let’s assume, for example, that our authentication layer validates requests and attaches a user entity to the request object. The user entity for an authenticated request might look like:"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:333
+msgid "Let’s define a decorator that takes a property name as key, and returns the associated value if it exists (or undefined if it doesn’t exist, or if the ``user`` object has not been created)."
+msgstr ""
+
+#: ../../source/custom-decorators.rst:352
+msgid "Here’s how you could then access a particular property via the ``@User()`` decorator in the controller:"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:369
+msgid "You can use this same decorator with different keys to access different properties. If the ``user`` object is deep or complex, this can make for easier and more readable request handler implementations."
+msgstr ""
+
+#: ../../source/custom-decorators.rst:374
+msgid "Working with pipes"
+msgstr ""
+
+#: ../../source/custom-decorators.rst:376
+msgid "Nest treats custom param decorators in the same fashion as the built-in ones (``@Body()``, ``@Param()`` and ``@Query()``). This means that pipes are executed for the custom annotated parameters as well (in our examples, the ``user`` argument). Moreover, you can apply the pipe directly to the custom decorator:"
+msgstr ""
+

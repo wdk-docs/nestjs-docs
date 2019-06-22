@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/migration.rst:2
+msgid "Migration guide"
+msgstr ""
+
+#: ../../source/migration.rst:4
+msgid "This article provides a set of **guidelines** for migrating from 5 to the latest 6 version. Even though we tried to reduce a number of breaking changes, the API had to be modified in a few places in order to simplify its usage."
+msgstr ""
+
+#: ../../source/migration.rst:10
+msgid "Middleware"
+msgstr ""
+
+#: ../../source/migration.rst:12
+msgid "Based on `this <https://github.com/nestjs/nest/issues/1378>`__ topic, the middleware API has been changed in order to make it more straightforward for people who come from different Node libraries and also to reduce the number of confusions that arose from the previous API."
+msgstr ""
+
+#: ../../source/migration.rst:60
+msgid "Consequently, the ``with()`` method of the ``MiddlewareConsumer`` won’t work anymore (is fully useless). If you want to pass options to the middleware class, use a `custom provider </fundamentals/custom-providers>`__ or check more examples `here <https://github.com/nestjs/nest/issues/1378>`__."
+msgstr ""
+
+#: ../../source/migration.rst:67
+msgid "Interceptors"
+msgstr ""
+
+#: ../../source/migration.rst:69
+msgid "The interceptors API has also been simplified. In addition, the change was required due to this `issue <https://github.com/nestjs/nest/issues/1016>`__ which was reported by the community."
+msgstr ""
+
+#: ../../source/migration.rst:121
+msgid "info **Hint** The ``CallHandler`` interface is exported from the ``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/migration.rst:124
+msgid "Please note that your interceptors will now run in the correct order - they will follow a simple request processing pipeline, being executed from global to concrete once the request wants to hit an end-handler, and then (in response pipeline), they will be executed from specific to global ones (if you attach some asynchronous/mapping logic inside them)."
+msgstr ""
+
+#: ../../source/migration.rst:131
+msgid "Platforms"
+msgstr ""
+
+#: ../../source/migration.rst:133
+msgid "So far, even if you were not using an HTTP server, you had to install the ``express`` library internally (as a dependency of the ``@nestjs/core`` package). Since a new major release, Nest will no longer ship these packages upfront. Each platform has been extracted into an individual package, respectively ``@nestjs/platform-express``, ``@nestjs/platform-fastify``, ``@nestjs/platform-ws``, and ``@nestjs/platform-socket.io``. Assuming that your application was using both ``express`` and ``socket.io``, you only have to install the corresponding platforms:"
+msgstr ""
+
+#: ../../source/migration.rst:147
+msgid "Every existing adapter (for example, ``FastifyAdapter``) is now being served from the dedicated platform package."
+msgstr ""
+
+#: ../../source/migration.rst:150
+msgid "``FastifyAdapter`` - ``@nestjs/platform-fastify``"
+msgstr ""
+
+#: ../../source/migration.rst:151
+msgid "``ExpressAdapter`` - ``@nestjs/platform-express``"
+msgstr ""
+
+#: ../../source/migration.rst:152
+msgid "``WsAdapter`` - ``@nestjs/platform-ws``"
+msgstr ""
+
+#: ../../source/migration.rst:153
+msgid "``IoAdapter`` - ``@nestjs/platform-socket.io``"
+msgstr ""
+
+#: ../../source/migration.rst:155
+msgid "Also, ``FileInterceptor`` (and other ``multer`` related interceptors) are now exported from ``@nestjs/platform-express`` (because ``multer`` library is not compatible with ``fastify``)."
+msgstr ""
+
+#: ../../source/migration.rst:160
+msgid "Metadata reflection"
+msgstr ""
+
+#: ../../source/migration.rst:162
+msgid "The ``@ReflectMetadata()`` decorator has been deprecated and will be removed in the next major release (for now it will only display a warning). Use the ``@SetMetadata()`` decorator instead."
+msgstr ""
+
+#: ../../source/migration.rst:167
+msgid "GraphQL"
+msgstr ""
+
+#: ../../source/migration.rst:169
+msgid "The subscriptions mechanism has been changed. Check `this </graphql/subscriptions>`__ chapter for more details. Additionally, ``@nestjs/graphql`` package was heavily relying on ``@ReflectMetadata()`` (which has been deprecated) so it’s required to update the package itself as well."
+msgstr ""
+
+#: ../../source/migration.rst:176
+msgid "Express instance"
+msgstr ""
+
+#: ../../source/migration.rst:178
+msgid "We no longer support passing ``express`` instance as a second argument of the ``NestFactory.create()`` method. In order to pluck underlying HTTP adapter, use techniques described `here </faq/http-adapter>`__. Also, you can pass ``ExpressAdapter`` instead (simply pass your ``express`` instance as a constructor parameter ``new ExpressAdapter(express)``)."
+msgstr ""
+
+#: ../../source/migration.rst:199
+msgid "Deprecations"
+msgstr ""
+
+#: ../../source/migration.rst:201
+msgid "All deprecations (from 4 to 5 version) have been finally removed."
+msgstr ""
+
+#: ../../source/migration.rst:204
+msgid "TypeScript"
+msgstr ""
+
+#: ../../source/migration.rst:206
+msgid "Nest 6 supports the latest major release of `TypeScript <https://www.typescriptlang.org/>`__ (3.0.0)."
+msgstr ""
+

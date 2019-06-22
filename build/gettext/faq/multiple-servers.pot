@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/faq/multiple-servers.rst:2
+msgid "HTTPS"
+msgstr ""
+
+#: ../../source/faq/multiple-servers.rst:4
+msgid "In order to create application that uses HTTPS protocol, we have to pass an options object:"
+msgstr ""
+
+#: ../../source/faq/multiple-servers.rst:18
+msgid "If using Fastify create the ``app`` like this:"
+msgstr ""
+
+#: ../../source/faq/multiple-servers.rst:28
+msgid "Multiple simultaneous servers"
+msgstr ""
+
+#: ../../source/faq/multiple-servers.rst:30
+msgid "A full control over the library instance gives a simple way to create a several multiple simultaneous servers that are listening on different ports."
+msgstr ""
+
+#: ../../source/faq/multiple-servers.rst:53
+msgid "info **Hint** The ``ExpressAdapter`` is imported from the ``@nestjs/platform-express`` package."
+msgstr ""
+

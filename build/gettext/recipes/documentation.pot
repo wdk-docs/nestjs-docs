@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/recipes/documentation.rst:2
+msgid "Documentation"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:4
+msgid "**Compodoc** is a documentation tool for Angular applications. Nest and Angular look very similar, hence, **Compodoc** supports Nest applications as well."
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:9
+msgid "Setup"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:11
+msgid "Setting up Compodoc inside an existing Nest project is very simple. With `npm <https://www.npmjs.com/>`__ installed, just add the dev-dependency with the following command in your OS terminal:"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:20
+msgid "Generation"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:22
+msgid "Following `the official documentation <https://compodoc.app/guides/usage.html>`__, you can generate your documentation using the below command (npm 6 required):"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:30
+msgid "Open your browser and navigate to http://localhost:8080. You should see an initial Nest CLI project:"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:50
+msgid "Contribute"
+msgstr ""
+
+#: ../../source/recipes/documentation.rst:52
+msgid "You can participate and contribute to the Compodoc project `here <https://github.com/compodoc/compodoc>`__."
+msgstr ""
+

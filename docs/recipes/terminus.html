@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>健康检查 (Terminus) &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="文档" href="documentation.html" />
+    <link rel="prev" title="Prisma" href="prisma.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">食谱</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cqrs.html">CQRS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swagger.html">OpenAPI (Swagger)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prisma.html">Prisma</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">健康检查 (Terminus)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-a-health-check">Setting up a health check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dns-health-check">DNS Health Check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-health-indicator">Custom health indicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-logger">Custom Logger</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">食谱</a> &raquo;</li>
+        
+      <li>健康检查 (Terminus)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/recipes/terminus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="health-checks-terminus">
+<h1>健康检查 (Terminus)<a class="headerlink" href="#health-checks-terminus" title="永久链接至标题">¶</a></h1>
+<p>The <a class="reference external" href="https://github.com/godaddy/terminus">terminus</a> offers hooks to
+react on graceful shutdowns and supports you creating proper
+<a class="reference external" href="https://kubernetes.io/">Kubernetes</a> readiness / liveness checks for
+any HTTP application. The module
+[&#64;nestjs/terminus](<a class="reference external" href="https://github.com/nestjs/terminus">https://github.com/nestjs/terminus</a>) integrates the
+terminus library with the Nest ecosystem.</p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">¶</a></h2>
+<p>To get started with <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/terminus</span></code> we need to install the required
+dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save @nestjs/terminus @godaddy/terminus
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-a-health-check">
+<h2>Setting up a health check<a class="headerlink" href="#setting-up-a-health-check" title="永久链接至标题">¶</a></h2>
+<p>A health check represents a summary of <strong>health indicators</strong>. A health
+indicator executes a check of a service, whether it is in a healthy
+state or not. A health check is positive, if all the assigned health
+indicators are up and running. Because a lot of applications will need
+similar health indicators,
+[&#64;nestjs/terminus](<a class="reference external" href="https://github.com/nestjs/terminus">https://github.com/nestjs/terminus</a>) provides a set of
+predefined health indicators, such as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DNSHealthIndicator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TypeOrmHealthIndicator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MongooseHealthIndicator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MicroserviceHealthIndicator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MemoryHealthIndicator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DiskHealthIndicator</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="dns-health-check">
+<h2>DNS Health Check<a class="headerlink" href="#dns-health-check" title="永久链接至标题">¶</a></h2>
+<p>The first step to get started with our first health check, is to setup a
+service which will associate health indicators to an endpoint.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(terminus-options.service)
+import {
+  TerminusEndpoint,
+  TerminusOptionsFactory,
+  DNSHealthIndicator,
+  TerminusModuleOptions
+} from &#39;@nestjs/terminus&#39;;
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class TerminusOptionsService implements TerminusOptionsFactory {
+  constructor(
+    private readonly dns: DNSHealthIndicator,
+  ) {}
+
+  createTerminusOptions(): TerminusModuleOptions {
+    const healthEndpoint: TerminusEndpoint = {
+      url: &#39;/health&#39;,
+      healthIndicators: [
+        async () =&gt; this.dns.pingCheck(&#39;google&#39;, &#39;https://google.com&#39;),
+      ],
+    };
+    return {
+      endpoints: [healthEndpoint],
+    };
+  }
+}
+@@switch
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+import { DNSHealthIndicator } from &#39;@nestjs/terminus&#39;;
+
+@Injectable()
+@Dependencies(DNSHealthIndicator)
+export class TerminusOptionsService {
+  constructor(dns) {
+    this.dns = dns;
+  }
+
+  createTerminusOptions() {
+    const healthEndpoint = {
+      url: &#39;/health&#39;,
+      healthIndicators: [
+        async () =&gt; this.dns.pingCheck(&#39;google&#39;, &#39;https://google.com&#39;),
+      ],
+    };
+    return {
+      endpoints: [healthEndpoint],
+    };
+  }
+}
+</pre></div>
+</div>
+<p>Once we have set up our <code class="docutils literal notranslate"><span class="pre">TerminusOptionsService</span></code>, we can import the
+<code class="docutils literal notranslate"><span class="pre">TerminusModule</span></code> into the root <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">TerminusOptionsService</span></code> will provide the settings, which in turn will
+be used by the <code class="docutils literal notranslate"><span class="pre">TerminusModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { TerminusModule } from &#39;@nestjs/terminus&#39;;
+import { TerminusOptionsService } from &#39;./terminus-options.service&#39;;
+
+@Module({
+  imports: [
+    TerminusModule.forRootAsync({
+      useClass: TerminusOptionsService,
+    }),
+  ],
+})
+export class ApplicationModule { }
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> If done correctly, Nest will expose the defined health
+check(s), which are reachable through a GET request to the defined
+route. For example <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-X</span> <span class="pre">GET</span> <span class="pre">'http://localhost:3000/health'</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="custom-health-indicator">
+<h2>Custom health indicator<a class="headerlink" href="#custom-health-indicator" title="永久链接至标题">¶</a></h2>
+<p>In some cases, the predefined health indicators provided by
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/terminus</span></code> do not cover all of your health check requirements.
+In this case you can set up a custom health indicator according to your
+needs.</p>
+<p>Let’s get started by creating a service which will represent our custom
+health indicator. To get a basic understanding how a health indicator is
+structured, we will create an example <code class="docutils literal notranslate"><span class="pre">DogHealthIndicator</span></code>. This
+health indicator should have the state “up”, if every <code class="docutils literal notranslate"><span class="pre">Dog</span></code> object has
+the type <code class="docutils literal notranslate"><span class="pre">goodboy</span></code>, otherwise it will throw an error, which then the
+health indicator will be seen as “down”.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(dog.health)
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { HealthCheckError } from &#39;@godaddy/terminus&#39;;
+import { HealthIndicatorResult } from &#39;@nestjs/terminus&#39;;
+
+export interface Dog {
+  name: string;
+  type: string;
+}
+
+@Injectable()
+export class DogHealthIndicator extends HealthIndicator {
+  private readonly dogs: Dog[] = [
+    { name: &#39;Fido&#39;, type: &#39;goodboy&#39; },
+    { name: &#39;Rex&#39;, type: &#39;badboy&#39; },
+  ];
+
+  async isHealthy(key: string): Promise&lt;HealthIndicatorResult&gt; {
+    const badboys = this.dogs.filter(dog =&gt; dog.type === &#39;badboy&#39;);
+    const isHealthy = badboys.length === 0;
+    const result = this.getStatus(key, isHealthy, { badboys: badboys.length });
+
+    if (isHealthy) {
+      return result;
+    }
+    throw new HealthCheckError(&#39;Dogcheck failed&#39;, result);
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { HealthCheckError } from &#39;@godaddy/terminus&#39;;
+
+@Injectable()
+export class DogHealthIndicator extends HealthIndicator {
+  dogs = [
+    { name: &#39;Fido&#39;, type: &#39;goodboy&#39; },
+    { name: &#39;Rex&#39;, type: &#39;badboy&#39; },
+  ];
+
+  async isHealthy(key) {
+    const badboys = this.dogs.filter(dog =&gt; dog.type === &#39;badboy&#39;);
+    const isHealthy = badboys.length === 0;
+    const result = this.getStatus(key, isHealthy, { badboys: badboys.length });
+
+    if (isHealthy) {
+      return result;
+    }
+    throw new HealthCheckError(&#39;Dogcheck failed&#39;, result);
+  }
+}
+</pre></div>
+</div>
+<p>The next thing we need to do is registering the health indicator as a
+provider.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { TerminusModule } from &#39;@nestjs/terminus&#39;;
+import { TerminusOptions } from &#39;./terminus-options.service&#39;;
+import { DogHealthIndicator } from &#39;./dog.health.ts&#39;;
+
+@Module({
+  imports: [
+    TerminusModule.forRootAsync({
+      imports: [ApplicationModule],
+      useClass: TerminusOptionsService,
+    }),
+  ],
+  providers: [DogHealthIndicator],
+  exports: [DogHealthIndicator],
+})
+export class ApplicationModule { }
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> In a real world application the <code class="docutils literal notranslate"><span class="pre">DogHealthIndicator</span></code>
+should be provided in a separate module, for example <code class="docutils literal notranslate"><span class="pre">DogsModule</span></code>,
+which then will be imported by the <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>. But keep in
+mind to add the <code class="docutils literal notranslate"><span class="pre">DogHealthIndicator</span></code> to the <code class="docutils literal notranslate"><span class="pre">exports</span></code> array of
+the <code class="docutils literal notranslate"><span class="pre">DogModule</span></code> and add the <code class="docutils literal notranslate"><span class="pre">DogModule</span></code> in <code class="docutils literal notranslate"><span class="pre">imports</span></code> array of
+the <code class="docutils literal notranslate"><span class="pre">TerminusModule.forRootAsync()</span></code> parameter object.</p>
+</div></blockquote>
+<p>The last required thing to do is to add the now available health
+indicator in the required health check endpoint. For that we go back to
+our <code class="docutils literal notranslate"><span class="pre">TerminusOptionsService</span></code> and implement it to the <code class="docutils literal notranslate"><span class="pre">/health</span></code>
+endpoint.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(terminus-options.service)
+import {
+  TerminusEndpoint,
+  TerminusOptionsFactory,
+  DNSHealthIndicator,
+  TerminusModuleOptions
+} from &#39;@nestjs/terminus&#39;;
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class TerminusOptionsService implements TerminusOptionsFactory {
+  constructor(
+    private readonly dogHealthIndicator: DogHealthIndicator
+  ) {}
+
+  createTerminusOptions(): TerminusModuleOptions {
+    const healthEndpoint: TerminusEndpoint = {
+      url: &#39;/health&#39;,
+      healthIndicators: [
+        async () =&gt; this.dogHealthIndicator.isHealthy(&#39;dog&#39;),
+      ],
+    };
+    return {
+      endpoints: [healthEndpoint],
+    };
+  }
+}
+@@switch
+import { DogHealthIndicator } from &#39;../dog/dog.health&#39;;
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+@Dependencies(DogHealthIndicator)
+export class TerminusOptionsService {
+  constructor(dogHealthIndicator) {
+    this.dogHealthIndicator = dogHealthIndicator;
+  }
+
+  createTerminusOptions() {
+    const healthEndpoint = {
+      url: &#39;/health&#39;,
+      healthIndicators: [
+        async () =&gt; this.dogHealthIndicator.isHealthy(&#39;dog&#39;),
+      ],
+    };
+    return {
+      endpoints: [healthEndpoint],
+    };
+  }
+}
+</pre></div>
+</div>
+<p>If everything has been done correctly, the <code class="docutils literal notranslate"><span class="pre">/health</span></code> endpoint should
+respond with a <code class="docutils literal notranslate"><span class="pre">503</span></code> response code and the following data.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;dog&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;badboys&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can view working examples in the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/terminus</span></code>
+<a class="reference external" href="https://github.com/nestjs/terminus/tree/master/sample">repository</a>.</p>
+</div>
+<div class="section" id="custom-logger">
+<h2>Custom Logger<a class="headerlink" href="#custom-logger" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Terminus</span></code> module automatically logs every error during a health
+check request. By default, it will use the globally defined Nest logger.
+You can read more about the global logger in the <a class="reference external" href="https://docs.nestjs.com/techniques/logger">Logger
+chapter</a>. In some cases,
+you want to handle the logs of <code class="docutils literal notranslate"><span class="pre">Terminus</span></code> explicitly. In this case,
+the <code class="docutils literal notranslate"><span class="pre">TerminusModule.forRoot[Async]</span></code> function offers an option for a
+custom logger.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">TerminusModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">logger</span><span class="o">:</span> <span class="p">(</span><span class="nx">message</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">error</span>: <span class="kt">Error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">error</span><span class="p">),</span>
+  <span class="nx">endpoints</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">...</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>The logger can also be disabled by setting the logger option to
+<code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">TerminusModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">logger</span>: <span class="kt">null</span><span class="p">,</span>
+  <span class="nx">endpoints</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">...</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation.html" class="btn btn-neutral float-right" title="文档" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="prisma.html" class="btn btn-neutral float-left" title="Prisma" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

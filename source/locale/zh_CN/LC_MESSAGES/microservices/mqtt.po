@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/microservices/mqtt.rst:2
+msgid "MQTT"
+msgstr "MQTT"
+
+#: ../../source/microservices/mqtt.rst:4
+msgid ""
+"The `MQTT <http://mqtt.org/>`__ is a lightweight messaging protocol, "
+"optimized for high-latency."
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:8
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../source/microservices/mqtt.rst:10
+msgid "Before we start, we have to install required package:"
+msgstr "Before we start, we have to install required package:"
+
+#: ../../source/microservices/mqtt.rst:17
+msgid "Overview"
+msgstr "Overview"
+
+#: ../../source/microservices/mqtt.rst:19
+msgid ""
+"In order to switch to **MQTT** transporter, we need to modify an options "
+"object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:35
+msgid ""
+"info **Hint** ``Transport`` enumerator is imported from the "
+"``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:39
+msgid "Options"
+msgstr "Options"
+
+#: ../../source/microservices/mqtt.rst:41
+msgid ""
+"There are a bunch of available options that determine a transporter "
+"behavior. They are well-described `here "
+"<https://github.com/mqttjs/MQTT.js>`__."
+msgstr ""
+

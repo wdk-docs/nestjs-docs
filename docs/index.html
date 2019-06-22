@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>介绍 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="第一步" href="first-steps.html" />
+    <link rel="prev" title="内容" href="contents.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#philosophy">哲学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stay-in-touch">保持联系</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>介绍</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>介绍<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h1>
+<p>Nest is a framework for building efficient, scalable
+<a class="reference external" href="https://nodejs.org/">Node.js</a> server-side applications. It uses
+progressive JavaScript, is built with and fully supports
+<a class="reference external" href="http://www.typescriptlang.org/">TypeScript</a> (yet still enables
+developers to code in pure JavaScript) and combines elements of OOP
+(Object Oriented Programming), FP (Functional Programming), and FRP
+(Functional Reactive Programming).</p>
+<p>Under the hood, Nest makes use of robust HTTP Server frameworks like
+<a class="reference external" href="https://expressjs.com/">Express</a> (the default) and
+<a class="reference external" href="https://github.com/fastify/fastify">Fastify</a>. Nest provides a level
+of abstraction above these frameworks, but can also expose their APIs
+directly to the developer. This allows for easy use of the myriad
+third-party modules which are available for each platform.</p>
+<div class="section" id="philosophy">
+<h2>哲学<a class="headerlink" href="#philosophy" title="永久链接至标题">¶</a></h2>
+<p>In recent years, thanks to Node.js, JavaScript has become the “lingua
+franca” of the web for both front and backend applications. This has
+given rise to awesome projects like <a class="reference external" href="https://angular.io/">Angular</a>,
+<a class="reference external" href="https://github.com/facebook/react">React</a> and
+<a class="reference external" href="https://github.com/vuejs/vue">Vue</a>, which improve developer
+productivity and enable the construction of fast, testable, and
+extensible frontend applications. However, while plenty of superb
+libraries, helpers, and tools exist for Node (and server-side
+JavaScript), none of them effectively solve the main problem -
+<strong>architecture</strong>.</p>
+<p>Nest提供了一个开箱即用的应用程序架构，允许开发人员和团队创建高度可测试，可扩展，松散耦合且易于维护的应用程序。</p>
+</div>
+<div class="section" id="installation">
+<h2>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>To get started, you can either scaffold the project with the <a class="reference external" href="/cli/overview">Nest
+CLI</a>, or clone a starter project (both will produce
+the same outcome).</p>
+<p>To scaffold the project with the Nest CLI, run the following commands.
+This will create a new project directory, and populate the directory
+with the initial core Nest files and supporting modules, creating a
+conventional base structure for your project. Creating a new project
+with the <strong>Nest CLI</strong> is recommended for first-time users. We’ll
+continue with this approach in <a class="reference external" href="first-steps">First Steps</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i -g @nestjs/cli
+$ nest new project-name
+</pre></div>
+</div>
+<p>Alternatively, to install the TypeScript starter project with <strong>Git</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nestjs/typescript-starter.git project
+$ <span class="nb">cd</span> project
+$ npm install
+$ npm run start
+</pre></div>
+</div>
+<p>To install the JavaScript flavor of the starter project, use
+<code class="docutils literal notranslate"><span class="pre">javascript-starter.git</span></code> in the command sequence above.</p>
+<p>You can also manually create a new project from scratch by installing
+the core and supporting files with <strong>npm</strong> (or <strong>yarn</strong>). In this case,
+of course, you’ll be responsible for creating the project boilerplate
+files yourself.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save @nestjs/core @nestjs/common rxjs reflect-metadata
+</pre></div>
+</div>
+</div>
+<div class="section" id="stay-in-touch">
+<h2>保持联系<a class="headerlink" href="#stay-in-touch" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Website - <a class="reference external" href="https://nestjs.com/">https://nestjs.com</a></p></li>
+<li><p>Twitter - <a class="reference external" href="https://twitter.com/nestframework">&#64;nestframework</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="first-steps.html" class="btn btn-neutral float-right" title="第一步" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contents.html" class="btn btn-neutral float-left" title="内容" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/exception-filters.rst:2
+#: ../../source/exception-filters.rst:153
+msgid "Exception filters"
+msgstr ""
+
+#: ../../source/exception-filters.rst:4
+msgid "Nest comes with a built-in **exceptions layer** which is responsible for processing all unhandled exceptions across an application. When an exception is not handled by your application code, it is caught by this layer, which then automatically sends an appropriate user-friendly response."
+msgstr ""
+
+#: ../../source/exception-filters.rst:18
+msgid "Out of the box, this action is performed by a built-in **global exception filter**, which handles exceptions of type ``HttpException`` (and subclasses of it). When an exception is **unrecognized** (is neither ``HttpException`` nor a class that inherits from ``HttpException``), the client receives the following default JSON response:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:33
+msgid "Base exceptions"
+msgstr ""
+
+#: ../../source/exception-filters.rst:35
+msgid "The built-in ``HttpException`` class is exposed from the ``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/exception-filters.rst:38
+msgid "In the ``CatsController``, we have a ``findAll()`` method (a ``GET`` route handler). Let’s assume that this route handler throws an exception for some reason. To demonstrate this, we’ll hard-code it as follows:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:52
+msgid "info **Hint** We used the ``HttpStatus`` here. This is a helper enum imported from the ``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/exception-filters.rst:55
+msgid "When the client calls this endpoint, the response looks like this:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:64
+msgid "The ``HttpException`` constructor takes two arguments which determine the JSON response body and the `HTTP response status code <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>`__ respectively. The first argument is of type ``string | object``. Pass a string to customize the error message (as shown in the ``GET`` handler of the ``CatsController`` above). Pass a plain literal ``object`` with properties ``status`` (the status code to appear in the JSON response body) and ``error`` (the message string) in the first parameter, instead of a ``string``, to completely override the response body. The second constructor argument should be the actual HTTP response status code. Here’s an example overriding the entire response body:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:87
+msgid "Using the above, this is how the response would look:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:97
+msgid "Exceptions hierarchy"
+msgstr ""
+
+#: ../../source/exception-filters.rst:99
+msgid "It is good practice to create your own **exceptions hierarchy**. This means that your custom HTTP exceptions should inherit from the base ``HttpException`` class. As a result, Nest will recognize your exceptions, and automatically take care of the error responses. Let’s implement such a custom exception:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:114
+msgid "Since ``ForbiddenException`` extends the base ``HttpException``, it will work seamlessly with the built-in exception handler, and therefore we can use it inside the ``findAll()`` method."
+msgstr ""
+
+#: ../../source/exception-filters.rst:127
+msgid "HTTP exceptions"
+msgstr ""
+
+#: ../../source/exception-filters.rst:129
+msgid "In order to reduce the need to write boilerplate code, Nest provides a set of usable exceptions that inherit from the core ``HttpException``. All of them are exposed from the ``@nestjs/common`` package:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:133
+msgid "``BadRequestException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:134
+msgid "``UnauthorizedException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:135
+msgid "``NotFoundException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:136
+msgid "``ForbiddenException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:137
+msgid "``NotAcceptableException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:138
+msgid "``RequestTimeoutException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:139
+msgid "``ConflictException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:140
+msgid "``GoneException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:141
+msgid "``PayloadTooLargeException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:142
+msgid "``UnsupportedMediaTypeException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:143
+msgid "``UnprocessableEntityException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:144
+msgid "``InternalServerErrorException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:145
+msgid "``NotImplementedException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:146
+msgid "``BadGatewayException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:147
+msgid "``ServiceUnavailableException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:148
+msgid "``GatewayTimeoutException``"
+msgstr ""
+
+#: ../../source/exception-filters.rst:155
+msgid "While the base (built-in) exception filter can automatically handle many cases for you, you may want **full control** over the exceptions layer. For example, you may want to add logging or use a different JSON schema based on some dynamic factors. **Exception filters** are designed for exactly this purpose."
+msgstr ""
+
+#: ../../source/exception-filters.rst:161
+msgid "Let’s create an exception filter which is responsible for catching exceptions that are an instance of the ``HttpException`` class, and implementing custom response logic for them."
+msgstr ""
+
+#: ../../source/exception-filters.rst:211
+msgid "info **Hint** All exception filters should implement the generic ``ExceptionFilter<T>`` interface. This requires you to provide the ``catch(exception: T, host: ArgumentsHost)`` method with its indicated signature. ``T`` indicates the type of the exception."
+msgstr ""
+
+#: ../../source/exception-filters.rst:216
+msgid "The ``@Catch(HttpException)`` decorator binds the required metadata to the exception filter, telling Nest that this particular filter is looking for exceptions of type ``HttpException`` and nothing else. The ``@Catch()`` decorator may take a single parameter, or a comma-separated list. This lets you set up the filter for several types of exceptions at once."
+msgstr ""
+
+#: ../../source/exception-filters.rst:224
+msgid "Arguments host"
+msgstr ""
+
+#: ../../source/exception-filters.rst:226
+msgid "Let’s look at the parameters of the ``catch()`` method. The ``exception`` parameter is the exception object currently being processed. The ``host`` parameter is an ``ArgumentsHost`` object. ``ArgumentsHost`` is a wrapper around the arguments that have been passed to the **original** request handler (where the exception originated). It contains a specific arguments array based on the type of the application (and platform which is being used). Here’s what an ``ArgumentsHost`` looks like:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:245
+msgid "The ``ArgumentsHost`` supplies us with a set of convenience methods that help to pick the correct arguments from the underlying array, across different application contexts. In other words, ``ArgumentsHost`` is nothing more than an **array of arguments**. For example, when the filter is used within the HTTP application context, ``ArgumentsHost`` will contain a ``[request, response]`` array. However, when the current context is a web sockets application, it will contain a ``[client, data]`` array, as appropriate to that context. This approach enables you to access any argument that would eventually be passed to the original handler in your custom ``catch()`` method."
+msgstr ""
+
+#: ../../source/exception-filters.rst:257
+msgid "Binding filters"
+msgstr ""
+
+#: ../../source/exception-filters.rst:259
+msgid "Let’s tie our new ``HttpExceptionFilter`` to the ``CatsController``\\ ’s ``create()`` method."
+msgstr ""
+
+#: ../../source/exception-filters.rst:280
+msgid "info **Hint** The ``@UseFilters()`` decorator is imported from the ``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/exception-filters.rst:283
+msgid "We have used the ``@UseFilters()`` decorator here. Similar to the ``@Catch()`` decorator, it can take a single filter instance, or a comma-separated list of filter instances. Here, we created the instance of ``HttpExceptionFilter`` in place. Alternatively, you may pass the class (instead of an instance), leaving responsibility for instantiation to the framework, and enabling **dependency injection**."
+msgstr ""
+
+#: ../../source/exception-filters.rst:308
+msgid "info **Hint** Prefer applying filters by using classes instead of instances when possible. It reduces **memory usage** since Nest can easily reuse instances of the same class across your entire module."
+msgstr ""
+
+#: ../../source/exception-filters.rst:312
+msgid "In the example above, the ``HttpExceptionFilter`` is applied only to the single ``create()`` route handler, making it method-scoped. Exception filters can be scoped at different levels: method-scoped, controller-scoped, or global-scoped. For example, to set up a filter as controller-scoped, you would do the following:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:324
+msgid "This construction sets up the ``HttpExceptionFilter`` for every route handler defined inside the ``CatsController``."
+msgstr ""
+
+#: ../../source/exception-filters.rst:327
+msgid "To create a global-scoped filter, you would do the following:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:341
+msgid "warning **Warning** The ``useGlobalFilters()`` method does not set up filters for gateways or hybrid applications."
+msgstr ""
+
+#: ../../source/exception-filters.rst:344
+msgid "Global-scoped filters are used across the whole application, for every controller and every route handler. In terms of dependency injection, global filters registered from outside of any module (with ``useGlobalFilters()`` as in the example above) cannot inject dependencies since this is done outside the context of any module. In order to solve this issue, you can register a global-scoped filter **directly from any module** using the following construction:"
+msgstr ""
+
+#: ../../source/exception-filters.rst:370
+msgid "info **Hint** When using this approach to perform dependency injection for the filter, note that regardless of the module where this construction is employed, the filter is, in fact, global. Where should this be done? Choose the module where the filter (``HttpExceptionFilter`` in the example above) is defined. Also, ``useClass`` is not the only way of dealing with custom provider registration. Learn more `here </fundamentals/custom-providers>`__."
+msgstr ""
+
+#: ../../source/exception-filters.rst:378
+msgid "You can add as many filters with this technique as needed; simply add each to the providers array."
+msgstr ""
+
+#: ../../source/exception-filters.rst:382
+msgid "Catch everything"
+msgstr ""
+
+#: ../../source/exception-filters.rst:384
+msgid "In order to catch **every** unhandled exception (regardless of the exception type), leave the ``@Catch()`` decorator’s parameter list empty, e.g., ``@Catch()``."
+msgstr ""
+
+#: ../../source/exception-filters.rst:411
+msgid "In the example above the filter will catch each exception thrown, regardless of its type (class)."
+msgstr ""
+
+#: ../../source/exception-filters.rst:415
+msgid "Inheritance"
+msgstr ""
+
+#: ../../source/exception-filters.rst:417
+msgid "Typically, you’ll create fully customized exception filters crafted to fulfill your application requirements. However, there might be use-cases when you would like to simply extend the built-in default **global exception filter**, and override the behavior based on certain factors."
+msgstr ""
+
+#: ../../source/exception-filters.rst:422
+msgid "In order to delegate exception processing to the base filter, you need to extend ``BaseExceptionFilter`` and call the inherited ``catch()`` method."
+msgstr ""
+
+#: ../../source/exception-filters.rst:451
+msgid "warning **Warning** Filters that extend base classes have to be instantiated by the framework itself (don’t manually create instances using the ``new`` operator)."
+msgstr ""
+
+#: ../../source/exception-filters.rst:455
+msgid "The above implementation is just a shell demonstrating the approach. Your implementation of the extended exception filter would include your tailored **business** logic (e.g., handling various conditions)."
+msgstr ""
+
+#: ../../source/exception-filters.rst:459
+msgid "You can use a global filter that extends the base filter by injecting the ``HttpServer`` reference."
+msgstr ""
+

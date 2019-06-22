@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/recipes/mongodb.rst:2
+msgid "MongoDB (Mongoose)"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:4
+msgid "**Warning** In this article, you’ll learn how to create a ``DatabaseModule`` based on the **Mongoose** package from scratch using custom components. As a consequence, this solution contains a lot of overhead that you can omit using ready to use and available out-of-the-box dedicated ``@nestjs/mongoose`` package. To learn more, see `here </techniques/mongodb>`__."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:11
+msgid "`Mongoose <http://mongoosejs.com>`__ is the most popular `MongoDB <https://www.mongodb.org/>`__ object modeling tool."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:15
+msgid "Getting started"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:17
+msgid "To start the adventure with this library we have to install all required dependencies:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:28
+msgid "The first step we need to do is to establish the connection with our database using ``connect()`` function. The ``connect()`` function returns a ``Promise``, and therefore we have to create an `async provider </fundamentals/async-components>`__."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:57
+msgid "info **Hint** Following best practices, we declared the custom provider in the separated file which has a ``*.providers.ts`` suffix."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:60
+msgid "Then, we need to export these providers to make them **accessible** for the rest part of the application."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:75
+msgid "Now we can inject the ``Connection`` object using ``@Inject()`` decorator. Each class that would depend on the ``Connection`` async provider will wait until a ``Promise`` is resolved."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:80
+msgid "Model injection"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:82
+msgid "With Mongoose, everything is derived from a `Schema <http://mongoosejs.com/docs/guide.html>`__. Let’s define the ``CatSchema``:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:97
+msgid "The ``CatsSchema`` belongs to the ``cats`` directory. This directory represents the ``CatsModule``."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:100
+msgid "Now it’s time to create a **Model** provider:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:128
+msgid "**Notice** In the real-world applications you should avoid **magic strings**. Both ``CAT_MODEL`` and ``DATABASE_CONNECTION`` should be kept in the separated ``constants.ts`` file."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:132
+msgid "Now we can inject the ``CAT_MODEL`` to the ``CatsService`` using the ``@Inject()`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:179
+msgid "In the above example we have used the ``Cat`` interface. This interface extends the ``Document`` from the mongoose package:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:192
+msgid "The database connection is **asynchronous**, but Nest makes this process completely invisible for the end-user. The ``CatModel`` class is waiting for the db connection, and the ``CatsService`` is delayed until model is ready to use. The entire application can start when each class is instantiated."
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:198
+msgid "Here is a final ``CatsModule``:"
+msgstr ""
+
+#: ../../source/recipes/mongodb.rst:221
+msgid "warning **Hint** Do not forget to import the ``CatsModule`` into the root ``ApplicationModule``."
+msgstr ""
+

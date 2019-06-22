@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>警卫 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="拦截器" href="interceptors.html" />
+    <link rel="prev" title="管道" href="pipes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">警卫</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authorization-guard">授权守卫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-context">执行上下文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#role-based-authentication">基于角色的身份验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binding-guards">绑定警卫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reflection">反射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#putting-it-all-together">把它们放在一起</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>警卫</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/guards.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="guards">
+<h1>警卫<a class="headerlink" href="#guards" title="永久链接至标题">¶</a></h1>
+<p>guard是一个用 <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> 装饰器注释的类。警卫应该实现 <code class="docutils literal notranslate"><span class="pre">CanActivate</span></code> 界面。</p>
+<figure></figure><p>Guards have a <strong>single responsibility</strong>. They determine whether a given
+request will be handled by the route handler or not, depending on
+certain conditions (like permissions, roles, ACLs, etc.) present at
+run-time. This is often referred to as <strong>authorization</strong>. Authorization
+(and its cousin, <strong>authentication</strong>, with which it usually collaborates)
+has typically been handled by <a class="reference external" href="/middleware">middleware</a> in
+traditional Express applications. Middleware is a fine choice for
+authentication, since things like token validation and attaching
+properties to the <code class="docutils literal notranslate"><span class="pre">request</span></code> object are not strongly connected with a
+particular route context (and its metadata).</p>
+<p>But middleware, by its nature, is dumb. It doesn’t know which handler
+will be executed after calling the <code class="docutils literal notranslate"><span class="pre">next()</span></code> function. On the other
+hand, <strong>Guards</strong> have access to the <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> instance, and
+thus know exactly what’s going to be executed next. They’re designed,
+much like exception filters, pipes, and interceptors, to let you
+interpose processing logic at exactly the right point in the
+request/response cycle, and to do so declaratively. This helps keep your
+code DRY and declarative.</p>
+<blockquote>
+<div><p>info <strong>Hint</strong> Guards are executed <strong>after</strong> each middleware, but
+<strong>before</strong> any interceptor or pipe.</p>
+</div></blockquote>
+<div class="section" id="authorization-guard">
+<h2>授权守卫<a class="headerlink" href="#authorization-guard" title="永久链接至标题">¶</a></h2>
+<p>As mentioned, <strong>authorization</strong> is a great use case for Guards because
+specific routes should be available only when the caller (usually a
+specific authenticated user) has sufficient permissions. The
+<code class="docutils literal notranslate"><span class="pre">AuthGuard</span></code> that we’ll build now assumes an authenticated user (and
+that, therefore, a token is attached to the request headers). It will
+extract and validate the token, and use the extracted information to
+determine whether the request can proceed or not.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(auth.guard)
+import { Injectable, CanActivate, ExecutionContext } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+
+@Injectable()
+export class AuthGuard implements CanActivate {
+  canActivate(
+    context: ExecutionContext,
+  ): boolean | Promise&lt;boolean&gt; | Observable&lt;boolean&gt; {
+    const request = context.switchToHttp().getRequest();
+    return validateRequest(request);
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class AuthGuard {
+  async canActivate(context) {
+    const request = context.switchToHttp().getRequest();
+    return await validateRequest(request);
+  }
+}
+</pre></div>
+</div>
+<p>The logic inside the <code class="docutils literal notranslate"><span class="pre">validateRequest()</span></code> function can be as simple or
+sophisticated as needed. The main point of this example is to show how
+guards fit into the request/response cycle.</p>
+<p>Every guard must implement a <code class="docutils literal notranslate"><span class="pre">canActivate()</span></code> function. This function
+should return a boolean, indicating whether the current request is
+allowed or not. It can return the response either synchronously or
+asynchronously (via a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> or <code class="docutils literal notranslate"><span class="pre">Observable</span></code>). Nest uses the
+return value to control the next action:</p>
+<ul class="simple">
+<li><p>if it returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, the request will be processed.</p></li>
+<li><p>if it returns <code class="docutils literal notranslate"><span class="pre">false</span></code>, Nest will deny the request.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">canActivate()</span></code> function takes a single argument, the
+<code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> instance. The <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> inherits from
+<code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code>. We saw <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code> before in the exception
+filters chapter. There, we saw that it’s a wrapper around arguments that
+have been passed to the <strong>original</strong> handler, and contains different
+arguments arrays based on the type of the application. You can refer
+back to <a class="reference external" href="https://docs.nestjs.com/exception-filters#arguments-host">the exception filters
+chapter</a>
+for more on this topic.</p>
+</div>
+<div class="section" id="execution-context">
+<h2>执行上下文<a class="headerlink" href="#execution-context" title="永久链接至标题">¶</a></h2>
+<p>By extending <code class="docutils literal notranslate"><span class="pre">ArgumentsHost</span></code>, <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> provides additional
+details about the current execution process. Here’s what it looks like:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">ExecutionContext</span> <span class="kr">extends</span> <span class="nx">ArgumentsHost</span> <span class="p">{</span>
+  <span class="nx">getClass</span><span class="o">&lt;</span><span class="nx">T</span> <span class="o">=</span> <span class="nx">any</span><span class="o">&gt;</span><span class="p">()</span><span class="o">:</span> <span class="nx">Type</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="nx">getHandler</span><span class="p">()</span><span class="o">:</span> <span class="nb">Function</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">getHandler()</span></code> method returns a reference to the handler about to
+be invoked. The <code class="docutils literal notranslate"><span class="pre">getClass()</span></code> method returns the type of the
+<code class="docutils literal notranslate"><span class="pre">Controller</span></code> class which this particular handler belongs to. For
+example, if the currently processed request is a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request,
+destined for the <code class="docutils literal notranslate"><span class="pre">create()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>,
+<code class="docutils literal notranslate"><span class="pre">getHandler()</span></code> will return a reference to the <code class="docutils literal notranslate"><span class="pre">create()</span></code> method and
+<code class="docutils literal notranslate"><span class="pre">getClass()</span></code> will return a <code class="docutils literal notranslate"><span class="pre">CatsController</span></code> <strong>type</strong> (not instance).</p>
+</div>
+<div class="section" id="role-based-authentication">
+<h2>基于角色的身份验证<a class="headerlink" href="#role-based-authentication" title="永久链接至标题">¶</a></h2>
+<p>Let’s build a more functional guard that permits access only to users
+with a specific role. We’ll start with a basic guard template, and build
+on it in the coming sections. For now, it allows all requests to
+proceed:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(roles.guard)
+import { Injectable, CanActivate, ExecutionContext } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+
+@Injectable()
+export class RolesGuard implements CanActivate {
+  canActivate(
+    context: ExecutionContext,
+  ): boolean | Promise&lt;boolean&gt; | Observable&lt;boolean&gt; {
+    return true;
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class RolesGuard {
+  canActivate(context) {
+    return true;
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="binding-guards">
+<h2>绑定警卫<a class="headerlink" href="#binding-guards" title="永久链接至标题">¶</a></h2>
+<p>Like pipes and exception filters, guards can be <strong>controller-scoped</strong>,
+method-scoped, or global-scoped. Below, we set up a controller-scoped
+guard using the <code class="docutils literal notranslate"><span class="pre">&#64;UseGuards()</span></code> decorator. This decorator may take a
+single argument, or a comma-separated list of arguments. This lets you
+easily apply the appropriate set of guards with one declaration.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Controller(&#39;cats&#39;)
+@UseGuards(RolesGuard)
+export class CatsController {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;UseGuards()</span></code> decorator is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>Above, we passed the <code class="docutils literal notranslate"><span class="pre">RolesGuard</span></code> type (instead of an instance),
+leaving responsibility for instantiation to the framework and enabling
+dependency injection. As with pipes and exception filters, we can also
+pass an in-place instance:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Controller(&#39;cats&#39;)
+@UseGuards(new RolesGuard())
+export class CatsController {}
+</pre></div>
+</div>
+<p>The construction above attaches the guard to every handler declared by
+this controller. If we wish the guard to apply only to a single method,
+we apply the <code class="docutils literal notranslate"><span class="pre">&#64;UseGuards()</span></code> decorator at the <strong>method level</strong>.</p>
+<p>In order to set up a global guard, use the <code class="docutils literal notranslate"><span class="pre">useGlobalGuards()</span></code> method
+of the Nest application instance:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+const app = await NestFactory.create(ApplicationModule);
+app.useGlobalGuards(new RolesGuard());
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> In the case of hybrid apps the
+<code class="docutils literal notranslate"><span class="pre">useGlobalGuards()</span></code> method doesn’t set up guards for gateways and
+micro services. For “standard” (non-hybrid) microservice apps,
+<code class="docutils literal notranslate"><span class="pre">useGlobalGuards()</span></code> does mount the guards globally.</p>
+</div></blockquote>
+<p>Global guards are used across the whole application, for every
+controller and every route handler. In terms of dependency injection,
+global guards registered from outside of any module (with
+<code class="docutils literal notranslate"><span class="pre">useGlobalGuards()</span></code> as in the example above) cannot inject
+dependencies since this is done outside the context of any module. In
+order to solve this issue, you can set up a guard directly from any
+module using the following construction:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { APP_GUARD } from &#39;@nestjs/core&#39;;
+
+@Module({
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+  ],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> When using this approach to perform dependency
+injection for the guard, note that regardless of the module where
+this construction is employed, the guard is, in fact, global. Where
+should this be done? Choose the module where the guard
+(<code class="docutils literal notranslate"><span class="pre">RolesGuard</span></code> in the example above) is defined. Also, <code class="docutils literal notranslate"><span class="pre">useClass</span></code>
+is not the only way of dealing with custom provider registration.
+Learn more <a class="reference external" href="/fundamentals/custom-providers">here</a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="reflection">
+<h2>反射<a class="headerlink" href="#reflection" title="永久链接至标题">¶</a></h2>
+<p>Our <code class="docutils literal notranslate"><span class="pre">RolesGuard</span></code> is working, but it’s not very smart yet. We’re not
+yet taking advantage of the most important guard feature - the
+<strong>execution context</strong>. It doesn’t yet know about roles, or which roles
+are allowed for each handler. The <code class="docutils literal notranslate"><span class="pre">CatsController</span></code>, for example, could
+have different permission schemes for different routes. Some might be
+available only for an admin user, and others could be open for everyone.
+How can we match roles to routes in a flexible and reusable way?</p>
+<p>This is where <strong>custom metadata</strong> comes into play. Nest provides the
+ability to attach custom <strong>metadata</strong> to route handlers through the
+<code class="docutils literal notranslate"><span class="pre">&#64;SetMetadata()</span></code> decorator. This metadata supplies our missing
+<code class="docutils literal notranslate"><span class="pre">role</span></code> data, which a smart guard needs to make decisions. Let’s take a
+look at using <code class="docutils literal notranslate"><span class="pre">&#64;SetMetadata()</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+@SetMetadata(&#39;roles&#39;, [&#39;admin&#39;])
+async create(@Body() createCatDto: CreateCatDto) {
+  this.catsService.create(createCatDto);
+}
+@@switch
+@Post()
+@SetMetadata(&#39;roles&#39;, [&#39;admin&#39;])
+@Bind(Body())
+async create(createCatDto) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;SetMetadata()</span></code> decorator is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>With the construction above, we attached the <code class="docutils literal notranslate"><span class="pre">roles</span></code> metadata
+(<code class="docutils literal notranslate"><span class="pre">roles</span></code> is a key, while <code class="docutils literal notranslate"><span class="pre">['admin']</span></code> is a particular value) to the
+<code class="docutils literal notranslate"><span class="pre">create()</span></code> method. While this works, it’s not good practice to use
+<code class="docutils literal notranslate"><span class="pre">&#64;SetMetadata()</span></code> directly in your routes. Instead, create your own
+decorators, as shown below:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(roles.decorator)
+import { SetMetadata } from &#39;@nestjs/common&#39;;
+
+export const Roles = (...roles: string[]) =&gt; SetMetadata(&#39;roles&#39;, roles);
+@@switch
+import { SetMetadata } from &#39;@nestjs/common&#39;;
+
+export const Roles = (...roles) =&gt; SetMetadata(&#39;roles&#39;, roles);
+</pre></div>
+</div>
+<p>This approach is much cleaner and more readable, and is strongly typed.
+Now that we have a custom <code class="docutils literal notranslate"><span class="pre">&#64;Roles()</span></code> decorator, we can use it to
+decorate the <code class="docutils literal notranslate"><span class="pre">create()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+@Roles(&#39;admin&#39;)
+async create(@Body() createCatDto: CreateCatDto) {
+  this.catsService.create(createCatDto);
+}
+@@switch
+@Post()
+@Roles(&#39;admin&#39;)
+@Bind(Body())
+async create(createCatDto) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="putting-it-all-together">
+<h2>把它们放在一起<a class="headerlink" href="#putting-it-all-together" title="永久链接至标题">¶</a></h2>
+<p>Let’s now go back and tie this together with our <code class="docutils literal notranslate"><span class="pre">RolesGuard</span></code>.
+Currently, it simply returns <code class="docutils literal notranslate"><span class="pre">true</span></code> in all cases, allowing every
+request to proceed. We want to make the return value conditional based
+on the comparing the <strong>roles assigned to the current user</strong> to the
+actual roles required by the current route being processed. In order to
+access the route’s role(s) (custom metadata), we’ll use the
+<code class="docutils literal notranslate"><span class="pre">Reflector</span></code> helper class, which is provided out of the box by the
+framework and exposed from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/core</span></code> package.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(roles.guard)
+import { Injectable, CanActivate, ExecutionContext } from &#39;@nestjs/common&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { Reflector } from &#39;@nestjs/core&#39;;
+
+@Injectable()
+export class RolesGuard implements CanActivate {
+  constructor(private readonly reflector: Reflector) {}
+
+  canActivate(context: ExecutionContext): boolean {
+    const roles = this.reflector.get&lt;string[]&gt;(&#39;roles&#39;, context.getHandler());
+    if (!roles) {
+      return true;
+    }
+    const request = context.switchToHttp().getRequest();
+    const user = request.user;
+    const hasRole = () =&gt; user.roles.some((role) =&gt; roles.includes(role));
+    return user &amp;&amp; user.roles &amp;&amp; hasRole();
+  }
+}
+@@switch
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+import { Reflector } from &#39;@nestjs/core&#39;;
+
+@Injectable()
+@Dependencies(Reflector)
+export class RolesGuard {
+  constructor(reflector) {
+    this.reflector = reflector;
+  }
+
+  canActivate(context) {
+    const roles = this.reflector.get(&#39;roles&#39;, context.getHandler());
+    if (!roles) {
+      return true;
+    }
+    const request = context.switchToHttp().getRequest();
+    const user = request.user;
+    const hasRole = () =&gt; user.roles.some((role) =&gt; roles.includes(role));
+    return user &amp;&amp; user.roles &amp;&amp; hasRole();
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> In the node.js world, it’s common practice to attach
+the authorized user to the <code class="docutils literal notranslate"><span class="pre">request</span></code> object. Thus, in our sample
+code above, we are assuming that <code class="docutils literal notranslate"><span class="pre">request.user</span></code> contains the user
+instance and allowed roles. In your app, you will probably make that
+association in your custom <strong>authentication guard</strong> (or middleware).</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">Reflector</span></code> class allows us to easily access the metadata by the
+specified <strong>key</strong> (in this case, the key is <code class="docutils literal notranslate"><span class="pre">'roles'</span></code>; refer back to
+the <code class="docutils literal notranslate"><span class="pre">roles.decorator.ts</span></code> file and the <code class="docutils literal notranslate"><span class="pre">SetMetadata()</span></code> call made
+there). In the example above, we passed <code class="docutils literal notranslate"><span class="pre">context.getHandler()</span></code> in
+order to extract the metadata for the currently processed request
+method. Remember, <code class="docutils literal notranslate"><span class="pre">getHandler()</span></code> gives us a <strong>reference</strong> to the route
+handler function.</p>
+<p>We can make this guard more generic by extracting the <strong>controller
+metadata</strong> and using that to determine the current user role. To extract
+controller metadata, we pass <code class="docutils literal notranslate"><span class="pre">context.getClass()</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">context.getHandler()</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+const roles = this.reflector.get&lt;string[]&gt;(&#39;roles&#39;, context.getClass());
+@@switch
+const roles = this.reflector.get(&#39;roles&#39;, context.getClass());
+</pre></div>
+</div>
+<p>When a user with insufficient privileges requests an endpoint, Nest
+automatically returns the following response:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;statusCode&quot;</span><span class="o">:</span> <span class="mi">403</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Forbidden resource&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that behind the scenes, when a guard returns <code class="docutils literal notranslate"><span class="pre">false</span></code>, the
+framework throws a <code class="docutils literal notranslate"><span class="pre">ForbiddenException</span></code>. If you want to return a
+different error response, you should throw your own specific exception.
+For example:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span> <span class="k">new</span> <span class="nx">UnauthorizedException</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Any exception thrown by a guard will be handled by the <a class="reference external" href="/exception-filters">exceptions
+layer</a> (global exceptions filter and any
+exceptions filters that are applied to the current context).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="interceptors.html" class="btn btn-neutral float-right" title="拦截器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pipes.html" class="btn btn-neutral float-left" title="管道" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

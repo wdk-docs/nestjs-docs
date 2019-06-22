@@ -1,0 +1,406 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/recipes/swagger.rst:2
+msgid "OpenAPI (Swagger)"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:5
+msgid "This chapter applies only to TypeScript"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:7
+msgid "The `OpenAPI <https://swagger.io/specification/>`__ (Swagger) specification is a powerful definition format to describe RESTful APIs. Nest provides a dedicated `module <https://github.com/nestjs/swagger>`__ to work with it."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:13
+msgid "Installation"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:15
+msgid "Firstly, you have to install the required packages:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:21
+msgid "If you are using fastify, you have to install ``fastify-swagger`` instead of ``swagger-ui-express``:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:29
+msgid "Bootstrap"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:31
+msgid "Once the installation process is done, open your bootstrap file (mostly ``main.ts``) and initialize the Swagger using ``SwaggerModule`` class:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:56
+msgid "The ``DocumentBuilder`` is a helper class that helps to structure a base document for the ``SwaggerModule``. It contains several methods that allow setting such properties like title, description, version, and so on."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:61
+msgid "In order to create a full document (with defined HTTP routes) we use the ``createDocument()`` method of the ``SwaggerModule`` class. This method takes two arguments, the application instance and the base Swagger options respectively."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:66
+msgid "The last step is to call ``setup()``. It accepts sequentially **(1)** path to mount the Swagger, **(2)** application instance, and **(3)** the document that describes the Nest application."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:70
+msgid "Now you can run the following command to start the HTTP server:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:76
+msgid "While the application is running, open your browser and navigate to ``http://localhost:3000/api``. You should see a similar page:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:87
+msgid "The ``SwaggerModule`` automatically reflects all of your endpoints. In the background, it’s making use of ``swagger-ui-express`` and creates a live documentation."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:91
+msgid "info **Hint** If you want to download the corresponding Swagger JSON file, you can simply call ``http://localhost:3000/api-json`` in your browser (if your Swagger documentation is published under ``http://localhost:3000/api``)."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:97
+msgid "Body, query, path parameters"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:99
+msgid "During the examination of the defined controllers, the ``SwaggerModule`` is looking for all used ``@Body()``, ``@Query()``, and ``@Param()`` decorators in the route handlers. Hence, the valid document can be created."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:104
+msgid "Moreover, the module creates the **models definitions** by taking advantage of the reflection. Take a look at the following code:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:116
+msgid "warning **Notice** To implicitly set the body definition you can use the ``@ApiImplicitBody()`` decorator (``@nestjs/swagger`` package)."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:119
+msgid "Based on the ``CreateCatDto``, the module definition will be created:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:129
+msgid "As you can see, the definition is empty although the class has a few declared properties. In order to make the class properties accessible to the ``SwaggerModule``, we have to mark all of them with ``@ApiModelProperty()`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:149
+msgid "Let’s open the browser and verify the generated ``CreateCatDto`` model:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:159
+msgid "The ``@ApiModelProperty()`` decorator accepts options object:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:192
+msgid "warning **Hint** There’s an ``@ApiModelPropertyOptional()`` shortcut decorator which helps to avoid continuous typing ``@ApiModelProperty(&#123 required: false &#125)``."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:196
+msgid "Thanks to that we can simply set the **default** value, determine whether the property is required or explicitly set the type."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:200
+msgid "Multiple specifications"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:202
+msgid "Swagger module also provides a way to support multiple specifications. In other words, you can serve different documentations with different ``SwaggerUI`` on different endpoints."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:206
+msgid "In order to allow ``SwaggerModule`` to support multi-spec, your application must be written with modular approach. The ``createDocument()`` method takes in a 3rd argument: ``extraOptions`` which is an object where a property ``include`` expects an array of modules."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:212
+msgid "You can setup Multiple Specifications support as shown below:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:261
+msgid "Now you can start your server with the following command:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:267
+msgid "Navigate to ``http://localhost:3000/api/cats`` to see SwaggerUI for your cats:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:278
+msgid "While ``http://localhost:3000/api/dogs`` will expose a SwaggerUI for your dogs:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:291
+msgid "warning **Notice** You have to construct a **SwaggerOptions** with ``DocumentBuilder``, run ``createDocument()`` against newly constructed ``options`` then immediately “serve” it with ``setup()`` before you can start working on a second **SwaggerOptions** for a second Swagger Specification. This specific order is to prevent Swagger configurations being overridden by different options."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:299
+msgid "Working with enums"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:301
+msgid "To be able for ``SwaggerModule`` to identify an ``Enum``, we have to manually set the ``enum`` property on ``@ApiModelProperty`` with an array of values."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:310
+msgid "``UserRole`` enum can be defined as following:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:322
+msgid "warning **Note** The above usage can only be applied to a **property** as part of a **model definition.**"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:325
+msgid "Enums can be used by itself with the ``@Query()`` parameter decorator in combination with the ``@ApiImplicitQuery()`` decorator."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:345
+msgid "warning **Hint** ``enum`` and ``isArray`` can also be used in combination in ``@ApiImplicitQuery()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:348
+msgid "With ``isArray`` set to **true**, the ``enum`` can be selected as a **multi-select**:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:360
+msgid "Working with arrays"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:362
+msgid "We have to manually indicate a type when the property is actually an array:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:370
+msgid "Simply put your type as the first element of an array (as shown above) or set an ``isArray`` property to ``true``."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:374
+msgid "Tags"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:376
+msgid "At the beginning, we created a ``cats`` tag (by making use of ``DocumentBuilder``). In order to attach the controller to the specified tag, we need to use ``@ApiUseTags(...tags)`` decorator."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:387
+msgid "Responses"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:389
+msgid "To define a custom HTTP response, we use ``@ApiResponse()`` decorator."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:400
+msgid "Same as common HTTP exceptions defined in Exception Filters section, Nest also provides a set of usable **API responses** that inherits from the core ``@ApiResponse`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:404
+msgid "``@ApiOkResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:405
+msgid "``@ApiCreatedResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:406
+msgid "``@ApiBadRequestResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:407
+msgid "``@ApiUnauthorizedResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:408
+msgid "``@ApiNotFoundResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:409
+msgid "``@ApiForbiddenResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:410
+msgid "``@ApiMethodNotAllowedResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:411
+msgid "``@ApiNotAcceptableResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:412
+msgid "``@ApiRequestTimeoutResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:413
+msgid "``@ApiConflictResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:414
+msgid "``@ApiGoneResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:415
+msgid "``@ApiPayloadTooLargeResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:416
+msgid "``@ApiUnsupportedMediaTypeResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:417
+msgid "``@ApiUnprocessableEntityResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:418
+msgid "``@ApiInternalServerErrorResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:419
+msgid "``@ApiNotImplementedResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:420
+msgid "``@ApiBadGatewayResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:421
+msgid "``@ApiServiceUnavailableResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:422
+msgid "``@ApiGatewayTimeoutResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:424
+msgid "In addition to the available HTTP exceptions, Nest provides short-hand decorators for: ``HttpStatus.OK``, ``HttpStatus.CREATED`` and ``HttpStatus.METHOD_NOT_ALLOWED``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:438
+msgid "Authentication"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:440
+msgid "You can enable the bearer authorization using ``addBearerAuth()`` method of the ``DocumentBuilder`` class. Then to restrict the chosen route or entire controller, use ``@ApiBearerAuth()`` decorator."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:451
+msgid "That’s how the OpenAPI documentation should look like now:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:462
+msgid "File upload"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:464
+msgid "You can enable file upload for a specific method with the ``@ApiImplicitFile`` decorator together with ``@ApiConsumes()``. Here’s a full example using `File Upload </techniques/file-upload>`__ technique:"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:477
+msgid "Decorators"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:479
+msgid "All of the available OpenAPI decorators has an ``Api`` prefix to be clearly distinguishable from the core decorators. Below is a full list of the exported decorators with a defined use-level (where might be applied)."
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:485
+msgid "``@ApiOperation()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:485
+#: ../../source/recipes/swagger.rst:491
+#: ../../source/recipes/swagger.rst:492
+#: ../../source/recipes/swagger.rst:493
+#: ../../source/recipes/swagger.rst:494
+#: ../../source/recipes/swagger.rst:495
+#: ../../source/recipes/swagger.rst:496
+msgid "Method"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:486
+msgid "``@ApiResponse()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:486
+#: ../../source/recipes/swagger.rst:487
+#: ../../source/recipes/swagger.rst:488
+#: ../../source/recipes/swagger.rst:489
+#: ../../source/recipes/swagger.rst:490
+#: ../../source/recipes/swagger.rst:497
+msgid "Method / Controller"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:487
+msgid "``@ApiProduces()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:488
+msgid "``@ApiConsumes()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:489
+msgid "``@ApiBearerAuth()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:490
+msgid "``@ApiOAuth2Auth()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:491
+msgid "``@ApiImplicitBody()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:492
+msgid "``@ApiImplicitParam()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:493
+msgid "``@ApiImplicitQuery()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:494
+msgid "``@ApiImplicitHeader()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:495
+msgid "``@ApiImplicitFile()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:496
+msgid "``@ApiExcludeEndpoint()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:497
+msgid "``@ApiUseTags()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:498
+msgid "``@ApiModelProperty()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:498
+#: ../../source/recipes/swagger.rst:499
+msgid "Model"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:499
+msgid "``@ApiModelPropertyOptional()``"
+msgstr ""
+
+#: ../../source/recipes/swagger.rst:502
+msgid "A working example is available `here <https://github.com/nestjs/nest/tree/master/sample/11-swagger>`__."
+msgstr ""
+

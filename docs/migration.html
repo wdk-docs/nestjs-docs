@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>迁移指南 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>迁移指南</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/migration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="migration-guide">
+<h1>迁移指南<a class="headerlink" href="#migration-guide" title="永久链接至标题">¶</a></h1>
+<p>This article provides a set of <strong>guidelines</strong> for migrating from 5 to
+the latest 6 version. Even though we tried to reduce a number of
+breaking changes, the API had to be modified in a few places in order to
+simplify its usage.</p>
+<div class="section" id="middleware">
+<h2>Middleware<a class="headerlink" href="#middleware" title="永久链接至标题">¶</a></h2>
+<p>Based on <a class="reference external" href="https://github.com/nestjs/nest/issues/1378">this</a> topic,
+the middleware API has been changed in order to make it more
+straightforward for people who come from different Node libraries and
+also to reduce the number of confusions that arose from the previous
+API.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+// Before
+@Injectable()
+export class LoggerMiddleware implements NestMiddleware {
+ resolve(...args: any[]): MiddlewareFunction {
+   return (req: Request, res: Response, next: Function) =&gt; {
+     console.log(&#39;Request...&#39;);
+     next();
+   };
+ }
+}
+
+// After
+@Injectable()
+export class LoggerMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: Function) {
+    console.log(&#39;Request...&#39;);
+    next();
+  }
+}
+@@switch
+@Injectable()
+export class LoggerMiddleware {
+ resolve(...args) {
+   return (req, res, next) =&gt; {
+     console.log(&#39;Request...&#39;);
+     next();
+   };
+ }
+}
+
+// After
+@Injectable()
+export class LoggerMiddleware {
+  use(req, res, next) {
+    console.log(&#39;Request...&#39;);
+    next();
+  }
+}
+</pre></div>
+</div>
+<p>Consequently, the <code class="docutils literal notranslate"><span class="pre">with()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">MiddlewareConsumer</span></code> won’t
+work anymore (is fully useless). If you want to pass options to the
+middleware class, use a <a class="reference external" href="/fundamentals/custom-providers">custom
+provider</a> or check more examples
+<a class="reference external" href="https://github.com/nestjs/nest/issues/1378">here</a>.</p>
+</div>
+<div class="section" id="interceptors">
+<h2>Interceptors<a class="headerlink" href="#interceptors" title="永久链接至标题">¶</a></h2>
+<p>The interceptors API has also been simplified. In addition, the change
+was required due to this
+<a class="reference external" href="https://github.com/nestjs/nest/issues/1016">issue</a> which was
+reported by the community.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+// Before
+@Injectable()
+export class TransformInterceptor implements NestInterceptor {
+  intercept(
+    context: ExecutionContext,
+    call$: Observable&lt;T&gt;,
+  ): Observable&lt;Response&lt;T&gt;&gt; {
+    return call$.pipe(map(data =&gt; ({ data })));
+  }
+}
+
+// After
+@Injectable()
+export class TransformInterceptor implements NestInterceptor {
+  intercept(
+    context: ExecutionContext,
+    next: CallHandler,
+  ): Observable&lt;Response&lt;T&gt;&gt; {
+    return next
+      .handle()
+      .pipe(map(data =&gt; ({ data })));
+  }
+}
+@@switch
+// Before
+@Injectable()
+export class TransformInterceptor {
+  intercept(context, next) {
+    return call$.pipe(map(data =&gt; ({ data })));
+  }
+}
+
+// After
+@Injectable()
+export class TransformInterceptor {
+  intercept(context, next) {
+    return next
+      .handle()
+      .pipe(map(data =&gt; ({ data })));
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">CallHandler</span></code> interface is exported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>Please note that your interceptors will now run in the correct order -
+they will follow a simple request processing pipeline, being executed
+from global to concrete once the request wants to hit an end-handler,
+and then (in response pipeline), they will be executed from specific to
+global ones (if you attach some asynchronous/mapping logic inside them).</p>
+</div>
+<div class="section" id="platforms">
+<h2>Platforms<a class="headerlink" href="#platforms" title="永久链接至标题">¶</a></h2>
+<p>So far, even if you were not using an HTTP server, you had to install
+the <code class="docutils literal notranslate"><span class="pre">express</span></code> library internally (as a dependency of the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/core</span></code> package). Since a new major release, Nest will no
+longer ship these packages upfront. Each platform has been extracted
+into an individual package, respectively <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-express</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-fastify</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-ws</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-socket.io</span></code>. Assuming that your application was using
+both <code class="docutils literal notranslate"><span class="pre">express</span></code> and <code class="docutils literal notranslate"><span class="pre">socket.io</span></code>, you only have to install the
+corresponding platforms:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i @nestjs/platform-express @nestjs/platform-socket.io
+</pre></div>
+</div>
+<p>Every existing adapter (for example, <code class="docutils literal notranslate"><span class="pre">FastifyAdapter</span></code>) is now being
+served from the dedicated platform package.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FastifyAdapter</span></code> - <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-fastify</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ExpressAdapter</span></code> - <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-express</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WsAdapter</span></code> - <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-ws</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IoAdapter</span></code> - <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-socket.io</span></code></p></li>
+</ul>
+<p>Also, <code class="docutils literal notranslate"><span class="pre">FileInterceptor</span></code> (and other <code class="docutils literal notranslate"><span class="pre">multer</span></code> related interceptors)
+are now exported from <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-express</span></code> (because <code class="docutils literal notranslate"><span class="pre">multer</span></code>
+library is not compatible with <code class="docutils literal notranslate"><span class="pre">fastify</span></code>).</p>
+</div>
+<div class="section" id="metadata-reflection">
+<h2>Metadata reflection<a class="headerlink" href="#metadata-reflection" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;ReflectMetadata()</span></code> decorator has been deprecated and will be
+removed in the next major release (for now it will only display a
+warning). Use the <code class="docutils literal notranslate"><span class="pre">&#64;SetMetadata()</span></code> decorator instead.</p>
+</div>
+<div class="section" id="graphql">
+<h2>GraphQL<a class="headerlink" href="#graphql" title="永久链接至标题">¶</a></h2>
+<p>The subscriptions mechanism has been changed. Check
+<a class="reference external" href="/graphql/subscriptions">this</a> chapter for more details.
+Additionally, <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/graphql</span></code> package was heavily relying on
+<code class="docutils literal notranslate"><span class="pre">&#64;ReflectMetadata()</span></code> (which has been deprecated) so it’s required to
+update the package itself as well.</p>
+</div>
+<div class="section" id="express-instance">
+<h2>Express instance<a class="headerlink" href="#express-instance" title="永久链接至标题">¶</a></h2>
+<p>We no longer support passing <code class="docutils literal notranslate"><span class="pre">express</span></code> instance as a second argument
+of the <code class="docutils literal notranslate"><span class="pre">NestFactory.create()</span></code> method. In order to pluck underlying
+HTTP adapter, use techniques described <a class="reference external" href="/faq/http-adapter">here</a>.
+Also, you can pass <code class="docutils literal notranslate"><span class="pre">ExpressAdapter</span></code> instead (simply pass your
+<code class="docutils literal notranslate"><span class="pre">express</span></code> instance as a constructor parameter
+<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">ExpressAdapter(express)</span></code>).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Before (no longer supported)</span>
+<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">,</span> <span class="nx">server</span><span class="p">);</span>
+
+<span class="c1">// After (potential solution)</span>
+<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+  <span class="nx">ApplicationModule</span><span class="p">,</span>
+  <span class="k">new</span> <span class="nx">ExpressAdapter</span><span class="p">(</span><span class="nx">server</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deprecations">
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="永久链接至标题">¶</a></h2>
+<p>All deprecations (from 4 to 5 version) have been finally removed.</p>
+</div>
+<div class="section" id="typescript">
+<h2>TypeScript<a class="headerlink" href="#typescript" title="永久链接至标题">¶</a></h2>
+<p>Nest 6 supports the latest major release of
+<a class="reference external" href="https://www.typescriptlang.org/">TypeScript</a> (3.0.0).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

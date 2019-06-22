@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/microservices/rabbitmq.rst:2
+msgid "RabbitMQ"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:4
+msgid "The `RabbitMQ <https://www.rabbitmq.com/>`__ is the most widely deployed open source message broker."
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:8
+msgid "Installation"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:10
+msgid "Before we start, we have to install required packages:"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:17
+msgid "Transporter"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:19
+msgid "In order to switch to **RabbitMQ** transporter, we need to modify an options object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:36
+msgid "info **Hint** ``Transport`` enumerator is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:40
+msgid "Options"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:42
+msgid "There are a bunch of available options that determine a transporter behavior."
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:57
+msgid "urls"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:67
+msgid "Connection urls"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:85
+msgid "queue"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:95
+msgid "Queue name which your server will listen to"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:113
+msgid "prefetchCount"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:123
+msgid "Sets the prefetch count for the channel"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:141
+msgid "isGlobalPrefetchCount"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:151
+msgid "Enables per channel prefetching"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:169
+msgid "queueOptions"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:179
+msgid "Additional queue options. They are well-described here"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:197
+msgid "socketOptions"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:207
+msgid "Additional socket options. They are well-described here"
+msgstr ""
+

@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/fundamentals/lifecycle-events.rst:2
+msgid "Lifecycle Events"
+msgstr "生命周期事件"
+
+#: ../../source/fundamentals/lifecycle-events.rst:4
+msgid ""
+"Every application element has a lifecycle managed by Nest. Nest offers "
+"**lifecycle hooks** that provide visibility into key life moments and the"
+" ability to act when they occur."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:9
+msgid "Lifecycle sequence"
+msgstr "Lifecycle sequence"
+
+#: ../../source/fundamentals/lifecycle-events.rst:11
+msgid ""
+"After creating a injectable/controller by calling its constructor, Nest "
+"calls the lifecycle hook methods in the following sequence at specific "
+"moments:"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:16
+msgid "``OnModuleIn it``"
+msgstr "``OnModuleIn it``"
+
+#: ../../source/fundamentals/lifecycle-events.rst:16
+msgid "Called once the host module has been initialized"
+msgstr "Called once the host module has been initialized"
+
+#: ../../source/fundamentals/lifecycle-events.rst:19
+msgid "``OnApplicat ionBootstrap ``"
+msgstr "``OnApplicat ionBootstrap ``"
+
+#: ../../source/fundamentals/lifecycle-events.rst:19
+msgid "Called once the application has fully started and is bootstrapped"
+msgstr "Called once the application has fully started and is bootstrapped"
+
+#: ../../source/fundamentals/lifecycle-events.rst:23
+msgid "``OnModuleDe stroy``"
+msgstr "``OnModuleDe stroy``"
+
+#: ../../source/fundamentals/lifecycle-events.rst:23
+msgid ""
+"Cleanup just before Nest destroys the host module (``app.close()`` method"
+" has been evaluated)"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:26
+msgid "``OnApplicat ionShutdown` `"
+msgstr "``OnApplicat ionShutdown` `"
+
+#: ../../source/fundamentals/lifecycle-events.rst:26
+msgid ""
+"Responds to the system signals (when application gets shutdown by e.g. \\"
+" ``SIGTERM``)"
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:32
+msgid "Usage"
+msgstr "Usage"
+
+#: ../../source/fundamentals/lifecycle-events.rst:34
+msgid ""
+"Each lifecycle hook is represented by interface. Interfaces are "
+"technically optional because they do not exist anyway after TypeScript "
+"compilation. Nonetheless, it’s a good practice to use them in order to "
+"benefit from strong typing and editor tooling."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:60
+msgid ""
+"Additionally, both ``OnModuleInit`` and ``OnApplicationBootstrap`` hooks "
+"allow you to defer the application initialization process (return a "
+"``Promise`` or mark the method as ``async``)."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:76
+msgid "OnApplicationShutdown"
+msgstr "OnApplicationShutdown"
+
+#: ../../source/fundamentals/lifecycle-events.rst:78
+msgid ""
+"The ``OnApplicationShutdown`` responds to the system signals (when "
+"application gets shutdown by e.g. \\ ``SIGTERM``). Use this hook to "
+"gracefully shutdown a Nest application. This feature is often used with "
+"`Kubernetes <https://kubernetes.io/>`__, `Heroku "
+"<https://www.heroku.com/>`__ or similar services."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:84
+msgid ""
+"To use this hook you must activate a listener which listens to shutdown "
+"signals."
+msgstr ""
+
+#: ../../source/fundamentals/lifecycle-events.rst:100
+msgid ""
+"If the application receives a signal it will call the "
+"``onApplicationShutdown`` function of your ``Injectable`` with the "
+"corresponding signal as first parameter. If your function does return a "
+"promise, it will not shutdown your Nest application until the promise is "
+"resolved or rejected."
+msgstr ""
+

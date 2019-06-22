@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>基本 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Redis" href="redis.html" />
+    <link rel="prev" title="微服务" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">微服务</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">基本</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patterns">Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#request-response">Request-response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-responses">Asynchronous responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-based">Event-based</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-messages">Sending messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publishing-events">Publishing events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="redis.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt.html">MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nats.html">NATS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rabbitmq.html">RabbitMQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grpc.html">gRPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html">Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html">守护</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">微服务</a> &raquo;</li>
+        
+      <li>基本</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/microservices/basics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basics">
+<h1>基本<a class="headerlink" href="#basics" title="永久链接至标题">¶</a></h1>
+<p>Nest microservice is a type of application that uses a different
+<strong>transport</strong> layer than HTTP.</p>
+<figure></figure><div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>Firstly, we need to install the required package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save @nestjs/microservices
+</pre></div>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="永久链接至标题">¶</a></h2>
+<p>In general, Nest supports several built-in transporters. They are based
+on the <strong>request-response</strong> and <strong>event-based</strong> paradigms, and a whole
+communication logic is hidden behind an abstraction layer. This makes it
+easy to switch between transporters without changing the line of code.
+However, the request-response paradigm doesn’t make too much sense with
+streaming platforms supplied with log based persistence, such as
+<a class="reference external" href="https://docs.confluent.io/3.0.0/streams/">Kafka</a> or <a class="reference external" href="https://github.com/nats-io/node-nats-streaming">NATS
+streaming</a> as they
+are designed to solve a different range of issues. Nonetheless, they can
+still be used with either <strong>event-based</strong> (unidirectional) communication
+or <a class="reference external" href="/application-context">application context</a> feature.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">¶</a></h2>
+<p>In order to create a microservice, we use <code class="docutils literal notranslate"><span class="pre">createMicroservice()</span></code>
+method of the <code class="docutils literal notranslate"><span class="pre">NestFactory</span></code> class.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(main)
+import { NestFactory } from &#39;@nestjs/core&#39;;
+import { Transport } from &#39;@nestjs/microservices&#39;;
+import { ApplicationModule } from &#39;./app.module&#39;;
+
+async function bootstrap() {
+  const app = await NestFactory.createMicroservice(ApplicationModule, {
+    transport: Transport.TCP,
+  });
+  app.listen(() =&gt; console.log(&#39;Microservice is listening&#39;));
+}
+bootstrap();
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> A microservice is listening to messages through <strong>TCP</strong>
+protocol by default.</p>
+</div></blockquote>
+<p>A second argument of the <code class="docutils literal notranslate"><span class="pre">createMicroservice()</span></code> method is an options
+object. This object may have two members:</p>
+<table><tr><td><p>transport</p>
+</td><td><p>Specifies the transporter (for example, Transport.NATS)</p>
+</td></tr><tr><td><p>options</p>
+</td><td><p>A transporter-specific options object that determines transporter
+behaviour</p>
+</td></tr></table><p><p>The options object is different depending on chosen transporter. A TCP
+transporter exposes few properties described below.</p>
+</p><table><tr><td><p>host</p>
+</td><td><p>Connection hostname</p>
+</td></tr><tr><td><p>port</p>
+</td><td><p>Connection port</p>
+</td></tr><tr><td><p>retryAttempts</p>
+</td><td><p>A total amount of connection attempts</p>
+</td></tr><tr><td><p>retryDelay</p>
+</td><td><p>A connection retrying delay (ms)</p>
+</td></tr></table></div>
+<div class="section" id="patterns">
+<h2>Patterns<a class="headerlink" href="#patterns" title="永久链接至标题">¶</a></h2>
+<p>Microservices recognize both messages and events through patterns. A
+pattern is a plain value, for example, a literal object or a string.
+Eventually, every pattern is being serialized, so it can be sent over
+the network along with the data. Hence, the receiver can easily
+associate the incoming message with the corresponding handler.</p>
+</div>
+<div class="section" id="request-response">
+<h2>Request-response<a class="headerlink" href="#request-response" title="永久链接至标题">¶</a></h2>
+<p>The request-response communication mechanism is useful when you have to
+<strong>exchange</strong> messages among various, external services. Additionally,
+with this paradigm, you can be sure that the service has actually
+received the message.</p>
+<p>In order to enable services to exchange data over the network, Nest
+creates two channels in which one is responsible for transferring the
+data while the other listens to the incoming response. However, it’s not
+always the case. For instance, platforms as <a class="reference external" href="https://nats.io/">NATS</a>
+provide such a feature out-of-the-box so we don’t have to do it on our
+own.</p>
+<p>Basically, to create a message handler (based on the request-response
+paradigm), we use the <code class="docutils literal notranslate"><span class="pre">&#64;MessagePattern()</span></code> decorator which is imported
+from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code> package.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(math.controller)
+import { Controller } from &#39;@nestjs/common&#39;;
+import { MessagePattern } from &#39;@nestjs/microservices&#39;;
+
+@Controller()
+export class MathController {
+  @MessagePattern({ cmd: &#39;sum&#39; })
+  accumulate(data: number[]): number {
+    return (data || []).reduce((a, b) =&gt; a + b);
+  }
+}
+@@switch
+import { Controller } from &#39;@nestjs/common&#39;;
+import { MessagePattern } from &#39;@nestjs/microservices&#39;;
+
+@Controller()
+export class MathController {
+  @MessagePattern({ cmd: &#39;sum&#39; })
+  accumulate(data) {
+    return (data || []).reduce((a, b) =&gt; a + b);
+  }
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">accumulate()</span></code> handler is listening to messages that fulfil the
+<code class="docutils literal notranslate"><span class="pre">cmd:</span> <span class="pre">'sum'</span></code> pattern. The pattern handler takes a single argument, the
+<code class="docutils literal notranslate"><span class="pre">data</span></code> passed from the client. In this case, the data is an array of
+numbers which has to be accumulated.</p>
+</div>
+<div class="section" id="asynchronous-responses">
+<h2>Asynchronous responses<a class="headerlink" href="#asynchronous-responses" title="永久链接至标题">¶</a></h2>
+<p>Each message handler is able to respond either synchronously or
+<strong>asynchronously</strong>. Hence, <code class="docutils literal notranslate"><span class="pre">async</span></code> methods are supported.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@MessagePattern({ cmd: &#39;sum&#39; })
+async accumulate(data: number[]): Promise&lt;number&gt; {
+  return (data || []).reduce((a, b) =&gt; a + b);
+}
+@@switch
+@MessagePattern({ cmd: &#39;sum&#39; })
+async accumulate(data) {
+  return (data || []).reduce((a, b) =&gt; a + b);
+}
+</pre></div>
+</div>
+<p>Additionally, we are able to return an <code class="docutils literal notranslate"><span class="pre">Observable</span></code>, and thus the
+values will be emitted until the stream is completed.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@MessagePattern({ cmd: &#39;sum&#39; })
+accumulate(data: number[]): Observable&lt;number&gt; {
+  return from([1, 2, 3]);
+}
+@@switch
+@MessagePattern({ cmd: &#39;sum&#39; })
+accumulate(data: number[]): Observable&lt;number&gt; {
+  return from([1, 2, 3]);
+}
+</pre></div>
+</div>
+<p>Above message handler will respond <strong>3 times</strong> (with each item from the
+array).</p>
+</div>
+<div class="section" id="event-based">
+<h2>Event-based<a class="headerlink" href="#event-based" title="永久链接至标题">¶</a></h2>
+<p>While the request-response method is great when you have to constantly
+exchange messages between services, it brings too much unnecessary
+overhead that is completely useless when you just want to publish
+<strong>events</strong> (without waiting for a response). For instance, you would
+like to simply notify another service that a certain situation has
+happened in this part of the system. Thus, we provide a support for
+event-based communication as well.</p>
+<p>In order to create an event handler, we use the <code class="docutils literal notranslate"><span class="pre">&#64;EventPattern()</span></code>
+decorator which is imported from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code> package.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@EventPattern(&#39;user_created&#39;)
+async handleUserCreated(data: Record&lt;string, unknown&gt;) {
+  // business logic
+}
+@@switch
+@EventPattern(&#39;user_created&#39;)
+async handleUserCreated(data) {
+  // business logic
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">handleUserCreated()</span></code> method is listening to <code class="docutils literal notranslate"><span class="pre">user_created</span></code>
+event. The event handler takes a single argument, the <code class="docutils literal notranslate"><span class="pre">data</span></code> passed
+from the client (in this case, an event payload which has been sent over
+the network).</p>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="永久链接至标题">¶</a></h2>
+<p>In order to either exchange messages or publish events to the Nest
+microservice, we use the <code class="docutils literal notranslate"><span class="pre">ClientProxy</span></code> class which instance can be
+created in a few ways. Firstly, we may import the <code class="docutils literal notranslate"><span class="pre">ClientsModule</span></code>
+which exposes static <code class="docutils literal notranslate"><span class="pre">register()</span></code> method. This method takes an array
+as a parameter in which every element has a <code class="docutils literal notranslate"><span class="pre">name</span></code> (which is a sort of
+the microservice identifier) as well as microservice-specific options
+(it’s the same object as this one passed in to the
+<code class="docutils literal notranslate"><span class="pre">createMicroservice()</span></code> method).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">ClientsModule</span><span class="p">.</span><span class="nx">register</span><span class="p">([</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;MATH_SERVICE&#39;</span><span class="p">,</span> <span class="nx">transport</span>: <span class="kt">Transport.TCP</span> <span class="p">},</span>
+<span class="p">]),</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">ClientsModule</span></code> is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code> package.</p>
+</div></blockquote>
+<p>Once the module has been imported, we can inject <code class="docutils literal notranslate"><span class="pre">MATH_SERVICE</span></code> using
+the <code class="docutils literal notranslate"><span class="pre">&#64;Inject()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">constructor</span><span class="p">(</span>
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="kd">@Inject</span><span class="p">(</span><span class="s1">&#39;MATH_SERVICE&#39;</span><span class="p">)</span> <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">client</span>: <span class="kt">ClientProxy</span><span class="p">,</span>
+  <span class="p">)</span> <span class="p">{}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">ClientProxy</span></code> class is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code> package.</p>
+</div></blockquote>
+<p>Nonetheless, this approach doesn’t allow us to asynchronously fetch the
+microservice configuration. In this case, we can directly use
+<code class="docutils literal notranslate"><span class="pre">ClientProxyFactory</span></code> to register a <a class="reference external" href="/techniques/custom-providers">custom
+provider</a> (which is a client instance):</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">provide</span><span class="o">:</span> <span class="s1">&#39;MATH_SERVICE&#39;</span><span class="p">,</span>
+  <span class="nx">useFactory</span><span class="o">:</span> <span class="p">(</span><span class="nx">configService</span>: <span class="kt">ConfigService</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">mathSvcOptions</span> <span class="o">=</span> <span class="nx">configService</span><span class="p">.</span><span class="nx">getMathSvcOptions</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">ClientProxyFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">mathSvcOptions</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="nx">inject</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigService</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">ClientProxyFactory</span></code> is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code> package.</p>
+</div></blockquote>
+<p>The last feasible solution is to use the <code class="docutils literal notranslate"><span class="pre">&#64;Client()</span></code> property
+decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Client</span><span class="p">({</span> <span class="nx">transport</span>: <span class="kt">Transport.TCP</span> <span class="p">})</span>
+<span class="nx">client</span>: <span class="kt">ClientProxy</span><span class="p">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;Client()</span></code> is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/microservices</span></code> package.</p>
+</div></blockquote>
+<p>However, using decorator is not a recommended way (hard to test, tough
+to share client instance).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ClientProxy</span></code> is <strong>lazy</strong>. It doesn’t initiate a connection
+immediately. Instead, it will be established before the first
+microservice call, and then reused across each subsequent call. However,
+if you want to delay an application bootstrapping process and manually
+initialize a connection, you can use a <code class="docutils literal notranslate"><span class="pre">connect()</span></code> method inside the
+<code class="docutils literal notranslate"><span class="pre">OnModuleInit</span></code> lifecycle hook.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+async onModuleInit() {
+  await this.client.connect();
+}
+</pre></div>
+</div>
+<p>If the connection cannot be created, the <code class="docutils literal notranslate"><span class="pre">connect()</span></code> method will
+reject with the corresponding error object.</p>
+</div>
+<div class="section" id="sending-messages">
+<h2>Sending messages<a class="headerlink" href="#sending-messages" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ClientProxy</span></code> exposes a <code class="docutils literal notranslate"><span class="pre">send()</span></code> method. This method is intended
+to call the microservice and returns the <code class="docutils literal notranslate"><span class="pre">Observable</span></code> with its
+response. Consequently, we can subscribe to the emitted values easily.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+accumulate(): Observable&lt;number&gt; {
+  const pattern = { cmd: &#39;sum&#39; };
+  const payload = [1, 2, 3];
+  return this.client.send&lt;number&gt;(pattern, payload);
+}
+@@switch
+accumulate() {
+  const pattern = { cmd: &#39;sum&#39; };
+  const payload = [1, 2, 3];
+  return this.client.send(pattern, payload);
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">send()</span></code> method takes two arguments, <code class="docutils literal notranslate"><span class="pre">pattern</span></code> and <code class="docutils literal notranslate"><span class="pre">payload</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">pattern</span></code> has to be equal to this one defined in the
+<code class="docutils literal notranslate"><span class="pre">&#64;MessagePattern()</span></code> decorator while <code class="docutils literal notranslate"><span class="pre">payload</span></code> is a message that we
+want to transmit to another microservice.</p>
+</div>
+<div class="section" id="publishing-events">
+<h2>Publishing events<a class="headerlink" href="#publishing-events" title="永久链接至标题">¶</a></h2>
+<p>Another available method is <code class="docutils literal notranslate"><span class="pre">emit()</span></code>. This method responsibility is to
+publish an event to the message broker.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+async publish() {
+  this.client.emit&lt;number&gt;(&#39;user_created&#39;, new UserCreatedEvent());
+}
+@@switch
+async publish() {
+  this.client.emit(&#39;user_created&#39;, new UserCreatedEvent());
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">emit()</span></code> method takes two arguments, <code class="docutils literal notranslate"><span class="pre">pattern</span></code> and <code class="docutils literal notranslate"><span class="pre">payload</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">pattern</span></code> has to be equal to this one defined in the
+<code class="docutils literal notranslate"><span class="pre">&#64;EventPattern()</span></code> decorator while <code class="docutils literal notranslate"><span class="pre">payload</span></code> is an event payload that
+we want to transmit to another microservice.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="redis.html" class="btn btn-neutral float-right" title="Redis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="微服务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

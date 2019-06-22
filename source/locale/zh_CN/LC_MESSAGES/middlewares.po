@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/middlewares.rst:2
+msgid "Middleware"
+msgstr "中间件"
+
+#: ../../source/middlewares.rst:4
+msgid ""
+"Middleware is a function which is called **before** the route handler. "
+"Middleware functions have access to the `request "
+"<http://expressjs.com/en/4x/api.html#req>`__ and `response "
+"<http://expressjs.com/en/4x/api.html#res>`__ objects, and the ``next()`` "
+"middleware function in the application’s request-response cycle. The "
+"**next** middleware function is commonly denoted by a variable named "
+"``next``."
+msgstr ""
+
+#: ../../source/middlewares.rst:20
+msgid ""
+"Nest middleware are, by default, equivalent to `express "
+"<http://expressjs.com/en/guide/using-middleware.html>`__ middleware. The "
+"following description from the official express documentation describes "
+"the capabilities of middleware:"
+msgstr ""
+
+#: ../../source/middlewares.rst:29
+msgid "Middleware functions can perform the following tasks:"
+msgstr "Middleware functions can perform the following tasks:"
+
+#: ../../source/middlewares.rst:39
+msgid "execute any code."
+msgstr "execute any code."
+
+#: ../../source/middlewares.rst:49
+msgid "make changes to the request and the response objects."
+msgstr "make changes to the request and the response objects."
+
+#: ../../source/middlewares.rst:59
+msgid "end the request-response cycle."
+msgstr "end the request-response cycle."
+
+#: ../../source/middlewares.rst:69
+msgid "call the next middleware function in the stack."
+msgstr "call the next middleware function in the stack."
+
+#: ../../source/middlewares.rst:79
+msgid ""
+"if the current middleware function does not end the request-response "
+"cycle, it must call next() to pass control to the next middleware "
+"function. Otherwise, the request will be left hanging."
+msgstr ""
+
+#: ../../source/middlewares.rst:95
+msgid ""
+"You implement custom Nest middleware in either a function, or in a class "
+"with an ``@Injectable()`` decorator. The class should implement the "
+"``NestMiddleware`` interface, while the function does not have any "
+"special requirements. Let’s start by implementing a simple middleware "
+"feature using the class method."
+msgstr ""
+
+#: ../../source/middlewares.rst:126
+msgid "Dependency injection"
+msgstr "Dependency injection"
+
+#: ../../source/middlewares.rst:128
+msgid ""
+"Nest middleware fully supports Dependency Injection. Just as with "
+"providers and controllers, they are able to **inject dependencies** that "
+"are available within the same module. As usual, this is done through the "
+"``constructor``."
+msgstr ""
+
+#: ../../source/middlewares.rst:134
+msgid "Applying middleware"
+msgstr "Applying middleware"
+
+#: ../../source/middlewares.rst:136
+msgid ""
+"There is no place for middleware in the ``@Module()`` decorator. Instead,"
+" we set them up using the ``configure()`` method of the module class. "
+"Modules that include middleware have to implement the ``NestModule`` "
+"interface. Let’s set up the ``LoggerMiddleware`` at the "
+"``ApplicationModule`` level."
+msgstr ""
+
+#: ../../source/middlewares.rst:175
+msgid ""
+"In the above example we have set up the ``LoggerMiddleware`` for the "
+"``/cats`` route handlers that were previously defined inside the "
+"``CatsController``. We may also further restrict a middleware to a "
+"particular request method by passing an object containing the route "
+"``path`` and request ``method`` to the ``forRoutes()`` method when "
+"configuring the middleware. In the example below, notice that we import "
+"the ``RequestMethod`` enum to reference the desired request method type."
+msgstr ""
+
+#: ../../source/middlewares.rst:217
+msgid "Route wildcards"
+msgstr "Route wildcards"
+
+#: ../../source/middlewares.rst:219
+msgid ""
+"Pattern based routes are supported as well. For instance, the asterisk is"
+" used as a **wildcard**, and will match any combination of characters:"
+msgstr ""
+
+#: ../../source/middlewares.rst:226
+msgid ""
+"The ``'ab*cd'`` route path will match ``abcd``, ``ab_cd``, ``abecd``, and"
+" so on. The characters ``?``, ``+``, ``*``, and ``()`` may be used in a "
+"route path, and are subsets of their regular expression counterparts. The"
+" hyphen ( ``-``) and the dot (``.``) are interpreted literally by string-"
+"based paths."
+msgstr ""
+
+#: ../../source/middlewares.rst:233
+msgid "Middleware consumer"
+msgstr "Middleware consumer"
+
+#: ../../source/middlewares.rst:235
+msgid ""
+"The ``MiddlewareConsumer`` is a helper class. It provides several built-"
+"in methods to manage middleware. All of them can be simply **chained** in"
+" the `fluent style <https://en.wikipedia.org/wiki/Fluent_interface>`__. "
+"The ``forRoutes()`` method can take a single string, multiple strings, a "
+"``RouteInfo`` object, a controller class and even multiple controller "
+"classes. In most cases you’ll probably just pass a list of "
+"**controllers** separated by commas. Below is an example with a single "
+"controller:"
+msgstr ""
+
+#: ../../source/middlewares.rst:280
+msgid ""
+"info **Hint** The ``apply()`` method may either take a single middleware,"
+" or multiple arguments to specify multiple middlewares."
+msgstr ""
+
+#: ../../source/middlewares.rst:283
+msgid ""
+"Quite often we might want to **exclude** certain routes from having the "
+"middleware applied. When defining middleware with a class (as we have "
+"been doing so far, as opposed to using the alternative functional "
+"middleware), we can easily exclude certain routes with the ``exclude()`` "
+"method. This method takes one or more objects identifying the ``path`` "
+"and ``method`` to be excluded, as shown below:"
+msgstr ""
+
+#: ../../source/middlewares.rst:300
+msgid ""
+"With the example above, ``LoggerMiddleware`` will be bound to all routes "
+"defined inside ``CatsController`` **except** the two passed to the "
+"``exclude()`` method. Please note that the ``exclude()`` method **does "
+"not work** with functional middleware (middleware defined in a function "
+"rather than in a class; see below for more details). In addition, this "
+"method doesn’t exclude paths from more generic routes (e.g., wildcards). "
+"If you need that level of control, you should put your paths-restriction "
+"logic directly into the middleware and, for example, access the request’s"
+" URL to conditionally apply the middleware logic."
+msgstr ""
+
+#: ../../source/middlewares.rst:311
+msgid "Functional middleware"
+msgstr "Functional middleware"
+
+#: ../../source/middlewares.rst:313
+msgid ""
+"The ``LoggerMiddleware`` class we’ve been using is quite simple. It has "
+"no members, no additional methods, and no dependencies. Why can’t we just"
+" define it in a simple function instead of a class? In fact, we can. This"
+" type of middleware is called **functional middleware**. Let’s transform "
+"the logger middleware from class-based into functional middleware to "
+"illustrate the difference:"
+msgstr ""
+
+#: ../../source/middlewares.rst:328
+msgid "And use it within the ``ApplicationModule``:"
+msgstr "And use it within the ``ApplicationModule``:"
+
+#: ../../source/middlewares.rst:339
+msgid ""
+"info **Hint** Consider using the simpler **functional middleware** "
+"alternative any time your middleware doesn’t need any dependencies."
+msgstr ""
+
+#: ../../source/middlewares.rst:343
+msgid "Multiple middleware"
+msgstr "Multiple middleware"
+
+#: ../../source/middlewares.rst:345
+msgid ""
+"As mentioned above, in order to bind multiple middleware that are "
+"executed sequentially, simply provide a comma separated list inside the "
+"``apply()`` method:"
+msgstr ""
+
+#: ../../source/middlewares.rst:354
+msgid "Global middleware"
+msgstr "Global middleware"
+
+#: ../../source/middlewares.rst:356
+msgid ""
+"If we want to bind middleware to every registered route at once, we can "
+"use the ``use()`` method that is supplied by the ``INestApplication`` "
+"instance:"
+msgstr ""
+

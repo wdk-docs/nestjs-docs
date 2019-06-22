@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>用法 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>用法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cli/usages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage">
+<h1>用法<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h1>
+<p>In order to provide a great user-experience, the CLI commands share the
+same command schema.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ nest <span class="o">[</span>command<span class="o">]</span> <span class="o">[</span>...options<span class="o">]</span>
+</pre></div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
+<p>Each command accepts a set of <strong>options</strong> that are listed below:</p>
+<ul class="simple">
+<li><p><strong>–dry-run</strong>: allows to simulate the command execution in order to
+verify how it will affect your working directory</p></li>
+<li><p><strong>–no-spec</strong>: allows to turn off the generation of spec files (only
+applies to the <code class="docutils literal notranslate"><span class="pre">generate</span></code> command)</p></li>
+<li><p><strong>–flat</strong>: allows to turn off the generation of the dedicated
+directory (only applies to the <code class="docutils literal notranslate"><span class="pre">generate</span></code> command)</p></li>
+</ul>
+</div>
+<div class="section" id="new-alias-n">
+<h2>new (alias: n)<a class="headerlink" href="#new-alias-n" title="永久链接至标题">¶</a></h2>
+<p>The <strong>new</strong> command scaffolds the Nest project based on the
+<a class="reference external" href="https://github.com/nestjs/typescript-starter">typescript-starter</a> as
+well as install the required packages. The CLI will ask you for missing
+information - the application name (if not specified) and a package
+manager that you want to use to install dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ nest new my-awesome-app
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-alias-g">
+<h2>generate (alias: g)<a class="headerlink" href="#generate-alias-g" title="永久链接至标题">¶</a></h2>
+<p>The <strong>generate</strong> command generates a Nest architecture component.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 66%" />
+<col style="width: 9%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Default value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>schematic</p></td>
+<td><p>The schematic name from the list below.</p></td>
+<td><p>true</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>The name of the generated Nest architecture component.</p></td>
+<td><p>false</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>path</p></td>
+<td><p>The path from to generate the Nest architecture component.</p></td>
+<td><p>false</p></td>
+<td><p>src</p></td>
+</tr>
+</tbody>
+</table>
+<p>A list of available architecture components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code> (alias: cl)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">controller</span></code> (alias: co)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decorator</span></code> (alias: d)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code> (alias: f)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gateway</span></code> (alias: ga)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guard</span></code> (alias: gu)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interface</span></code> (alias: -)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interceptor</span></code> (alias: in)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library</span></code> (alias: lib)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">middleware</span></code> (alias: mi)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span></code> (alias: mo)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pipe</span></code> (alias: pi)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">provider</span></code> (alias: pr)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resolver</span></code> (alias: r)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">service</span></code> (alias: s)</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ nest generate service users
+OR
+$ nest g s users
+</pre></div>
+</div>
+</div>
+<div class="section" id="info-alias-i">
+<h2>info (alias: i)<a class="headerlink" href="#info-alias-i" title="永久链接至标题">¶</a></h2>
+<p>The <strong>info</strong> command will display your project information.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ nest info
+ _   _             _      ___  _____  _____  _     _____
+<span class="p">|</span> <span class="se">\ </span><span class="p">|</span> <span class="p">|</span>           <span class="p">|</span> <span class="p">|</span>    <span class="p">|</span>_  <span class="p">|</span>/  ___<span class="p">|</span>/  __ <span class="se">\|</span> <span class="p">|</span>   <span class="p">|</span>_   _<span class="p">|</span>
+<span class="p">|</span>  <span class="se">\|</span> <span class="p">|</span>  ___  ___ <span class="p">|</span> <span class="p">|</span>_     <span class="p">|</span> <span class="p">|</span><span class="se">\ </span><span class="sb">`</span>--. <span class="p">|</span> /  <span class="se">\/</span><span class="p">|</span> <span class="p">|</span>     <span class="p">|</span> <span class="p">|</span>
+<span class="p">|</span> . <span class="sb">`</span> <span class="p">|</span> / _ <span class="se">\/</span> __<span class="o">||</span> __<span class="p">|</span>    <span class="p">|</span> <span class="p">|</span> <span class="sb">`</span>--. <span class="se">\|</span> <span class="p">|</span>    <span class="p">|</span> <span class="p">|</span>     <span class="p">|</span> <span class="p">|</span>
+<span class="p">|</span> <span class="p">|</span><span class="se">\ </span> <span class="o">||</span>  __/<span class="se">\_</span>_ <span class="se">\|</span> <span class="p">|</span>_ /<span class="se">\_</span>_/ //<span class="se">\_</span>_/ /<span class="p">|</span> <span class="se">\_</span>_/<span class="se">\|</span> <span class="p">|</span>_____<span class="p">|</span> <span class="p">|</span>_
+<span class="se">\_</span><span class="p">|</span> <span class="se">\_</span>/ <span class="se">\_</span>__<span class="o">||</span>___/ <span class="se">\_</span>_<span class="p">|</span><span class="se">\_</span>___/ <span class="se">\_</span>___/  <span class="se">\_</span>___/<span class="se">\_</span>____/<span class="se">\_</span>__/
+
+<span class="o">[</span>System Information<span class="o">]</span>
+OS Version : macOS High Sierra
+NodeJS Version : v8.9.0
+YARN Version : <span class="m">1</span>.5.1
+<span class="o">[</span>Nest Information<span class="o">]</span>
+microservices version : <span class="m">5</span>.0.0
+websockets version : <span class="m">5</span>.0.0
+testing version : <span class="m">5</span>.0.0
+common version : <span class="m">5</span>.0.0
+core version : <span class="m">5</span>.0.0
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,603 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/microservices/basics.rst:2
+msgid "Basics"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:4
+msgid "Nest microservice is a type of application that uses a different **transport** layer than HTTP."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:16
+#: ../../source/microservices/grpc.rst:8
+#: ../../source/microservices/mqtt.rst:8
+#: ../../source/microservices/nats.rst:8
+#: ../../source/microservices/rabbitmq.rst:8
+#: ../../source/microservices/redis.rst:17
+msgid "Installation"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:18
+msgid "Firstly, we need to install the required package:"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:25
+#: ../../source/microservices/grpc.rst:222
+#: ../../source/microservices/mqtt.rst:17
+#: ../../source/microservices/nats.rst:17
+#: ../../source/microservices/redis.rst:26
+msgid "Overview"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:27
+msgid "In general, Nest supports several built-in transporters. They are based on the **request-response** and **event-based** paradigms, and a whole communication logic is hidden behind an abstraction layer. This makes it easy to switch between transporters without changing the line of code. However, the request-response paradigm doesn’t make too much sense with streaming platforms supplied with log based persistence, such as `Kafka <https://docs.confluent.io/3.0.0/streams/>`__ or `NATS streaming <https://github.com/nats-io/node-nats-streaming>`__ as they are designed to solve a different range of issues. Nonetheless, they can still be used with either **event-based** (unidirectional) communication or `application context </application-context>`__ feature."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:40
+msgid "Getting started"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:42
+msgid "In order to create a microservice, we use ``createMicroservice()`` method of the ``NestFactory`` class."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:62
+msgid "info **Hint** A microservice is listening to messages through **TCP** protocol by default."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:65
+msgid "A second argument of the ``createMicroservice()`` method is an options object. This object may have two members:"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:80
+msgid "transport"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:90
+msgid "Specifies the transporter (for example, Transport.NATS)"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:108
+msgid "options"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:118
+msgid "A transporter-specific options object that determines transporter behaviour"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:137
+msgid "The options object is different depending on chosen transporter. A TCP transporter exposes few properties described below."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:156
+msgid "host"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:166
+msgid "Connection hostname"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:184
+msgid "port"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:194
+msgid "Connection port"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:212
+#: ../../source/microservices/redis.rst:93
+msgid "retryAttempts"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:222
+#: ../../source/microservices/redis.rst:103
+msgid "A total amount of connection attempts"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:240
+#: ../../source/microservices/redis.rst:121
+msgid "retryDelay"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:250
+#: ../../source/microservices/redis.rst:131
+msgid "A connection retrying delay (ms)"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:265
+msgid "Patterns"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:267
+msgid "Microservices recognize both messages and events through patterns. A pattern is a plain value, for example, a literal object or a string. Eventually, every pattern is being serialized, so it can be sent over the network along with the data. Hence, the receiver can easily associate the incoming message with the corresponding handler."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:274
+msgid "Request-response"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:276
+msgid "The request-response communication mechanism is useful when you have to **exchange** messages among various, external services. Additionally, with this paradigm, you can be sure that the service has actually received the message."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:281
+msgid "In order to enable services to exchange data over the network, Nest creates two channels in which one is responsible for transferring the data while the other listens to the incoming response. However, it’s not always the case. For instance, platforms as `NATS <https://nats.io/>`__ provide such a feature out-of-the-box so we don’t have to do it on our own."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:288
+msgid "Basically, to create a message handler (based on the request-response paradigm), we use the ``@MessagePattern()`` decorator which is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:317
+msgid "The ``accumulate()`` handler is listening to messages that fulfil the ``cmd: 'sum'`` pattern. The pattern handler takes a single argument, the ``data`` passed from the client. In this case, the data is an array of numbers which has to be accumulated."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:323
+msgid "Asynchronous responses"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:325
+msgid "Each message handler is able to respond either synchronously or **asynchronously**. Hence, ``async`` methods are supported."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:341
+msgid "Additionally, we are able to return an \\ ``Observable``, and thus the values will be emitted until the stream is completed."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:357
+msgid "Above message handler will respond **3 times** (with each item from the array)."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:361
+msgid "Event-based"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:363
+msgid "While the request-response method is great when you have to constantly exchange messages between services, it brings too much unnecessary overhead that is completely useless when you just want to publish **events** (without waiting for a response). For instance, you would like to simply notify another service that a certain situation has happened in this part of the system. Thus, we provide a support for event-based communication as well."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:371
+msgid "In order to create an event handler, we use the ``@EventPattern()`` decorator which is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:387
+msgid "The ``handleUserCreated()`` method is listening to ``user_created`` event. The event handler takes a single argument, the ``data`` passed from the client (in this case, an event payload which has been sent over the network)."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:393
+#: ../../source/microservices/grpc.rst:349
+msgid "Client"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:395
+msgid "In order to either exchange messages or publish events to the Nest microservice, we use the ``ClientProxy`` class which instance can be created in a few ways. Firstly, we may import the ``ClientsModule`` which exposes static ``register()`` method. This method takes an array as a parameter in which every element has a ``name`` (which is a sort of the microservice identifier) as well as microservice-specific options (it’s the same object as this one passed in to the ``createMicroservice()`` method)."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:412
+msgid "info **Hint** The ``ClientsModule`` is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:415
+msgid "Once the module has been imported, we can inject ``MATH_SERVICE`` using the ``@Inject()`` decorator."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:428
+msgid "info **Hint** The ``ClientProxy`` class is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:431
+msgid "Nonetheless, this approach doesn’t allow us to asynchronously fetch the microservice configuration. In this case, we can directly use ``ClientProxyFactory`` to register a `custom provider </techniques/custom-providers>`__ (which is a client instance):"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:449
+msgid "info **Hint** The ``ClientProxyFactory`` is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:452
+msgid "The last feasible solution is to use the ``@Client()`` property decorator."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:462
+msgid "info **Hint** The ``@Client()`` is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:465
+msgid "However, using decorator is not a recommended way (hard to test, tough to share client instance)."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:468
+msgid "The ``ClientProxy`` is **lazy**. It doesn’t initiate a connection immediately. Instead, it will be established before the first microservice call, and then reused across each subsequent call. However, if you want to delay an application bootstrapping process and manually initialize a connection, you can use a ``connect()`` method inside the ``OnModuleInit`` lifecycle hook."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:482
+msgid "If the connection cannot be created, the ``connect()`` method will reject with the corresponding error object."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:486
+msgid "Sending messages"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:488
+msgid "The ``ClientProxy`` exposes a ``send()`` method. This method is intended to call the microservice and returns the ``Observable`` with its response. Consequently, we can subscribe to the emitted values easily."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:507
+msgid "The ``send()`` method takes two arguments, ``pattern`` and ``payload``. The ``pattern`` has to be equal to this one defined in the ``@MessagePattern()`` decorator while ``payload`` is a message that we want to transmit to another microservice."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:513
+msgid "Publishing events"
+msgstr ""
+
+#: ../../source/microservices/basics.rst:515
+msgid "Another available method is ``emit()``. This method responsibility is to publish an event to the message broker."
+msgstr ""
+
+#: ../../source/microservices/basics.rst:529
+msgid "The ``emit()`` method takes two arguments, ``pattern`` and ``payload``. The ``pattern`` has to be equal to this one defined in the ``@EventPattern()`` decorator while ``payload`` is an event payload that we want to transmit to another microservice."
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:2
+msgid "Exception filters"
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:4
+msgid "The only difference between HTTP exception filter layer and corresponding microservices layer is that instead of throwing ``HttpException``, you should rather use ``RpcException``."
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:14
+msgid "info **Hint** The ``RpcException`` class is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:17
+msgid "Nest will handle thrown exception and as a result, returns the ``error`` object with the following structure:"
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:28
+msgid "Filters"
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:30
+msgid "The exception filters work in the same fashion as the primary ones, with a one, small difference. The ``catch()`` method has to return an ``Observable``."
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:60
+msgid "**Warning** It is impossible to set up the microservice exception filters globally when the hybrid application feature is being used."
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:63
+msgid "Here is an example that makes use of a manually instantiated method-scoped filter (class-scoped works too):"
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:82
+msgid "Inheritance"
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:84
+msgid "Typically, you’ll create fully customized exception filters crafted to fulfill your application requirements. There might be use-cases though when you would like to reuse an already implemented, **core exception filter**, and override the behavior based on certain factors."
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:89
+msgid "In order to delegate exception processing to the base filter, you need to extend ``BaseExceptionFilter`` and call inherited ``catch()`` method. Besides, ``HttpServer`` reference has to be injected and passed to the ``super()`` call."
+msgstr ""
+
+#: ../../source/microservices/exception-filters.rst:117
+msgid "Obviously, you should enhance above implementation with your tailored **business** logic (e.g. add various conditions)."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:2
+msgid "gRPC"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:4
+msgid "The `gRPC <https://github.com/grpc/grpc-node>`__ is a high-performance, open-source universal RPC framework."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:10
+#: ../../source/microservices/mqtt.rst:10
+#: ../../source/microservices/nats.rst:10
+#: ../../source/microservices/redis.rst:19
+msgid "Before we start, we have to install required package:"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:17
+#: ../../source/microservices/rabbitmq.rst:17
+msgid "Transporter"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:19
+msgid "In order to switch to **gRPC** transporter, we need to modify an options object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:35
+msgid "info **Hint** The ``join()`` function is imported from ``path`` package, while ``Transport`` enum is coming from ``@nestjs/microservices``."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:40
+#: ../../source/microservices/mqtt.rst:39
+#: ../../source/microservices/nats.rst:38
+#: ../../source/microservices/rabbitmq.rst:40
+#: ../../source/microservices/redis.rst:48
+msgid "Options"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:42
+#: ../../source/microservices/rabbitmq.rst:42
+msgid "There are a bunch of available options that determine a transporter behavior."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:57
+#: ../../source/microservices/redis.rst:65
+msgid "url"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:67
+#: ../../source/microservices/redis.rst:75
+msgid "Connection url"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:85
+msgid "protoLoader"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:95
+msgid "NPM package name (if you want to use another proto-loader)"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:113
+msgid "protoPath"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:123
+msgid "Absolute (or relative to the root dir) path to the .proto file"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:141
+msgid "loader"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:151
+msgid "@grpc/proto-loader options. They are well-described here."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:169
+msgid "package"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:179
+msgid "Protobuf package name"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:197
+msgid "credentials"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:207
+msgid "Server credentials (read more)"
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:224
+msgid "In general, a ``package`` property sets a `protobuf <https://developers.google.com/protocol-buffers/docs/proto>`__ package name, while ``protoPath`` is a path to the ``.proto`` definitions file. The ``hero.proto`` file is structured using protocol buffer language."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:249
+msgid "In the above example, we defined a ``HeroService`` that exposes a ``FindOne()`` gRPC handler which expects ``HeroById`` as an input and returns a ``Hero`` message. In order to define a handler that fulfills this protobuf definition, we have to use a ``@GrpcMethod()`` decorator. The previously known ``@MessagePattern()`` is no longer useful."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:278
+msgid "info **Hint** The ``@GrpcMethod()`` decorator is imported from ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:281
+msgid "The ``HeroService`` is a service name, while ``FindOne`` points to a ``FindOne()`` gRPC handler. The corresponding ``findOne()`` method takes two arguments, the ``data`` passed from the caller and ``metadata`` that stores gRPC request’s metadata."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:286
+msgid "Furthermore, the ``FindOne`` is actually redundant here. If you don’t pass a second argument to the ``@GrpcMethod()``, Nest will automatically use the method name with the capitalized first letter, for example, ``findOne`` -> ``FindOne``."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:318
+msgid "Likewise, you might not pass any argument. In this case, Nest would use a class name."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:351
+msgid "In order to create a client instance, we need to use ``@Client()`` decorator."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:365
+msgid "There is a small difference compared to the previous examples. Instead of the ``ClientProxy`` class, we use the ``ClientGrpc`` that provides a ``getService()`` method. The ``getService()`` generic method takes service name as an argument and returns its instance if available."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:381
+msgid "The ``heroService`` object exposes the same set of methods that have been defined inside ``.proto`` file. Note, all of them are **lowercased** (in order to follow the natural convention). Basically, our gRPC ``HeroService`` definition contains ``FindOne()`` function. It means that ``heroService`` instance will provide the ``findOne()`` method."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:394
+msgid "All service methods return ``Observable``. Since Nest supports `RxJS <https://github.com/reactivex/rxjs>`__ streams and works pretty well with them, we can return them within HTTP handler as well."
+msgstr ""
+
+#: ../../source/microservices/grpc.rst:411
+msgid "A full working example is available `here <https://github.com/nestjs/nest/tree/master/sample/04-grpc>`__."
+msgstr ""
+
+#: ../../source/microservices/guards.rst:2
+msgid "Guards"
+msgstr ""
+
+#: ../../source/microservices/guards.rst:4
+msgid "There is no difference between microservices guards and the `regular guards </guards>`__. The only thing you should be aware of is that instead of throwing ``HttpException``, you should use the ``RpcException``."
+msgstr ""
+
+#: ../../source/microservices/guards.rst:9
+#: ../../source/microservices/pipes.rst:8
+msgid "info **Hint** The ``RpcException`` class is exposed from ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/guards.rst:13
+msgid "Binding guards"
+msgstr ""
+
+#: ../../source/microservices/guards.rst:15
+msgid "Here is an example that makes use of a method-scoped guard (class-scoped works too):"
+msgstr ""
+
+#: ../../source/microservices/interceptors.rst:2
+msgid "Interceptors"
+msgstr ""
+
+#: ../../source/microservices/interceptors.rst:4
+msgid "There is no difference between `regular interceptors </interceptors>`__ and the microservices interceptors. Here is an example that makes use of a manually instantiated method-scoped interceptor (class-scoped works too):"
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:2
+msgid "MQTT"
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:4
+msgid "The `MQTT <http://mqtt.org/>`__ is a lightweight messaging protocol, optimized for high-latency."
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:19
+msgid "In order to switch to **MQTT** transporter, we need to modify an options object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:35
+#: ../../source/microservices/nats.rst:34
+#: ../../source/microservices/rabbitmq.rst:36
+#: ../../source/microservices/redis.rst:44
+msgid "info **Hint** ``Transport`` enumerator is imported from the ``@nestjs/microservices`` package."
+msgstr ""
+
+#: ../../source/microservices/mqtt.rst:41
+msgid "There are a bunch of available options that determine a transporter behavior. They are well-described `here <https://github.com/mqttjs/MQTT.js>`__."
+msgstr ""
+
+#: ../../source/microservices/nats.rst:2
+msgid "NATS"
+msgstr ""
+
+#: ../../source/microservices/nats.rst:4
+msgid "The `NATS <https://nats.io>`__ is a simple, high performance open source messaging system."
+msgstr ""
+
+#: ../../source/microservices/nats.rst:19
+msgid "In order to switch to **NATS** transporter, we need to modify an options object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/nats.rst:40
+msgid "There are a bunch of available options that determine a transporter behavior. They are well-described `here <https://github.com/nats-io/node-nats#connect-options>`__. Also, there is an additional ``queue`` property which allows you specifying a name of the queue that your server should subscribe to (leave ``undefined`` if you don’t want use any particular queue)"
+msgstr ""
+
+#: ../../source/microservices/pipes.rst:2
+msgid "Pipes"
+msgstr ""
+
+#: ../../source/microservices/pipes.rst:4
+msgid "There is no difference between microservices **pipes** and the `regular pipes </pipes>`__. The only thing you should be aware of is that instead of throwing ``HttpException``, you should use the ``RpcException``."
+msgstr ""
+
+#: ../../source/microservices/pipes.rst:12
+msgid "Binding pipes"
+msgstr ""
+
+#: ../../source/microservices/pipes.rst:14
+msgid "Here is an example that makes use of a manually instantiated method-scoped pipe (class-scoped works too):"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:2
+msgid "RabbitMQ"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:4
+msgid "The `RabbitMQ <https://www.rabbitmq.com/>`__ is the most widely deployed open source message broker."
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:10
+msgid "Before we start, we have to install required packages:"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:19
+msgid "In order to switch to **RabbitMQ** transporter, we need to modify an options object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:57
+msgid "urls"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:67
+msgid "Connection urls"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:85
+msgid "queue"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:95
+msgid "Queue name which your server will listen to"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:113
+msgid "prefetchCount"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:123
+msgid "Sets the prefetch count for the channel"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:141
+msgid "isGlobalPrefetchCount"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:151
+msgid "Enables per channel prefetching"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:169
+msgid "queueOptions"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:179
+msgid "Additional queue options. They are well-described here"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:197
+msgid "socketOptions"
+msgstr ""
+
+#: ../../source/microservices/rabbitmq.rst:207
+msgid "Additional socket options. They are well-described here"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:2
+msgid "Redis"
+msgstr ""
+
+#: ../../source/microservices/redis.rst:4
+msgid "A second built-in transporter is based on `Redis <https://redis.io/>`__ database. This transporter takes advantage of **publish/subscribe** feature."
+msgstr ""
+
+#: ../../source/microservices/redis.rst:28
+msgid "In order to switch from TCP transport strategy to Redis **pub/sub**, we need to change an options object passed to the ``createMicroservice()`` method."
+msgstr ""
+
+#: ../../source/microservices/redis.rst:50
+msgid "There are a bunch of available options that determine a transporter behaviour."
+msgstr ""
+

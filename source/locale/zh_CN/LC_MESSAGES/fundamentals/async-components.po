@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/fundamentals/async-components.rst:2
+msgid "Asynchronous providers"
+msgstr "异步提供程序"
+
+#: ../../source/fundamentals/async-components.rst:4
+msgid ""
+"When the application start has to be delayed until some **asynchronous "
+"tasks** will be finished, for example, until the connection with the "
+"database will be established, you should consider using asynchronous "
+"providers. In order to create an ``async`` provider, we use the "
+"``useFactory``. The factory has to return a ``Promise`` (thus ``async`` "
+"functions fit as well)."
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:23
+msgid ""
+"info **Hint** Learn more about the custom providers syntax `here "
+"</fundamentals/custom-providers>`__."
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:27
+msgid "Injection"
+msgstr "Injection"
+
+#: ../../source/fundamentals/async-components.rst:29
+msgid ""
+"The asynchronous providers can be simply injected to other components by "
+"their tokens (in the above case, by the ``ASYNC_CONNECTION`` token). Each"
+" class that depends on the asynchronous provider will be instantiated "
+"once the async provider is **already resolved**."
+msgstr ""
+
+#: ../../source/fundamentals/async-components.rst:34
+msgid ""
+"The above example is for demonstration purposes. If you’re looking for "
+"more detailed one, `see here </recipes/sql-typeorm>`__."
+msgstr ""
+

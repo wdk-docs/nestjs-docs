@@ -1,0 +1,352 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/websockets/adapter.rst:2
+msgid "Adapters"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:4
+msgid "The WebSockets module is platform-agnostic, hence, you can bring your own library (or even a native implementation) by making use of ``WebSocketAdapter`` interface. This interface forces to implement few methods described in the following table:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:21
+msgid "create"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:31
+msgid "Creates a socket instance based on passed arguments"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:49
+msgid "bindClientConnect"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:59
+msgid "Binds the client connection event"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:77
+msgid "bindClientDisconnect"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:87
+msgid "Binds the client disconnection event (optional*)"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:105
+msgid "bindMessageHandlers"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:115
+msgid "Binds the incoming message to the corresponding message handler"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:133
+msgid "close"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:143
+msgid "Terminates a server instance"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:158
+msgid "Extend socket.io"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:160
+msgid "The `socket.io <https://github.com/socketio/socket.io>`__ package is wrapped in an ``IoAdapter`` class. What if you would like to enhance the basic functionality of the adapter? For instance, your technical requirements require a capability to broadcast events across multiple load-balanced instances of your web service. For this, you can extend ``IoAdapter`` and override a single method which responsibility is to instantiate new socket.io servers. But first of all, let’s install the required package."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:173
+msgid "Once the package is installed, we can create a ``RedisIoAdapter`` class."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:190
+msgid "Afterward, simply switch to your newly created Redis adapter."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:198
+msgid "Ws library"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:200
+msgid "Another available adapter is a ``WsAdapter`` which in turn acts like a proxy between the framework and integrate blazing fast and thoroughly tested `ws <https://github.com/websockets/ws>`__ library. This adapter is fully compatible with native browser WebSockets and is far faster than socket.io package. Unluckily, it has significantly fewer functionalities available out-of-the-box. In some cases, you may just don’t necessarily need them though."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:208
+msgid "In order to use ``ws``, we firstly have to install the required package:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:214
+msgid "Once the package is installed, we can switch an adapter:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:223
+msgid "info **Hint** The ``WsAdapter`` is imported from ``@nestjs/platform-ws``."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:227
+msgid "Advanced (custom adapter)"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:229
+msgid "For demonstration purposes, we are going to integrate the `ws <https://github.com/websockets/ws>`__ library manually. As mentioned, the adapter for this library is already created and is exposed from the ``@nestjs/platform-ws`` package as a ``WsAdapter`` class. Here is how the simplified implementation could potentially look like:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:290
+msgid "info **Hint** When you want to take advantage of `ws <https://github.com/websockets/ws>`__ library, use built-in ``WsAdapter`` instead of creating your own one."
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:294
+msgid "Then, we can set up a custom adapter using ``useWebSocketAdapter()`` method:"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:304
+#: ../../source/websockets/gateways.rst:316
+msgid "Example"
+msgstr ""
+
+#: ../../source/websockets/adapter.rst:306
+msgid "A working example that uses ``WsAdapter`` is available `here <https://github.com/nestjs/nest/tree/master/sample/16-gateways-ws>`__."
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:2
+msgid "Exception filters"
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:4
+msgid "The only difference between `HTTP exception filter </exception-filters>`__ layer and corresponding web sockets layer is that instead of throwing ``HttpException``, you should rather use ``WsException``."
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:15
+msgid "info **Hint** The ``WsException`` class is imported from the ``@nestjs/websockets`` package."
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:18
+msgid "Nest will handle thrown exception and as a result, emits the ``exception`` message with the following structure:"
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:29
+msgid "Filters"
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:31
+msgid "The **custom filters** feature is supported as well and works equivalently. Here is an example that makes use of a manually instantiated method-scope filter (class-scoped works too):"
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:45
+msgid "Inheritance"
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:47
+msgid "Typically, you’ll create fully customized exception filters crafted to fulfill your application requirements. There might be use-cases though when you would like to reuse an already implemented, **core exception filter**, and override the behavior based on certain factors."
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:52
+msgid "In order to delegate exception processing to the base filter, you need to extend ``BaseWsExceptionFilter`` and call inherited ``catch()`` method."
+msgstr ""
+
+#: ../../source/websockets/exception-filters.rst:79
+msgid "Obviously, you should enhance above implementation with your tailored **business** logic (e.g. add various conditions)."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:2
+msgid "Gateways"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:4
+msgid "Gateway is a class annotated with ``@WebSocketGateway()`` decorator. Gateways make use of `socket.io <https://github.com/socketio/socket.io>`__ package under the hood, but also, provide compatibility with a wide range of other libraries, including native web sockets implementation, read more `here </websockets/adapter>`__."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:21
+msgid "warning **Hint** Gateway behaves same as a simple **provider**, therefore it can effortlessly inject dependencies through constructor. Also, gateway can be injected by other classes (providers and controllers) as well."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:27
+msgid "Installation"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:29
+msgid "Firstly, we need to install the required packages:"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:40
+msgid "Overview"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:42
+msgid "In general, each gateway is listening to the same port as **HTTP server** is running on, unless your app is not a web application, or you have changed the port manually. We can change this behavior by passing an argument to the ``@WebSocketGateway(80)`` decorator where ``80`` is a chosen port number. Additionally, you can set a `namespace <https://socket.io/docs/rooms-and-namespaces/>`__ used by this gateway with the following construction:"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:56
+msgid "**Warning** The gateway won’t start until you put it inside the ``providers`` array."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:59
+msgid "The ``namespace`` is not a sole available option. You can pass any other property that is mentioned `here <https://socket.io/docs/server-api/>`__. Those properties will be passed to the socket constructor during the instantiation process."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:68
+msgid "Alright, the gateway is listening now, but we are not subscribing to the incoming messages so far. Let’s create a handler that will subscribe to the ``events`` messages and respond to the user with the exact same data."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:88
+msgid "info **Hint** The ``@SubscribeMessage()`` decorator is imported from ``@nestjs/websockets`` package."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:91
+msgid "The ``handleEvent()`` function takes two arguments. First one is a platform-specific `socket instance <https://socket.io/docs/server-api/#socket>`__ and the second one is the data received from the client. Once we get the message, we send an acknowledgment with the same data that someone has sent over the network. Also, it is possible to emit messages using a library-specific approach, for example, by making use of ``client.emit()`` method. However, in this case, you aren’t able to use interceptors. If you don’t want to respond to the user, just don’t return anything (or explicitly return “falsy” value, e.g. \\ ``undefined``)."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:102
+msgid "Now when the client emits a message in the following way:"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:108
+msgid "The ``handleEvent()`` method will be executed. In order to listen to messages emitted from within the above handler, the client has to attach a corresponding acknowledgment listener:"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:117
+msgid "Multiple responses"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:119
+msgid "The acknowledgment is dispatched only once. Furthermore, it is not supported by native WebSockets implementation. To solve this limitation, you may return an object which consist of two properties. The ``event`` which is a name of the emitted event and the ``data`` that has to be forwarded to the client."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:142
+msgid "info **Hint** The ``WsResponse`` interface is imported from ``@nestjs/websockets`` package."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:145
+msgid "In order to listen for the incoming response(s), the client has to apply another event listener."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:153
+msgid "Asynchronous responses"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:155
+msgid "Each message handler can be either synchronous or **asynchronous** (``async``), thereby you’re able to return the ``Promise``. Moreover, you can return the `Observable <https://github.com/reactivex/rxjs>`__, which means that you can return multiple values (they will be emitted until the stream is completed)."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:184
+msgid "The above message handler will respond **3 times** (sequentially, with each item from the ``response`` array)."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:188
+msgid "Lifecycle hooks"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:190
+msgid "There are 3 useful lifecycle hooks. All of them have corresponding interfaces and are described in the following table:"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:205
+msgid "OnGatewayInit"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:215
+msgid "Forces to implement the afterInit() method. Takes library-specific server instance as an argument (and spreads the rest if required)."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:234
+msgid "OnGatewayConnection"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:244
+msgid "Forces to implement the handleConnection() method. Takes library-specific client socket instance as an argument."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:263
+msgid "OnGatewayDisconnect"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:273
+msgid "Forces to implement the handleDisconnect() method. Takes library-specific client socket instance as an argument."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:290
+msgid "info **Hint** Each lifecycle interface is exposed from ``@nestjs/websockets`` package."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:294
+msgid "Server"
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:296
+msgid "Occasionally, you may want to have a direct access to the native, **platform-specific** server instance. The reference to this object is passed as an argument to the ``afterInit()`` method (``OnGatewayInit`` interface). The second approach is to make use of ``@WebSocketServer()`` decorator."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:309
+msgid "warning **Notice** The ``@WebSocketServer()`` decorator is imported from the ``@nestjs/websockets`` package."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:312
+msgid "Nest will automatically assign the server instance to this property when it’s ready to use."
+msgstr ""
+
+#: ../../source/websockets/gateways.rst:318
+msgid "A working example is available `here <https://github.com/nestjs/nest/tree/master/sample/02-gateways>`__."
+msgstr ""
+
+#: ../../source/websockets/guards.rst:2
+msgid "Guards"
+msgstr ""
+
+#: ../../source/websockets/guards.rst:4
+msgid "There is no difference between web sockets **guards** and the `regular guards </guards>`__. The only thing you should be aware of is that instead of throwing ``HttpException``, you should use the ``WsException``."
+msgstr ""
+
+#: ../../source/websockets/guards.rst:9
+#: ../../source/websockets/pipes.rst:11
+msgid "info **Hint** The ``WsException`` class is exposed from ``@nestjs/websockets`` package."
+msgstr ""
+
+#: ../../source/websockets/guards.rst:13
+msgid "Binding guards"
+msgstr ""
+
+#: ../../source/websockets/guards.rst:15
+msgid "Here is an example that makes use of a method-scoped guard (class-scoped works too):"
+msgstr ""
+
+#: ../../source/websockets/interceptors.rst:2
+msgid "Interceptors"
+msgstr ""
+
+#: ../../source/websockets/interceptors.rst:4
+msgid "There is no difference between `regular interceptors </interceptors>`__ and the web sockets interceptors. Here is an example that makes use of a manually instantiated method-scoped interceptor (class-scoped works too):"
+msgstr ""
+
+#: ../../source/websockets/pipes.rst:2
+msgid "Pipes"
+msgstr ""
+
+#: ../../source/websockets/pipes.rst:4
+msgid "There is no difference between web sockets **pipes** and the `regular pipes </pipes>`__. The only thing you should be aware of is that instead of throwing ``HttpException``, you should use the ``WsException``. Besides, all pipes will be applied only to the ``data`` parameter (because either validating or transforming ``client`` instance sounds awkward)."
+msgstr ""
+
+#: ../../source/websockets/pipes.rst:15
+msgid "Binding pipes"
+msgstr ""
+
+#: ../../source/websockets/pipes.rst:17
+msgid "Here is an example that makes use of a manually instantiated method-scoped pipe (class-scoped works too):"
+msgstr ""
+

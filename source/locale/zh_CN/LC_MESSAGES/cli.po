@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/cli/overview.rst:2
+msgid "Overview"
+msgstr "概观"
+
+#: ../../source/cli/overview.rst:4
+msgid ""
+"`Nest CLI <https://github.com/nestjs/nest-cli>`__ is a command-line "
+"interface tool that helps you to to initialize and develop your "
+"applications. It helps on many grounds at once, from scaffolding the "
+"project to building well-structured apps. The Nest CLI is based on the "
+"`Angular Devkit <https://github.com/angular/devkit>`__ package."
+msgstr ""
+
+#: ../../source/cli/overview.rst:11
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../source/cli/overview.rst:13
+msgid "Install the CLI using **NPM**:"
+msgstr "Install the CLI using **NPM**:"
+
+#: ../../source/cli/overview.rst:20
+msgid "Basic workflow"
+msgstr "Basic workflow"
+
+#: ../../source/cli/overview.rst:22
+msgid ""
+"Once the installation process is finished, you should be able to invoke "
+"CLI commands directly from your command line through the ``nest`` "
+"executable. In order to get a list of available functionalities, use the "
+"following command:"
+msgstr ""
+
+#: ../../source/cli/overview.rst:32
+msgid "Contribute"
+msgstr "Contribute"
+
+#: ../../source/cli/overview.rst:34
+msgid ""
+"You can participate and contribute to the project `here "
+"<https://github.com/nestjs/nest-cli>`__."
+msgstr ""
+
+#: ../../source/cli/usages.rst:2
+msgid "Usage"
+msgstr "Usage"
+
+#: ../../source/cli/usages.rst:4
+msgid ""
+"In order to provide a great user-experience, the CLI commands share the "
+"same command schema."
+msgstr ""
+
+#: ../../source/cli/usages.rst:12
+msgid "Options"
+msgstr "Options"
+
+#: ../../source/cli/usages.rst:14
+msgid "Each command accepts a set of **options** that are listed below:"
+msgstr "Each command accepts a set of **options** that are listed below:"
+
+#: ../../source/cli/usages.rst:16
+msgid ""
+"**--dry-run**: allows to simulate the command execution in order to "
+"verify how it will affect your working directory"
+msgstr ""
+
+#: ../../source/cli/usages.rst:18
+msgid ""
+"**--no-spec**: allows to turn off the generation of spec files (only "
+"applies to the ``generate`` command)"
+msgstr ""
+
+#: ../../source/cli/usages.rst:20
+msgid ""
+"**--flat**: allows to turn off the generation of the dedicated directory "
+"(only applies to the ``generate`` command)"
+msgstr ""
+
+#: ../../source/cli/usages.rst:24
+msgid "new (alias: n)"
+msgstr "new (alias: n)"
+
+#: ../../source/cli/usages.rst:26
+msgid ""
+"The **new** command scaffolds the Nest project based on the `typescript-"
+"starter <https://github.com/nestjs/typescript-starter>`__ as well as "
+"install the required packages. The CLI will ask you for missing "
+"information - the application name (if not specified) and a package "
+"manager that you want to use to install dependencies."
+msgstr ""
+
+#: ../../source/cli/usages.rst:37
+msgid "generate (alias: g)"
+msgstr "generate (alias: g)"
+
+#: ../../source/cli/usages.rst:39
+msgid "The **generate** command generates a Nest architecture component."
+msgstr "The **generate** command generates a Nest architecture component."
+
+#: ../../source/cli/usages.rst:42
+msgid "Option"
+msgstr "Option"
+
+#: ../../source/cli/usages.rst:42
+msgid "Description"
+msgstr "Description"
+
+#: ../../source/cli/usages.rst:42
+msgid "Required"
+msgstr "Required"
+
+#: ../../source/cli/usages.rst:42
+msgid "Default value"
+msgstr "Default value"
+
+#: ../../source/cli/usages.rst:44
+msgid "schematic"
+msgstr "schematic"
+
+#: ../../source/cli/usages.rst:44
+msgid "The schematic name from the list below."
+msgstr "The schematic name from the list below."
+
+#: ../../source/cli/usages.rst:44
+msgid "true"
+msgstr "true"
+
+#: ../../source/cli/usages.rst:44 ../../source/cli/usages.rst:45
+msgid "N/A"
+msgstr "N/A"
+
+#: ../../source/cli/usages.rst:45
+msgid "name"
+msgstr "name"
+
+#: ../../source/cli/usages.rst:45
+msgid "The name of the generated Nest architecture component."
+msgstr "The name of the generated Nest architecture component."
+
+#: ../../source/cli/usages.rst:45 ../../source/cli/usages.rst:46
+msgid "false"
+msgstr "false"
+
+#: ../../source/cli/usages.rst:46
+msgid "path"
+msgstr "path"
+
+#: ../../source/cli/usages.rst:46
+msgid "The path from to generate the Nest architecture component."
+msgstr "The path from to generate the Nest architecture component."
+
+#: ../../source/cli/usages.rst:46
+msgid "src"
+msgstr "src"
+
+#: ../../source/cli/usages.rst:49
+msgid "A list of available architecture components:"
+msgstr "A list of available architecture components:"
+
+#: ../../source/cli/usages.rst:51
+msgid "``class`` (alias: cl)"
+msgstr "``class`` (alias: cl)"
+
+#: ../../source/cli/usages.rst:52
+msgid "``controller`` (alias: co)"
+msgstr "``controller`` (alias: co)"
+
+#: ../../source/cli/usages.rst:53
+msgid "``decorator`` (alias: d)"
+msgstr "``decorator`` (alias: d)"
+
+#: ../../source/cli/usages.rst:54
+msgid "``filter`` (alias: f)"
+msgstr "``filter`` (alias: f)"
+
+#: ../../source/cli/usages.rst:55
+msgid "``gateway`` (alias: ga)"
+msgstr "``gateway`` (alias: ga)"
+
+#: ../../source/cli/usages.rst:56
+msgid "``guard`` (alias: gu)"
+msgstr "``guard`` (alias: gu)"
+
+#: ../../source/cli/usages.rst:57
+msgid "``interface`` (alias: -)"
+msgstr "``interface`` (alias: -)"
+
+#: ../../source/cli/usages.rst:58
+msgid "``interceptor`` (alias: in)"
+msgstr "``interceptor`` (alias: in)"
+
+#: ../../source/cli/usages.rst:59
+msgid "``library`` (alias: lib)"
+msgstr "``library`` (alias: lib)"
+
+#: ../../source/cli/usages.rst:60
+msgid "``middleware`` (alias: mi)"
+msgstr "``middleware`` (alias: mi)"
+
+#: ../../source/cli/usages.rst:61
+msgid "``module`` (alias: mo)"
+msgstr "``module`` (alias: mo)"
+
+#: ../../source/cli/usages.rst:62
+msgid "``pipe`` (alias: pi)"
+msgstr "``pipe`` (alias: pi)"
+
+#: ../../source/cli/usages.rst:63
+msgid "``provider`` (alias: pr)"
+msgstr "``provider`` (alias: pr)"
+
+#: ../../source/cli/usages.rst:64
+msgid "``resolver`` (alias: r)"
+msgstr "``resolver`` (alias: r)"
+
+#: ../../source/cli/usages.rst:65
+msgid "``service`` (alias: s)"
+msgstr "``service`` (alias: s)"
+
+#: ../../source/cli/usages.rst:67
+msgid "Example usage:"
+msgstr "Example usage:"
+
+#: ../../source/cli/usages.rst:76
+msgid "info (alias: i)"
+msgstr "info (alias: i)"
+
+#: ../../source/cli/usages.rst:78
+msgid "The **info** command will display your project information."
+msgstr "The **info** command will display your project information."
+

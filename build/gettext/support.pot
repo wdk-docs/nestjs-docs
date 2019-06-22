@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/support.rst:2
+msgid "Support"
+msgstr ""
+
+#: ../../source/support.rst:4
+msgid "Nest is an MIT-licensed open source project with its ongoing development made possible thanks to the support by the community. This framework is a result of the long road, full of sleepless nights, working **after hours**, and busy weekends."
+msgstr ""
+
+#: ../../source/support.rst:10
+msgid "How can you help?"
+msgstr ""
+
+#: ../../source/support.rst:12
+msgid "Nest doesn’t have a large company that sits behind and is continuously paying for hours spent on the development. I fully rely on the **goodness** ❤️ of the people. However, I would love to make this framework even more **powerful**, to be fully focused on delivering you great solutions that make coding process enjoyable: In order to help me, I run few supporting platforms:"
+msgstr ""
+
+#: ../../source/support.rst:19
+msgid "become a backer or sponsor on `OpenCollective <https://opencollective.com/nest>`__"
+msgstr ""
+
+#: ../../source/support.rst:21
+msgid "use `PayPal <https://paypal.me/kamilmysliwiec>`__ to send a one-time donation"
+msgstr ""
+
+#: ../../source/support.rst:23
+msgid "or reach me directly: mail@kamilmysliwiec.com"
+msgstr ""
+
+#: ../../source/support.rst:25
+msgid "If you fell in love with Nest, or you run a business which is using Nest, consider sponsoring its development to ensure that the project which your product relies on is **actively maintained** and improved. Also, your support could help me to work more on content that benefits whole Nest community, writing either educational blog posts or recording videos."
+msgstr ""
+

@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>工装 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>工装</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/graphql/guards-interceptors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tooling">
+<h1>工装<a class="headerlink" href="#tooling" title="永久链接至标题">¶</a></h1>
+<p>In the GraphQL world, a lot of articles complain how to handle stuff
+like <strong>authentication</strong>, or <strong>side-effects</strong> of operations. Should we
+put it inside the business logic? Shall we use a higher-order function
+to enhance queries and mutations as well, for example, with an
+authorization logic? Or maybe use <a class="reference external" href="https://www.apollographql.com/docs/apollo-server/v2/features/directives.html">schema
+directives</a>.
+There is no single answer anyway.</p>
+<p>Nest ecosystem is trying to help with this issue using existing features
+like <a class="reference external" href="/guards">guards</a> and <a class="reference external" href="/interceptors">interceptors</a>. The idea
+behind them is to reduce redundancy and also, supply you with tooling
+that helps creating well-structured, readable, and consistent
+applications.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="永久链接至标题">¶</a></h2>
+<p>You can use either <a class="reference external" href="/guards">guards</a>,
+<a class="reference external" href="/interceptors">interceptors</a>, <a class="reference external" href="/exception-filters">filters</a> or
+<a class="reference external" href="/pipes">pipes</a> in the same fashion as in the simple REST
+application. Additionally, you are able to easily create your own
+decorators, by leveraging <a class="reference external" href="/custom-decorators">custom decorators</a>
+feature. They all act equivalently. Let’s have a look at the following
+code:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Query</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">)</span>
+<span class="kd">@UseGuards</span><span class="p">(</span><span class="nx">AuthGuard</span><span class="p">)</span>
+<span class="nx">async</span> <span class="nx">getAuthor</span><span class="p">(</span><span class="kd">@Args</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nx">ParseIntPipe</span><span class="p">)</span> <span class="nx">id</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">authorsService</span><span class="p">.</span><span class="nx">findOneById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As you can see, GraphQL works pretty well with both guards and pipes.
+Thanks to that you can, for instance, move your authentication logic to
+the guard, or even reuse the same guard class as in the REST
+application. The interceptors works in the exact same way:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Mutation</span><span class="p">()</span>
+<span class="kd">@UseInterceptors</span><span class="p">(</span><span class="nx">EventsInterceptor</span><span class="p">)</span>
+<span class="nx">async</span> <span class="nx">upvotePost</span><span class="p">(</span><span class="kd">@Args</span><span class="p">(</span><span class="s1">&#39;postId&#39;</span><span class="p">)</span> <span class="nx">postId</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">postsService</span><span class="p">.</span><span class="nx">upvoteById</span><span class="p">({</span> <span class="nx">id</span>: <span class="kt">postId</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="execution-context">
+<h2>Execution context<a class="headerlink" href="#execution-context" title="永久链接至标题">¶</a></h2>
+<p>However, the <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> received by both guards and
+interceptors is somewhat different. GraphQL resolvers have a separate
+set of arguments, respectively, <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">args</span></code>, <code class="docutils literal notranslate"><span class="pre">context</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">info</span></code>. Hence, we need to transform given <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> to
+<code class="docutils literal notranslate"><span class="pre">GqlExecutionContext</span></code>, which is basically very simple.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CanActivate</span><span class="p">,</span> <span class="nx">ExecutionContext</span><span class="p">,</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">GqlExecutionContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/graphql&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthGuard</span> <span class="kr">implements</span> <span class="nx">CanActivate</span> <span class="p">{</span>
+  <span class="nx">canActivate</span><span class="p">(</span><span class="nx">context</span>: <span class="kt">ExecutionContext</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">GqlExecutionContext</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">GqlExecutionContext</span></code> exposes corresponding methods for each argument,
+like <code class="docutils literal notranslate"><span class="pre">getArgs()</span></code>, <code class="docutils literal notranslate"><span class="pre">getContext()</span></code>, and so on. Now we can effortlessly
+pick up every argument specific for currently processed request.</p>
+</div>
+<div class="section" id="exception-filters">
+<h2>Exception filters<a class="headerlink" href="#exception-filters" title="永久链接至标题">¶</a></h2>
+<p>The <a class="reference external" href="/exception-filters">exception filters</a> are compatible with
+GraphQL applications as well.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Catch</span><span class="p">(</span><span class="nx">HttpException</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">HttpExceptionFilter</span> <span class="kr">implements</span> <span class="nx">GqlExceptionFilter</span> <span class="p">{</span>
+  <span class="k">catch</span><span class="p">(</span><span class="nx">exception</span>: <span class="kt">HttpException</span><span class="p">,</span> <span class="nx">host</span>: <span class="kt">ArgumentsHost</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">gqlHost</span> <span class="o">=</span> <span class="nx">GqlArgumentsHost</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">host</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">exception</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Both <code class="docutils literal notranslate"><span class="pre">GqlExceptionFilter</span></code> and <code class="docutils literal notranslate"><span class="pre">GqlArgumentsHost</span></code>
+are imported from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/graphql</span></code> package.</p>
+</div></blockquote>
+<p>However, you don’t have an access to the native <code class="docutils literal notranslate"><span class="pre">response</span></code> object in
+this case (as in the HTTP app).</p>
+</div>
+<div class="section" id="custom-decorators">
+<h2>Custom decorators<a class="headerlink" href="#custom-decorators" title="永久链接至标题">¶</a></h2>
+<p>As mentioned before, the <a class="reference external" href="/custom-decorators">custom decorators</a>
+feature works like a charm with GraphQL resolvers as well. Though, the
+factory function takes an array of arguments, instead of a <code class="docutils literal notranslate"><span class="pre">request</span></code>
+object.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">createParamDecorator</span><span class="p">(</span>
+  <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="p">[</span><span class="nx">root</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">,</span> <span class="nx">info</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>And then:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Mutation</span><span class="p">()</span>
+<span class="nx">async</span> <span class="nx">upvotePost</span><span class="p">(</span>
+  <span class="kd">@User</span><span class="p">()</span> <span class="nx">user</span>: <span class="kt">UserEntity</span><span class="p">,</span>
+  <span class="kd">@Args</span><span class="p">(</span><span class="s1">&#39;postId&#39;</span><span class="p">)</span> <span class="nx">postId</span>: <span class="kt">number</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> In the above example, we have assumed that your
+<code class="docutils literal notranslate"><span class="pre">user</span></code> object is assigned to the context of your GraphQL
+application.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

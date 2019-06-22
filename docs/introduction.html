@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#philosophy">Philosophy</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#stay-in-touch">Stay in touch</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h1>
+<p>Nest is a framework for building efficient, scalable
+<a class="reference external" href="https://nodejs.org/">Node.js</a> server-side applications. It uses
+progressive JavaScript, is built with and fully supports
+<a class="reference external" href="http://www.typescriptlang.org/">TypeScript</a> (yet still enables
+developers to code in pure JavaScript) and combines elements of OOP
+(Object Oriented Programming), FP (Functional Programming), and FRP
+(Functional Reactive Programming).</p>
+<p>Under the hood, Nest makes use of robust HTTP Server frameworks like
+<a class="reference external" href="https://expressjs.com/">Express</a> (the default) and
+<a class="reference external" href="https://github.com/fastify/fastify">Fastify</a>. Nest provides a level
+of abstraction above these frameworks, but can also expose their APIs
+directly to the developer. This allows for easy use of the myriad
+third-party modules which are available for each platform.</p>
+<div class="section" id="philosophy">
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="永久链接至标题">¶</a></h2>
+<p>In recent years, thanks to Node.js, JavaScript has become the “lingua
+franca” of the web for both front and backend applications. This has
+given rise to awesome projects like <a class="reference external" href="https://angular.io/">Angular</a>,
+<a class="reference external" href="https://github.com/facebook/react">React</a> and
+<a class="reference external" href="https://github.com/vuejs/vue">Vue</a>, which improve developer
+productivity and enable the construction of fast, testable, and
+extensible frontend applications. However, while plenty of superb
+libraries, helpers, and tools exist for Node (and server-side
+JavaScript), none of them effectively solve the main problem -
+<strong>architecture</strong>.</p>
+<p>Nest provides an out-of-the-box application architecture which allows
+developers and teams to create highly testable, scalable, loosely
+coupled, and easily maintainable applications.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>To get started, you can either scaffold the project with the <a class="reference external" href="/cli/overview">Nest
+CLI</a>, or clone a starter project (both will produce
+the same outcome).</p>
+<p>To scaffold the project with the Nest CLI, run the following commands.
+This will create a new project directory, and populate the directory
+with the initial core Nest files and supporting modules, creating a
+conventional base structure for your project. Creating a new project
+with the <strong>Nest CLI</strong> is recommended for first-time users. We’ll
+continue with this approach in <a class="reference external" href="first-steps">First Steps</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i -g @nestjs/cli
+$ nest new project-name
+</pre></div>
+</div>
+<p>Alternatively, to install the TypeScript starter project with <strong>Git</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nestjs/typescript-starter.git project
+$ <span class="nb">cd</span> project
+$ npm install
+$ npm run start
+</pre></div>
+</div>
+<p>To install the JavaScript flavor of the starter project, use
+<code class="docutils literal notranslate"><span class="pre">javascript-starter.git</span></code> in the command sequence above.</p>
+<p>You can also manually create a new project from scratch by installing
+the core and supporting files with <strong>npm</strong> (or <strong>yarn</strong>). In this case,
+of course, you’ll be responsible for creating the project boilerplate
+files yourself.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save @nestjs/core @nestjs/common rxjs reflect-metadata
+</pre></div>
+</div>
+</div>
+<div class="section" id="stay-in-touch">
+<h2>Stay in touch<a class="headerlink" href="#stay-in-touch" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Website - <a class="reference external" href="https://nestjs.com/">https://nestjs.com</a></p></li>
+<li><p>Twitter - [&#64;nestframework](<a class="reference external" href="https://twitter.com/nestframework">https://twitter.com/nestframework</a>)</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

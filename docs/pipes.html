@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>管道 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="警卫" href="guards.html" />
+    <link rel="prev" title="异常过滤器" href="exception-filters.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">管道</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#built-in-pipes">内置管道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validation-use-case">验证用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-schema-validation">对象模式验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binding-pipes">绑管</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-validator">类验证器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transformation-use-case">转型用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-built-in-validationpipe">内置的ValidationPipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>管道</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pipes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pipes">
+<h1>管道<a class="headerlink" href="#pipes" title="永久链接至标题">¶</a></h1>
+<p>A pipe is a class annotated with the <code class="docutils literal notranslate"><span class="pre">&#64;Injectable()</span></code> decorator. Pipes
+should implement the <code class="docutils literal notranslate"><span class="pre">PipeTransform</span></code> interface.</p>
+<figure></figure><p>管道有两个典型的用例:</p>
+<ul class="simple">
+<li><p><strong>transformation</strong>: transform input data to the desired output</p></li>
+<li><p><strong>validation</strong>: evaluate input data and if valid, simply pass it
+through unchanged; otherwise, throw an exception when the data is
+incorrect</p></li>
+</ul>
+<p>In both cases, pipes operate on the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> being processed by a
+controller route handler. Nest interposes a pipe just before a method is
+invoked, and the pipe receives the arguments destined for the method.
+Any transformation or validation operation takes place at that time,
+after which the route handler is invoked with any (potentially)
+transformed arguments.</p>
+<blockquote>
+<div><p>info <strong>Hint</strong> Pipes run inside the exceptions zone. This means that
+when a Pipe throws an exception it is handled by the exceptions layer
+(global exceptions filter and any <a class="reference external" href="/exception-filters">exceptions
+filters</a> that are applied to the current
+context). Given the above, it should be clear that when an exception
+is thrown in a Pipe, no controller method is subsequently executed.</p>
+</div></blockquote>
+<div class="section" id="built-in-pipes">
+<h2>内置管道<a class="headerlink" href="#built-in-pipes" title="永久链接至标题">¶</a></h2>
+<p>Nest comes with two pipes available right out-of-the-box:
+<code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> and <code class="docutils literal notranslate"><span class="pre">ParseIntPipe</span></code>. They’re exported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package. In order to better understand how they work,
+let’s build them from scratch.</p>
+<p>Let’s start with the <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code>. Initially, we’ll have it simply
+take an input value and immediately return the same value, behaving like
+an identity function.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(validation.pipe)
+import { PipeTransform, Injectable, ArgumentMetadata } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class ValidationPipe implements PipeTransform {
+  transform(value: any, metadata: ArgumentMetadata) {
+    return value;
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class ValidationPipe {
+  transform(value, metadata) {
+    return value;
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> <code class="docutils literal notranslate"><span class="pre">PipeTransform&lt;T,</span> <span class="pre">R&gt;</span></code> is a generic interface in which
+<code class="docutils literal notranslate"><span class="pre">T</span></code> indicates the type of the input <code class="docutils literal notranslate"><span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">R</span></code> indicates
+the return type of the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method.</p>
+</div></blockquote>
+<p>Every pipe has to provide the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. This method has
+two parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> is the currently processed argument (before it is received
+by the route handling method), while <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is its metadata. The
+metadata object has these properties:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">ArgumentMetadata</span> <span class="p">{</span>
+  <span class="nx">readonly</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span> <span class="o">|</span> <span class="s1">&#39;query&#39;</span> <span class="o">|</span> <span class="s1">&#39;param&#39;</span> <span class="o">|</span> <span class="s1">&#39;custom&#39;</span><span class="p">;</span>
+  <span class="nx">readonly</span> <span class="nx">metatype?</span>: <span class="kt">Type</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="nx">readonly</span> <span class="nx">data?</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These properties describe the currently processed argument.</p>
+<table><tr><td><p>type</p>
+</td><td><p>Indicates whether the argument is a body &#64;Body(), query &#64;Query(), param
+&#64;Param(), or a custom parameter (read more here).</p>
+</td></tr><tr><td><p>metatype</p>
+</td><td><p>Provides the metatype of the argument, for example, String. Note: the
+value is undefined if you either omit a type declaration in the route
+handler method signature, or use vanilla JavaScript.</p>
+</td></tr><tr><td><p>data</p>
+</td><td><p>The string passed to the decorator, for example &#64;Body(‘string’). It’s
+undefined if you leave the decorator parenthesis empty.</p>
+</td></tr></table><blockquote>
+<div><p>warning <strong>Warning</strong> TypeScript interfaces disappear during
+transpilation. Thus, if a method parameter’s type is declared as an
+interface instead of a class, the <code class="docutils literal notranslate"><span class="pre">metatype</span></code> value will be
+<code class="docutils literal notranslate"><span class="pre">Object</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="validation-use-case">
+<h2>验证用例<a class="headerlink" href="#validation-use-case" title="永久链接至标题">¶</a></h2>
+<p>Let’s take a closer look at the <code class="docutils literal notranslate"><span class="pre">create()</span></code> method of the
+<code class="docutils literal notranslate"><span class="pre">CatsController</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Post()
+async create(@Body() createCatDto: CreateCatDto) {
+  this.catsService.create(createCatDto);
+}
+@@switch
+@Post()
+async create(@Body() createCatDto) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+<p>Let’s focus in on the <code class="docutils literal notranslate"><span class="pre">createCatDto</span></code> body parameter. Its type is
+<code class="docutils literal notranslate"><span class="pre">CreateCatDto</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(create-cat.dto)
+export class CreateCatDto {
+  readonly name: string;
+  readonly age: number;
+  readonly breed: string;
+}
+</pre></div>
+</div>
+<p>We want to ensure that any incoming request to the create method
+contains a valid body. So we have to validate the three members of the
+<code class="docutils literal notranslate"><span class="pre">createCatDto</span></code> object. We could do this inside the route handler
+method, but we would break the <strong>single responsibility rule</strong> (SRP).
+Another approach could be to create a <strong>validator class</strong> and delegate
+the task there, but we would have to use this validator at the beginning
+of each method. How about creating a validation middleware? This could
+be a good idea, but it’s not possible to create <strong>generic middleware</strong>
+which can be used across the whole application (because middleware is
+unaware of the <strong>execution context</strong>, including the handler that will be
+called and any of its parameters).</p>
+<p>It turns out that this is a case ideally suited for a <strong>Pipe</strong>. So let’s
+go ahead and build one.</p>
+</div>
+<div class="section" id="object-schema-validation">
+<h2>对象模式验证<a class="headerlink" href="#object-schema-validation" title="永久链接至标题">¶</a></h2>
+<p>There are several approaches available for object validation. One common
+approach is to use <strong>schema-based</strong> validation. The
+<a class="reference external" href="https://github.com/hapijs/joi">Joi</a> library allows you to create
+schemas in a pretty straightforward way, with a readable API. Let’s look
+at a pipe that makes use of Joi-based schemas.</p>
+<p>In the code sample below, we create a simple class that takes a schema
+as a <code class="docutils literal notranslate"><span class="pre">constructor</span></code> argument. We then apply the <code class="docutils literal notranslate"><span class="pre">Joi.validate()</span></code>
+method, which validates our incoming argument against the provided
+schema.</p>
+<p>As noted earlier, a <strong>validation pipe</strong> either returns the value
+unchanged, or throws an exception.</p>
+<p>In the next section, you’ll see how we supply the appropriate schema for
+a given controller method using the <code class="docutils literal notranslate"><span class="pre">&#64;UsePipes()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+import * as Joi from &#39;joi&#39;;
+import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class JoiValidationPipe implements PipeTransform {
+  constructor(private readonly schema: Object) {}
+
+  transform(value: any, metadata: ArgumentMetadata) {
+    const { error } = Joi.validate(value, this.schema);
+    if (error) {
+      throw new BadRequestException(&#39;Validation failed&#39;);
+    }
+    return value;
+  }
+}
+@@switch
+import * as Joi from &#39;joi&#39;;
+import { Injectable, BadRequestException } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class JoiValidationPipe {
+  constructor(schema) {
+    this.schema = schema;
+  }
+
+  transform(value, metadata) {
+    const { error } = Joi.validate(value, this.schema);
+    if (error) {
+      throw new BadRequestException(&#39;Validation failed&#39;);
+    }
+    return value;
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="binding-pipes">
+<h2>绑管<a class="headerlink" href="#binding-pipes" title="永久链接至标题">¶</a></h2>
+<p>Binding pipes (tying them to the appropriate controller or handler) is
+very straightforward. We use the <code class="docutils literal notranslate"><span class="pre">&#64;UsePipes()</span></code> decorator and create a
+pipe instance, passing it a Joi validation schema.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Post()
+@UsePipes(new JoiValidationPipe(createCatSchema))
+async create(@Body() createCatDto: CreateCatDto) {
+  this.catsService.create(createCatDto);
+}
+@@switch
+@Post()
+@Bind(Body())
+@UsePipes(new JoiValidationPipe(createCatSchema))
+async create(createCatDto) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="class-validator">
+<h2>类验证器<a class="headerlink" href="#class-validator" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>warning <strong>Warning</strong> The techniques in this section require
+TypeScript, and are not available if your app is written using
+vanilla JavaScript.</p>
+</div></blockquote>
+<p>让我们看看我们的验证技术的替代实现。</p>
+<p>Nest works well with the
+<a class="reference external" href="https://github.com/pleerock/class-validator">class-validator</a>
+library. This amazing library allows you to use decorator-based
+validation. Decorator-based validation is extremely powerful, especially
+when combined with Nest’s <strong>Pipe</strong> capabilities since we have access to
+the <code class="docutils literal notranslate"><span class="pre">metatype</span></code> of the processed property. Before we start, we need to
+install the required packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save class-validator class-transformer
+</pre></div>
+</div>
+<p>Once these are installed, we can add a few decorators to the
+<code class="docutils literal notranslate"><span class="pre">CreateCatDto</span></code> class.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(create-cat.dto)
+import { IsString, IsInt } from &#39;class-validator&#39;;
+
+export class CreateCatDto {
+  @IsString()
+  readonly name: string;
+
+  @IsInt()
+  readonly age: number;
+
+  @IsString()
+  readonly breed: string;
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>Info <strong>Hint</strong> Read more about the class-validator decorators
+<a class="reference external" href="https://github.com/typestack/class-validator#usage">here</a>.</p>
+</div></blockquote>
+<p>现在我们可以创建一个 <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> 类。</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(validation.pipe)
+import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from &#39;@nestjs/common&#39;;
+import { validate } from &#39;class-validator&#39;;
+import { plainToClass } from &#39;class-transformer&#39;;
+
+@Injectable()
+export class ValidationPipe implements PipeTransform&lt;any&gt; {
+  async transform(value: any, { metatype }: ArgumentMetadata) {
+    if (!metatype || !this.toValidate(metatype)) {
+      return value;
+    }
+    const object = plainToClass(metatype, value);
+    const errors = await validate(object);
+    if (errors.length &gt; 0) {
+      throw new BadRequestException(&#39;Validation failed&#39;);
+    }
+    return value;
+  }
+
+  private toValidate(metatype: Function): boolean {
+    const types: Function[] = [String, Boolean, Number, Array, Object];
+    return !types.includes(metatype);
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> Above, we have used the
+<a class="reference external" href="https://github.com/typestack/class-transformer">class-transformer</a>
+library. It’s made by the same author as the <strong>class-validator</strong>
+library, and as a result, they play very well together.</p>
+</div></blockquote>
+<p>Let’s go through this code. First, note that the <code class="docutils literal notranslate"><span class="pre">transform()</span></code>
+function is <code class="docutils literal notranslate"><span class="pre">async</span></code>. This is possible because Nest supports both
+synchronous and <strong>asynchronous</strong> pipes. We do this because some of the
+class-validator validations <a class="reference external" href="https://github.com/typestack/class-validator#custom-validation-classes">can be
+async</a>
+(utilize Promises).</p>
+<p>Next note that we are using destructuring to extract the metatype field
+(extracting just this member from an <code class="docutils literal notranslate"><span class="pre">ArgumentMetadata</span></code>) into our
+<code class="docutils literal notranslate"><span class="pre">metatype</span></code> parameter. This is just shorthand for getting the full
+<code class="docutils literal notranslate"><span class="pre">ArgumentMetadata</span></code> and then having an additional statement to assign
+the metatype variable.</p>
+<p>Next, note the helper function <code class="docutils literal notranslate"><span class="pre">toValidate()</span></code>. It’s responsible for
+bypassing the validation step when the current argument being processed
+is a native JavaScript type (these can’t have schemas attached, so
+there’s no reason to run them through the validation step).</p>
+<p>Next, we use the class-transformer function <code class="docutils literal notranslate"><span class="pre">plainToClass()</span></code> to
+transform our plain JavaScript argument object into a typed object so
+that we can apply validation. The incoming body, when deserialized from
+the network request, does not have any type information. Class-validator
+needs to use the validation decorators we defined for our DTO earlier,
+so we need to perform this transformation.</p>
+<p>Finally, as noted earlier, since this is a <strong>validation pipe</strong> it either
+returns the value unchanged, or throws an exception.</p>
+<p>The last step is to bind the <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code>. Pipes, similar to
+<a class="reference external" href="/exception-filters">exception filters</a>, can be method-scoped,
+controller-scoped, or global-scoped. Additionally, a pipe can be
+param-scoped. In the example below, we’ll directly tie the pipe instance
+to the route param <code class="docutils literal notranslate"><span class="pre">&#64;Body()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+async create(
+  @Body(new ValidationPipe()) createCatDto: CreateCatDto,
+) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+<p>Param-scoped pipes are useful when the validation logic concerns only
+one specified parameter.</p>
+<p>Alternatively, to set up a pipe at a method level, use the
+<code class="docutils literal notranslate"><span class="pre">&#64;UsePipes()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+@UsePipes(new ValidationPipe())
+async create(@Body() createCatDto: CreateCatDto) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;UsePipes()</span></code> decorator is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>In the example above, an instance of <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> has been created
+immediately in-place. Alternatively, pass the class (not an instance),
+thus leaving instantiation up to the framework, and enabling
+<strong>dependency injection</strong>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+@UsePipes(ValidationPipe)
+async create(@Body() createCatDto: CreateCatDto) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> was created to be as generic as possible,
+let’s set it up as a <strong>global-scoped</strong> pipe, applied to every route
+handler across the entire application.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(main)
+async function bootstrap() {
+  const app = await NestFactory.create(ApplicationModule);
+  app.useGlobalPipes(new ValidationPipe());
+  await app.listen(3000);
+}
+bootstrap();
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> In the case of hybrid apps the
+<code class="docutils literal notranslate"><span class="pre">useGlobalPipes()</span></code> method doesn’t set up pipes for gateways and
+micro services. For “standard” (non-hybrid) microservice apps,
+<code class="docutils literal notranslate"><span class="pre">useGlobalPipes()</span></code> does mount pipes globally.</p>
+</div></blockquote>
+<p>Global pipes are used across the whole application, for every controller
+and every route handler. In terms of dependency injection, global pipes
+registered from outside of any module (with <code class="docutils literal notranslate"><span class="pre">useGlobalPipes()</span></code> as in
+the example above) cannot inject dependencies since this is done outside
+the context of any module. In order to solve this issue, you can set up
+a global pipe <strong>directly from any module</strong> using the following
+construction:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { APP_PIPE } from &#39;@nestjs/core&#39;;
+
+@Module({
+  providers: [
+    {
+      provide: APP_PIPE,
+      useClass: ValidationPipe,
+    },
+  ],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> When using this approach to perform dependency
+injection for the pipe, note that regardless of the module where this
+construction is employed, the pipe is, in fact, global. Where should
+this be done? Choose the module where the pipe (<code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> in
+the example above) is defined. Also, <code class="docutils literal notranslate"><span class="pre">useClass</span></code> is not the only way
+of dealing with custom provider registration. Learn more
+<a class="reference external" href="/fundamentals/custom-providers">here</a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="transformation-use-case">
+<h2>转型用例<a class="headerlink" href="#transformation-use-case" title="永久链接至标题">¶</a></h2>
+<p>Validation isn’t the sole use case for <strong>Pipes</strong>. At the beginning of
+this chapter, we mentioned that a pipe can also <strong>transform</strong> the input
+data to the desired output. This is possible because the value returned
+from the <code class="docutils literal notranslate"><span class="pre">transform</span></code> function completely overrides the previous value
+of the argument. When is this useful? Consider that sometimes the data
+passed from the client needs to undergo some change - for example
+converting a string to an integer - before it can be properly handled by
+the route handler method. Furthermore, some required data fields may be
+missing, and we would like to apply default values. <strong>Transformer
+pipes</strong> can perform these functions by interposing a processing function
+between the client request and the request handler.</p>
+<p>Here’s a <code class="docutils literal notranslate"><span class="pre">ParseIntPipe</span></code> which is responsible for parsing a string into
+an integer value.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(parse-int.pipe)
+import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class ParseIntPipe implements PipeTransform&lt;string, number&gt; {
+  transform(value: string, metadata: ArgumentMetadata): number {
+    const val = parseInt(value, 10);
+    if (isNaN(val)) {
+      throw new BadRequestException(&#39;Validation failed&#39;);
+    }
+    return val;
+  }
+}
+@@switch
+import { Injectable, BadRequestException} from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class ParseIntPipe {
+  transform(value, metadata) {
+    const val = parseInt(value, 10);
+    if (isNaN(val)) {
+      throw new BadRequestException(&#39;Validation failed&#39;);
+    }
+    return val;
+  }
+}
+</pre></div>
+</div>
+<p>我们可以简单地将此管道绑定到选定的参数，如下所示:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Get(&#39;:id&#39;)
+async findOne(@Param(&#39;id&#39;, new ParseIntPipe()) id) {
+  return await this.catsService.findOne(id);
+}
+@@switch
+@Get(&#39;:id&#39;)
+@Bind(Param(&#39;id&#39;, new ParseIntPipe()))
+async findOne(id) {
+  return await this.catsService.findOne(id);
+}
+</pre></div>
+</div>
+<p>With this in place, <code class="docutils literal notranslate"><span class="pre">ParseIntPipe</span></code> will be executed before the request
+reaches the corresponding handler, ensuring that it will always receive
+an integer for the <code class="docutils literal notranslate"><span class="pre">id</span></code> parameter.</p>
+<p>Another useful case would be to select an <strong>existing user</strong> entity from
+the database by id:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Get(&#39;:id&#39;)
+findOne(@Param(&#39;id&#39;, UserByIdPipe) userEntity: UserEntity) {
+  return userEntity;
+}
+@@switch
+@Get(&#39;:id&#39;)
+@Bind(Param(&#39;id&#39;, UserByIdPipe))
+findOne(userEntity) {
+  return userEntity;
+}
+</pre></div>
+</div>
+<p>We leave the implementation of this pipe to the reader, but note that
+like all other transformation pipes, it receives an input value (an
+<code class="docutils literal notranslate"><span class="pre">id</span></code>) and returns an output value (a <code class="docutils literal notranslate"><span class="pre">UserEntity</span></code> object). This can
+make your code more declarative and
+<a class="reference external" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> by
+abstracting boilerplate code out of your handler and into a common pipe.</p>
+</div>
+<div class="section" id="the-built-in-validationpipe">
+<h2>内置的ValidationPipe<a class="headerlink" href="#the-built-in-validationpipe" title="永久链接至标题">¶</a></h2>
+<p>Fortunately, you don’t have to build these pipes on your own since the
+<code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> and the <code class="docutils literal notranslate"><span class="pre">ParseIntPipe</span></code> are provided by Nest
+out-of-the-box. (Keep in mind that <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> requires both
+<code class="docutils literal notranslate"><span class="pre">class-validator</span></code> and <code class="docutils literal notranslate"><span class="pre">class-transformer</span></code> packages to be installed).</p>
+<p>The built-in <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> offers more options than in the sample
+we built in this chapter, which has been kept basic for the sake of
+illustrating the basic mechanics of a pipe. You can find lots of
+examples <a class="reference external" href="/techniques/validation">here</a>.</p>
+<p>One such option is <code class="docutils literal notranslate"><span class="pre">transform</span></code>. Recall the earlier discussion about
+deserialized body objects being vanilla JavaScript objects (i.e., not
+having our DTO type). So far, we’ve used the pipe to validate our
+payload. You may recall that in the process, we used <code class="docutils literal notranslate"><span class="pre">class-transform</span></code>
+to temporarily convert our plain object into a typed object so that we
+could do the validation. The built-in ValidationPipe can also,
+optionally, return this converted object. We enable this behavior by
+passing in a configuration object to the pipe. For this option, pass a
+config object with the field <code class="docutils literal notranslate"><span class="pre">transform</span></code> with a value <code class="docutils literal notranslate"><span class="pre">true</span></code> as
+shown below:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.controller)
+@Post()
+@UsePipes(new ValidationPipe({ transform: true }))
+async create(@Body() createCatDto: CreateCatDto) {
+  this.catsService.create(createCatDto);
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">ValidationPipe</span></code> is imported from the
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/common</span></code> package.</p>
+</div></blockquote>
+<p>Because this pipe is based on the <code class="docutils literal notranslate"><span class="pre">class-validator</span></code> and
+<code class="docutils literal notranslate"><span class="pre">class-transformer</span></code> libraries, there are many additional options
+available. Like the <code class="docutils literal notranslate"><span class="pre">transform</span></code> option above, you configure these
+settings via a configuration object passed to the pipe. Following are
+the built-in options:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">ValidationPipeOptions</span> <span class="kr">extends</span> <span class="nx">ValidatorOptions</span> <span class="p">{</span>
+  <span class="nx">transform?</span>: <span class="kt">boolean</span><span class="p">;</span>
+  <span class="nx">disableErrorMessages?</span>: <span class="kt">boolean</span><span class="p">;</span>
+  <span class="nx">exceptionFactory</span><span class="o">?:</span> <span class="p">(</span><span class="nx">errors</span>: <span class="kt">ValidationError</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">any</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In addition to these, all <code class="docutils literal notranslate"><span class="pre">class-validator</span></code> options (inherited from
+the <code class="docutils literal notranslate"><span class="pre">ValidatorOptions</span></code> interface) are available:</p>
+<table><tr><th><p>Option</p>
+</th><th><p>Type</p>
+</th><th><p>Description</p>
+</th></tr><tr><td><p>skipMissingProperties</p>
+</td><td><p>boolean</p>
+</td><td><p>If set to true, validator will skip validation of all properties that
+are missing in the validating object.</p>
+</td></tr><tr><td><p>whitelist</p>
+</td><td><p>boolean</p>
+</td><td><p>If set to true, validator will strip validated (returned) object of any
+properties that do not use any validation decorators.</p>
+</td></tr><tr><td><p>forbidNonWhitelisted</p>
+</td><td><p>boolean</p>
+</td><td><p>If set to true, instead of stripping non-whitelisted properties
+validator will throw an exception.</p>
+</td></tr><tr><td><p>forbidUnknownValues</p>
+</td><td><p>boolean</p>
+</td><td><p>If set to true, attempts to validate unknown objects fail immediately.</p>
+</td></tr><tr><td><p>disableErrorMessages</p>
+</td><td><p>boolean</p>
+</td><td><p>If set to true, validation errors will not be returned to the client.</p>
+</td></tr><tr><td><p>exceptionFactory</p>
+</td><td><p>Function</p>
+</td><td><p>Takes an array of the validation errors and returns an exception object
+to be thrown.</p>
+</td></tr><tr><td><p>groups</p>
+</td><td><p>string[]</p>
+</td><td><p>Groups to be used during validation of the object.</p>
+</td></tr><tr><td><p>dismissDefaultMessages</p>
+</td><td><p>boolean</p>
+</td><td><p>If set to true, the validation will not use default messages. Error
+message always will be undefined if its not explicitly set.</p>
+</td></tr><tr><td><p>validationError.target</p>
+</td><td><p>boolean</p>
+</td><td><p>Indicates if target should be exposed in ValidationError</p>
+</td></tr><tr><td><p>validationError.value</p>
+</td><td><p>boolean</p>
+</td><td><p>Indicates if validated value should be exposed in ValidationError.</p>
+</td></tr></table><blockquote>
+<div><p>info <strong>Notice</strong> Find more information about the <code class="docutils literal notranslate"><span class="pre">class-validator</span></code>
+package in its
+<a class="reference external" href="https://github.com/typestack/class-validator">repository</a>.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="guards.html" class="btn btn-neutral float-right" title="警卫" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="exception-filters.html" class="btn btn-neutral float-left" title="异常过滤器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

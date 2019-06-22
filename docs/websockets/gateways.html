@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>网关 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="异常过滤器" href="exception-filters.html" />
+    <link rel="prev" title="Websockets" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Websockets</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">网关</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-responses">Multiple responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-responses">Asynchronous responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lifecycle-hooks">Lifecycle hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guards.html">守卫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Websockets</a> &raquo;</li>
+        
+      <li>网关</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/websockets/gateways.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gateways">
+<h1>网关<a class="headerlink" href="#gateways" title="永久链接至标题">¶</a></h1>
+<p>Gateway is a class annotated with <code class="docutils literal notranslate"><span class="pre">&#64;WebSocketGateway()</span></code> decorator.
+Gateways make use of
+<a class="reference external" href="https://github.com/socketio/socket.io">socket.io</a> package under the
+hood, but also, provide compatibility with a wide range of other
+libraries, including native web sockets implementation, read more
+<a class="reference external" href="/websockets/adapter">here</a>.</p>
+<figure></figure><blockquote>
+<div><p>warning <strong>Hint</strong> Gateway behaves same as a simple <strong>provider</strong>,
+therefore it can effortlessly inject dependencies through
+constructor. Also, gateway can be injected by other classes
+(providers and controllers) as well.</p>
+</div></blockquote>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>Firstly, we need to install the required packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@@filename<span class="o">()</span>
+$ npm i --save @nestjs/websockets @nestjs/platform-socket.io
+$ npm i --save-dev @types/socket.io
+@@switch
+$ npm i --save @nestjs/websockets @nestjs/platform-socket.io
+</pre></div>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="永久链接至标题">¶</a></h2>
+<p>In general, each gateway is listening to the same port as <strong>HTTP
+server</strong> is running on, unless your app is not a web application, or you
+have changed the port manually. We can change this behavior by passing
+an argument to the <code class="docutils literal notranslate"><span class="pre">&#64;WebSocketGateway(80)</span></code> decorator where <code class="docutils literal notranslate"><span class="pre">80</span></code> is a
+chosen port number. Additionally, you can set a
+<a class="reference external" href="https://socket.io/docs/rooms-and-namespaces/">namespace</a> used by
+this gateway with the following construction:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@WebSocketGateway</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="p">{</span> <span class="nx">namespace</span><span class="o">:</span> <span class="s1">&#39;events&#39;</span> <span class="p">})</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Warning</strong> The gateway won’t start until you put it inside the
+<code class="docutils literal notranslate"><span class="pre">providers</span></code> array.</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">namespace</span></code> is not a sole available option. You can pass any other
+property that is mentioned
+<a class="reference external" href="https://socket.io/docs/server-api/">here</a>. Those properties will be
+passed to the socket constructor during the instantiation process.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@WebSocketGateway</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="p">{</span> <span class="nx">transports</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;websocket&#39;</span><span class="p">]</span> <span class="p">})</span>
+</pre></div>
+</div>
+<p>Alright, the gateway is listening now, but we are not subscribing to the
+incoming messages so far. Let’s create a handler that will subscribe to
+the <code class="docutils literal notranslate"><span class="pre">events</span></code> messages and respond to the user with the exact same
+data.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(events.gateway)
+@SubscribeMessage(&#39;events&#39;)
+handleEvent(client: Client, data: string): string {
+  return data;
+}
+@@switch
+@SubscribeMessage(&#39;events&#39;)
+handleEvent(client, data) {
+  return data;
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;SubscribeMessage()</span></code> decorator is imported from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/websockets</span></code> package.</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">handleEvent()</span></code> function takes two arguments. First one is a
+platform-specific <a class="reference external" href="https://socket.io/docs/server-api/#socket">socket
+instance</a> and the second
+one is the data received from the client. Once we get the message, we
+send an acknowledgment with the same data that someone has sent over the
+network. Also, it is possible to emit messages using a library-specific
+approach, for example, by making use of <code class="docutils literal notranslate"><span class="pre">client.emit()</span></code> method.
+However, in this case, you aren’t able to use interceptors. If you don’t
+want to respond to the user, just don’t return anything (or explicitly
+return “falsy” value, e.g. <code class="docutils literal notranslate"><span class="pre">undefined</span></code>).</p>
+<p>Now when the client emits a message in the following way:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Nest&#39;</span> <span class="p">});</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">handleEvent()</span></code> method will be executed. In order to listen to
+messages emitted from within the above handler, the client has to attach
+a corresponding acknowledgment listener:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Nest&#39;</span> <span class="p">},</span> <span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-responses">
+<h2>Multiple responses<a class="headerlink" href="#multiple-responses" title="永久链接至标题">¶</a></h2>
+<p>The acknowledgment is dispatched only once. Furthermore, it is not
+supported by native WebSockets implementation. To solve this limitation,
+you may return an object which consist of two properties. The <code class="docutils literal notranslate"><span class="pre">event</span></code>
+which is a name of the emitted event and the <code class="docutils literal notranslate"><span class="pre">data</span></code> that has to be
+forwarded to the client.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(events.gateway)
+@SubscribeMessage(&#39;events&#39;)
+handleEvent(client: Client, data: unknown): WsResponse&lt;unknown&gt; {
+  const event = &#39;events&#39;;
+  return { event, data };
+}
+@@switch
+@SubscribeMessage(&#39;events&#39;)
+handleEvent(client, data) {
+  const event = &#39;events&#39;;
+  return { event, data };
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">WsResponse</span></code> interface is imported from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/websockets</span></code> package.</p>
+</div></blockquote>
+<p>In order to listen for the incoming response(s), the client has to apply
+another event listener.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asynchronous-responses">
+<h2>Asynchronous responses<a class="headerlink" href="#asynchronous-responses" title="永久链接至标题">¶</a></h2>
+<p>Each message handler can be either synchronous or <strong>asynchronous</strong>
+(<code class="docutils literal notranslate"><span class="pre">async</span></code>), thereby you’re able to return the <code class="docutils literal notranslate"><span class="pre">Promise</span></code>. Moreover,
+you can return the <a class="reference external" href="https://github.com/reactivex/rxjs">Observable</a>,
+which means that you can return multiple values (they will be emitted
+until the stream is completed).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(events.gateway)
+@SubscribeMessage(&#39;events&#39;)
+onEvent(client: Client, data: unknown): Observable&lt;WsResponse&lt;number&gt;&gt; {
+  const event = &#39;events&#39;;
+  const response = [1, 2, 3];
+
+  return from(response).pipe(
+    map(data =&gt; ({ event, data })),
+  );
+}
+@@switch
+@SubscribeMessage(&#39;events&#39;)
+onEvent(client, data) {
+  const event = &#39;events&#39;;
+  const response = [1, 2, 3];
+
+  return from(response).pipe(
+    map(data =&gt; ({ event, data })),
+  );
+}
+</pre></div>
+</div>
+<p>The above message handler will respond <strong>3 times</strong> (sequentially, with
+each item from the <code class="docutils literal notranslate"><span class="pre">response</span></code> array).</p>
+</div>
+<div class="section" id="lifecycle-hooks">
+<h2>Lifecycle hooks<a class="headerlink" href="#lifecycle-hooks" title="永久链接至标题">¶</a></h2>
+<p>There are 3 useful lifecycle hooks. All of them have corresponding
+interfaces and are described in the following table:</p>
+<table><tr><td><p>OnGatewayInit</p>
+</td><td><p>Forces to implement the afterInit() method. Takes library-specific
+server instance as an argument (and spreads the rest if required).</p>
+</td></tr><tr><td><p>OnGatewayConnection</p>
+</td><td><p>Forces to implement the handleConnection() method. Takes
+library-specific client socket instance as an argument.</p>
+</td></tr><tr><td><p>OnGatewayDisconnect</p>
+</td><td><p>Forces to implement the handleDisconnect() method. Takes
+library-specific client socket instance as an argument.</p>
+</td></tr></table><blockquote>
+<div><p>info <strong>Hint</strong> Each lifecycle interface is exposed from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/websockets</span></code> package.</p>
+</div></blockquote>
+</div>
+<div class="section" id="server">
+<h2>Server<a class="headerlink" href="#server" title="永久链接至标题">¶</a></h2>
+<p>Occasionally, you may want to have a direct access to the native,
+<strong>platform-specific</strong> server instance. The reference to this object is
+passed as an argument to the <code class="docutils literal notranslate"><span class="pre">afterInit()</span></code> method (<code class="docutils literal notranslate"><span class="pre">OnGatewayInit</span></code>
+interface). The second approach is to make use of <code class="docutils literal notranslate"><span class="pre">&#64;WebSocketServer()</span></code>
+decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@WebSocketServer</span><span class="p">()</span>
+<span class="nx">server</span>: <span class="kt">Server</span><span class="p">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> The <code class="docutils literal notranslate"><span class="pre">&#64;WebSocketServer()</span></code> decorator is imported
+from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/websockets</span></code> package.</p>
+</div></blockquote>
+<p>Nest will automatically assign the server instance to this property when
+it’s ready to use.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>A working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/02-gateways">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exception-filters.html" class="btn btn-neutral float-right" title="异常过滤器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Websockets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

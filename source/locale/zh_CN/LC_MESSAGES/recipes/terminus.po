@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/recipes/terminus.rst:2
+msgid "Health checks (Terminus)"
+msgstr "健康检查 (Terminus)"
+
+#: ../../source/recipes/terminus.rst:4
+msgid ""
+"The `terminus <https://github.com/godaddy/terminus>`__ offers hooks to "
+"react on graceful shutdowns and supports you creating proper `Kubernetes "
+"<https://kubernetes.io/>`__ readiness / liveness checks for any HTTP "
+"application. The module "
+"[@nestjs/terminus](https://github.com/nestjs/terminus) integrates the "
+"terminus library with the Nest ecosystem."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:12
+msgid "Getting started"
+msgstr "Getting started"
+
+#: ../../source/recipes/terminus.rst:14
+msgid ""
+"To get started with ``@nestjs/terminus`` we need to install the required "
+"dependencies."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:22
+msgid "Setting up a health check"
+msgstr "Setting up a health check"
+
+#: ../../source/recipes/terminus.rst:24
+msgid ""
+"A health check represents a summary of **health indicators**. A health "
+"indicator executes a check of a service, whether it is in a healthy state"
+" or not. A health check is positive, if all the assigned health "
+"indicators are up and running. Because a lot of applications will need "
+"similar health indicators, "
+"[@nestjs/terminus](https://github.com/nestjs/terminus) provides a set of "
+"predefined health indicators, such as:"
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:32
+msgid "``DNSHealthIndicator``"
+msgstr "``DNSHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:33
+msgid "``TypeOrmHealthIndicator``"
+msgstr "``TypeOrmHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:34
+msgid "``MongooseHealthIndicator``"
+msgstr "``MongooseHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:35
+msgid "``MicroserviceHealthIndicator``"
+msgstr "``MicroserviceHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:36
+msgid "``MemoryHealthIndicator``"
+msgstr "``MemoryHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:37
+msgid "``DiskHealthIndicator``"
+msgstr "``DiskHealthIndicator``"
+
+#: ../../source/recipes/terminus.rst:40
+msgid "DNS Health Check"
+msgstr "DNS Health Check"
+
+#: ../../source/recipes/terminus.rst:42
+msgid ""
+"The first step to get started with our first health check, is to setup a "
+"service which will associate health indicators to an endpoint."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:98
+msgid ""
+"Once we have set up our ``TerminusOptionsService``, we can import the "
+"``TerminusModule`` into the root ``ApplicationModule``. The "
+"``TerminusOptionsService`` will provide the settings, which in turn will "
+"be used by the ``TerminusModule``."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:121
+msgid ""
+"info **Hint** If done correctly, Nest will expose the defined health "
+"check(s), which are reachable through a GET request to the defined route."
+" For example ``curl -X GET 'http://localhost:3000/health'``"
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:126
+msgid "Custom health indicator"
+msgstr "Custom health indicator"
+
+#: ../../source/recipes/terminus.rst:128
+msgid ""
+"In some cases, the predefined health indicators provided by "
+"``@nestjs/terminus`` do not cover all of your health check requirements. "
+"In this case you can set up a custom health indicator according to your "
+"needs."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:133
+msgid ""
+"Let’s get started by creating a service which will represent our custom "
+"health indicator. To get a basic understanding how a health indicator is "
+"structured, we will create an example ``DogHealthIndicator``. This health"
+" indicator should have the state “up”, if every ``Dog`` object has the "
+"type ``goodboy``, otherwise it will throw an error, which then the health"
+" indicator will be seen as “down”."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:193
+msgid ""
+"The next thing we need to do is registering the health indicator as a "
+"provider."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:218
+msgid ""
+"info **Hint** In a real world application the ``DogHealthIndicator`` "
+"should be provided in a separate module, for example ``DogsModule``, "
+"which then will be imported by the ``ApplicationModule``. But keep in "
+"mind to add the ``DogHealthIndicator`` to the ``exports`` array of the "
+"``DogModule`` and add the ``DogModule`` in ``imports`` array of the "
+"``TerminusModule.forRootAsync()`` parameter object."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:225
+msgid ""
+"The last required thing to do is to add the now available health "
+"indicator in the required health check endpoint. For that we go back to "
+"our ``TerminusOptionsService`` and implement it to the ``/health`` "
+"endpoint."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:283
+msgid ""
+"If everything has been done correctly, the ``/health`` endpoint should "
+"respond with a ``503`` response code and the following data."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:298
+msgid ""
+"You can view working examples in the ``@nestjs/terminus`` `repository "
+"<https://github.com/nestjs/terminus/tree/master/sample>`__."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:302
+msgid "Custom Logger"
+msgstr "Custom Logger"
+
+#: ../../source/recipes/terminus.rst:304
+msgid ""
+"The ``Terminus`` module automatically logs every error during a health "
+"check request. By default, it will use the globally defined Nest logger. "
+"You can read more about the global logger in the `Logger chapter "
+"<https://docs.nestjs.com/techniques/logger>`__. In some cases, you want "
+"to handle the logs of ``Terminus`` explicitly. In this case, the "
+"``TerminusModule.forRoot[Async]`` function offers an option for a custom "
+"logger."
+msgstr ""
+
+#: ../../source/recipes/terminus.rst:322
+msgid "The logger can also be disabled by setting the logger option to ``null``."
+msgstr "The logger can also be disabled by setting the logger option to ``null``."
+

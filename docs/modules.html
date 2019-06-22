@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>模块 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="异常过滤器" href="exception-filters.html" />
+    <link rel="prev" title="控制器" href="controllers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">控制器</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">模块</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#feature-modules">功能模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared-modules">共享模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-re-exporting">模块重新导出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependency-injection">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-modules">全球模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-modules">动态模块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>模块</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modules">
+<h1>模块<a class="headerlink" href="#modules" title="永久链接至标题">¶</a></h1>
+<p>A module is a class annotated with a <code class="docutils literal notranslate"><span class="pre">&#64;Module()</span></code> decorator. The
+<code class="docutils literal notranslate"><span class="pre">&#64;Module()</span></code> decorator provides metadata that <strong>Nest</strong> makes use of to
+organize the application structure.</p>
+<figure></figure><p>Each application has at least one module, a <strong>root module</strong>. The root
+module is the starting point Nest uses to build the <strong>application
+graph</strong> - the internal data structure Nest uses to resolve module and
+provider relationships and dependencies. While very small applications
+may theoretically have just the root module, this is not the typical
+case. We want to emphasize that modules are <strong>strongly</strong> recommended as
+an effective way to organize your components. Thus, for most
+applications, the resulting architecture will employ multiple modules,
+each encapsulating a closely related set of <strong>capabilities</strong>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;Module()</span></code> decorator takes a single object whose properties
+describe the module:</p>
+<table><tr><td><p>供应商</p>
+</td><td><p>the providers that will be instantiated by the Nest injector and that
+may be shared at least across this module</p>
+</td></tr><tr><td><p>控制器</p>
+</td><td><p>the set of controllers defined in this module which have to be
+instantiated</p>
+</td></tr><tr><td><p>imports</p>
+</td><td><p>the list of imported modules that export the providers which are
+required in this module</p>
+</td></tr><tr><td><p>exports</p>
+</td><td><p>the subset of providers that are provided by this module and should be
+available in other modules which import this module</p>
+</td></tr></table><p>The module <strong>encapsulates</strong> providers by default. This means that it’s
+impossible to inject providers that are neither directly part of the
+current module nor exported from the imported modules. Thus, you may
+consider the exported providers from a module as the module’s public
+interface, or API.</p>
+<div class="section" id="feature-modules">
+<h2>功能模块<a class="headerlink" href="#feature-modules" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CatsController</span></code> and <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> belong to the same
+application domain. As they are closely related, it makes sense to move
+them into a feature module. A feature module simply organizes code
+relevant for a specific feature, keeping code organized and establishing
+clear boundaries. This helps us manage complexity and develop with
+<a class="reference external" href="https://en.wikipedia.org/wiki/SOLID">SOLID</a> principles, especially
+as the size of the application and/or team grow.</p>
+<p>To demonstrate this, we’ll create the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats/cats.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+@Module({
+  controllers: [CatsController],
+  providers: [CatsService],
+})
+export class CatsModule {}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> To create a module using the CLI, simply execute the
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nest</span> <span class="pre">g</span> <span class="pre">module</span> <span class="pre">cats</span></code> command.</p>
+</div></blockquote>
+<p>Above, we defined the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code> in the <code class="docutils literal notranslate"><span class="pre">cats.module.ts</span></code> file, and
+moved everything related to this module into the <code class="docutils literal notranslate"><span class="pre">cats</span></code> directory. The
+last thing we need to do is import this module into the root module (the
+<code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>, defined in the <code class="docutils literal notranslate"><span class="pre">app.module.ts</span></code> file).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { CatsModule } from &#39;./cats/cats.module&#39;;
+
+@Module({
+  imports: [CatsModule],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<p>Here is how our directory structure looks now:</p>
+<div class="file-tree docutils container">
+<div class="item docutils container">
+<p>src</p>
+</div>
+<div class="children docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">cats</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;children&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">dto</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;children&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">create</span><span class="o">-</span><span class="n">cat</span><span class="o">.</span><span class="n">dto</span><span class="o">.</span><span class="n">ts</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">interfaces</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;children&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">cat</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">ts</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">cats</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">ts</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">cats</span><span class="o">.</span><span class="n">controller</span><span class="o">.</span><span class="n">ts</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">cats</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">ts</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">app</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">ts</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="o">&gt;</span><span class="n">main</span><span class="o">.</span><span class="n">ts</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="shared-modules">
+<h2>共享模块<a class="headerlink" href="#shared-modules" title="永久链接至标题">¶</a></h2>
+<p>In Nest, modules are <strong>singletons</strong> by default, and thus you can share
+the same instance of any provider between multiple modules effortlessly.</p>
+<figure></figure><p>Every module is automatically a <strong>shared module</strong>. Once created it can
+be reused by any module. Let’s imagine that we want to share an instance
+of the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> between several other modules. In order to do
+that, we first need to <strong>export</strong> the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> provider by adding
+it to the module’s <code class="docutils literal notranslate"><span class="pre">exports</span></code> array, as shown below:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+@Module({
+  controllers: [CatsController],
+  providers: [CatsService],
+  exports: [CatsService]
+})
+export class CatsModule {}
+</pre></div>
+</div>
+<p>Now any module that imports the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code> has access to the
+<code class="docutils literal notranslate"><span class="pre">CatsService</span></code> and will share the same instance with all other modules
+that import it as well.</p>
+</div>
+<div class="section" id="module-re-exporting">
+<h2>模块重新导出<a class="headerlink" href="#module-re-exporting" title="永久链接至标题">¶</a></h2>
+<p>As seen above, Modules can export their internal providers. In addition,
+they can re-export modules that they import. In the example below, the
+<code class="docutils literal notranslate"><span class="pre">CommonModule</span></code> is both imported into <strong>and</strong> exported from the
+<code class="docutils literal notranslate"><span class="pre">CoreModule</span></code>, making it available for other modules which import this
+one.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">CommonModule</span><span class="p">],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">CommonModule</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CoreModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dependency-injection">
+<h2>依赖注入<a class="headerlink" href="#dependency-injection" title="永久链接至标题">¶</a></h2>
+<p>A module class can <strong>inject</strong> providers as well (e.g., for configuration
+purposes):</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(cats.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+@Module({
+  controllers: [CatsController],
+  providers: [CatsService],
+})
+export class CatsModule {
+  constructor(private readonly catsService: CatsService) {}
+}
+@@switch
+import { Module, Dependencies } from &#39;@nestjs/common&#39;;
+import { CatsController } from &#39;./cats.controller&#39;;
+import { CatsService } from &#39;./cats.service&#39;;
+
+@Module({
+  controllers: [CatsController],
+  providers: [CatsService],
+})
+@Dependencies(CatsService)
+export class CatsModule {
+  constructor(catsService) {
+    this.catsService = catsService;
+  }
+}
+</pre></div>
+</div>
+<p>However, module classes themselves cannot be injected as providers due
+to <a class="reference external" href="/fundamentals/circular-dependency">circular dependency</a> .</p>
+</div>
+<div class="section" id="global-modules">
+<h2>全球模块<a class="headerlink" href="#global-modules" title="永久链接至标题">¶</a></h2>
+<p>If you have to import the same set of modules everywhere, it can get
+tedious. In <a class="reference external" href="https://angular.io">Angular</a>, <code class="docutils literal notranslate"><span class="pre">providers</span></code> are
+registered in the global scope. Once defined, they’re available
+everywhere. Nest, however, encapsulates providers inside the module
+scope. You aren’t able to use a module’s providers elsewhere without
+first importing them. When you want to provide a set of providers which
+should be available everywhere out-of-the-box, (e.g., helpers, database
+connections, etc.) you can make the module <strong>global</strong> with the
+<code class="docutils literal notranslate"><span class="pre">&#64;Global()</span></code> decorator.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span><span class="p">,</span> <span class="nx">Global</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">CatsController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./cats.controller&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">CatsService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./cats.service&#39;</span><span class="p">;</span>
+
+<span class="kd">@Global</span><span class="p">()</span>
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">controllers</span><span class="o">:</span> <span class="p">[</span><span class="nx">CatsController</span><span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">CatsService</span><span class="p">],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">CatsService</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">CatsModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;Global()</span></code> decorator makes the module global-scoped. Global
+modules should be registered <strong>only once</strong>, generally by the root or
+core module. In the above example, the <code class="docutils literal notranslate"><span class="pre">CatsService</span></code> provider will be
+ubiquitous, and modules that wish to inject the service will not need to
+import the <code class="docutils literal notranslate"><span class="pre">CatsModule</span></code> in their imports array.</p>
+<blockquote>
+<div><p>info <strong>Hint</strong> Making everything global is not a good design decision.
+Global modules are available to reduce the amount of necessary
+boilerplate. The <code class="docutils literal notranslate"><span class="pre">imports</span></code> array is generally the preferred way to
+make the module’s API available to consumers.</p>
+</div></blockquote>
+</div>
+<div class="section" id="dynamic-modules">
+<h2>动态模块<a class="headerlink" href="#dynamic-modules" title="永久链接至标题">¶</a></h2>
+<p>The Nest module system includes a feature called <strong>dynamic modules</strong>.
+This feature enables you to easily create customizable modules.
+Following is an example of such a dynamic module, a <code class="docutils literal notranslate"><span class="pre">DatabaseModule</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+import { Module, DynamicModule } from &#39;@nestjs/common&#39;;
+import { createDatabaseProviders } from &#39;./database.providers&#39;;
+import { Connection } from &#39;./connection.provider&#39;;
+
+@Module({
+  providers: [Connection],
+})
+export class DatabaseModule {
+  static forRoot(entities = [], options?): DynamicModule {
+    const providers = createDatabaseProviders(options, entities);
+    return {
+      module: DatabaseModule,
+      providers: providers,
+      exports: providers,
+    };
+  }
+}
+@@switch
+import { Module } from &#39;@nestjs/common&#39;;
+import { createDatabaseProviders } from &#39;./database.providers&#39;;
+import { Connection } from &#39;./connection.provider&#39;;
+
+@Module({
+  providers: [Connection],
+})
+export class DatabaseModule {
+  static forRoot(entities = [], options?) {
+    const providers = createDatabaseProviders(options, entities);
+    return {
+      module: DatabaseModule,
+      providers: providers,
+      exports: providers,
+    };
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">forRoot()</span></code> method may return a dynamic module
+either synchronously or asynchronously (i.e., via a <code class="docutils literal notranslate"><span class="pre">Promise</span></code>).</p>
+</div></blockquote>
+<p>This module defines the <code class="docutils literal notranslate"><span class="pre">Connection</span></code> provider by default, but
+additionally - depending on the <code class="docutils literal notranslate"><span class="pre">entities</span></code> and <code class="docutils literal notranslate"><span class="pre">options</span></code> objects
+passed to it - exposes a collection of providers, for example,
+repositories. Note that the dynamic module <strong>extends</strong> (rather than
+overrides) the base module metadata. That’s how both the statically
+declared <code class="docutils literal notranslate"><span class="pre">Connection</span></code> provider <strong>and</strong> the dynamically configured
+repository providers are exported from the module.</p>
+<p>This substantial feature is useful when you need to register and
+configure providers dynamically. Once defined in this way, the
+<code class="docutils literal notranslate"><span class="pre">DatabaseModule</span></code> can be imported and configured in the following
+manner:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">DatabaseModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./database/database.module&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">User</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./users/entities/user.entity&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">DatabaseModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">([</span><span class="nx">User</span><span class="p">])],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>If you want to in turn re-export a dynamic module, you can omit the
+<code class="docutils literal notranslate"><span class="pre">forRoot()</span></code> method call in the exports array:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">DatabaseModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./database/database.module&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">User</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./users/entities/user.entity&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">DatabaseModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">([</span><span class="nx">User</span><span class="p">])],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">DatabaseModule</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exception-filters.html" class="btn btn-neutral float-right" title="异常过滤器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="controllers.html" class="btn btn-neutral float-left" title="控制器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

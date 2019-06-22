@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/techniques/http-module.rst:2
+msgid "HTTP module"
+msgstr "HTTP 模"
+
+#: ../../source/techniques/http-module.rst:4
+msgid ""
+"`Axios <https://github.com/axios/axios>`__ is rich-feature HTTP client "
+"that is widely used in dozens of applications. That’s why Nest wraps this"
+" package and exposes it by default as a built-in ``HttpModule``. The "
+"``HttpModule`` exports ``HttpService`` that simply exposes axios-based "
+"methods to perform HTTP request, but also, transforms return types into "
+"``Observables``."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:11
+msgid "In order to use a ``HttpService``, we need to import ``HttpModule``."
+msgstr "In order to use a ``HttpService``, we need to import ``HttpModule``."
+
+#: ../../source/techniques/http-module.rst:23
+msgid ""
+"info **Hint** The ``HttpModule`` is exposed from ``@nestjs/common`` "
+"package."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:26
+msgid ""
+"Then, you can inject ``HttpService``. This class is easily accessible "
+"from ``@nestjs/common`` package."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:53
+msgid "All methods return ``AxiosResponse`` wrapped with ``Observable`` object."
+msgstr "All methods return ``AxiosResponse`` wrapped with ``Observable`` object."
+
+#: ../../source/techniques/http-module.rst:56
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../../source/techniques/http-module.rst:58
+msgid ""
+"`Axios <https://github.com/axios/axios>`__ gives a bunch of options that "
+"you may take advantage of to make your ``HttpService`` even more "
+"powerful. Read more about them `here <https://github.com/axios/axios"
+"#request-config>`__. To configure underlying library instance, use "
+"``register()`` method of ``HttpModule``."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:78
+msgid "All these properties will be passed down to the **axios** constructor."
+msgstr "All these properties will be passed down to the **axios** constructor."
+
+#: ../../source/techniques/http-module.rst:81
+msgid "Async configuration"
+msgstr "Async configuration"
+
+#: ../../source/techniques/http-module.rst:83
+msgid ""
+"Quite often you might want to asynchronously pass your module options "
+"instead of passing them beforehand. In such case, use ``registerAsync()``"
+" method, that provides a couple of various ways to deal with async data."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:88
+msgid "First possible approach is to use a factory function:"
+msgstr "First possible approach is to use a factory function:"
+
+#: ../../source/techniques/http-module.rst:99
+msgid ""
+"Obviously, our factory behaves like every other one (might be ``async`` "
+"and is able to inject dependencies through ``inject``)."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:113
+msgid "Alternatively, you are able to use class instead of a factory."
+msgstr "Alternatively, you are able to use class instead of a factory."
+
+#: ../../source/techniques/http-module.rst:121
+msgid ""
+"Above construction will instantiate ``HttpConfigService`` inside "
+"``HttpModule`` and will leverage it to create options object. The "
+"``HttpConfigService`` has to implement ``HttpOptionsFactory`` interface."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:137
+msgid ""
+"In order to prevent the creation of ``HttpConfigService`` inside "
+"``HttpModule`` and use a provider imported from a different module, you "
+"can use the ``useExisting`` syntax."
+msgstr ""
+
+#: ../../source/techniques/http-module.rst:148
+msgid ""
+"It works the same as ``useClass`` with one critical difference - "
+"``HttpModule`` will lookup imported modules to reuse already created "
+"``ConfigService``, instead of instantiating it on its own."
+msgstr ""
+

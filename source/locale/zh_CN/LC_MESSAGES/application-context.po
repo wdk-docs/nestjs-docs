@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/application-context.rst:2
+msgid "Application context"
+msgstr "应用背景"
+
+#: ../../source/application-context.rst:4
+msgid ""
+"There are several ways of mounting the Nest application. You can create "
+"either a web app, microservice or just a Nest **application context**. "
+"Nest context is a wrapper around the Nest container, which holds all "
+"instantiated classes. We can grab an existing instance from within any "
+"imported module directly using application object. Hence, you can take "
+"advantage of the Nest framework everywhere, including **CRON** jobs and "
+"even build a **CLI** on top of it."
+msgstr ""
+
+#: ../../source/application-context.rst:13
+msgid "Getting started"
+msgstr "Getting started"
+
+#: ../../source/application-context.rst:15
+msgid ""
+"In order to create a Nest application context, we use the following "
+"syntax:"
+msgstr ""
+
+#: ../../source/application-context.rst:27
+msgid ""
+"Afterward, Nest allows you to pick any instance registered within Nest "
+"application. Let’s imagine that we have a ``TasksService`` in the "
+"``TasksModule``. This class provides a set of usable methods, which we "
+"want to call from within CRON job."
+msgstr ""
+
+#: ../../source/application-context.rst:38
+msgid ""
+"And that’s it. To grab ``TasksService`` instance we had to use ``get()`` "
+"method. We didn’t have to go through entire modules tree, the ``get()`` "
+"method act like a **query** that search for an instance in each "
+"registered module automatically. However, if you prefer a strict context "
+"checking, you can always switch to it using ``strict: true`` options "
+"object that has to be passed as the second argument of ``get()`` method. "
+"Then, you have to go through all modules to pick up a particular instance"
+" from the selected context."
+msgstr ""
+
+#: ../../source/application-context.rst:65
+msgid "get()"
+msgstr "get()"
+
+#: ../../source/application-context.rst:75
+msgid ""
+"Retrieves an instance of either controller or provider (including guards,"
+" filters, and so on) available in the application context."
+msgstr ""
+
+#: ../../source/application-context.rst:94
+msgid "select()"
+msgstr "select()"
+
+#: ../../source/application-context.rst:104
+msgid ""
+"Navigates through the modules graph, for example, to pull out a specific "
+"instance from the selected module (used together with enabled strict "
+"mode)."
+msgstr ""
+
+#: ../../source/application-context.rst:122
+msgid ""
+"info **Hint** In non-strict mode, the root module is selected by default."
+" In order to select any other module, you need to go through entire "
+"modules tree (step by step)."
+msgstr ""
+

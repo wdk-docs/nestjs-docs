@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>适配器 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>适配器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/websockets/adapter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adapters">
+<h1>适配器<a class="headerlink" href="#adapters" title="永久链接至标题">¶</a></h1>
+<p>The WebSockets module is platform-agnostic, hence, you can bring your
+own library (or even a native implementation) by making use of
+<code class="docutils literal notranslate"><span class="pre">WebSocketAdapter</span></code> interface. This interface forces to implement few
+methods described in the following table:</p>
+<table><tr><td><p>create</p>
+</td><td><p>Creates a socket instance based on passed arguments</p>
+</td></tr><tr><td><p>bindClientConnect</p>
+</td><td><p>Binds the client connection event</p>
+</td></tr><tr><td><p>bindClientDisconnect</p>
+</td><td><p>Binds the client disconnection event (optional*)</p>
+</td></tr><tr><td><p>bindMessageHandlers</p>
+</td><td><p>Binds the incoming message to the corresponding message handler</p>
+</td></tr><tr><td><p>close</p>
+</td><td><p>Terminates a server instance</p>
+</td></tr></table><div class="section" id="extend-socket-io">
+<h2>Extend socket.io<a class="headerlink" href="#extend-socket-io" title="永久链接至标题">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/socketio/socket.io">socket.io</a> package is
+wrapped in an <code class="docutils literal notranslate"><span class="pre">IoAdapter</span></code> class. What if you would like to enhance the
+basic functionality of the adapter? For instance, your technical
+requirements require a capability to broadcast events across multiple
+load-balanced instances of your web service. For this, you can extend
+<code class="docutils literal notranslate"><span class="pre">IoAdapter</span></code> and override a single method which responsibility is to
+instantiate new socket.io servers. But first of all, let’s install the
+required package.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save socket.io-redis
+</pre></div>
+</div>
+<p>Once the package is installed, we can create a <code class="docutils literal notranslate"><span class="pre">RedisIoAdapter</span></code> class.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">IoAdapter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/platform-socket.io&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">redisIoAdapter</span> <span class="nx">from</span> <span class="s1">&#39;socket.io-redis&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">redisAdapter</span> <span class="o">=</span> <span class="nx">redisIoAdapter</span><span class="p">({</span> <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="nx">port</span>: <span class="kt">6379</span> <span class="p">});</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">RedisIoAdapter</span> <span class="kr">extends</span> <span class="nx">IoAdapter</span> <span class="p">{</span>
+  <span class="nx">createIOServer</span><span class="p">(</span><span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="nx">any</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="kr">super</span><span class="p">.</span><span class="nx">createIOServer</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+    <span class="nx">server</span><span class="p">.</span><span class="nx">adapter</span><span class="p">(</span><span class="nx">redisAdapter</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">server</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Afterward, simply switch to your newly created Redis adapter.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">useWebSocketAdapter</span><span class="p">(</span><span class="k">new</span> <span class="nx">RedisIoAdapter</span><span class="p">(</span><span class="nx">app</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ws-library">
+<h2>Ws library<a class="headerlink" href="#ws-library" title="永久链接至标题">¶</a></h2>
+<p>Another available adapter is a <code class="docutils literal notranslate"><span class="pre">WsAdapter</span></code> which in turn acts like a
+proxy between the framework and integrate blazing fast and thoroughly
+tested <a class="reference external" href="https://github.com/websockets/ws">ws</a> library. This adapter
+is fully compatible with native browser WebSockets and is far faster
+than socket.io package. Unluckily, it has significantly fewer
+functionalities available out-of-the-box. In some cases, you may just
+don’t necessarily need them though.</p>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">ws</span></code>, we firstly have to install the required package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save @nestjs/platform-ws
+</pre></div>
+</div>
+<p>Once the package is installed, we can switch an adapter:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ApplicationModule</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">useWebSocketAdapter</span><span class="p">(</span><span class="k">new</span> <span class="nx">WsAdapter</span><span class="p">(</span><span class="nx">app</span><span class="p">));</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> The <code class="docutils literal notranslate"><span class="pre">WsAdapter</span></code> is imported from
+<code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-ws</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="advanced-custom-adapter">
+<h2>Advanced (custom adapter)<a class="headerlink" href="#advanced-custom-adapter" title="永久链接至标题">¶</a></h2>
+<p>For demonstration purposes, we are going to integrate the
+<a class="reference external" href="https://github.com/websockets/ws">ws</a> library manually. As
+mentioned, the adapter for this library is already created and is
+exposed from the <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/platform-ws</span></code> package as a <code class="docutils literal notranslate"><span class="pre">WsAdapter</span></code>
+class. Here is how the simplified implementation could potentially look
+like:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(ws-adapter)
+import * as WebSocket from &#39;ws&#39;;
+import { WebSocketAdapter, MessageMappingProperties, INestApplicationContext } from &#39;@nestjs/common&#39;;
+import { Observable, fromEvent, empty } from &#39;rxjs&#39;;
+import { mergeMap, filter, tap } from &#39;rxjs/operators&#39;;
+
+export class WsAdapter implements WebSocketAdapter {
+  constructor(private readonly app: INestApplicationContext) {}
+
+  create(port: number, options: any = {}): any {
+    return new ws.Server({ port, ...options });
+  }
+
+  bindClientConnect(server, callback: Function) {
+    server.on(&#39;connection&#39;, callback);
+  }
+
+  bindMessageHandlers(
+    client: WebSocket,
+    handlers: MessageMappingProperties[],
+    process: (data: any) =&gt; Observable&lt;any&gt;,
+  ) {
+    fromEvent(client, &#39;message&#39;)
+      .pipe(
+        mergeMap(data =&gt; this.bindMessageHandler(data, handlers, process)),
+        filter(result =&gt; result),
+      )
+      .subscribe(response =&gt; client.send(JSON.stringify(response)));
+  }
+
+  bindMessageHandler(
+    buffer,
+    handlers: MessageMappingProperties[],
+    process: (data: any) =&gt; Observable&lt;any&gt;,
+  ): Observable&lt;any&gt; {
+    const message = JSON.parse(buffer.data);
+    const messageHandler = handlers.find(
+      handler =&gt; handler.message === message.event,
+    );
+    if (!messageHandler) {
+      return empty;
+    }
+    return process(messageHandler.callback(message.data));
+  }
+
+  close(server) {
+    server.close();
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> When you want to take advantage of
+<a class="reference external" href="https://github.com/websockets/ws">ws</a> library, use built-in
+<code class="docutils literal notranslate"><span class="pre">WsAdapter</span></code> instead of creating your own one.</p>
+</div></blockquote>
+<p>Then, we can set up a custom adapter using <code class="docutils literal notranslate"><span class="pre">useWebSocketAdapter()</span></code>
+method:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(main)
+const app = await NestFactory.create(ApplicationModule);
+app.useWebSocketAdapter(new WsAdapter(app));
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>A working example that uses <code class="docutils literal notranslate"><span class="pre">WsAdapter</span></code> is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/16-gateways-ws">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

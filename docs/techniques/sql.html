@@ -1,0 +1,623 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Database (TypeORM) &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>Database (TypeORM)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/techniques/sql.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="database-typeorm">
+<h1>Database (TypeORM)<a class="headerlink" href="#database-typeorm" title="永久链接至标题">¶</a></h1>
+<p>In order to reduce a boilerplate necessary to start the adventure with
+any database, Nest comes with the ready to use <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/typeorm</span></code>
+package. We have selected
+<a class="reference external" href="https://github.com/typeorm/typeorm">TypeORM</a> because it’s definitely
+the most mature Object Relational Mapper (ORM) available so far. Since
+it’s written in TypeScript, it works pretty well with the Nest
+framework.</p>
+<p>Firstly, we need to install all of the required dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save @nestjs/typeorm typeorm mysql
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Notice</strong> In this chapter we’ll use a MySQL database, but
+<strong>TypeORM</strong> provides a support for a lot of different databases such
+as PostgreSQL, SQLite, and even MongoDB (NoSQL).</p>
+</div></blockquote>
+<p>Once the installation process is completed, we can import the
+<code class="docutils literal notranslate"><span class="pre">TypeOrmModule</span></code> into the root <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { TypeOrmModule } from &#39;@nestjs/typeorm&#39;;
+
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: &#39;mysql&#39;,
+      host: &#39;localhost&#39;,
+      port: 3306,
+      username: &#39;root&#39;,
+      password: &#39;root&#39;,
+      database: &#39;test&#39;,
+      entities: [__dirname + &#39;/**/*.entity{.ts,.js}&#39;],
+      synchronize: true,
+    }),
+  ],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">forRoot()</span></code> method accepts the same configuration object as
+<code class="docutils literal notranslate"><span class="pre">createConnection()</span></code> from the
+<a class="reference external" href="https://github.com/typeorm/typeorm">TypeORM</a> package. Futhermore,
+instead of passing anything to the <code class="docutils literal notranslate"><span class="pre">forRoot()</span></code>, we can create an
+<code class="docutils literal notranslate"><span class="pre">ormconfig.json</span></code> file in the project root directory.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mysql&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span>
+  <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;entities&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;src/**/*.entity{.ts,.js}&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;synchronize&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, we can simply leave the parenthesis empty:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { TypeOrmModule } from &#39;@nestjs/typeorm&#39;;
+
+@Module({
+  imports: [TypeOrmModule.forRoot()],
+})
+export class ApplicationModule {}
+</pre></div>
+</div>
+<p>Afterward, the <code class="docutils literal notranslate"><span class="pre">Connection</span></code> and <code class="docutils literal notranslate"><span class="pre">EntityManager</span></code> will be available to
+inject across entire project (without importing any module elsewhere),
+for example, in this way:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.module)
+import { Connection } from &#39;typeorm&#39;;
+
+@Module({
+  imports: [TypeOrmModule.forRoot(), PhotoModule],
+})
+export class ApplicationModule {
+  constructor(private readonly connection: Connection) {}
+}
+@@switch
+import { Connection } from &#39;typeorm&#39;;
+
+@Dependencies(Connection)
+@Module({
+  imports: [TypeOrmModule.forRoot(), PhotoModule],
+})
+export class ApplicationModule {
+  constructor(connection) {
+    this.connection = connection;
+  }
+}
+</pre></div>
+</div>
+<div class="section" id="repository-pattern">
+<h2>Repository pattern<a class="headerlink" href="#repository-pattern" title="永久链接至标题">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/typeorm/typeorm">TypeORM</a> supports the
+repository design pattern, so each entity has its own Repository. These
+repositories can be obtained from the database connection.</p>
+<p>Firstly, we need at least one entity. We’re gonna reuse the <code class="docutils literal notranslate"><span class="pre">Photo</span></code>
+entity from the official documentation.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(photo.entity)
+import { Entity, Column, PrimaryGeneratedColumn } from &#39;typeorm&#39;;
+
+@Entity()
+export class Photo {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ length: 500 })
+  name: string;
+
+  @Column(&#39;text&#39;)
+  description: string;
+
+  @Column()
+  filename: string;
+
+  @Column(&#39;int&#39;)
+  views: number;
+
+  @Column()
+  isPublished: boolean;
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Photo</span></code> entity belongs to the <code class="docutils literal notranslate"><span class="pre">photo</span></code> directory. This directory
+represents the <code class="docutils literal notranslate"><span class="pre">PhotoModule</span></code>. It’s your decision where you gonna keep
+your model files. From our point of view, the best way’s to hold them
+nearly their <strong>domain</strong>, in the corresponding module directory.</p>
+<p>Let’s have a look at the <code class="docutils literal notranslate"><span class="pre">PhotoModule</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(photo.module)
+import { Module } from &#39;@nestjs/common&#39;;
+import { TypeOrmModule } from &#39;@nestjs/typeorm&#39;;
+import { PhotoService } from &#39;./photo.service&#39;;
+import { PhotoController } from &#39;./photo.controller&#39;;
+import { Photo } from &#39;./photo.entity&#39;;
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Photo])],
+  providers: [PhotoService],
+  controllers: [PhotoController],
+})
+export class PhotoModule {}
+</pre></div>
+</div>
+<p>This module uses <code class="docutils literal notranslate"><span class="pre">forFeature()</span></code> method to define which repositories
+shall be registered in the current scope. Thanks to that we can inject
+the <code class="docutils literal notranslate"><span class="pre">PhotoRepository</span></code> to the <code class="docutils literal notranslate"><span class="pre">PhotoService</span></code> using the
+<code class="docutils literal notranslate"><span class="pre">&#64;InjectRepository()</span></code> decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(photo.service)
+import { Injectable } from &#39;@nestjs/common&#39;;
+import { InjectRepository } from &#39;@nestjs/typeorm&#39;;
+import { Repository } from &#39;typeorm&#39;;
+import { Photo } from &#39;./photo.entity&#39;;
+
+@Injectable()
+export class PhotoService {
+  constructor(
+    @InjectRepository(Photo)
+    private readonly photoRepository: Repository&lt;Photo&gt;,
+  ) {}
+
+  findAll(): Promise&lt;Photo[]&gt; {
+    return this.photoRepository.find();
+  }
+}
+@@switch
+import { Injectable, Dependencies } from &#39;@nestjs/common&#39;;
+import { InjectRepository } from &#39;@nestjs/typeorm&#39;;
+import { Photo } from &#39;./photo.entity&#39;;
+
+@Injectable()
+@Dependencies(InjectRepository(Photo))
+export class PhotoService {
+  constructor(photoRepository) {
+    this.photoRepository = photoRepository;
+  }
+
+  findAll() {
+    return this.photoRepository.find();
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> Do not forget to import the <code class="docutils literal notranslate"><span class="pre">PhotoModule</span></code> into
+the root <code class="docutils literal notranslate"><span class="pre">ApplicationModule</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="multiple-databases">
+<h2>Multiple databases<a class="headerlink" href="#multiple-databases" title="永久链接至标题">¶</a></h2>
+<p>Some of your projects may require multiple database connections.
+Fortunately, this can also be achieved with this module. To work with
+multiple connections, the first thing to do is to create those
+connections. In this case, the connection naming becomes <strong>mandatory</strong>.</p>
+<p>Say you have a <code class="docutils literal notranslate"><span class="pre">Person</span></code> entity and an <code class="docutils literal notranslate"><span class="pre">Album</span></code> entity, each stored in
+their own database.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">defaultOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
+  <span class="nx">port</span>: <span class="kt">5432</span><span class="p">,</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+  <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+  <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;db&#39;</span><span class="p">,</span>
+  <span class="nx">synchronize</span>: <span class="kt">true</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+      <span class="p">...</span><span class="nx">defaultOptions</span><span class="p">,</span>
+      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;photo_db_host&#39;</span><span class="p">,</span>
+      <span class="nx">entities</span><span class="o">:</span> <span class="p">[</span><span class="nx">Photo</span><span class="p">],</span>
+    <span class="p">}),</span>
+    <span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+      <span class="p">...</span><span class="nx">defaultOptions</span><span class="p">,</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;personsConnection&#39;</span><span class="p">,</span>
+      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;person_db_host&#39;</span><span class="p">,</span>
+      <span class="nx">entities</span><span class="o">:</span> <span class="p">[</span><span class="nx">Person</span><span class="p">],</span>
+    <span class="p">}),</span>
+    <span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+      <span class="p">...</span><span class="nx">defaultOptions</span><span class="p">,</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;albumsConnection&#39;</span><span class="p">,</span>
+      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;album_db_host&#39;</span><span class="p">,</span>
+      <span class="nx">entities</span><span class="o">:</span> <span class="p">[</span><span class="nx">Album</span><span class="p">],</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>warning <strong>Notice</strong> If you don’t set any <code class="docutils literal notranslate"><span class="pre">name</span></code> for a connection,
+its name is set to <code class="docutils literal notranslate"><span class="pre">default</span></code>. Please note that you shouldn’t have
+multiple connections without a name, or with the same name, otherwise
+they simply get overridden.</p>
+</div></blockquote>
+<p>At this point, you have each of your <code class="docutils literal notranslate"><span class="pre">Photo</span></code>, <code class="docutils literal notranslate"><span class="pre">Person</span></code> and <code class="docutils literal notranslate"><span class="pre">Album</span></code>
+entities registered in their own connection. With this setup, you have
+to tell the <code class="docutils literal notranslate"><span class="pre">TypeOrmModule.forFeature()</span></code> function and the
+<code class="docutils literal notranslate"><span class="pre">&#64;InjectRepository()</span></code> decorator which connection should be used. If
+you do not pass any connection name, the <code class="docutils literal notranslate"><span class="pre">default</span></code> connection is used.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forFeature</span><span class="p">([</span><span class="nx">Photo</span><span class="p">]),</span>
+    <span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forFeature</span><span class="p">([</span><span class="nx">Person</span><span class="p">],</span> <span class="s1">&#39;personsConnection&#39;</span><span class="p">),</span>
+    <span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forFeature</span><span class="p">([</span><span class="nx">Album</span><span class="p">],</span> <span class="s1">&#39;albumsConnection&#39;</span><span class="p">),</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApplicationModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>You can also inject the <code class="docutils literal notranslate"><span class="pre">Connection</span></code> or <code class="docutils literal notranslate"><span class="pre">EntityManager</span></code> for a given
+connection:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">PersonService</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="kd">@InjectConnection</span><span class="p">(</span><span class="s1">&#39;personsConnection&#39;</span><span class="p">)</span>
+    <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">connection</span>: <span class="kt">Connection</span><span class="p">,</span>
+    <span class="kd">@InjectEntityManager</span><span class="p">(</span><span class="s1">&#39;personsConnection&#39;</span><span class="p">)</span>
+    <span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">entityManager</span>: <span class="kt">EntityManager</span><span class="p">,</span>
+  <span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="永久链接至标题">¶</a></h2>
+<p>When it comes to unit test our application, we usually want to avoid any
+database connection, making our test suits independent and their
+execution process quick as possible. But our classes might depend on
+repositories that are pulled from the connection instance. What’s then?
+The solution is to create fake repositories. In order to achieve that,
+we should set up <a class="reference external" href="/fundamentals/custom-providers">custom providers</a>.
+In fact, each registered repository is represented by
+<code class="docutils literal notranslate"><span class="pre">EntityNameRepository</span></code> token, where <code class="docutils literal notranslate"><span class="pre">EntityName</span></code> is a name of your
+entity class.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/typeorm</span></code> package exposes <code class="docutils literal notranslate"><span class="pre">getRepositoryToken()</span></code>
+function that returns prepared token based on a given entity.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">PhotoService</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="nx">provide</span>: <span class="kt">getRepositoryToken</span><span class="p">(</span><span class="nx">Photo</span><span class="p">),</span>
+      <span class="nx">useValue</span>: <span class="kt">mockRepository</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">PhotoModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Now a hardcoded <code class="docutils literal notranslate"><span class="pre">mockRepository</span></code> will be used as a
+<code class="docutils literal notranslate"><span class="pre">PhotoRepository</span></code>. Whenever any provider asks for <code class="docutils literal notranslate"><span class="pre">PhotoRepository</span></code>
+using an <code class="docutils literal notranslate"><span class="pre">&#64;InjectRepository()</span></code> decorator, Nest will use a registered
+<code class="docutils literal notranslate"><span class="pre">mockRepository</span></code> object.</p>
+</div>
+<div class="section" id="custom-repository">
+<h2>Custom repository<a class="headerlink" href="#custom-repository" title="永久链接至标题">¶</a></h2>
+<p>TypeORM provides feature called <strong>custom repositories</strong>. To learn more
+about it, visit <a class="reference external" href="http://typeorm.io/#/custom-repository">this</a> page.
+Basically, custom repository allows you extending a base repository
+class, and enrich it with a couple of special methods.</p>
+<p>In order to create your custom repository, use <code class="docutils literal notranslate"><span class="pre">&#64;EntityRepository()</span></code>
+decorator and extend <code class="docutils literal notranslate"><span class="pre">Repository</span></code> class.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@EntityRepository</span><span class="p">(</span><span class="nx">Author</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthorRepository</span> <span class="kr">extends</span> <span class="nx">Repository</span><span class="o">&lt;</span><span class="nx">Author</span><span class="o">&gt;</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> Both <code class="docutils literal notranslate"><span class="pre">&#64;EntityRepository()</span></code> and <code class="docutils literal notranslate"><span class="pre">Repository</span></code> are
+exposed from <code class="docutils literal notranslate"><span class="pre">typeorm</span></code> package.</p>
+</div></blockquote>
+<p>Once the class is created, the next step is to hand over the
+instantiation responsibility to Nest. For this, we have to pass
+<code class="docutils literal notranslate"><span class="pre">AuthorRepository</span></code> class to the <code class="docutils literal notranslate"><span class="pre">TypeOrm.forFeature()</span></code> method.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Module</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forFeature</span><span class="p">([</span><span class="nx">AuthorRepository</span><span class="p">])],</span>
+  <span class="nx">controller</span><span class="o">:</span> <span class="p">[</span><span class="nx">AuthorController</span><span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">AuthorService</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthorModule</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Afterward, simply inject the repository using the following
+construction:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthorService</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">readonly</span> <span class="nx">authorRepository</span>: <span class="kt">AuthorRepository</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="async-configuration">
+<h2>Async configuration<a class="headerlink" href="#async-configuration" title="永久链接至标题">¶</a></h2>
+<p>Quite often you might want to asynchronously pass your module options
+instead of passing them beforehand. In such case, use <code class="docutils literal notranslate"><span class="pre">forRootAsync()</span></code>
+method, that provides a couple of various ways to deal with async data.</p>
+<p>First possible approach is to use a factory function:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">useFactory</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+    <span class="nx">port</span>: <span class="kt">3306</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+    <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span>
+    <span class="nx">entities</span><span class="o">:</span> <span class="p">[</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/**/*.entity{.ts,.js}&#39;</span><span class="p">],</span>
+    <span class="nx">synchronize</span>: <span class="kt">true</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Obviously, our factory behaves like every other one (might be <code class="docutils literal notranslate"><span class="pre">async</span></code>
+and is able to inject dependencies through <code class="docutils literal notranslate"><span class="pre">inject</span></code>).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigModule</span><span class="p">],</span>
+  <span class="nx">useFactory</span>: <span class="kt">async</span> <span class="p">(</span><span class="nx">configService</span>: <span class="kt">ConfigService</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+    <span class="nx">host</span>: <span class="kt">configService.getString</span><span class="p">(</span><span class="s1">&#39;HOST&#39;</span><span class="p">),</span>
+    <span class="nx">port</span>: <span class="kt">configService.getString</span><span class="p">(</span><span class="s1">&#39;PORT&#39;</span><span class="p">),</span>
+    <span class="nx">username</span>: <span class="kt">configService.getString</span><span class="p">(</span><span class="s1">&#39;USERNAME&#39;</span><span class="p">),</span>
+    <span class="nx">password</span>: <span class="kt">configService.getString</span><span class="p">(</span><span class="s1">&#39;PASSWORD&#39;</span><span class="p">),</span>
+    <span class="nx">database</span>: <span class="kt">configService.getString</span><span class="p">(</span><span class="s1">&#39;DATABASE&#39;</span><span class="p">),</span>
+    <span class="nx">entities</span><span class="o">:</span> <span class="p">[</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/**/*.entity{.ts,.js}&#39;</span><span class="p">],</span>
+    <span class="nx">synchronize</span>: <span class="kt">true</span><span class="p">,</span>
+  <span class="p">}),</span>
+  <span class="nx">inject</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigService</span><span class="p">],</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Alternatively, you are able to use class instead of a factory.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">useClass</span>: <span class="kt">TypeOrmConfigService</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Above construction will instantiate <code class="docutils literal notranslate"><span class="pre">TypeOrmConfigService</span></code> inside
+<code class="docutils literal notranslate"><span class="pre">TypeOrmModule</span></code> and will leverage it to create options object. The
+<code class="docutils literal notranslate"><span class="pre">TypeOrmConfigService</span></code> has to implement <code class="docutils literal notranslate"><span class="pre">TypeOrmOptionsFactory</span></code>
+interface.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">class</span> <span class="nx">TypeOrmConfigService</span> <span class="kr">implements</span> <span class="nx">TypeOrmOptionsFactory</span> <span class="p">{</span>
+  <span class="nx">createTypeOrmOptions</span><span class="p">()</span><span class="o">:</span> <span class="nx">TypeOrmModuleOptions</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+      <span class="nx">port</span>: <span class="kt">3306</span><span class="p">,</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+      <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span>
+      <span class="nx">entities</span><span class="o">:</span> <span class="p">[</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/**/*.entity{.ts,.js}&#39;</span><span class="p">],</span>
+      <span class="nx">synchronize</span>: <span class="kt">true</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to prevent the creation of <code class="docutils literal notranslate"><span class="pre">TypeOrmConfigService</span></code> inside
+<code class="docutils literal notranslate"><span class="pre">TypeOrmModule</span></code> and use a provider imported from a different module,
+you can use the <code class="docutils literal notranslate"><span class="pre">useExisting</span></code> syntax.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">TypeOrmModule</span><span class="p">.</span><span class="nx">forRootAsync</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">ConfigModule</span><span class="p">],</span>
+  <span class="nx">useExisting</span>: <span class="kt">ConfigService</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>It works the same as <code class="docutils literal notranslate"><span class="pre">useClass</span></code> with one critical difference -
+<code class="docutils literal notranslate"><span class="pre">TypeOrmModule</span></code> will lookup imported modules to reuse already created
+<code class="docutils literal notranslate"><span class="pre">ConfigService</span></code>, instead of instantiating it on its own.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>A working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/05-sql-typeorm">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

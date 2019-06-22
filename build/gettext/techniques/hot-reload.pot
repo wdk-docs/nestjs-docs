@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/techniques/hot-reload.rst:2
+msgid "Hot Reload (Webpack)"
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:4
+msgid "The highest impact on your application’s bootstrapping process has a **TypeScript compilation**. But the question is, do we have to recompile a whole project each time when change occurs? Not at all. That’s why `webpack <https://github.com/webpack/webpack>`__ HMR (Hot-Module Replacement) significantly decreases an amount of time necessary to instantiate your application."
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:12
+msgid "Installation"
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:14
+msgid "Firstly, let’s install required packages:"
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:21
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:23
+msgid "Then, we need to create a ``webpack.config.js`` which is a webpack’s configuration file, and put it in the root directory."
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:61
+msgid "This configuration tells webpack few essential things about our application. Where sits an entry file, which directory should be used to hold **compiled** files, and also, what kind of loader we want to use in order to compile source files. Basically, you shouldn’t worry to much, you don’t need to understand the content of this file at all."
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:68
+msgid "Hot-Module Replacement"
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:70
+msgid "In order to enable **HMR**, we have to open Nest application entry file (which is ``main.ts``) and add few critical things."
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:88
+msgid "And that’s all. To simplify execution process, add those two lines into your ``scripts`` inside ``package.json`` file."
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:96
+msgid "Now simply open your command line and run below command:"
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:102
+msgid "Once webpack started to **watch files**, run another command in the another command line window:"
+msgstr ""
+
+#: ../../source/techniques/hot-reload.rst:109
+msgid "A working example is available `here <https://github.com/nestjs/nest/tree/master/sample/08-webpack>`__."
+msgstr ""
+

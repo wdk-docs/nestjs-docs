@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>生命周期事件 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="平台不可知论" href="platform-agnosticism.html" />
+    <link rel="prev" title="注射范围" href="provider-scopes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dependency-injection.html">定制供应商</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circular-dependency.html">循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provider-scopes.html">注射范围</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">生命周期事件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lifecycle-sequence">Lifecycle sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#onapplicationshutdown">OnApplicationShutdown</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform-agnosticism.html">平台不可知论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit-testing.html">测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">基本面</a> &raquo;</li>
+        
+      <li>生命周期事件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/lifecycle-events.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lifecycle-events">
+<h1>生命周期事件<a class="headerlink" href="#lifecycle-events" title="永久链接至标题">¶</a></h1>
+<p>Every application element has a lifecycle managed by Nest. Nest offers
+<strong>lifecycle hooks</strong> that provide visibility into key life moments and
+the ability to act when they occur.</p>
+<div class="section" id="lifecycle-sequence">
+<h2>Lifecycle sequence<a class="headerlink" href="#lifecycle-sequence" title="永久链接至标题">¶</a></h2>
+<p>After creating a injectable/controller by calling its constructor, Nest
+calls the lifecycle hook methods in the following sequence at specific
+moments:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OnModuleIn</span>
+<span class="pre">it</span></code></p></td>
+<td><p>Called once the host module has been initialized</p></td>
+</tr>
+<tr class="row-even"><td><p><a href="#id1"><span class="problematic" id="id2">``</span></a>OnApplicat
+ionBootstrap
+``</p></td>
+<td><p>Called once the application has fully started and is
+bootstrapped</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OnModuleDe</span>
+<span class="pre">stroy</span></code></p></td>
+<td><p>Cleanup just before Nest destroys the host module
+(<code class="docutils literal notranslate"><span class="pre">app.close()</span></code> method has been evaluated)</p></td>
+</tr>
+<tr class="row-even"><td><p><a href="#id3"><span class="problematic" id="id4">``</span></a>OnApplicat
+ionShutdown`
+`</p></td>
+<td><p>Responds to the system signals (when application gets
+shutdown by e.g. <code class="docutils literal notranslate"><span class="pre">SIGTERM</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
+<p>Each lifecycle hook is represented by interface. Interfaces are
+technically optional because they do not exist anyway after TypeScript
+compilation. Nonetheless, it’s a good practice to use them in order to
+benefit from strong typing and editor tooling.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+import { Injectable, OnModuleInit } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class UsersService implements OnModuleInit {
+  onModuleInit() {
+    console.log(`The module has been initialized.`);
+  }
+}
+@@switch
+import { Injectable } from &#39;@nestjs/common&#39;;
+
+@Injectable()
+export class UsersService {
+  onModuleInit() {
+    console.log(`The module has been initialized.`);
+  }
+}
+</pre></div>
+</div>
+<p>Additionally, both <code class="docutils literal notranslate"><span class="pre">OnModuleInit</span></code> and <code class="docutils literal notranslate"><span class="pre">OnApplicationBootstrap</span></code> hooks
+allow you to defer the application initialization process (return a
+<code class="docutils literal notranslate"><span class="pre">Promise</span></code> or mark the method as <code class="docutils literal notranslate"><span class="pre">async</span></code>).</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+async onModuleInit(): Promise&lt;void&gt; {
+  await this.fetch();
+}
+@@switch
+async onModuleInit() {
+  await this.fetch();
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="onapplicationshutdown">
+<h2>OnApplicationShutdown<a class="headerlink" href="#onapplicationshutdown" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">OnApplicationShutdown</span></code> responds to the system signals (when
+application gets shutdown by e.g. <code class="docutils literal notranslate"><span class="pre">SIGTERM</span></code>). Use this hook to
+gracefully shutdown a Nest application. This feature is often used with
+<a class="reference external" href="https://kubernetes.io/">Kubernetes</a>,
+<a class="reference external" href="https://www.heroku.com/">Heroku</a> or similar services.</p>
+<p>To use this hook you must activate a listener which listens to shutdown
+signals.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/core&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">AppModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.module&#39;</span><span class="p">;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">bootstrap() {</span>
+  <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">);</span>
+  <span class="c1">// Starts listening to shutdown hooks</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">enableShutdownHooks</span><span class="p">();</span>
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">bootstrap</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If the application receives a signal it will call the
+<code class="docutils literal notranslate"><span class="pre">onApplicationShutdown</span></code> function of your <code class="docutils literal notranslate"><span class="pre">Injectable</span></code> with the
+corresponding signal as first parameter. If your function does return a
+promise, it will not shutdown your Nest application until the promise is
+resolved or rejected.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename()
+@Injectable()
+class UsersService implements OnApplicationShutdown {
+  onApplicationShutdown(signal: string) {
+    console.log(signal); // e.g. &quot;SIGINT&quot;
+  }
+}
+@@switch
+@Injectable()
+class UsersService implements OnApplicationShutdown {
+  onApplicationShutdown(signal) {
+    console.log(signal); // e.g. &quot;SIGINT&quot;
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="platform-agnosticism.html" class="btn btn-neutral float-right" title="平台不可知论" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="provider-scopes.html" class="btn btn-neutral float-left" title="注射范围" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>模型 - 视图 - 控制器 &mdash; nestjs docs v2018.06.22 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nestjs docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exception-filters.html">异常过滤器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipes.html">管道</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/index.html">基本面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices/index.html">微服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application-context.html">应用背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes/index.html">食谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">命令行界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">常问问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nestjs docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>模型 - 视图 - 控制器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/techniques/mvc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="model-view-controller">
+<h1>模型 - 视图 - 控制器<a class="headerlink" href="#model-view-controller" title="永久链接至标题">¶</a></h1>
+<p>Nest, by default, makes use of
+<a class="reference external" href="https://github.com/expressjs/express">express</a> library under the
+hood. Hence, every tutorial about MVC (Model-View-Controller) pattern in
+express concerns Nest as well. Firstly, let’s scaffold a simple Nest
+application using <a class="reference external" href="https://github.com/nestjs/nest-cli">CLI</a> tool:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i -g @nestjs/cli
+$ nest new project
+</pre></div>
+</div>
+<p>In order to create a MVC app, we have to install a <a class="reference external" href="http://expressjs.com/en/guide/using-template-engines.html">template
+engine</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --save hbs
+</pre></div>
+</div>
+<p>We decided to use a <code class="docutils literal notranslate"><span class="pre">hbs</span></code> engine, though, you can use whatever fits
+your requirements. Once the installation process is completed, we need
+to configure the express instance using following code:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(main)
+import { NestFactory } from &#39;@nestjs/core&#39;;
+import { NestExpressApplication } from &#39;@nestjs/platform-express&#39;;
+import { join } from &#39;path&#39;;
+import { ApplicationModule } from &#39;./app.module&#39;;
+
+async function bootstrap() {
+  const app = await NestFactory.create&lt;NestExpressApplication&gt;(
+    ApplicationModule,
+  );
+
+  app.useStaticAssets(join(__dirname, &#39;..&#39;, &#39;public&#39;));
+  app.setBaseViewsDir(join(__dirname, &#39;..&#39;, &#39;views&#39;));
+  app.setViewEngine(&#39;hbs&#39;);
+
+  await app.listen(3000);
+}
+bootstrap();
+@@switch
+import { NestFactory } from &#39;@nestjs/core&#39;;
+import { join } from &#39;path&#39;;
+import { ApplicationModule } from &#39;./app.module&#39;;
+
+async function bootstrap() {
+  const app = await NestFactory.create(
+    ApplicationModule,
+  );
+
+  app.useStaticAssets(join(__dirname, &#39;..&#39;, &#39;public&#39;));
+  app.setBaseViewsDir(join(__dirname, &#39;..&#39;, &#39;views&#39;));
+  app.setViewEngine(&#39;hbs&#39;);
+
+  await app.listen(3000);
+}
+bootstrap();
+</pre></div>
+</div>
+<p>We told <a class="reference external" href="https://github.com/expressjs/express">express</a> that the
+<code class="docutils literal notranslate"><span class="pre">public</span></code> directory will be used for storing static assets, <code class="docutils literal notranslate"><span class="pre">views</span></code>
+will contain templates, and a <code class="docutils literal notranslate"><span class="pre">hbs</span></code> template engine should be used to
+render an HTML output.</p>
+<p>Now, let’s create a <code class="docutils literal notranslate"><span class="pre">views</span></code> directory and <code class="docutils literal notranslate"><span class="pre">index.hbs</span></code> template
+inside it. In the template, we are gonna print a <code class="docutils literal notranslate"><span class="pre">message</span></code> passed from
+the controller:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>App<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    {{ &quot;{{ message }\}&quot; }}
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Afterward, open the <code class="docutils literal notranslate"><span class="pre">app.controller</span></code> file and replace the <code class="docutils literal notranslate"><span class="pre">root()</span></code>
+method with the following code:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.controller)
+import { Get, Controller, Render } from &#39;@nestjs/common&#39;;
+
+@Controller()
+export class AppController {
+  @Get()
+  @Render(&#39;index&#39;)
+  root() {
+    return { message: &#39;Hello world!&#39; };
+  }
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>info <strong>Hint</strong> In fact, when Nest detects <code class="docutils literal notranslate"><span class="pre">&#64;Res()</span></code> decorator, it
+injects library-specific <code class="docutils literal notranslate"><span class="pre">response</span></code> object. We can use such an
+object to dynamically render the template. Learn more about its
+abilities <a class="reference external" href="http://expressjs.com/en/api.html">here</a>.</p>
+</div></blockquote>
+<p>While the application is running, open your browser and navigate to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:3000/</span></code>. You should see the <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world!</span></code> message.</p>
+<div class="section" id="dynamic-template-rendering">
+<h2>Dynamic template rendering<a class="headerlink" href="#dynamic-template-rendering" title="永久链接至标题">¶</a></h2>
+<p>If the application logic must dynamically decide which template to
+render, then we should use <code class="docutils literal notranslate"><span class="pre">&#64;Res()</span></code> decorator:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.controller)
+import { Get, Controller, Render } from &#39;@nestjs/common&#39;;
+import { Response } from &#39;express&#39;;
+import { AppService } from &#39;./app.service&#39;;
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  root(@Res() res: Response) {
+    return res.render(
+      this.appService.getViewName(),
+      { message: &#39;Hello world!&#39; },
+    );
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>A working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/15-mvc">here</a>.</p>
+</div>
+<div class="section" id="fastify">
+<h2>Fastify<a class="headerlink" href="#fastify" title="永久链接至标题">¶</a></h2>
+<p>As mentioned in this <a class="reference external" href="/techniques/http-performance">chapter</a>, we are
+able to use any compatible HTTP provider together with Nest. One of them
+is a <a class="reference external" href="https://github.com/fastify/fastify">fastify</a> library. In order
+to create a MVC application with fastify, we have to install following
+packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm i --save fastify point-of-view handlebars
+</pre></div>
+</div>
+<p>The next steps cover almost the same stuff as in case of express library
+(with small differences). Once the installation process is completed, we
+need to open <code class="docutils literal notranslate"><span class="pre">main.ts</span></code> file and update its contents:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(main)
+import { NestFactory } from &#39;@nestjs/core&#39;;
+import { NestFastifyApplication, FastifyAdapter } from &#39;@nestjs/platform-fastify&#39;;
+import { ApplicationModule } from &#39;./app.module&#39;;
+import { join } from &#39;path&#39;;
+
+async function bootstrap() {
+  const app = await NestFactory.create&lt;NestFastifyApplication&gt;(
+    ApplicationModule,
+    new FastifyAdapter(),
+  );
+  app.useStaticAssets({
+    root: join(__dirname, &#39;..&#39;, &#39;public&#39;),
+    prefix: &#39;/public/&#39;,
+  });
+  app.setViewEngine({
+    engine: {
+      handlebars: require(&#39;handlebars&#39;),
+    },
+    templates: join(__dirname, &#39;..&#39;, &#39;views&#39;),
+  });
+  await app.listen(3000);
+}
+bootstrap();
+@@switch
+import { NestFactory } from &#39;@nestjs/core&#39;;
+import { FastifyAdapter } from &#39;@nestjs/platform-fastify&#39;;
+import { ApplicationModule } from &#39;./app.module&#39;;
+import { join } from &#39;path&#39;;
+
+async function bootstrap() {
+  const app = await NestFactory.create(ApplicationModule, new FastifyAdapter());
+  app.useStaticAssets({
+    root: join(__dirname, &#39;..&#39;, &#39;public&#39;),
+    prefix: &#39;/public/&#39;,
+  });
+  app.setViewEngine({
+    engine: {
+      handlebars: require(&#39;handlebars&#39;),
+    },
+    templates: join(__dirname, &#39;..&#39;, &#39;views&#39;),
+  });
+  await app.listen(3000);
+}
+bootstrap();
+</pre></div>
+</div>
+<p>The API is different a little but the idea that sits behind those
+methods calls remains the same. Also, we have to ensure that the
+template name passed into the <code class="docutils literal notranslate"><span class="pre">&#64;Render()</span></code> decorators include a file
+extension.</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span>@@filename(app.controller)
+import { Get, Controller, Render } from &#39;@nestjs/common&#39;;
+
+@Controller()
+export class AppController {
+  @Get()
+  @Render(&#39;index.hbs&#39;)
+  root() {
+    return { message: &#39;Hello world!&#39; };
+  }
+}
+</pre></div>
+</div>
+<p>While the application is running, open your browser and navigate to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:3000/</span></code>. You should see the <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world!</span></code> message.</p>
+</div>
+<div class="section" id="example-1">
+<span id="id3"></span><h2>Example<a class="headerlink" href="#example-1" title="永久链接至标题">¶</a></h2>
+<p>A working example is available
+<a class="reference external" href="https://github.com/nestjs/nest/tree/master/sample/17-mvc-fastify">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

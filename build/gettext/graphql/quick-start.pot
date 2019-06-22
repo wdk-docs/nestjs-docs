@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/graphql/quick-start.rst:2
+msgid "Quick start"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:4
+msgid "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. It is an elegant approach that solves many of these problems that we have with typical REST apis. There is a great `comparison <https://dev-blog.apollodata.com/graphql-vs-rest-5d425123e34b>`__ between GraphQL and REST. In this set of articles, we’re not going to explain what the GraphQL is, but rather show how to work with the dedicated ``@nestjs/graphql`` module. This chapter assumes that you are already familiar with GraphQL essentials."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:14
+msgid "The ``GraphQLModule`` is nothing more than a wrapper around the `Apollo <https://www.apollographql.com/>`__ server. We don’t reinvent the wheel but provide a ready to use module instead, that brings a clean way to play with the GraphQL and Nest together."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:20
+msgid "Installation"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:22
+msgid "Firstly, we need to install the required packages:"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:29
+msgid "Overview"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:31
+msgid "Nest offers two ways of building GraphQL applications, the schema first and the code first respectively."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:34
+msgid "In the **schema first** approach, the source of truth is a GraphQL SDL (Schema Definition Language). It’s a language-agnostic way which basically allows you to share schema files between different platforms. Furthermore, Nest will automatically generate your TypeScript definitions based on the GraphQL schemas (using either classes or interfaces) to reduce redundancy."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:41
+msgid "In the **code first** approach on the other hand, you’ll only use decorators and TypeScript classes to generate the corresponding GraphQL schema. It becomes very handy if you prefer to work exclusively with TypeScript and avoid the context switching between languages syntax."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:47
+msgid "Getting started"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:49
+msgid "Once the packages are installed, we can register the ``GraphQLModule``."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:64
+msgid "The ``.forRoot()`` method takes an options object as an argument. These options will be passed down to the underlying Apollo instance (read more about available settings `here <https://www.apollographql.com/docs/apollo-server/v2/api/apollo-server.html#constructor-options-lt-ApolloServer-gt>`__). For instance, if you want to disable the ``playground`` and turn off the ``debug`` mode, simply pass the following options:"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:87
+msgid "As mentioned, all these settings will be forwarded to the ``ApolloServer`` constructor."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:91
+msgid "Playground"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:93
+msgid "The playground is a graphical, interactive, in-browser GraphQL IDE, available by default on the same URL as the GraphQL server itself. Whilst your application is running in the background, open your web browser and navigate to ``http://localhost:3000/graphql`` (host and port may vary depending on your configuration)."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:108
+msgid "Multiple endpoints"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:110
+msgid "Another useful feature of this module is a capability to serve multiple endpoints at once. Thanks to that, you can decide which modules should be included in which endpoint. By default, ``GraphQL`` searches for resolvers throughout the whole app. To limit only a subset of modules, you can use the ``include`` property."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:123
+msgid "Schema first"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:125
+msgid "To start using schema first way, simply add ``typePaths`` array inside the options object."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:134
+msgid "The ``typePaths`` property indicates where the ``GraphQLModule`` should look for the GraphQL files. All those files will be eventually combined in the memory which means that you can split your schemas into several files and hold them near to their resolvers."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:139
+msgid "Separate creation of both GraphQL types and corresponding TypeScript definitions creates unnecessary redundancy. Eventually, we end up without a single source of truth and each change made within SDL forces us to adjust interfaces as well. Thus, the ``@nestjs/graphql`` package serves another interesting functionality, which is the automatic generation of TS definitions using abstract syntax tree (AST). In order to enable it, simply add ``definitions`` property."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:156
+msgid "The ``src/graphql.ts`` indicates where to save TypeScript output. By default, all types are transformed to the interfaces. However, you can switch to classes instead by changing ``outputAs`` property to ``class``."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:171
+msgid "However, generating type definitions on each application start may not be necessary. Instead, we might prefer to have full control, produce typings only when a dedicated command has been executed. In this case, we can create our own script, let’s say ``generate-typings.ts``:"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:188
+msgid "Afterward, simply run your file:"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:196
+msgid "info **Hint** You can also compile a script beforehand and use ``node`` executable instead."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:199
+msgid "In order to switch to the watch mode (automatically generate typings on any ``.graphql`` file change), pass ``watch`` option to the ``generate()`` method."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:212
+msgid "A fully working sample is available `here <https://github.com/nestjs/nest/tree/master/sample/12-graphql-apollo>`__."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:216
+msgid "Code first"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:218
+msgid "In the **code first** approach, you’ll only use decorators and TypeScript classes to generate the corresponding GraphQL schema."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:221
+msgid "Nest is using an amazing `type-graphql <https://typegraphql.ml/>`__ library under the hood in order provide this functionality. Hence, before we proceed, you have to install this package."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:229
+msgid "Once the installation process is completed, we can add ``autoSchemaFile`` property to the options object."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:238
+msgid "The ``autoSchemaFile`` indicates a path where your automatically generated schema will be created. Additionally, you can pass the ``buildSchemaOptions`` property - an options object which will be passed in to the ``buildSchema()`` function (from the ``type-graphql`` package)."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:244
+msgid "A fully working sample is available `here <https://github.com/nestjs/nest/tree/master/sample/23-type-graphql>`__."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:248
+msgid "Async configuration"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:250
+msgid "Quite often you might want to asynchronously pass your module options instead of passing them beforehand. In such case, use ``forRootAsync()`` method, that provides a couple of various ways to deal with async data."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:254
+msgid "First possible approach is to use a factory function:"
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:264
+msgid "Obviously, our factory behaves like every other one (might be ``async`` and is able to inject dependencies through ``inject``)."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:277
+msgid "Alternatively, you are able to use class instead of a factory."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:285
+msgid "Above construction will instantiate ``GqlConfigService`` inside ``GraphQLModule`` and will leverage it to create options object. The ``GqlConfigService`` has to implement ``GqlOptionsFactory`` interface."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:300
+msgid "In order to prevent the creation of ``GqlConfigService`` inside ``GraphQLModule`` and use a provider imported from a different module, you can use the ``useExisting`` syntax."
+msgstr ""
+
+#: ../../source/graphql/quick-start.rst:311
+msgid "It works the same as ``useClass`` with one critical difference - ``GraphQLModule`` will lookup imported modules to reuse already created ``ConfigService``, instead of instantiating it on its own."
+msgstr ""
+

@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/recipes/sql-typeorm.rst:2
+msgid "SQL (TypeORM)"
+msgstr "SQL (TypeORM)"
+
+#: ../../source/recipes/sql-typeorm.rst:5
+msgid "This chapter applies only to TypeScript"
+msgstr "This chapter applies only to TypeScript"
+
+#: ../../source/recipes/sql-typeorm.rst:7
+msgid ""
+"**Warning** In this article, you’ll learn how to create a "
+"``DatabaseModule`` based on the **TypeORM** package from scratch using "
+"custom providers mechanism. As a consequence, this solution contains a "
+"lot of overhead that you can omit using ready to use and available out-"
+"of-the-box dedicated ``@nestjs/typeorm`` package. To learn more, see "
+"`here </techniques/sql>`__."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:14
+msgid ""
+"`TypeORM <https://github.com/typeorm/typeorm>`__ is definitely the most "
+"mature Object Relational Mapper (ORM) available in the node.js world. "
+"Since it’s written in TypeScript, it works pretty well with the Nest "
+"framework."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:20
+msgid "Getting started"
+msgstr "Getting started"
+
+#: ../../source/recipes/sql-typeorm.rst:22
+msgid ""
+"To start the adventure with this library we have to install all required "
+"dependencies:"
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:29
+msgid ""
+"The first step we need to do is to establish the connection with our "
+"database using ``createConnection()`` function imported from the "
+"``typeorm`` package. The ``createConnection()`` function returns a "
+"``Promise``, and therefore we have to create an `async provider "
+"</fundamentals/async-components>`__."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:60
+msgid ""
+"warning **Hint** Following best practices, we declared the custom "
+"provider in the separated file which has a ``*.providers.ts`` suffix."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:63
+msgid ""
+"Then, we need to export these providers to make them **accessible** for "
+"the rest of the application."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:78
+msgid ""
+"Now we can inject the ``Connection`` object using ``@Inject()`` "
+"decorator. Each class that would depend on the ``Connection`` async "
+"provider will wait until a ``Promise`` is resolved."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:83
+msgid "Repository pattern"
+msgstr "Repository pattern"
+
+#: ../../source/recipes/sql-typeorm.rst:85
+msgid ""
+"The `TypeORM <https://github.com/typeorm/typeorm>`__ supports the "
+"repository design pattern, thus each entity has its own Repository. These"
+" repositories can be obtained from the database connection."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:89
+msgid ""
+"But firstly, we need at least one entity. We are going to reuse the "
+"``Photo`` entity from the official documentation."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:118
+msgid ""
+"The ``Photo`` entity belongs to the ``photo`` directory. This directory "
+"represents the ``PhotoModule``. Now, let’s create a **Repository** "
+"provider:"
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:138
+msgid ""
+"warning **Notice** In the real-world applications you should avoid "
+"**magic strings**. Both ``PHOTO_REPOSITORY`` and ``DATABASE_CONNECTION`` "
+"should be kept in the separated ``constants.ts`` file."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:143
+msgid ""
+"Now we can inject the ``Repository<Photo>`` to the ``PhotoService`` using"
+" the ``@Inject()`` decorator:"
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:165
+msgid ""
+"The database connection is **asynchronous**, but Nest makes this process "
+"completely invisible for the end-user. The ``PhotoRepository`` is waiting"
+" for the db connection, and the ``PhotoService`` is delayed until "
+"repository is ready to use. The entire application can start when each "
+"class is instantiated."
+msgstr ""
+
+#: ../../source/recipes/sql-typeorm.rst:171
+msgid "Here is a final ``PhotoModule``:"
+msgstr "Here is a final ``PhotoModule``:"
+
+#: ../../source/recipes/sql-typeorm.rst:192
+msgid ""
+"warning **Hint** Do not forget to import the ``PhotoModule`` into the "
+"root ``ApplicationModule``."
+msgstr ""
+

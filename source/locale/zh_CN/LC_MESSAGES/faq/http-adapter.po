@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the nestjs docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: nestjs docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 13:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/faq/http-adapter.rst:2
+msgid "HTTP adapter"
+msgstr "HTTP 适配器"
+
+#: ../../source/faq/http-adapter.rst:4
+msgid ""
+"Occasionally, you may want to access the underlying HTTP server, either "
+"within the Nest application context or from the outside."
+msgstr ""
+
+#: ../../source/faq/http-adapter.rst:7
+msgid ""
+"Basically, every native (platform-specific) HTTP server/library instance "
+"is wrapped in an **adapter**. The adapter is registered as a globally "
+"available provider that might be plucked from the application context as "
+"well as injected into other providers easily."
+msgstr ""
+
+#: ../../source/faq/http-adapter.rst:13
+msgid "Outside strategy"
+msgstr "Outside strategy"
+
+#: ../../source/faq/http-adapter.rst:15
+msgid ""
+"In order to get the ``HttpAdapter`` from the outside of the application "
+"context, you can call ``getHttpAdapter()`` method."
+msgstr ""
+
+#: ../../source/faq/http-adapter.rst:25
+msgid "In-context strategy"
+msgstr "In-context strategy"
+
+#: ../../source/faq/http-adapter.rst:27
+msgid ""
+"In order to get the ``HttpAdapterHost`` from within the application "
+"context, you can inject it in the same way as any other existing provider"
+" (let’s say, through ``constructor``)."
+msgstr ""
+
+#: ../../source/faq/http-adapter.rst:47
+msgid ""
+"info **Hint** The ``HttpAdapterHost`` is imported from the "
+"``@nestjs/core`` package."
+msgstr ""
+
+#: ../../source/faq/http-adapter.rst:51
+msgid "Adapter host"
+msgstr "Adapter host"
+
+#: ../../source/faq/http-adapter.rst:53
+msgid ""
+"So far, we have learnt how to get the ``HttpAdapterHost``. However, it’s "
+"still not an actual ``HttpAdapter``. In order to get the ``HttpAdapter``,"
+" simply access the ``httpAdapter`` property."
+msgstr ""
+
+#: ../../source/faq/http-adapter.rst:62
+msgid ""
+"The ``httpAdapter`` is a real instance of the HTTP adapter used by the "
+"framework underneath. It can be either ``ExpressAdapter`` or "
+"``FastifyAdapter`` (both classes extend ``AbstractHttpAdapter``)."
+msgstr ""
+
+#: ../../source/faq/http-adapter.rst:66
+msgid ""
+"Every adapter exposes several useful methods to interact with the HTTP "
+"server. Nonetheless, if you want to access the library reference "
+"directly, call ``getInstance()`` method."
+msgstr ""
+
