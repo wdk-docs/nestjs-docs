@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="生命周期事件" href="lifecycle-events.html" />
+    <link rel="prev" title="循环依赖" href="circular-dependency.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,7 +81,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../first-steps.html">第一步</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../controllers.html">控制器</a></li>
@@ -89,7 +91,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../guards.html">警卫</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../interceptors.html">拦截器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom-decorators.html">自定义路线装饰器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">基本面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dependency-injection.html">定制供应商</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circular-dependency.html">循环依赖</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">注射范围</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scopes">Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#per-request-injection">Per-request injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#request-provider">Request provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle-events.html">生命周期事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform-agnosticism.html">平台不可知论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit-testing.html">测试</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../techniques/index.html">技术</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphql/index.html">Graphql</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../websockets/index.html">Websockets</a></li>
@@ -142,6 +159,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">基本面</a> &raquo;</li>
         
       <li>注射范围</li>
     
@@ -297,6 +316,15 @@ request-scoped, you should rather stick with the singleton scope.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lifecycle-events.html" class="btn btn-neutral float-right" title="生命周期事件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="circular-dependency.html" class="btn btn-neutral float-left" title="循环依赖" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
