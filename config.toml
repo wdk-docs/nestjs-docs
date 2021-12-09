@@ -1,6 +1,6 @@
 baseURL = "/"
 title = "redis 文档"
-
+publishDir = "docs"
 enableRobotsTXT = true
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
