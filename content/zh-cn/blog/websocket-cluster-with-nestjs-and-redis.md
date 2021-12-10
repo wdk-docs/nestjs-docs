@@ -4,7 +4,7 @@ linkTitle: "ws 集群"
 date: "2020-04-07"
 ---
 
-> https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418ed
+> <https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418ed>
 
 扩展是后端应用程序生活中不可避免的一部分，一旦您决定将应用程序扩展到多个实例，您将面临一个问题:如何处理拥有多个客户机(电话、笔记本电脑等)的用户，每个客户机都连接到集群的随机实例。
 在这篇文章中，我们将定义这个问题，并使用 NestJs 和 Redis 来解决它。
@@ -28,20 +28,26 @@ date: "2020-04-07"
 
 ## 准备安装
 
-### 以全局包的形式安装 NestJs CLI
+### 安装 NestJs CLI
+
+以全局包的形式安装 NestJs CLI
 
 ```sh
 # run with sudo if you are on ubuntu
 npm i -g @nestjs/cli
 ```
 
-### 创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装
+### 创建 NestJS 项目
+
+创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装
 
 ```sh
 nest g socket-cluster-app
 ```
 
-### 生成我们讨论过的 Socket 模块
+### 生成 Socket 模块
+
+生成我们讨论过的 Socket 模块
 
 ```sh
 # go into project folder
@@ -302,7 +308,7 @@ Received message 8:21:57 AM | from server on port 3002
 
 ## 完整示例
 
-我们在本文中所采取的步骤的一个完整的工作示例可以在这里找到 https://github.com/m-esm/socket-cluster-app
+我们在本文中所采取的步骤的一个完整的工作示例可以在这里找到 <https://github.com/m-esm/socket-cluster-app>
 
 - main.js
 
