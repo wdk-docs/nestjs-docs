@@ -30,11 +30,12 @@ https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418e
  有使用 Nodejs 和 NestJs 的经验 安装 Nodejs 安装了 NestJs CLI 安装 Redis  问题:
  在 WebSocket 上发出的消息需要发送到与我们的每个实例相连的接收方的设备上  解决方案:
  我们将使用 Redis PubSub 流处理消息到多个实例，为了在 NestJs 上实现这一点，我们将创建一个名为 socket 模块的模块，我们将放置一个网关来处理 socket 客户端和一个服务来进行发现，连接到 Redis 和分发消息。  我们将逐步介绍这一点。
-准备安装 以全局包的形式安装 NestJs CLI # run with sudo if you are on ubuntu npm i -g @nestjs/cli 创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装 nest g socket-cluster-app 生成我们讨论过的 Socket 模块 # go into project folder cd socket-cluster-app/ # generate socket module nest g module socket # generate socket service nest g service socket # generate socket gateway nest g gateway socket/socket 使用nest g命令会自动将你的服务和套接字添加到它们的相关模块中" />
+准备安装 安装 NestJs CLI 以全局包的形式安装 NestJs CLI
+# run with sudo if you are on ubuntu npm i -g @nestjs/cli 创建 NestJS 项目 创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/2020/04/07/websocket-cluster-with-nestjs-and-redis/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2020-04-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-08T21:15:58+08:00" /><meta property="og:site_name" content="redis 文档" />
+<meta property="article:modified_time" content="2021-12-10T18:54:49+08:00" /><meta property="og:site_name" content="redis 文档" />
 
 <meta itemprop="name" content="WebSocket cluster with NestJs and Redis">
 <meta itemprop="description" content="https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418ed
@@ -43,9 +44,10 @@ https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418e
  有使用 Nodejs 和 NestJs 的经验 安装 Nodejs 安装了 NestJs CLI 安装 Redis  问题:
  在 WebSocket 上发出的消息需要发送到与我们的每个实例相连的接收方的设备上  解决方案:
  我们将使用 Redis PubSub 流处理消息到多个实例，为了在 NestJs 上实现这一点，我们将创建一个名为 socket 模块的模块，我们将放置一个网关来处理 socket 客户端和一个服务来进行发现，连接到 Redis 和分发消息。  我们将逐步介绍这一点。
-准备安装 以全局包的形式安装 NestJs CLI # run with sudo if you are on ubuntu npm i -g @nestjs/cli 创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装 nest g socket-cluster-app 生成我们讨论过的 Socket 模块 # go into project folder cd socket-cluster-app/ # generate socket module nest g module socket # generate socket service nest g service socket # generate socket gateway nest g gateway socket/socket 使用nest g命令会自动将你的服务和套接字添加到它们的相关模块中"><meta itemprop="datePublished" content="2020-04-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-12-08T21:15:58+08:00" />
-<meta itemprop="wordCount" content="886">
+准备安装 安装 NestJs CLI 以全局包的形式安装 NestJs CLI
+# run with sudo if you are on ubuntu npm i -g @nestjs/cli 创建 NestJS 项目 创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装"><meta itemprop="datePublished" content="2020-04-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-12-10T18:54:49+08:00" />
+<meta itemprop="wordCount" content="895">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="WebSocket cluster with NestJs and Redis"/>
 <meta name="twitter:description" content="https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418ed
@@ -54,7 +56,8 @@ https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418e
  有使用 Nodejs 和 NestJs 的经验 安装 Nodejs 安装了 NestJs CLI 安装 Redis  问题:
  在 WebSocket 上发出的消息需要发送到与我们的每个实例相连的接收方的设备上  解决方案:
  我们将使用 Redis PubSub 流处理消息到多个实例，为了在 NestJs 上实现这一点，我们将创建一个名为 socket 模块的模块，我们将放置一个网关来处理 socket 客户端和一个服务来进行发现，连接到 Redis 和分发消息。  我们将逐步介绍这一点。
-准备安装 以全局包的形式安装 NestJs CLI # run with sudo if you are on ubuntu npm i -g @nestjs/cli 创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装 nest g socket-cluster-app 生成我们讨论过的 Socket 模块 # go into project folder cd socket-cluster-app/ # generate socket module nest g module socket # generate socket service nest g service socket # generate socket gateway nest g gateway socket/socket 使用nest g命令会自动将你的服务和套接字添加到它们的相关模块中"/>
+准备安装 安装 NestJs CLI 以全局包的形式安装 NestJs CLI
+# run with sudo if you are on ubuntu npm i -g @nestjs/cli 创建 NestJS 项目 创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装"/>
 
 
 
@@ -130,6 +133,8 @@ if (!doNotTrack) {
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-blog20200407websocket-cluster-with-nestjs-and-redis-li">
   <a href="/blog/2020/04/07/websocket-cluster-with-nestjs-and-redis/" title="WebSocket cluster with NestJs and Redis" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-blog20200407websocket-cluster-with-nestjs-and-redis"><span class="td-sidebar-nav-active-item">ws 集群</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20200213e4bdbfe794a8-nestjs-e5928c-redis-e689a9e5b195-websockets-li">
+  <a href="/blog/2020/02/13/%E4%BD%BF%E7%94%A8-nestjs-%E5%92%8C-redis-%E6%89%A9%E5%B1%95-websockets/" title="使用 NestJS 和 Redis 扩展 WebSockets" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-blog20200213e4bdbfe794a8-nestjs-e5928c-redis-e689a9e5b195-websockets"><span class="">ws 扩展</span></a>
 </li>
   </ul>
 </li>
@@ -157,9 +162,9 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#准备安装">准备安装</a>
       <ul>
-        <li><a href="#以全局包的形式安装-nestjs-cli">以全局包的形式安装 NestJs CLI</a></li>
-        <li><a href="#创建新的-nestjs-项目依赖项也将通过这个命令通过向导安装">创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装</a></li>
-        <li><a href="#生成我们讨论过的-socket-模块">生成我们讨论过的 Socket 模块</a></li>
+        <li><a href="#安装-nestjs-cli">安装 NestJs CLI</a></li>
+        <li><a href="#创建-nestjs-项目">创建 NestJS 项目</a></li>
+        <li><a href="#生成-socket-模块">生成 Socket 模块</a></li>
         <li><a href="#安装-websocket-适配器">安装 WebSocket 适配器</a></li>
       </ul>
     </li>
@@ -252,12 +257,15 @@ if (!doNotTrack) {
 </ul>
 <p>我们将逐步介绍这一点。</p>
 <h2 id="准备安装">准备安装</h2>
-<h3 id="以全局包的形式安装-nestjs-cli">以全局包的形式安装 NestJs CLI</h3>
+<h3 id="安装-nestjs-cli">安装 NestJs CLI</h3>
+<p>以全局包的形式安装 NestJs CLI</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8f5902;font-style:italic"># run with sudo if you are on ubuntu</span>
 npm i -g @nestjs/cli
-</code></pre></div><h3 id="创建新的-nestjs-项目依赖项也将通过这个命令通过向导安装">创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装</h3>
+</code></pre></div><h3 id="创建-nestjs-项目">创建 NestJS 项目</h3>
+<p>创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nest g socket-cluster-app
-</code></pre></div><h3 id="生成我们讨论过的-socket-模块">生成我们讨论过的 Socket 模块</h3>
+</code></pre></div><h3 id="生成-socket-模块">生成 Socket 模块</h3>
+<p>生成我们讨论过的 Socket 模块</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8f5902;font-style:italic"># go into project folder</span>
 <span style="color:#204a87">cd</span> socket-cluster-app/
 
@@ -629,7 +637,7 @@ Received message 8:21:57 AM <span style="color:#000;font-weight:bold">|</span> f
 
 	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
   <li>
-    <a class="btn btn-primary disabled"><span class="mr-1">←</span>上一页</a>
+    <a href="/blog/2020/02/13/%E4%BD%BF%E7%94%A8-nestjs-%E5%92%8C-redis-%E6%89%A9%E5%B1%95-websockets/" aria-label="上一页 - 使用 NestJS 和 Redis 扩展 WebSockets" class="btn btn-primary"><span class="mr-1">←</span>上一页</a>
   </li>
     <a class="btn btn-primary disabled">下一页<span class="ml-1">→</span></a>
   </li>
@@ -704,7 +712,7 @@ Received message 8:21:57 AM <span style="color:#000;font-weight:bold">|</span> f
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 The Docsy Authors 保留所有权利</small>
+        <small class="text-white">&copy; 2022 The Docsy Authors 保留所有权利</small>
         <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">隐私政策</a></small>
 	
 		
