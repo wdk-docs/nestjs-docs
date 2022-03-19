@@ -1,7 +1,7 @@
 ---
 title: "mongodb"
 linkTitle: ""
-weight: 1
+weight: 2
 ---
 
 > https://wanago.io/courses/api-with-nestjs/
