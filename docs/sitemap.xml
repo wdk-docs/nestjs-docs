@@ -2,20 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/blog/</loc>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/</loc>
+    <lastmod>2022-03-17T17:42:20+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/blog/</loc>
     <lastmod>2021-12-08T01:13:08+08:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/introduction/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/relationships/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/virtual/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/transactions/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/pagination/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/indexes/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/updating/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/blog/2021/03/27/jwt-authentication-using-nodenestjsmongoosepassportionic5-..-part1/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/</loc>
+    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/blog/2020/04/07/websocket-cluster-with-nestjs-and-redis/</loc>
     <lastmod>2021-12-10T18:54:49+08:00</lastmod>
   </url><url>
-    <loc>/blog/2020/04/07/websocket-cluster-with-nestjs-and-redis/</loc>
+    <loc>https://wdk-docs.github.io/nestjs-docs/blog/2020/02/13/%E4%BD%BF%E7%94%A8-nestjs-%E5%92%8C-redis-%E6%89%A9%E5%B1%95-websockets/</loc>
     <lastmod>2021-12-10T18:54:49+08:00</lastmod>
   </url><url>
-    <loc>/blog/2020/02/13/%E4%BD%BF%E7%94%A8-nestjs-%E5%92%8C-redis-%E6%89%A9%E5%B1%95-websockets/</loc>
-    <lastmod>2021-12-10T18:54:49+08:00</lastmod>
+    <loc>https://wdk-docs.github.io/nestjs-docs/categories/</loc>
   </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/tags/</loc>
+    <loc>https://wdk-docs.github.io/nestjs-docs/tags/</loc>
   </url>
 </urlset>
