@@ -7,15 +7,15 @@ menu:
     weight: 1
 ---
 
-- 1. API with NestJS #1. Controllers, routing and the module structure
-- 2. API with NestJS #2. Setting up a PostgreSQL database with TypeORM
-- 3. API with NestJS #3. Authenticating users with bcrypt, Passport, JWT, and cookies
-- 4. API with NestJS #4. Error handling and data validation
-- 5. API with NestJS #5. Serializing the response with interceptors
-- 6. API with NestJS #6. Looking into dependency injection and modules
-- 7. API with NestJS #7. Creating relationships with Postgres and TypeORM
-- 8. API with NestJS #8. Writing unit tests
-- 9. API with NestJS #9. Testing services and controllers with integration tests
+- 1. Controllers, routing and the module structure
+- 2. Setting up a PostgreSQL database with TypeORM
+- 3. Authenticating users with bcrypt, Passport, JWT, and cookies
+- 4. Error handling and data validation
+- 5. Serializing the response with interceptors
+- 6. Looking into dependency injection and modules
+- 7. Creating relationships with Postgres and TypeORM
+- 8. Writing unit tests
+- 9. Testing services and controllers with integration tests
 - 10. Uploading public files to Amazon S3
 - 11. Managing private files with Amazon S3
 - 12. Introduction to Elasticsearch

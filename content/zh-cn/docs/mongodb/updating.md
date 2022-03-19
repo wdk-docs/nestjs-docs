@@ -1,5 +1,5 @@
 ---
-title: "Updating with PUT and PATCH with MongoDB and Mongoose"
+title: "用PUT和PATCH更新MongoDB和Mongoose"
 linkTitle: "更新"
 weight: 49
 ---
@@ -13,22 +13,22 @@ The PUT method is responsible for modifying an existing entity. The crucial part
 
 GET /posts/613e2dcbe2b947c10b669292
 
-```
+```json
 {
-"categories": [],
-"_id": "614fa87e4027d3141f28e9e7",
-"title": "API with NestJS #49. PUT vs PATCH with MongoDB and Mongoose",
-"content": "...",
-"series": {
-"_id": "614fa8364027d3141f28e9e2",
-"name": "API with NestJS",
-},
-"author": {
-"_id": "61350362017a80b8d443b012",
-"email": "marcin@wanago.io",
-"firstName": "Marcin",
-"lastName": "Wanago"
-},
+  "categories": [],
+  "_id": "614fa87e4027d3141f28e9e7",
+  "title": "API with NestJS #49. PUT vs PATCH with MongoDB and Mongoose",
+  "content": "...",
+  "series": {
+    "_id": "614fa8364027d3141f28e9e2",
+    "name": "API with NestJS"
+  },
+  "author": {
+    "_id": "61350362017a80b8d443b012",
+    "email": "marcin@wanago.io",
+    "firstName": "Marcin",
+    "lastName": "Wanago"
+  }
 }
 ```
 
@@ -36,18 +36,18 @@ Above, we can see the properties our post contains. Let’s make a PUT request n
 
 PUT /posts/614fa87e4027d3141f28e9e7
 
-```ts
+```json
 {
-"_id": "614fa87e4027d3141f28e9e7",
-"categories": [],
-"title": "API with NestJS #49. PUT vs PATCH with MongoDB and Mongoose",
-"content": "...",
-"author": {
-"_id": "61350362017a80b8d443b012",
-"email": "marcin@wanago.io",
-"firstName": "Marcin",
-"lastName": "Wanago"
-},
+  "_id": "614fa87e4027d3141f28e9e7",
+  "categories": [],
+  "title": "API with NestJS #49. PUT vs PATCH with MongoDB and Mongoose",
+  "content": "...",
+  "author": {
+    "_id": "61350362017a80b8d443b012",
+    "email": "marcin@wanago.io",
+    "firstName": "Marcin",
+    "lastName": "Wanago"
+  }
 }
 ```
 
@@ -193,21 +193,22 @@ MongoError: Plan executor error during findAndModify :: caused by :: After apply
 
 We can deal with the above error by excluding the \_id property from the body of our PUT request.
 
-````ts
-import { IsOptional } from 'class-validator';
-import { Exclude } from 'class-transformer';
+```ts
+import { IsOptional } from "class-validator";
+import { Exclude } from "class-transformer";
 
 export class UpdatePostDto {
-@IsOptional()
-@Exclude()
-_id: string;
+  @IsOptional()
+  @Exclude()
+  _id: string;
 
-// ...
+  // ...
 }
 
 export default UpdatePostDto;
-```ts
-Even if the user provides the _id property in the request, we exclude it and don’t pass it to the findOneAndReplace or the findByIdAndUpdate methods. Rest assured, because MongoDB won’t remove the _id property in such a case, even though we are implementing the PUT method here.
+```
+
+Even if the user provides the \_id property in the request, we exclude it and don’t pass it to the findOneAndReplace or the findByIdAndUpdate methods. Rest assured, because MongoDB won’t remove the \_id property in such a case, even though we are implementing the PUT method here.
 
 PATCH
 While the PUT method is a common and valid choice, it might not fit every situation. For example, when implementing the PUT method, we assume that the API users know all of the details of a particular entity. Since omitting single property results in removing it, they need to be careful. A solution to this issue can be the PATCH method.
@@ -215,12 +216,13 @@ While the PUT method is a common and valid choice, it might not fit every situat
 The PATCH method was introduced to the HTTP protocol in 2010 and aimed to apply a partial modification to an entity. The specification describes it as a set of instructions describing how a resource should be modified. The most straightforward way of implementing the PATCH method is to handle a body with a partial document.
 
 PATCH /posts/614fa87e4027d3141f28e9e7
-```ts
+
+```json
 {
-"title": "A new title",
-"series": null
+  "title": "A new title",
+  "series": null
 }
-````
+```
 
 The above request modifies the post by changing the title and removing the series property. Please note that to delete a field, we need to send the null value explicitly. Thanks to this, no fields are deleted by accident.
 
@@ -347,5 +349,6 @@ PATCH /posts/614fa87e4027d3141f28e9e7
 
 If you want to know more, check out the jsonpatch.com website. Additionally, the fast-json-patch library might come in handy when implementing the above format into your application.
 
-Summary
+## Summary
+
 In this article, we’ve learned about various ways of implementing the update functionality. Thanks to getting to know both about PUT and PATCH, we can choose the best approach for a particular case. When selecting one of the above, we should follow the specification and implement our API predictably and transparently. If we do that, we will make the life of our teammates and API users easier.

@@ -1,5 +1,5 @@
 ---
-title: "Implementing relationships with MongoDB"
+title: "实现与MongoDB的关系"
 linkTitle: "实现关系"
 weight: 44
 ---

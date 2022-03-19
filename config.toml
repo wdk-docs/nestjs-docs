@@ -1,5 +1,5 @@
-baseURL = "/"
-title = "redis 文档"
+baseURL = "https://wdk-docs.github.io/nestjs-docs/"
+title = "NestJs 文档"
 publishDir = "docs"
 enableRobotsTXT = true
 
@@ -70,8 +70,8 @@ id = "UA-00000000-0"
 
 [languages]
 [languages.zh-cn]
-title = "redis 文档"
-description = "redis 文档"
+title = "NestJS 文档"
+description = "NestJs 文档"
 languageName ="中文"
 # Weight used for sorting.
 weight = 1
@@ -93,8 +93,8 @@ weight = 1
 section = ["HTML", "print", "RSS"]
 
 [params]
-copyright = "The Docsy Authors"
-privacy_policy = "https://policies.google.com/privacy"
+copyright = "kamilmysliwiec"
+privacy_policy = "https://kamilmysliwiec.com/"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
@@ -115,12 +115,12 @@ version = "0.0"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://example.com"
+url_latest_version = "https://wdk-docs.github.io/nestjs-docs/"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy-example"
+github_repo = "https://github.com/wdk-docs/nestjs-docs"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
+github_project_repo = "https://github.com/wdk-docs/nestjs-docs"
 
 # Specify a value here if your content directory is not in your repo's root directory
 # github_subdir = ""
