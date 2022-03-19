@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: class-validator</title>
-      <link>https://wdk-docs.github.io/nestjs-docs/docs/validator/-class-validator/</link>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/validator/class-validator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wdk-docs.github.io/nestjs-docs/docs/validator/-class-validator/</guid>
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/validator/class-validator/</guid>
       <description>
         
         
@@ -98,8 +98,8 @@
     &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Caught promise rejection (validation failed). Errors: &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;errors&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;passing-options&#34;&gt;Passing options&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;validate&lt;/code&gt; function optionally expects a &lt;code&gt;ValidatorOptions&lt;/code&gt; object as a second parameter:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;传输选项&#34;&gt;传输选项&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;validate&lt;/code&gt;函数的第二个参数是一个&lt;code&gt;ValidatorOptions&lt;/code&gt;对象。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ValidatorOptions&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
   &lt;span style=&#34;color:#000&#34;&gt;skipMissingProperties?&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;boolean&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
   &lt;span style=&#34;color:#000&#34;&gt;whitelist?&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;boolean&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
@@ -117,8 +117,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;It&amp;rsquo;s highly advised to set &lt;code&gt;forbidUnknownValues: true&lt;/code&gt; as it will prevent unknown objects from passing validation.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;validation-errors&#34;&gt;Validation errors&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;validate&lt;/code&gt; method returns an array of &lt;code&gt;ValidationError&lt;/code&gt; objects. Each &lt;code&gt;ValidationError&lt;/code&gt; is:&lt;/p&gt;
+&lt;h2 id=&#34;验证错误&#34;&gt;验证错误&lt;/h2&gt;
+&lt;p&gt;&#39; validate &amp;lsquo;方法返回一个&amp;rsquo; ValidationError &amp;lsquo;对象数组。每个“ValidationError”是:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color:#000&#34;&gt;target&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Object&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Object that was validated.
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;property&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Object&amp;#39;s property that haven&amp;#39;t pass validation.
@@ -1072,8 +1072,8 @@ you have.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;defining-validation-schema-without-decorators&#34;&gt;Defining validation schema without decorators&lt;/h2&gt;
-&lt;p&gt;You can define your validation schemas without decorators:&lt;/p&gt;
+&lt;h2 id=&#34;定义没有装饰器的验证模式&#34;&gt;定义没有装饰器的验证模式&lt;/h2&gt;
+&lt;p&gt;你可以在没有装饰器的情况下定义你的验证模式:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;you can define it in the separate object&lt;/li&gt;
 &lt;li&gt;you can define it in the &lt;code&gt;.json&lt;/code&gt; file&lt;/li&gt;
@@ -1147,11 +1147,11 @@ you have.&lt;/p&gt;
 &lt;code&gt;validate&lt;/code&gt; method will perform validation based on this schema&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;validating-plain-objects&#34;&gt;Validating plain objects&lt;/h2&gt;
-&lt;p&gt;Due to nature of the decorators, the validated object has to be instantiated using &lt;code&gt;new Class()&lt;/code&gt; syntax. If you have your class defined using class-validator decorators and you want to validate plain JS object (literal object or returned by JSON.parse), you need to transform it to the class instance via using &lt;a href=&#34;https://github.com/pleerock/class-transformer&#34;&gt;class-transformer&lt;/a&gt;).&lt;/p&gt;
-&lt;h2 id=&#34;samples&#34;&gt;Samples&lt;/h2&gt;
-&lt;p&gt;Take a look on samples in &lt;a href=&#34;https://github.com/pleerock/class-validator/tree/master/sample&#34;&gt;./sample&lt;/a&gt; for more examples of
-usages.&lt;/p&gt;
+&lt;h2 id=&#34;验证纯对象&#34;&gt;验证纯对象&lt;/h2&gt;
+&lt;p&gt;由于装饰器的特性，验证过的对象必须使用&lt;code&gt;new Class()&lt;/code&gt;语法进行实例化。
+如果你用类验证器装饰器定义了你的类，并且你想验证普通的 JS 对象(文字对象或 JSON.parse 返回的对象)，你需要通过使用&lt;a href=&#34;https://github.com/pleerock/class-transformer&#34;&gt;class-transformer&lt;/a&gt;将其转换为类实例。&lt;/p&gt;
+&lt;h2 id=&#34;样品&#34;&gt;样品&lt;/h2&gt;
+&lt;p&gt;请参阅&lt;a href=&#34;https://github.com/pleerock/class-validator/tree/master/sample&#34;&gt;./sample&lt;/a&gt;中的示例以获得更多用法示例。&lt;/p&gt;
 &lt;h2 id=&#34;扩展&#34;&gt;扩展&lt;/h2&gt;
 &lt;p&gt;有几个扩展可以简化类验证器与其他模块的集成:&lt;/p&gt;
 &lt;ul&gt;
@@ -1162,6 +1162,711 @@ usages.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;发布说明&#34;&gt;发布说明&lt;/h2&gt;
 &lt;p&gt;查看关于中断更改和发布说明的信息&lt;a href=&#34;CHANGELOG.md&#34;&gt;在这里&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: class-transformer</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/validator/class-transformer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/validator/class-transformer/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;img src=&#34;https://github.com/typestack/class-transformer/workflows/CI/badge.svg&#34; alt=&#34;Build Status&#34;&gt;
+&lt;a href=&#34;https://codecov.io/gh/typestack/class-transformer&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/typestack/class-transformer/branch/develop/graph/badge.svg&#34; alt=&#34;codecov&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;https://badge.fury.io/js/class-transformer&#34;&gt;&lt;img src=&#34;https://badge.fury.io/js/class-transformer.svg&#34; alt=&#34;npm version&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Its ES6 and Typescript era. Nowadays you are working with classes and constructor objects more than ever.
+Class-transformer allows you to transform plain object to some instance of class and versa.
+Also it allows to serialize / deserialize object based on criteria.
+This tool is super useful on both frontend and backend.&lt;/p&gt;
+&lt;p&gt;Example how to use with angular 2 in &lt;a href=&#34;http://plnkr.co/edit/Mja1ZYAjVySWASMHVB9R&#34;&gt;plunker&lt;/a&gt;.
+Source code is available &lt;a href=&#34;https://github.com/pleerock/class-transformer-demo&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;什么是-class-transformer&#34;&gt;什么是 class-transformer&lt;/h2&gt;
+&lt;p&gt;In JavaScript there are two types of objects:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;plain (literal) objects&lt;/li&gt;
+&lt;li&gt;class (constructor) objects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Plain objects are objects that are instances of &lt;code&gt;Object&lt;/code&gt; class.
+Sometimes they are called &lt;strong&gt;literal&lt;/strong&gt; objects, when created via &lt;code&gt;{}&lt;/code&gt; notation.
+Class objects are instances of classes with own defined constructor, properties and methods.
+Usually you define them via &lt;code&gt;class&lt;/code&gt; notation.&lt;/p&gt;
+&lt;p&gt;So, what is the problem?&lt;/p&gt;
+&lt;p&gt;Sometimes you want to transform plain javascript object to the ES6 &lt;strong&gt;classes&lt;/strong&gt; you have.
+For example, if you are loading a json from your backend, some api or from a json file,
+and after you &lt;code&gt;JSON.parse&lt;/code&gt; it you have a plain javascript object, not instance of class you have.&lt;/p&gt;
+&lt;p&gt;For example you have a list of users in your &lt;code&gt;users.json&lt;/code&gt; that you are loading:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;firstName&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Johny&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;lastName&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Cage&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;27&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;firstName&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Ismoil&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;lastName&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Somoni&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;firstName&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Luke&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;lastName&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Dacascos&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And you have a &lt;code&gt;User&lt;/code&gt; class:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;age&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;getName() {&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;isAdult() {&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;age&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;36&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;age&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;60&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You are assuming that you are downloading users of type &lt;code&gt;User&lt;/code&gt; from &lt;code&gt;users.json&lt;/code&gt; file and may want to write
+following code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;fetch&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;users.json&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;users&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[])&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// you can use users here, and type hinting also will be available to you,
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//  but users are not actually instances of User class
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// this means that you can&amp;#39;t use methods of User class
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In this code you can use &lt;code&gt;users[0].id&lt;/code&gt;, you can also use &lt;code&gt;users[0].firstName&lt;/code&gt; and &lt;code&gt;users[0].lastName&lt;/code&gt;.
+However you cannot use &lt;code&gt;users[0].getName()&lt;/code&gt; or &lt;code&gt;users[0].isAdult()&lt;/code&gt; because &amp;ldquo;users&amp;rdquo; actually is
+array of plain javascript objects, not instances of User object.
+You actually lied to compiler when you said that its &lt;code&gt;users: User[]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So what to do? How to make a &lt;code&gt;users&lt;/code&gt; array of instances of &lt;code&gt;User&lt;/code&gt; objects instead of plain javascript objects?
+Solution is to create new instances of User object and manually copy all properties to new objects.
+But things may go wrong very fast once you have a more complex object hierarchy.&lt;/p&gt;
+&lt;p&gt;Alternatives? Yes, you can use class-transformer. Purpose of this library is to help you to map your plain javascript
+objects to the instances of classes you have.&lt;/p&gt;
+&lt;p&gt;This library also great for models exposed in your APIs,
+because it provides a great tooling to control what your models are exposing in your API.
+Here is an example how it will look like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;fetch&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;users.json&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;users&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Object&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[])&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;realUsers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;users&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// now each user in realUsers is an instance of User class
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you can use &lt;code&gt;users[0].getName()&lt;/code&gt; and &lt;code&gt;users[0].isAdult()&lt;/code&gt; methods.&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&#34;nodejs&#34;&gt;Node.js&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install module:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install class-transformer --save&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;reflect-metadata&lt;/code&gt; shim is required, install it too:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install reflect-metadata --save&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;and make sure to import it in a global place, like app.ts:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;reflect-metadata&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ES6 features are used, if you are using old version of node.js you may need to install es6-shim:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install es6-shim --save&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;and import it in a global place like app.ts:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;es6-shim&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;浏览器&#34;&gt;浏览器&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install module:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install class-transformer --save&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;reflect-metadata&lt;/code&gt; shim is required, install it too:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install reflect-metadata --save&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;add &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; to reflect-metadata in the head of your &lt;code&gt;index.html&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;head&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;node_modules/reflect-metadata/Reflect.js&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;script&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;head&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are using angular 2 you should already have this shim installed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you are using system.js you may want to add this into &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;package&lt;/code&gt; config:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;map&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;node_modules/class-transformer&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;packages&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;main&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;index.js&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;defaultExtension&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;js&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
+&lt;h3 id=&#34;plaintoclass&#34;&gt;plainToClass&lt;/h3&gt;
+&lt;p&gt;This method transforms a plain javascript object to instance of specific class.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;users&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;userJson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// to convert user plain object a single user. also supports arrays
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;plaintoclassfromexist&#34;&gt;plainToClassFromExist&lt;/h3&gt;
+&lt;p&gt;This method transforms a plain object into an instance using an already filled Object which is an instance of the target class.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;defaultUser&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;defaultUser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;role&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;mixedUser&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClassFromExist&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;defaultUser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// mixed user should have the value role = user when no value is set otherwise.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;classtoplain&#34;&gt;classToPlain&lt;/h3&gt;
+&lt;p&gt;This method transforms your class object back to plain javascript object, that can be &lt;code&gt;JSON.stringify&lt;/code&gt; later.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;classtoclass&#34;&gt;classToClass&lt;/h3&gt;
+&lt;p&gt;This method transforms your class object into a new instance of the class object.
+This may be treated as deep clone of your objects.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also use an &lt;code&gt;ignoreDecorators&lt;/code&gt; option in transformation options to ignore all decorators you classes is using.&lt;/p&gt;
+&lt;h3 id=&#34;serialize&#34;&gt;serialize&lt;/h3&gt;
+&lt;p&gt;You can serialize your model right to json using &lt;code&gt;serialize&lt;/code&gt; method:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;serialize&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;serialize&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;serialize&lt;/code&gt; works with both arrays and non-arrays.&lt;/p&gt;
+&lt;h3 id=&#34;deserialize-and-deserializearray&#34;&gt;deserialize and deserializeArray&lt;/h3&gt;
+&lt;p&gt;You can deserialize your model from json using the &lt;code&gt;deserialize&lt;/code&gt; method:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;deserialize&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;deserialize&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To make deserialization work with arrays, use the &lt;code&gt;deserializeArray&lt;/code&gt; method:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;deserializeArray&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photos&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;deserializeArray&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photos&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;执行类型安全的实例&#34;&gt;执行类型安全的实例&lt;/h2&gt;
+&lt;p&gt;The default behaviour of the &lt;code&gt;plainToClass&lt;/code&gt; method is to set &lt;em&gt;all&lt;/em&gt; properties from the plain object,
+even those which are not specified in the class.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fromPlainUser&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;unkownProp&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hello there&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Umed&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Khudoiberdiev&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fromPlainUser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// User {
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//   unkownProp: &amp;#39;hello there&amp;#39;,
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//   firstName: &amp;#39;Umed&amp;#39;,
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//   lastName: &amp;#39;Khudoiberdiev&amp;#39;,
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// }
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If this behaviour does not suit your needs, you can use the &lt;code&gt;excludeExtraneousValues&lt;/code&gt; option
+in the &lt;code&gt;plainToClass&lt;/code&gt; method while &lt;em&gt;exposing all your class properties&lt;/em&gt; as a requirement.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fromPlainUser&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;unkownProp&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hello there&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Umed&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Khudoiberdiev&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fromPlainUser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;excludeExtraneousValues&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}));&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// User {
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//   id: undefined,
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//   firstName: &amp;#39;Umed&amp;#39;,
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//   lastName: &amp;#39;Khudoiberdiev&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// }
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用嵌套对象&#34;&gt;使用嵌套对象&lt;/h2&gt;
+&lt;p&gt;When you are trying to transform objects that have nested objects,
+it&amp;rsquo;s required to known what type of object you are trying to transform.
+Since Typescript does not have good reflection abilities yet,
+we should implicitly specify what type of object each property contain.
+This is done using &lt;code&gt;@Type&lt;/code&gt; decorator.&lt;/p&gt;
+&lt;p&gt;Lets say we have an album with photos.
+And we are trying to convert album plain object to class object:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Album&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;photos&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[];&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;filename&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;album&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Album&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;albumJson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// now album is Album object with Photo objects inside
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;提供多个类型选项&#34;&gt;提供多个类型选项&lt;/h3&gt;
+&lt;p&gt;In case the nested object can be of different types, you can provide an additional options object,
+that specifies a discriminator. The discriminator option must define a &lt;code&gt;property&lt;/code&gt; that holds the subtype
+name for the object and the possible &lt;code&gt;subTypes&lt;/code&gt; that the nested object can converted to. A sub type
+has a &lt;code&gt;value&lt;/code&gt;, that holds the constructor of the Type and the &lt;code&gt;name&lt;/code&gt;, that can match with the &lt;code&gt;property&lt;/code&gt;
+of the discriminator.&lt;/p&gt;
+&lt;p&gt;Lets say we have an album that has a top photo. But this photo can be of certain different types.
+And we are trying to convert album plain object to class object. The plain object input has to define
+the additional property &lt;code&gt;__type&lt;/code&gt;. This property is removed during transformation by default:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JSON input&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;topPhoto&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;filename&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cool_wale.jpg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;depth&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1245&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;__type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;underwater&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;abstract&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;filename&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Landscape&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;panorama&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;boolean&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Portrait&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;person&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UnderWater&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;depth&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Album&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;discriminator&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#000&#34;&gt;property&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;__type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#000&#34;&gt;subTypes&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Landscape&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;landscape&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Portrait&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;portrait&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;UnderWater&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;underwater&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;topPhoto&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Landscape&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Portrait&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UnderWater&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;album&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Album&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;albumJson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// now album is Album object with a UnderWater object without `__type` property.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hint: The same applies for arrays with different sub types. Moreover you can specify &lt;code&gt;keepDiscriminatorProperty: true&lt;/code&gt;
+in the options to keep the discriminator property also inside your resulting class.&lt;/p&gt;
+&lt;h2 id=&#34;公开-getters-和方法返回值&#34;&gt;公开 getters 和方法返回值&lt;/h2&gt;
+&lt;p&gt;You can expose what your getter or method return by setting an &lt;code&gt;@Expose()&lt;/code&gt; decorator to those getters or methods:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Expose&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name() {&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;getFullName() {&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;公开具有不同名称的属性&#34;&gt;公开具有不同名称的属性&lt;/h2&gt;
+&lt;p&gt;If you want to expose some of the properties with a different name,
+you can do that by specifying a &lt;code&gt;name&lt;/code&gt; option to &lt;code&gt;@Expose&lt;/code&gt; decorator:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Expose&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;uid&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;secretKey&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fullName&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;getFullName() {&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;跳过特定属性&#34;&gt;跳过特定属性&lt;/h2&gt;
+&lt;p&gt;Sometimes you want to skip some properties during transformation.
+This can be done using &lt;code&gt;@Exclude&lt;/code&gt; decorator:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Exclude&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;email&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Exclude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now when you transform a User, the &lt;code&gt;password&lt;/code&gt; property will be skipped and not be included in the transformed result.&lt;/p&gt;
+&lt;h2 id=&#34;操作的跳过依赖关系&#34;&gt;操作的跳过依赖关系&lt;/h2&gt;
+&lt;p&gt;You can control on what operation you will exclude a property. Use &lt;code&gt;toClassOnly&lt;/code&gt; or &lt;code&gt;toPlainOnly&lt;/code&gt; options:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Exclude&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;email&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Exclude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;toPlainOnly&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now &lt;code&gt;password&lt;/code&gt; property will be excluded only during &lt;code&gt;classToPlain&lt;/code&gt; operation. Vice versa, use the &lt;code&gt;toClassOnly&lt;/code&gt; option.&lt;/p&gt;
+&lt;h2 id=&#34;跳过类的所有属性&#34;&gt;跳过类的所有属性&lt;/h2&gt;
+&lt;p&gt;You can skip all properties of the class, and expose only those are needed explicitly:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Exclude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Expose&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Exclude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;email&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now &lt;code&gt;id&lt;/code&gt; and &lt;code&gt;email&lt;/code&gt; will be exposed, and password will be excluded during transformation.
+Alternatively, you can set exclusion strategy during transformation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strategy&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;excludeAll&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In this case you don&amp;rsquo;t need to &lt;code&gt;@Exclude()&lt;/code&gt; a whole class.&lt;/p&gt;
+&lt;h2 id=&#34;跳过私有属性或某些前缀属性&#34;&gt;跳过私有属性或某些前缀属性&lt;/h2&gt;
+&lt;p&gt;If you name your private properties with a prefix, lets say with &lt;code&gt;_&lt;/code&gt;,
+then you can exclude such properties from transformation too:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;photo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;excludePrefixes&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;_&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will skip all properties that start with &lt;code&gt;_&lt;/code&gt; prefix.
+You can pass any number of prefixes and all properties that begin with these prefixes will be ignored.
+For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;_password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;setName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_firstName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_lastName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name() {&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_firstName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_lastName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;setName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Johny&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Cage&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_password&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainUser&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;excludePrefixes&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;_&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// here plainUser will be equal to
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// { id: 1, name: &amp;#34;Johny Cage&amp;#34; }
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用组来控制排除的属性&#34;&gt;使用组来控制排除的属性&lt;/h2&gt;
+&lt;p&gt;You can use groups to control what data will be exposed and what will not be:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Exclude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;admin&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// this means that this data will be exposed only to users and admins
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;email&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// this means that this data will be exposed only to users
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// will contain id, name, email and password
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user2&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;admin&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// will contain id, name and email
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用版本控制来控制公开的和被排除的属性&#34;&gt;使用版本控制来控制公开的和被排除的属性&lt;/h2&gt;
+&lt;p&gt;If you are building an API that has different versions, class-transformer has extremely useful tools for that.
+You can control which properties of your model should be exposed or excluded in what version. Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Exclude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;since&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;0.7&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;until&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// this means that this property will be exposed for version starting from 0.7 until 1
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;email&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;since&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;2.1&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// this means that this property will be exposed for version starting from 2.1
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;0.5&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// will contain id and name
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user2&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;0.7&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// will contain id, name and email
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user3&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// will contain id and name
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user4&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// will contain id and name
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user5&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;classToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;2.1&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// will contain id, name and password
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;сonverting-日期字符串到日期对象&#34;&gt;Сonverting 日期字符串到日期对象&lt;/h2&gt;
+&lt;p&gt;Sometimes you have a Date in your plain javascript object received in a string format.
+And you want to create a real javascript Date object from it.
+You can do it simply by passing a Date object to the &lt;code&gt;@Type&lt;/code&gt; decorator:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;email&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;registrationDate&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Same technique can be used with &lt;code&gt;Number&lt;/code&gt;, &lt;code&gt;String&lt;/code&gt;, &lt;code&gt;Boolean&lt;/code&gt;
+primitive types when you want to convert your values into these types.&lt;/p&gt;
+&lt;h2 id=&#34;使用数组&#34;&gt;使用数组&lt;/h2&gt;
+&lt;p&gt;When you are using arrays you must provide a type of the object that array contains.
+This type, you specify in a &lt;code&gt;@Type()&lt;/code&gt; decorator:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Album&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;albums&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Album&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[];&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also use custom array types:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;AlbumCollection&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Array&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Album&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// custom array functions ...
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Album&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;albums&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;AlbumCollection&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Library will handle proper transformation automatically.&lt;/p&gt;
+&lt;p&gt;ES6 collections &lt;code&gt;Set&lt;/code&gt; and &lt;code&gt;Map&lt;/code&gt; also require the &lt;code&gt;@Type&lt;/code&gt; decorator:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Skill&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Weapon&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;range&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Player&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Skill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;skills&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Set&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Skill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Weapon&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;weapons&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Map&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;Weapon&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;额外的数据转换&#34;&gt;额外的数据转换&lt;/h2&gt;
+&lt;h3 id=&#34;基本用法&#34;&gt;基本用法&lt;/h3&gt;
+&lt;p&gt;You can perform additional data transformation using &lt;code&gt;@Transform&lt;/code&gt; decorator.
+For example, you want to make your &lt;code&gt;Date&lt;/code&gt; object to be a &lt;code&gt;moment&lt;/code&gt; object when you are
+transforming object from plain to class:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Transform&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;moment&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;moment&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Moment&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;moment&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Photo&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Transform&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;moment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;toClassOnly&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;date&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Moment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now when you call &lt;code&gt;plainToClass&lt;/code&gt; and send a plain representation of the Photo object,
+it will convert a date value in your photo object to moment date.
+&lt;code&gt;@Transform&lt;/code&gt; decorator also supports groups and versioning.&lt;/p&gt;
+&lt;h3 id=&#34;高级用法&#34;&gt;高级用法&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;@Transform&lt;/code&gt; decorator is given more arguments to let you configure how you want the transformation to be done.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Transform&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Argument&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;value&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The property value before the transformation.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The name of the transformed property.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;obj&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The transformation source object.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;type&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The transformation type.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;options&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The options object passed to the transformation method.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;其他修饰符&#34;&gt;其他修饰符&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Signature&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;@TransformClassToPlain&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;@TransformClassToPlain({ groups: [&amp;quot;user&amp;quot;] })&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Transform the method return with classToPlain and expose the properties on the class.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;@TransformClassToClass&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;@TransformClassToClass({ groups: [&amp;quot;user&amp;quot;] })&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Transform the method return with classToClass and expose the properties on the class.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;@TransformPlainToClass&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;@TransformPlainToClass(User, { groups: [&amp;quot;user&amp;quot;] })&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Transform the method return with plainToClass and expose the properties on the class.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The above decorators accept one optional argument:
+ClassTransformOptions - The transform options like groups, version, name&lt;/p&gt;
+&lt;p&gt;An example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Exclude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@Expose&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;user.email&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;email&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UserController&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@TransformClassToPlain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;user.email&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;getUser() {&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;firstName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Snir&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lastName&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Segal&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;imnosuperman&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UserController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getUser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;the &lt;code&gt;user&lt;/code&gt; variable will contain only firstName,lastName, email properties because they are
+the exposed variables. email property is also exposed because we metioned the group &amp;ldquo;user.email&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;使用泛型&#34;&gt;使用泛型&lt;/h2&gt;
+&lt;p&gt;Generics are not supported because TypeScript does not have good reflection abilities yet.
+Once TypeScript team provide us better runtime type reflection tools, generics will be implemented.
+There are some tweaks however you can use, that maybe can solve your problem.
+&lt;a href=&#34;https://github.com/pleerock/class-transformer/tree/master/sample/sample4-generics&#34;&gt;Checkout this example.&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;隐式类型转换&#34;&gt;隐式类型转换&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; If you use class-validator together with class-transformer you propably DON&amp;rsquo;T want to enable this function.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Enables automatic conversion between built-in types based on type information provided by Typescript. Disabled by default.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;IsString&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-validator&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyPayload&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;@IsString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;prop&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MyPayload&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;prop&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;1234&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;enableImplicitConversion&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result2&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MyPayload&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;prop&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;1234&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;enableImplicitConversion&lt;/span&gt;: &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *  result1 will be `{ prop: &amp;#34;1234&amp;#34; }` - notice how the prop value has been converted to string.
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *  result2 will be `{ prop: 1234 }` - default behaviour
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;它如何处理循环引用&#34;&gt;它如何处理循环引用?&lt;/h2&gt;
+&lt;p&gt;Circular references are ignored.
+For example, if you are transforming class &lt;code&gt;User&lt;/code&gt; that contains property &lt;code&gt;photos&lt;/code&gt; with type of &lt;code&gt;Photo&lt;/code&gt;,
+and &lt;code&gt;Photo&lt;/code&gt; contains link &lt;code&gt;user&lt;/code&gt; to its parent &lt;code&gt;User&lt;/code&gt;, then &lt;code&gt;user&lt;/code&gt; will be ignored during transformation.
+Circular references are not ignored only during &lt;code&gt;classToClass&lt;/code&gt; operation.&lt;/p&gt;
+&lt;h2 id=&#34;例子与-angular2&#34;&gt;例子与 Angular2&lt;/h2&gt;
+&lt;p&gt;Lets say you want to download users and want them automatically to be mapped to the instances of &lt;code&gt;User&lt;/code&gt; class.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;class-transformer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;http&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;users.json&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;res&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;res&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;json&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;res&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;plainToClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;res&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Object&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]))&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;subscribe&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;users&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// now &amp;#34;users&amp;#34; is type of User[] and each user has getName() and isAdult() methods available
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;users&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also inject a class &lt;code&gt;ClassTransformer&lt;/code&gt; as a service in &lt;code&gt;providers&lt;/code&gt;, and use its methods.&lt;/p&gt;
+&lt;p&gt;Example how to use with angular 2 in &lt;a href=&#34;http://plnkr.co/edit/Mja1ZYAjVySWASMHVB9R&#34;&gt;plunker&lt;/a&gt;.
+Source code is &lt;a href=&#34;https://github.com/pleerock/class-transformer-demo&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;样品&#34;&gt;样品&lt;/h2&gt;
+&lt;p&gt;Take a look on samples in &lt;a href=&#34;https://github.com/pleerock/class-transformer/tree/master/sample&#34;&gt;./sample&lt;/a&gt; for more examples of
+usages.&lt;/p&gt;
+&lt;h2 id=&#34;发布说明&#34;&gt;发布说明&lt;/h2&gt;
+&lt;p&gt;See information about breaking changes and release notes &lt;a href=&#34;https://github.com/typestack/class-transformer/blob/master/CHANGELOG.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>

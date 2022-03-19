@@ -1,7 +1,7 @@
 ---
 title: "class-validator"
 linkTitle: "类验证"
-weight: 48
+weight: 1
 ---
 
 ![Build Status](https://github.com/typestack/class-validator/workflows/CI/badge.svg)
@@ -90,9 +90,9 @@ async function validateOrRejectExample(input) {
 }
 ```
 
-### Passing options
+### 传输选项
 
-The `validate` function optionally expects a `ValidatorOptions` object as a second parameter:
+`validate`函数的第二个参数是一个`ValidatorOptions`对象。
 
 ```ts
 export interface ValidatorOptions {
@@ -113,9 +113,9 @@ export interface ValidatorOptions {
 
 > It's highly advised to set `forbidUnknownValues: true` as it will prevent unknown objects from passing validation.
 
-## Validation errors
+## 验证错误
 
-The `validate` method returns an array of `ValidationError` objects. Each `ValidationError` is:
+' validate '方法返回一个' ValidationError '对象数组。每个“ValidationError”是:
 
 ```typescript
 {
@@ -871,9 +871,9 @@ isBoolean(value);
 | **Other decorators**                            | |
 | `@Allow()`                                      | Prevent stripping off the property when no other constraint is specified for it. |
 
-## Defining validation schema without decorators
+## 定义没有装饰器的验证模式
 
-You can define your validation schemas without decorators:
+你可以在没有装饰器的情况下定义你的验证模式:
 
 - you can define it in the separate object
 - you can define it in the `.json` file
@@ -955,14 +955,14 @@ Here is an example of using it:
    That's it. Here `"myUserSchema"` is the name of our validation schema.
    `validate` method will perform validation based on this schema
 
-## Validating plain objects
+## 验证纯对象
 
-Due to nature of the decorators, the validated object has to be instantiated using `new Class()` syntax. If you have your class defined using class-validator decorators and you want to validate plain JS object (literal object or returned by JSON.parse), you need to transform it to the class instance via using [class-transformer](https://github.com/pleerock/class-transformer)).
+由于装饰器的特性，验证过的对象必须使用`new Class()`语法进行实例化。
+如果你用类验证器装饰器定义了你的类，并且你想验证普通的 JS 对象(文字对象或 JSON.parse 返回的对象)，你需要通过使用[class-transformer](https://github.com/pleerock/class-transformer)将其转换为类实例。
 
-## Samples
+## 样品
 
-Take a look on samples in [./sample](https://github.com/pleerock/class-validator/tree/master/sample) for more examples of
-usages.
+请参阅[./sample](https://github.com/pleerock/class-validator/tree/master/sample)中的示例以获得更多用法示例。
 
 ## 扩展
 
