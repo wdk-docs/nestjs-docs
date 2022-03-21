@@ -38,14 +38,14 @@ import { validate, validateOrReject, Contains, IsInt, Length, IsEmail, IsFQDN, I
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wdk-docs.github.io/nestjs-docs/docs/validator/class-validator/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="NestJS 文档" />
+<meta property="article:modified_time" content="2022-03-19T19:19:27+08:00" /><meta property="og:site_name" content="NestJS 文档" />
 
 <meta itemprop="name" content="class-validator">
 <meta itemprop="description" content="允许使用基于装饰器和非装饰器的验证。 内部使用validator.js执行验证。 类验证器可以在浏览器和 node.js 平台上运行。
 安装 npm install class-validator --save  Note: Please use at least npm@6 when using class-validator. From npm@6 the dependency tree is flattened, which is required by class-validator to function properly.
  使用 Create your class and put some validation decorators on the properties you want to validate:
 import { validate, validateOrReject, Contains, IsInt, Length, IsEmail, IsFQDN, IsDate, Min, Max, } from &#34;class-validator&#34;; export class Post { @Length(10, 20) title: string; @Contains(&#34;hello&#34;) text: string; @IsInt() @Min(0) @Max(10) rating: number; @IsEmail() email: string; @IsFQDN() site: string; @IsDate() createDate: Date; } let post = new Post(); post.">
-
+<meta itemprop="dateModified" content="2022-03-19T19:19:27+08:00" />
 <meta itemprop="wordCount" content="4165">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="class-validator"/>
@@ -1494,7 +1494,10 @@ you have.</p>
 		<br />
 	
 	
-	
+	<div class="text-muted mt-5 pt-3 border-top">
+  最后修改 March 19, 2022: <a href="https://github.com/wdk-docs/nestjs-docs/commit/6c8691f059368bb18cd1088bd7c714bbbe45233a">add  class transformer (6c8691f)</a>
+</div>
+
 </div>
 
 
