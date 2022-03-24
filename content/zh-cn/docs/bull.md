@@ -5,87 +5,14 @@ weight: 4
 description: 最快、最可靠、基于redis的Node队列。 仔细写的岩石固体的稳定性和原子性。
 ---
 
-### 📻 新闻和更新
+> https://github.com/OptimalBits/bull
 
-请在[Twitter](http://twitter.com/manast)上关注我，了解重要的新闻和更新。
-
-### 🛠 教程
-
-你可以在这个博客中找到教程和新闻: https://blog.taskforce.sh/
-
----
-
-### 所使用的
-
-Bull 在大大小小的组织中都很受欢迎，比如以下这些组织:
-
-<table cellspacing="0" cellpadding="0">
-  <tr>
-    <td valign="center">
-      <a href="https://github.com/atlassian/github-for-jira">
-        <img
-          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FevsJCF6F1tx1ScZwDQOd%2FAtlassian-horizontal-blue-rgb.webp?alt=media&token=2fcd0528-e8bb-4bdd-af35-9d20e313d1a8"
-          width="150"
-          alt="Atlassian"
-      /></a>
-    </td>
-    <td valign="center">
-      <a href="https://github.com/Autodesk">
-        <img
-          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FvpTe02RdOhUJBA8TdHEE%2Fautodesk-logo-white.png?alt=media&token=326961b4-ea4f-4ded-89a4-e05692eec8ee"
-          width="150"
-          alt="Autodesk"
-      /></a>
-    </td>
-    <td valign="center">
-      <a href="https://github.com/common-voice/common-voice">
-        <img
-          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2F4zPSrubNJKViAzUIftIy%2Fmozilla-logo-bw-rgb.png?alt=media&token=9f93aae2-833f-4cc4-8df9-b7fea0ad5cb5"
-          width="150"
-          alt="Mozilla"
-      /></a>
-    </td>
-    <td valign="center">
-      <a href="https://github.com/nestjs/bull">
-        <img
-          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FfAcGye182utFUtPKdLqJ%2FScreenshot%202022-02-15%20at%2011.32.39.png?alt=media&token=29feb550-f0bc-467d-a290-f700701d7d15"
-          width="150"
-          alt="Nest"
-      /></a>
-    </td>
-    <td valign="center">
-      <a href="https://github.com/salesforce/refocus">
-        <img
-          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FZNnYNuL5qJ6ZoBh7JJEW%2Fsalesforce-logo.png?alt=media&token=ddcae63b-08c0-4dd4-8496-3b29a9bf977d"
-          width="100"
-          alt="Salesforce"
-      /></a>
-    </td>
-
-  </tr>
-</table>
-
----
-
-### BullMQ
-
-如果你想开始使用完全用 Typescript 编写的下一个主要版本的 Bull，欢迎使用新的 repo[这里](https://github.com/taskforcesh/bullmq).
-否则，我们非常欢迎你仍然使用 Bull，这是一个安全的、经过战斗测试的代码库。
-
----
-
-### 🚀 赞助商 🚀
-
-[<img src="https://www.redisgreen.com/images/rglogo/redisgreen_transparent_240x48.png" width="150" alt="RedisGreen" style="padding: 100px"/>](https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ)
-
-如果您需要高质量的生产 Redis 实例为您的 Bull 项目，请考虑订阅[RedisGreen](https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ),Redis 的领导者们与 Bull 完美地合作。
-注册时请使用促销代码“BULLMQ”，以帮助我们赞助 Bull 的发展!
-
----
+请在[📻Twitter](http://twitter.com/manast)上关注我，了解重要的新闻和更新。
+你可以在这个博客中找到教程和新闻: [🛠 教程](https://blog.taskforce.sh/)
 
 ### 官方的前端
 
-[<img src="http://taskforce.sh/assets/logo_square.png" width="100" alt="Taskforce.sh, Inc" style="padding: 100px"/>](https://taskforce.sh)
+[<img src="/assets/images/logo_square.png" width="100" alt="Taskforce.sh, Inc" style="padding: 100px"/>](https://taskforce.sh)
 
 用专业前端增压你的队列:
 
@@ -471,3 +398,71 @@ the job will be considered stalled and is automatically restarted; it will be **
 As such, you should always listen for the `stalled` event and log this to your error monitoring system, as this means your jobs are likely getting double-processed.
 
 As a safeguard so problematic jobs won't get restarted indefinitely (e.g. if the job processor always crashes its Node process), jobs will be recovered from a stalled state a maximum of `maxStalledCount` times (default: `1`).
+
+### 所使用的
+
+Bull 在大大小小的组织中都很受欢迎，比如以下这些组织:
+
+<table cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="center">
+      <a href="https://github.com/atlassian/github-for-jira">
+        <img
+          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FevsJCF6F1tx1ScZwDQOd%2FAtlassian-horizontal-blue-rgb.webp?alt=media&token=2fcd0528-e8bb-4bdd-af35-9d20e313d1a8"
+          width="150"
+          alt="Atlassian"
+      /></a>
+    </td>
+    <td valign="center">
+      <a href="https://github.com/Autodesk">
+        <img
+          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FvpTe02RdOhUJBA8TdHEE%2Fautodesk-logo-white.png?alt=media&token=326961b4-ea4f-4ded-89a4-e05692eec8ee"
+          width="150"
+          alt="Autodesk"
+      /></a>
+    </td>
+    <td valign="center">
+      <a href="https://github.com/common-voice/common-voice">
+        <img
+          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2F4zPSrubNJKViAzUIftIy%2Fmozilla-logo-bw-rgb.png?alt=media&token=9f93aae2-833f-4cc4-8df9-b7fea0ad5cb5"
+          width="150"
+          alt="Mozilla"
+      /></a>
+    </td>
+    <td valign="center">
+      <a href="https://github.com/nestjs/bull">
+        <img
+          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FfAcGye182utFUtPKdLqJ%2FScreenshot%202022-02-15%20at%2011.32.39.png?alt=media&token=29feb550-f0bc-467d-a290-f700701d7d15"
+          width="150"
+          alt="Nest"
+      /></a>
+    </td>
+    <td valign="center">
+      <a href="https://github.com/salesforce/refocus">
+        <img
+          src="https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FZNnYNuL5qJ6ZoBh7JJEW%2Fsalesforce-logo.png?alt=media&token=ddcae63b-08c0-4dd4-8496-3b29a9bf977d"
+          width="100"
+          alt="Salesforce"
+      /></a>
+    </td>
+
+  </tr>
+</table>
+
+---
+
+### BullMQ
+
+如果你想开始使用完全用 Typescript 编写的下一个主要版本的 Bull，欢迎使用新的 repo[这里](https://github.com/taskforcesh/bullmq).
+否则，我们非常欢迎你仍然使用 Bull，这是一个安全的、经过战斗测试的代码库。
+
+---
+
+### 🚀 赞助商 🚀
+
+[<img src="/assets/images/redisgreen_transparent_240x48.png" width="150" alt="RedisGreen" style="padding: 100px"/>](https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ)
+
+如果您需要高质量的生产 Redis 实例为您的 Bull 项目，请考虑订阅[RedisGreen](https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ),Redis 的领导者们与 Bull 完美地合作。
+注册时请使用促销代码“BULLMQ”，以帮助我们赞助 Bull 的发展!
+
+---
