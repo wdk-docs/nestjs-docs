@@ -1872,6 +1872,891 @@ usages.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: awesome</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/awesome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/awesome/</guid>
+      <description>
+        
+        
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/nestjs/awesome-nestjs/blob/master/README.md&#34;&gt;https://github.com/nestjs/awesome-nestjs/blob/master/README.md&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;资源&#34;&gt;资源&lt;/h2&gt;
+&lt;h4 id=&#34;官方资源&#34;&gt;官方资源&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://nestjs.com&#34;&gt;Website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.nestjs.com&#34;&gt;Official Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nestjs/nest&#34;&gt;GitHub Repo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Examples
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nestjs/typescript-starter&#34;&gt;Nest Starter&lt;/a&gt; - Nest framework TypeScript starter.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nestjs/javascript-starter&#34;&gt;JavaScript Starter&lt;/a&gt; - Nest framework JavaScript (ES6 / ES7 / ES8) starter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;社区&#34;&gt;社区&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitter.im/nestjs/&#34;&gt;Gitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://discord.gg/G7Qnnhy&#34;&gt;Discord&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/nestjs&#34;&gt;Telegram (community maintained)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/nestjsbr&#34;&gt;Telegram (Brazilian Portuguese speak community)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/nest_ru&#34;&gt;Telegram (Russian speak community)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nestjs.slack.com&#34;&gt;Slack (Korean speak community)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/Nestjs_framework&#34;&gt;Reddit (community maintained)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/groups/606785643208589&#34;&gt;Facebook (Polish speak community)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;会谈&#34;&gt;会谈&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=jo-1EUxMmxc&#34;&gt;Revealing framework fundamentals: NestJS behind the curtain by Kamil Myśliwiec&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;教程&#34;&gt;教程&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kamilmysliwiec.com/nest-release-canditate-is-here-introduction-modern-node-js-framework&#34;&gt;Introduction to modern Node.js framework&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://auth0.com/blog/nestjs-brings-typescript-to-nodejs-and-express&#34;&gt;NestJS Node Express&lt;/a&gt; - Teach how to use NestJS step by step.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kamilmysliwiec.com/build-modern-scalable-node-js-web-applications-with-nest&#34;&gt;Build web applications with Nest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/m24927605/Nestjs30Days&#34;&gt;NestJS30Days&lt;/a&gt; - Learn the NestJS framework in 30 days.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pusher.com/tutorials/geofencing-nestjs-googlemaps&#34;&gt;Build a geofencing web app using NestJS and the Google Maps API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pusher.com/tutorials/live-comments-sentiment-analysis-nestjs&#34;&gt;Build live comments with sentiment analysis using NestJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pusher.com/tutorials/chat-sentiment-analysis-nestjs&#34;&gt;Build a chat app with sentiment analysis using NestJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pusher.com/tutorials/realtime-graph-nestjs&#34;&gt;Create a realtime graph using NestJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pusher.com/tutorials/realtime-table-datatables-nestjs&#34;&gt;Build a realtime table with DataTables and NestJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.exceptionfound.com/index.php/2018/06/07/nestjs-basic-auth-and-sessions/&#34;&gt;NestJS Basic Auth and Sessions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.exceptionfound.com/2020/12/03/nestjs-hasura-integration-via-schema-stitching/&#34;&gt;NestJS Hasura Integration via Schema Stitching And JWT Auth&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@ctran2428/mean-stack-with-nestjs-and-swagger-9d8d14862d6b&#34;&gt;MEAN Stack with NestJS and Swagger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=NF9Xn4g5MJY&amp;amp;list=PLBeQxJQNprbiJm55q7nTAfhMmzIC8MWxc&#34;&gt;NestJS Ideas API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hackernoon.com/building-real-time-web-applications-using-nest-js-and-ably-d85887e81f06&#34;&gt;Building a real time web applications using NestJS and Ably&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=nz6yFTyLbAQ&amp;amp;list=PLq1kZ5GbKd4qyDcK3IHGSi4FDAL6fRZeL&#34;&gt;Video Tutorials&lt;/a&gt; - Building a full-stack blog with NestJS, Angular and Angular Material.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.udemy.com/course/the-complete-nestjs-developer-enterprise-nodejs-framework/&#34;&gt;Free Video Course&lt;/a&gt; - The complete NestJS developer. Enterprise Node.js framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;例子&#34;&gt;例子&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Pinedo11/nestDemo-ChatServer&#34;&gt;ChatServer&lt;/a&gt; - Server side of Chat App implemented using NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Sikora00/ddd-by-examples-library-nestjs&#34;&gt;Domain Driven Design - Library&lt;/a&gt; - Example of an application that follows Domain Driven Design.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/lujakob/nestjs-realworld-example-app&#34;&gt;Realworld Example App&lt;/a&gt; - Exemplary real world backend API built with NestJS + TypeORM.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/vladotesanovic/mant&#34;&gt;Mant&lt;/a&gt; - New Stack on the Market to beat them all :ring: MANT.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/crudjs/rest-nestjs-postgres&#34;&gt;REST NestJS Postgres&lt;/a&gt; - CrudJS implemented as a REST API, using NestJS and Postgres.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/EndyKaufman/nest-permissions-seed&#34;&gt;Nest Permissions Seed&lt;/a&gt; - A simple application demonstrating the basic usage of permissions with NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Innovic-io/angular-nestjs-rendering&#34;&gt;Angular NestJS Rendering&lt;/a&gt; - Angular 5+ server side rendering using NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Abdallah-khalil/ContactManagerApp&#34;&gt;Angular Contact Manager App&lt;/a&gt; - A Contact Manager App using Angular, NestJS, Mongoose, Passport, JWT.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Abdallah-khalil/Books-Library-API&#34;&gt;Books Library API&lt;/a&gt; - A restful API with NestJS and mongoose.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Abdallah-khalil/NodeJsWithPassport&#34;&gt;Passport Auth NestJS&lt;/a&gt; - Passport strategies and oauth integration built with NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jajaperson/nestjs-auth0&#34;&gt;NestJS Auth0&lt;/a&gt; - An example NestJS application that uses Auth0 via Passport for authentication.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kelvin-mai/nest-ideas-api&#34;&gt;Nest Ideas API&lt;/a&gt; - An implementation of a REST and GraphQL server built with NestJS, PostgresQL and TypeORM.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nest-cloud/nestcloud-starter&#34;&gt;Nestcloud Starter&lt;/a&gt; - Quickly start a micro-service app use nestcloud.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/surmon-china/nodepress&#34;&gt;Nodepress&lt;/a&gt; - A RESTful API server application for Blog CMS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/International-Slackline-Association/Rankings-Backend&#34;&gt;Serverless-Lambda-DynamoDB&lt;/a&gt; - A fully SERVERLESS in-production application with AWS Lambda, DynamoDB, DynamoDB Streams.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mamori-i-japan/mamori-i-japan-api&#34;&gt;Serverless-Lambda-FirestoreDB&lt;/a&gt; - A fully SERVERLESS in-production application with AWS Lambda, FirestoreDB, Firebase Auth, Winston Logger, Swagger. Also implements admin role authorization.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kop7/serverless-nestjs-typeorm&#34;&gt;Serverless NestJS TypeOrm&lt;/a&gt; - Example how to NestJS using the serverless framework with TypeORM.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marcomelilli/nestjs-email-authentication&#34;&gt;Passport Email Auth&lt;/a&gt; - Starter project that includes API for user email authentication with MongoDB and PassportJs.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/CatsMiaow/node-nestjs-structure&#34;&gt;NestJS Project Structure&lt;/a&gt; - Example of constructing a project structure with NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kop7/nest-elasticsearch-vue&#34;&gt;NestJS Elasticsearch Vue&lt;/a&gt; - Autocomplete search with NestJS, Elasticsearch and Vue.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pvarentsov/typescript-clean-architecture&#34;&gt;TypeScript Clean Architecture&lt;/a&gt; - Clean Architecture based application with NestJS, PostgreSQL and TypeORM.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Tony133/nestjs-api-mongoose&#34;&gt;NestJS Api Mongoose&lt;/a&gt; - Simple example Api Rest with Nestjs 8.x and Mongoose&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;样板&#34;&gt;样板&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/VincentJouanne/nest-clean-architecture-ddd-example&#34;&gt;🧪 Fully tested NestJS Prisma Clean Architecture Boilerplate&lt;/a&gt; - This boilerplate shows how to test your NestJS API with unit, integration and e2e tests. Use-cases are written in functionnal programming with FP-TS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Ferdysd96/nestjs-permission-boilerplate&#34;&gt;NestJS Permission Boilerplate&lt;/a&gt; - This is a basic NestJS boilerplate project built on the more powerful Node.js framework. The main purpose of this project is to dynamically handle roles and permissions assigned to the user.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/squareboat/nestjs-boilerplate&#34;&gt;SQB NestJS Boilerplate&lt;/a&gt; - A production-ready 🏭 NestJS boilerplate with batteries 🔋 included. No Kidding!.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ahrnee/nestjs-bff&#34;&gt;Nest BFF&lt;/a&gt; - A boilerplate &lt;a href=&#34;https://samnewman.io/patterns/architectural/bff/&#34;&gt;BFF&lt;/a&gt; web application starter-project using NestJS. Includes CLI, and MongoDB migrations features.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Saluki/nestjs-template&#34;&gt;NestJS Template&lt;/a&gt; - Scaffold your next TypeScript API with this production-ready NestJS template crafted for Docker environments.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nartc/nest-mean&#34;&gt;MEAN Todo with NestJS&lt;/a&gt; - A simple Todo application with NestJS and Swagger. Included Authorization/Authentication.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Vivify-Ideas/nestjs-boilerplate&#34;&gt;NestJS Boilerplate&lt;/a&gt; - Boilerplate with available authentication, typeorm, env configuration and swagger. Everything you need to start making great things.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NarHakobyan/awesome-nest-boilerplate&#34;&gt;Awesome Nest Boilerplate&lt;/a&gt; - Typescript, Postgresql, TypeORM, Swagger for Api documentation, Role base access control, and best application architecture.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/notiz-dev/nestjs-prisma-starter&#34;&gt;NestJS Prisma Starter&lt;/a&gt; - Starter project for NestJS includes Graphql with Prisma Client, Passport-JWT authentication, Swagger Api and Docker.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/adrien2p/teanjs&#34;&gt;TeanJS&lt;/a&gt; - TeanJS is a starter that provides you all the keys to be able to start writing your code as quickly as possible.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pezzetti/base-app-nestjs&#34;&gt;NestJS DDD Boilerplate&lt;/a&gt; - Domain Driven Design Base app with NestJS, Class Validator and TypeORM. SOLID principles applied to create fully testable applications.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/benawad/nest-mongo-graphql/&#34;&gt;Nest Mongo Graphql&lt;/a&gt; - Starter Kit using NestJS MongoDB Graphql and type-graphql &lt;a href=&#34;https://typegraphql.ml/&#34;&gt;https://typegraphql.ml/&lt;/a&gt; inspired the type schema first approach.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/juicycleff/ultimate-backend&#34;&gt;Ultimate Backend&lt;/a&gt; - Enterprise multi-tenant SaaS starter kit with CQRS GraphQL microservice architecture, apollo federation, event source and authentication.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fernandohenriques/nestjs-graphql-boilerplate&#34;&gt;NestJS GraphQL Boilerplate&lt;/a&gt; - Dockerized API boilerplate with NestJS, TypeORM, TypeGraphQL, MongoDB, GraphQL and automated tasks with Makefile. Code first approach.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tomanagle/NextJS-NestJS-GraphQL-Starter&#34;&gt;NextJS &amp;amp; NestJS GraphQL Starter&lt;/a&gt; - GraphQL NestJS with NextJS boilerplace. Includes GitHub, Reddit &amp;amp; Google OAuth.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tudorconstantin/knests/&#34;&gt;The Knests Stack&lt;/a&gt; - Full stack/end starter with: PostgreSQL, Knex.js, NestJS, Next.js, GraphQL, React, Material-UI, Docker multistage images for, Docker compose and a GitLab CI/CD pipeline fully configured.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ahmetuysal/nest-hackathon-starter&#34;&gt;Nest Hackathon Starter&lt;/a&gt; - Hackathon starter project for NestJS. Includes Prisma, email verification, Passport-JWT authentication, Swagger and more.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chocolat-chaud-io/stator&#34;&gt;Stator&lt;/a&gt; - A full-stack boilerplate that does it all - automatic releases, deployments, enforced conventions.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/monstar-lab-oss/nestjs-starter-rest-api&#34;&gt;NestJS REST Starter Kit - By MonstarLab&lt;/a&gt; - Features: JWT Auth, RBAC Authorization, TypeORM, winston logger, Pagination, Auto-generated Swagger. Other: prettier, commit-linting husky hooks, SonarCloud, docker-compose.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Tony133/nestjs-api-boilerplate-jwt&#34;&gt;NestJS Api Boilerplate JWT&lt;/a&gt; - An API Boilerplate to create a ready-to-use REST API in seconds with NestJS + TypeORM and Passport Auth JWT.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/brocoders/nestjs-boilerplate&#34;&gt;NestJS REST API boilerplate for typical project&lt;/a&gt; - Boilerplate with Auth, TypeORM, PostgreSQL, Mailing, I18N, Docker, File uploads (support local and Amazon S3 drivers), Swagger, Tests, CI.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/alitnk/nest-prisma-monorepo&#34;&gt;NestJS and Prisma Yarn Monorepo Starter Template&lt;/a&gt; - Full-stack monorepo starter (Yarn workspaces) with Prisma, GraphQL, CI and more.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gobeam/truthy&#34;&gt;Truthy NestJS Headless CMS&lt;/a&gt; - Open source headless CMS API written using NestJS, that has built-in modules like User Management, Role Management, Permission Management, Email Module, Account Settings, 2FA settings, Throttling, RBAC support, Localization, frontend application written with ReactJS &amp;amp; Redux Saga, UI built with Ant design and many more. Other: unit test using Jest, prettier, commit-linting husky hooks, PostgreSQL, Redis, docker etc.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mokuteki225/nest-websockets-chat-boilerplate&#34;&gt;NestJS Realtime Chat&lt;/a&gt; - Boilerplate for a realtime chat based on Websockets, TypeORM, PostgreSQL, REST, Docker which includes PassportJS/JWT auth, rooms, kick/ban user functionality&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;项目使用-nestjs&#34;&gt;项目使用 NestJS&lt;/h2&gt;
+&lt;h4 id=&#34;开源&#34;&gt;开源&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ever-co/ever&#34;&gt;Ever®&lt;/a&gt; - Open-Source Commerce Platform for On-Demand Economy and Digital Marketplaces.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/feednext/feednext&#34;&gt;Feednext&lt;/a&gt; - Open-Source Social Media Application.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ever-co/gauzy&#34;&gt;Gauzy&lt;/a&gt; - Open-Source Profits Sharing Platform for modern agencies and studios.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Roche/lxdhub&#34;&gt;LXDhub&lt;/a&gt; - Management system for Linux Containers (LXC).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/notadd/notadd&#34;&gt;Notadd&lt;/a&gt; - Microservice development architecture.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/valueadd-poland/pimp-my-pr&#34;&gt;Pimp My PR&lt;/a&gt; - Open-Source platform for statistics and pull request management.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tooljet.io/&#34;&gt;ToolJet&lt;/a&gt; - ToolJet is the open-source low-code framework alternative to Retool &amp;amp; Mendix to build &amp;amp; deploy internal tools with minimal engineering effort. (&lt;a href=&#34;https://github.com/ToolJet/ToolJet&#34;&gt;Source Code&lt;/a&gt;) &lt;code&gt;GPL-3.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/vendure-ecommerce/vendure&#34;&gt;Vendure&lt;/a&gt; - Open-Source headless GraphQL ecommerce framework built on NestJS, with a focus on developer productivity and ease of customization.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pvarentsov/iola&#34;&gt;iola&lt;/a&gt; - Socket client with Rest API.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/amplication/amplication&#34;&gt;Amplication&lt;/a&gt; - Amplication is an open-source low-code devtool that auto-generates backend apps built with TypeScript and Node.js, and a client built with React.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;组件和库&#34;&gt;组件和库&lt;/h2&gt;
+&lt;h4 id=&#34;实用程序&#34;&gt;实用程序&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjs/cqrs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjs/cqrs&#34;&gt;Nest CQRS&lt;/a&gt; - A lightweight CQRS module for Nest framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/valueadd-poland/nestjs-packages.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/valueadd-poland/nestjs-packages/tree/master/packages/typed-cqrs&#34;&gt;Typed CQRS&lt;/a&gt; - A wrapper for the Nest CQRS library for better typing of query and command results.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjsx/nestjs-config.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjsx/nestjs-config&#34;&gt;Nest Config&lt;/a&gt; - A Great module to handle project configurations.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/Nikaple/nest-typed-config.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/Nikaple/nest-typed-config&#34;&gt;Nest Typed Config&lt;/a&gt; - Intuitive, type-safe configuration module for Nest framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nest-cloud/nestcloud.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nest-cloud/nestcloud&#34;&gt;Nest Consul Service&lt;/a&gt; - A Node.js micro-service solution based on Consul, writing by Typescript language and NestJS framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/rubiin/nestjs-easyconfig.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/rubiin/nestjs-easyconfig&#34;&gt;Nest Easy Config&lt;/a&gt; - A NestJS module for managing configs that provides some sleek features.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/miaowing/nest-schedule.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/miaowing/nest-schedule&#34;&gt;Nest Schedule&lt;/a&gt; - Schedule job easier by decorator.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/owl1n/nest-queue.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/owl1n/nest-queue&#34;&gt;Nest Queue&lt;/a&gt; - Easy queue management based on Redis for your application.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/lupu60/nestjs-toolbox.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/lupu60/nestjs-toolbox&#34;&gt;Nest Toolbox&lt;/a&gt; - The repository contains a suite of components and modules for NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/jeffminsungkim/nestjs-multer-extended.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/jeffminsungkim/nestjs-multer-extended&#34;&gt;Nest Multer Extended&lt;/a&gt; - Extended MulterModule for NestJS framework with flexible Amazon S3 upload and helpful features.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/Papooch/nestjs-cls.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/Papooch/nestjs-cls&#34;&gt;Nest CLS&lt;/a&gt; - A continuation-local storage module for Nest (using &lt;code&gt;async_hooks&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/benhason1/nestjs-http-promise.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/benhason1/nestjs-http-promise&#34;&gt;NestJS HTTP Promise&lt;/a&gt; - A Promise-based alternative to &lt;code&gt;@nestjs/axios&lt;/code&gt;, with retries feature using &lt;code&gt;axios-retry&lt;/code&gt; and &lt;code&gt;axios&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;状态管理&#34;&gt;状态管理&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/derekkite/ngrx-nest.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/derekkite/ngrx-nest&#34;&gt;Ngrx Nest&lt;/a&gt; - Ngrx/store and ngrx/effects on the server using the nest framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;代码风格&#34;&gt;代码风格&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/basarat/typescript-book.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/basarat/typescript-book/blob/master/docs/styleguide/styleguide.md&#34;&gt;StyleGuide and Coding Conventions&lt;/a&gt; - An unofficial TypeScript StyleGuide.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;web-sockets&#34;&gt;Web Sockets&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.nestjs.com/websockets/gateways&#34;&gt;Official&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;redis&#34;&gt;Redis&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nest-modules/ioredis.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nest-modules/ioredis&#34;&gt;Nest Ioredis&lt;/a&gt; - A ioredis module for Nest framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/liaoliaots/nestjs-redis.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/liaoliaots/nestjs-redis&#34;&gt;Nest Redis Cluster&lt;/a&gt; - Redis(ioredis) module for NestJS framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;mail&#34;&gt;Mail&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/squareboat/nest-mailman.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/squareboat/nest-mailman&#34;&gt;Mailman&lt;/a&gt; - The only 📮 mailer package you need for your NestJS Applications.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/partyka95/nest-mailer.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/partyka95/nest-mailer&#34;&gt;Nest Mailer&lt;/a&gt; - A mailer module for Nest framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;api&#34;&gt;API&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nestjs/swagger&#34;&gt;Swagger&lt;/a&gt; - This&amp;rsquo;s an OpenAPI (Swagger) module for Nest. &lt;em&gt;[&lt;a href=&#34;https://docs.nestjs.com/recipes/swagger&#34;&gt;Tutorial&lt;/a&gt;]&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/flamewow/nestjs-asyncapi.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/flamewow/nestjs-asyncapi&#34;&gt;AsyncAPI&lt;/a&gt; - AsyncAPI module for NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/doug-martin/nestjs-query.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/doug-martin/nestjs-query&#34;&gt;Nest-Query&lt;/a&gt; - Nest CRUD for GraphQL APIs.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/samchon/nestia.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/samchon/nestia&#34;&gt;Nestia&lt;/a&gt; - Automatic SDK generator for the clients.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;中间件&#34;&gt;中间件&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/wbhob/nest-middlewares.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/wbhob/nest-middlewares&#34;&gt;Nest Middlewares&lt;/a&gt; - Common, injectable middlewares for NestJS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;错误&#34;&gt;错误&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/squareboat/nest-eyewitness.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/squareboat/nest-eyewitness&#34;&gt;Eyewitness&lt;/a&gt; - Receive error reports directly to your inbox whenever any exception is witnessed 👀 in your NestJS application.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/shekohex/nestjs-flub.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/shekohex/nestjs-flub&#34;&gt;Nest Flub&lt;/a&gt; - Pretty Error :tired_face: Stack Viewer for NestJS Framework :hammer_and_wrench:.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/ozkanonur/nestjs-enlighten.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/ozkanonur/nestjs-enlighten&#34;&gt;Nest Enlighten&lt;/a&gt; - A laravel-ignition like error page for NestJS Framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/ozkanonur/nestjs-rate-limiter.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/ozkanonur/nestjs-rate-limiter&#34;&gt;Nest Rate Limiter&lt;/a&gt; - A highly configurable rate limiter library.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/mentos1386/nest-raven.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/mentos1386/nest-raven&#34;&gt;Nest Raven&lt;/a&gt; - Sentry Raven Module for NestJS Framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;lint&#34;&gt;Lint&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/unlight/eslint-plugin-nestjs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/unlight/eslint-plugin-nestjs&#34;&gt;Eslint Plugin NestJS&lt;/a&gt; - ESLint rules for NestJS framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/darraghoriordan/eslint-plugin-nestjs-typed.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/darraghoriordan/eslint-plugin-nestjs-typed&#34;&gt;Typescript-Eslint Plugin NestJS&lt;/a&gt; - ESLint rules for NestJS framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;路由器-&#34;&gt;路由器 🚦&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/shekohex/nest-router.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/shekohex/nest-router&#34;&gt;Nest Router&lt;/a&gt; - Router Module For NestJS Framework 🚦 🚀
+for organizing your Routes, creating a routes tree, and more.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;satellite&#34;&gt;:satellite:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/adrien2p/nestjs-dialogflow.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/adrien2p/nestjs-dialogflow&#34;&gt;NestJS Dialogflow&lt;/a&gt; - Dialog flow module that simplify the web hook handling for your NLP application using NestJS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;日志记录&#34;&gt;日志记录&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/gremo/nest-winston.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/gremo/nest-winston&#34;&gt;Nest Winston&lt;/a&gt; - Winston module for NestJS.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/iamolegga/nestjs-pino.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/iamolegga/nestjs-pino&#34;&gt;Nest Pino&lt;/a&gt; - Pino module for NestJS Log with request context in any place.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/jmcdo29/ogma.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/jmcdo29/ogma&#34;&gt;Ogma&lt;/a&gt; - A monorepo for the Ogma logger and related packages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;监控&#34;&gt;监控&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/MetinSeylan/Nestjs-OpenTelemetry.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/MetinSeylan/Nestjs-OpenTelemetry&#34;&gt;Nest OpenTelemetry&lt;/a&gt; - Deeply integrated NestJS OpenTelemetry module with auto instrumentations.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/GenFirst/nest-status-monitor.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/GenFirst/nest-status-monitor&#34;&gt;Nest Status Monitor&lt;/a&gt; - Simple, self-hosted module based on Socket.io and Chart.js to report realtime server metrics for NestJS based node servers.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjs/terminus.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjs/terminus&#34;&gt;Nest Terminus&lt;/a&gt; - Integrated healthchecks, based on &lt;a href=&#34;https://github.com/godaddy/terminus&#34;&gt;Terminus&lt;/a&gt; package.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/narando/nest-xray.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/narando/nest-xray&#34;&gt;Nest X-Ray&lt;/a&gt; - Record incoming and outgoing request for &lt;a href=&#34;https://aws.amazon.com/xray/&#34;&gt;AWS X-Ray&lt;/a&gt;, also supports custom instrumentation.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/pragmaticivan/nestjs-otel.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/pragmaticivan/nestjs-otel&#34;&gt;Nest OpenTelemetry (OTEL)&lt;/a&gt; - OpenTelemetry module for NestJS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;国际化-i18n&#34;&gt;国际化 (i18n)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/ToonvanStrijp/nestjs-i18n.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/ToonvanStrijp/nestjs-i18n&#34;&gt;Nest i18n&lt;/a&gt; - Adds i18n support easily to your server, with a rich formatting api build in.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;货币&#34;&gt;货币&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/vahidvdn/nestjs-cashify.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/vahidvdn/nestjs-cashify&#34;&gt;Nestjs Cashify&lt;/a&gt; - Currency conversion module for NestJS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;事件&#34;&gt;事件&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/yak0/nest-event.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/yak0/nest-event&#34;&gt;Nest Event&lt;/a&gt; - Event handling with decorators for NestJS Framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;身份验证&#34;&gt;身份验证&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/iamolegga/nestjs-session.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/iamolegga/nestjs-session&#34;&gt;NestJS Session&lt;/a&gt; - Idiomatic Session Module for NestJS. Built on top of &lt;a href=&#34;https://npm.im/express-session&#34;&gt;express-session&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;rbac-基于角色的访问控制&#34;&gt;RBAC (基于角色的访问控制)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/sergey-telpuk/nestjs-rbac.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/sergey-telpuk/nestjs-rbac&#34;&gt;Nest RBAC&lt;/a&gt; - RBAC module for NestJS, with a dynamic storage and cache.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/relevantfruit/nestjs-keycloak-admin.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/relevantfruit/nestjs-keycloak-admin&#34;&gt;Nest Keycloak Admin&lt;/a&gt; - Keycloak Admin Client with support for User Managed Access protocol.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/bjerkio/nestjs-oso.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/bjerkio/nestjs-oso&#34;&gt;NestJS OSO&lt;/a&gt; - Library that simplifies the implementation of OSO (open-source policy engine for authorization).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;多租赁&#34;&gt;多租赁&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/AlexanderC/nestjs-mtenant.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/AlexanderC/nestjs-mtenant&#34;&gt;Nestjs MTenant&lt;/a&gt; - A module for NestJS to enable multitenancy support with deep integration into the system as whole (based on &lt;code&gt;async_hooks&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;微服务&#34;&gt;微服务&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/pvarentsov/nestjs-pg-notify.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/pvarentsov/nestjs-pg-notify&#34;&gt;NestJS PG Notify&lt;/a&gt; - NestJS custom transport strategy for PostgreSQL Pub/Sub.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/sergey-telpuk/nestjs-transport-eventbus.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/sergey-telpuk/nestjs-transport-eventbus&#34;&gt;Nestjs Transport Eventbus&lt;/a&gt; - The module for Nest to allow broadcasting events via variety of nestjs trasports in easy way&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/p-fedyukovich/nestjs-google-pubsub-microservice.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/p-fedyukovich/nestjs-google-pubsub-microservice&#34;&gt;NestJS Google Cloud Pub/Sub Microservice Transport&lt;/a&gt; - Custom Google Cloud Pub/Sub microservice transport&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;数据库&#34;&gt;数据库&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/notiz-dev/nestjs-prisma.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/notiz-dev/nestjs-prisma&#34;&gt;NestJS Prisma&lt;/a&gt; - Library and schematics adding Prisma integration to a NestJS application&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;测试&#34;&gt;测试&lt;/h2&gt;
+&lt;h4 id=&#34;集合的例子&#34;&gt;集合的例子&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jmcdo29/testing-nestjs&#34;&gt;Testing Nestjs&lt;/a&gt; - A repository to show off to the community methods of testing NestJS including Unit Tests, Integration Tests, E2E Tests, pipes, filters, interceptors, GraphQL, Mongo, TypeORM, and more!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;使用工具&#34;&gt;使用工具&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/@golevelup/ts-jest&#34;&gt;GoLevelUp utilities for Jest&lt;/a&gt; - Utilities for making testing NestJS applications easier. Currently supports Jest.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/mockingbird&#34;&gt;Mockingbird&lt;/a&gt; - A library to create typed tests fixtures/mocks using decorators and built-in faker support&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/nestjs-pact&#34;&gt;NestJS + Pact&lt;/a&gt; - Injectable Pact.js Consumer/Provider for NestJS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;集成&#34;&gt;集成&lt;/h2&gt;
+&lt;h4 id=&#34;认证&#34;&gt;认证&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/cdiaz/nestjs-auth0.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/cdiaz/nestjs-auth0&#34;&gt;Nest + Auth0&lt;/a&gt; - NestJS Framework web application with Auth0.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/tfarras/nestjs-firebase-auth.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/tfarras/nestjs-firebase-auth&#34;&gt;Nest Firebase Auth&lt;/a&gt; - NestJS Passport Strategy for Firebase Auth using Firebase Admin SDK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;数据库-1&#34;&gt;数据库&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjs/typeorm.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjs/typeorm&#34;&gt;Typeorm&lt;/a&gt; - A TypeORM module for Nest framework [&lt;a href=&#34;http://docs.nestjs.com/recipes/sql-typeorm&#34;&gt;Tutorial&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/owl1n/typeorm-factories.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/owl1n/typeorm-factories&#34;&gt;Nest Typeorm Factories&lt;/a&gt; - A TypeORM Entities factories. Useful for NestJS unit testing.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/alphamikle/nest_transact.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/alphamikle/nest_transact&#34;&gt;Nest Transact&lt;/a&gt; - The simplest transactions using with Nest and TypeORM&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjs/mongoose.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjs/mongoose&#34;&gt;Nest Mongoose&lt;/a&gt; - A Mongoose module for Nest framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/kpfromer/nestjs-typegoose.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/kpfromer/nestjs-typegoose&#34;&gt;Nest Typegoose&lt;/a&gt; - A &lt;a href=&#34;https://github.com/typegoose/typegoose&#34;&gt;Typegoose&lt;/a&gt; module for Nest framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/mikro-orm/nestjs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/mikro-orm/nestjs&#34;&gt;Nest MikroORM&lt;/a&gt; - A &lt;a href=&#34;https://mikro-orm.io/&#34;&gt;MikroORM&lt;/a&gt; module for Nest Framework.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/adrien2p/nest-js-sequelize-jwt.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/adrien2p/nest-js-sequelize-jwt&#34;&gt;Nest Sequelize JWT&lt;/a&gt; - Starter kit Nest + Sequelize + jwt.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/kentloog/nestjs-sequelize-typescript.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/kentloog/nestjs-sequelize-typescript&#34;&gt;Nest sequelize-typescript&lt;/a&gt; - Nest + sequelize-typescript + JWT + Jest + Swagger.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.prisma.io/nestjs&#34;&gt;Nest Prisma&lt;/a&gt; - A Fully Type-Safe ORM for &lt;a href=&#34;https://docs.nestjs.com/recipes/prisma&#34;&gt;NestJS&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;graphql&#34;&gt;GraphQL&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/golevelup/nestjs/tree/master/packages/graphql-request&#34;&gt;GoLevelUp NestJS GraphQL Request&lt;/a&gt; - Easily inject and work with GraphQLClient instances from server side NestJS code. Useful for interacting with third party GraphQL APIs.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/golevelup/nestjs/tree/master/packages/hasura&#34;&gt;GoLevelUp NestJS Hasura&lt;/a&gt; - NestJS integrations for working with &lt;a href=&#34;https://hasura.io/&#34;&gt;Hasura&lt;/a&gt; which provides realtime GraphQL APIs over your Postgres Database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;模式&#34;&gt;模式&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjsx/nestjs-typeorm-paginate.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjsx/nestjs-typeorm-paginate&#34;&gt;Nest typeorm paginate&lt;/a&gt; - A simple function and interfaces for pagination.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/Insidexa/nestjs-rpc.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/Insidexa/nestjs-rpc&#34;&gt;Nest JSON RPC Transport&lt;/a&gt; - JSON RPC transport layer for the NestJS framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;编辑器&#34;&gt;编辑器&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;VSCode
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=AbhijoyBasak.nestjs-files&#34;&gt;NestJS Files&lt;/a&gt; - Quickly create NestJS Files.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ashinzekene/vscode-nestjs-snippets&#34;&gt;NestJS Snippets&lt;/a&gt; - Vscode NestJS code Snippets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;amqp&#34;&gt;AMQP&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjsx/nestjs-amqp.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjsx/nestjs-amqp&#34;&gt;Nest AMQP&lt;/a&gt; - An amqp connection manager.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/AlariCode/nestjs-rmq.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/AlariCode/nestjs-rmq&#34;&gt;Nest RabbitMQ&lt;/a&gt; - A custom library for NestJS microservice. It allows you to use RabbitMQ or AMQP.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/golevelup/nestjs/tree/master/packages/rabbitmq&#34;&gt;GoLevelUp NestJS RabbitMQ&lt;/a&gt; - Flexible AMQP integrations for NestJS that supports multiple messaging patterns and intuitive decorators.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;eventstore&#34;&gt;EventStore&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/juicycleff/nestjs-event-store.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/juicycleff/nestjs-event-store&#34;&gt;Nest EventStore&lt;/a&gt; - An evenstore.org module for NestJS CQRS with adapter support to persist lastcheckpoint for Catchup subscription.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;支付网关&#34;&gt;支付网关&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjsx/nestjs-braintree.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjsx/nestjs-braintree&#34;&gt;Nest Braintree&lt;/a&gt; - A module for webhooks and transactions.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/dhaspden/nestjs-stripe.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/dhaspden/nestjs-stripe&#34;&gt;Nest Stripe&lt;/a&gt; - A module for injecting a configured Stripe client into your services.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/golevelup/nestjs/tree/master/packages/stripe&#34;&gt;GoLevelUp Nest Stripe&lt;/a&gt; - Injectable client plus autowired Stripe webhook handling for deeper integrations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;frontend&#34;&gt;Frontend&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/FusionWorks/react-admin-nestjsx-crud-dataprovider.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/FusionWorks/react-admin-nestjsx-crud-dataprovider&#34;&gt;Nest CRUD React Admin&lt;/a&gt; - A React Admin data provider for &lt;a href=&#34;https://github.com/nestjsx/crud&#34;&gt;NextJS CRUD&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/SoftwareBrothers/admin-bro-nestjs.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/SoftwareBrothers/admin-bro-nestjs&#34;&gt;Nest AdminBro&lt;/a&gt; - NestJS plugin for &lt;a href=&#34;https://github.com/SoftwareBrothers/admin-bro&#34;&gt;AdminBro&lt;/a&gt;, an automatic admin interface which can be plugged into your application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;调度&#34;&gt;调度&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjsx/nest-bull.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjsx/nest-bull&#34;&gt;Nest Bull&lt;/a&gt; - A Bull module for Nest framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;工作流自动化&#34;&gt;工作流自动化&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/camunda-community-hub/nestjs-zeebe.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/camunda-community-hub/nestjs-zeebe&#34;&gt;Zeebe microservices&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;聊天机器人&#34;&gt;聊天机器人&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/bukhalo/nestjs-telegraf.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/bukhalo/nestjs-telegraf&#34;&gt;Nest Telegraf&lt;/a&gt; - A module for creating Telegram bots using NestJS, based on &lt;a href=&#34;https://github.com/telegraf/telegraf&#34;&gt;Telegraf&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/SocketSomeone/necord.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/SocketSomeone/necord&#34;&gt;Necord&lt;/a&gt; - A module for creating Discord bots using NestJS, based on &lt;a href=&#34;https://github.com/discordjs/discord.js&#34;&gt;Discord.js&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;文件存储&#34;&gt;文件存储&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/codebrewlab/nestjs-storage.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/codebrewlab/nestjs-storage&#34;&gt;Nest Storage&lt;/a&gt; - A manage file storage module(&lt;a href=&#34;https://github.com/Slynova-Org/flydrive&#34;&gt;flydrive&lt;/a&gt;) for NestJS Framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;云管理配置&#34;&gt;云管理配置&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nonfig/nestjs-config.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nonfig/nestjs-config&#34;&gt;Nonfig Config&lt;/a&gt; - A module for &lt;a href=&#34;https://www.nonfig.com&#34;&gt;Nonfig&lt;/a&gt; Configuration Management Service. Nonfig combines Configurations and Features. So you change features, and release swiftly, and measure to digital impact.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;sdk&#34;&gt;SDK&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/tfarras/nestjs-firebase-admin.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/tfarras/nestjs-firebase-admin&#34;&gt;Nest Firebase Admin&lt;/a&gt; - NestJS Module for &lt;a href=&#34;https://firebase.google.com/&#34;&gt;Firebase Admin SDK&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;运行时&#34;&gt;运行时&lt;/h2&gt;
+&lt;h4 id=&#34;命令行终端&#34;&gt;命令行/终端&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/jmcdo29/nest-commander.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/jmcdo29/nest-commander&#34;&gt;Nest Commander&lt;/a&gt; - A module for using NestJS to build up CLI applications&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/nestjs/nest-cli.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/nestjs/nest-cli&#34;&gt;CLI&lt;/a&gt; - CLI tool for NestJS applications.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/ashinzekene/generator-nestjs-app.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/ashinzekene/generator-nestjs-app&#34;&gt;Yeoman Generator&lt;/a&gt; - A yeoman generator for NestJS apps.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/Pop-Code/nestjs-console.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/Pop-Code/nestjs-console&#34;&gt;NestJS Console&lt;/a&gt; - A NestJS module that provide a cli to application.&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://img.shields.io/github/stars/LoneStone/nest-sdk-generator.svg?style=flat-square&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/lonestone/nest-sdk-generator&#34;&gt;Typescript SDK Generator&lt;/a&gt; - A command-line utility to generate a fully typed SDK from a Nest.js REST API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;meetups&#34;&gt;Meetups&lt;/h2&gt;
+&lt;p&gt;None at the moment.&lt;br&gt;
+Why not create a meetup and make a PR?&lt;/p&gt;
+&lt;h2 id=&#34;贡献&#34;&gt;贡献&lt;/h2&gt;
+&lt;p&gt;Contributions welcome! Read the &lt;a href=&#34;CONTRIBUTING.md&#34;&gt;contribution guidelines&lt;/a&gt; first.&lt;/p&gt;
+&lt;h2 id=&#34;许可证&#34;&gt;许可证&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://creativecommons.org/publicdomain/zero/1.0&#34;&gt;&lt;img src=&#34;http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg&#34; alt=&#34;CC0&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To the extent possible under law, &lt;code&gt;juliandavidmr&lt;/code&gt; has waived all copyright and
+related or neighboring rights to this work.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: bull</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/bull/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/bull/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;-新闻和更新&#34;&gt;📻 新闻和更新&lt;/h3&gt;
+&lt;p&gt;请在&lt;a href=&#34;http://twitter.com/manast&#34;&gt;Twitter&lt;/a&gt;上关注我，了解重要的新闻和更新。&lt;/p&gt;
+&lt;h3 id=&#34;-教程&#34;&gt;🛠 教程&lt;/h3&gt;
+&lt;p&gt;你可以在这个博客中找到教程和新闻: &lt;a href=&#34;https://blog.taskforce.sh/&#34;&gt;https://blog.taskforce.sh/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;所使用的&#34;&gt;所使用的&lt;/h3&gt;
+&lt;p&gt;Bull 在大大小小的组织中都很受欢迎，比如以下这些组织:&lt;/p&gt;
+&lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+  &lt;tr&gt;
+    &lt;td valign=&#34;center&#34;&gt;
+      &lt;a href=&#34;https://github.com/atlassian/github-for-jira&#34;&gt;
+        &lt;img
+          src=&#34;https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FevsJCF6F1tx1ScZwDQOd%2FAtlassian-horizontal-blue-rgb.webp?alt=media&amp;token=2fcd0528-e8bb-4bdd-af35-9d20e313d1a8&#34;
+          width=&#34;150&#34;
+          alt=&#34;Atlassian&#34;
+      /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td valign=&#34;center&#34;&gt;
+      &lt;a href=&#34;https://github.com/Autodesk&#34;&gt;
+        &lt;img
+          src=&#34;https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FvpTe02RdOhUJBA8TdHEE%2Fautodesk-logo-white.png?alt=media&amp;token=326961b4-ea4f-4ded-89a4-e05692eec8ee&#34;
+          width=&#34;150&#34;
+          alt=&#34;Autodesk&#34;
+      /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td valign=&#34;center&#34;&gt;
+      &lt;a href=&#34;https://github.com/common-voice/common-voice&#34;&gt;
+        &lt;img
+          src=&#34;https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2F4zPSrubNJKViAzUIftIy%2Fmozilla-logo-bw-rgb.png?alt=media&amp;token=9f93aae2-833f-4cc4-8df9-b7fea0ad5cb5&#34;
+          width=&#34;150&#34;
+          alt=&#34;Mozilla&#34;
+      /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td valign=&#34;center&#34;&gt;
+      &lt;a href=&#34;https://github.com/nestjs/bull&#34;&gt;
+        &lt;img
+          src=&#34;https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FfAcGye182utFUtPKdLqJ%2FScreenshot%202022-02-15%20at%2011.32.39.png?alt=media&amp;token=29feb550-f0bc-467d-a290-f700701d7d15&#34;
+          width=&#34;150&#34;
+          alt=&#34;Nest&#34;
+      /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td valign=&#34;center&#34;&gt;
+      &lt;a href=&#34;https://github.com/salesforce/refocus&#34;&gt;
+        &lt;img
+          src=&#34;https://876297641-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LUuDmt_xXMfG66Rn1GA%2Fuploads%2FZNnYNuL5qJ6ZoBh7JJEW%2Fsalesforce-logo.png?alt=media&amp;token=ddcae63b-08c0-4dd4-8496-3b29a9bf977d&#34;
+          width=&#34;100&#34;
+          alt=&#34;Salesforce&#34;
+      /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;bullmq&#34;&gt;BullMQ&lt;/h3&gt;
+&lt;p&gt;如果你想开始使用完全用 Typescript 编写的下一个主要版本的 Bull，欢迎使用新的 repo&lt;a href=&#34;https://github.com/taskforcesh/bullmq&#34;&gt;这里&lt;/a&gt;.
+否则，我们非常欢迎你仍然使用 Bull，这是一个安全的、经过战斗测试的代码库。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-赞助商-&#34;&gt;🚀 赞助商 🚀&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ&#34;&gt;&lt;img src=&#34;https://www.redisgreen.com/images/rglogo/redisgreen_transparent_240x48.png&#34; width=&#34;150&#34; alt=&#34;RedisGreen&#34; style=&#34;padding: 100px&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果您需要高质量的生产 Redis 实例为您的 Bull 项目，请考虑订阅&lt;a href=&#34;https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ&#34;&gt;RedisGreen&lt;/a&gt;,Redis 的领导者们与 Bull 完美地合作。
+注册时请使用促销代码“BULLMQ”，以帮助我们赞助 Bull 的发展!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;官方的前端&#34;&gt;官方的前端&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://taskforce.sh&#34;&gt;&lt;img src=&#34;http://taskforce.sh/assets/logo_square.png&#34; width=&#34;100&#34; alt=&#34;Taskforce.sh, Inc&#34; style=&#34;padding: 100px&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;用专业前端增压你的队列:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获得所有队列的完整概览。&lt;/li&gt;
+&lt;li&gt;检查作业、搜索、重试或提升被延迟的作业。&lt;/li&gt;
+&lt;li&gt;指标和统计数据。&lt;/li&gt;
+&lt;li&gt;还有更多的功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;登录&lt;a href=&#34;https://taskforce.sh&#34;&gt;Taskforce.sh&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;bull-特性&#34;&gt;Bull 特性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 最小的 CPU 使用率，由于无轮询设计。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 基于 Redis 的稳健设计。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 延迟的工作。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 根据 cron 规范安排和重复作业。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 对工作的率限制。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 重试。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 优先级。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 并发性。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 暂停/恢复-全局或本地。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 每个队列有多个作业类型。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 线程(沙盒)处理函数。&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 从进程崩溃中自动恢复。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来是路线图…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 作业完成确认(同时可以使用消息队列&lt;a href=&#34;https://github.com/OptimalBits/bull/blob/develop/PATTERNS.md#returning-job-completions&#34;&gt;pattern&lt;/a&gt;)。&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 父子的工作关系。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;uis&#34;&gt;UIs&lt;/h3&gt;
+&lt;p&gt;你可以使用一些第三方 ui 来进行监控:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BullMQ&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://taskforce.sh&#34;&gt;Taskforce&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bull v3&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://taskforce.sh&#34;&gt;Taskforce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/vcapretz/bull-board&#34;&gt;bull-board&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/darky/bull-repl&#34;&gt;bull-repl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/s-r-x/bull-monitor&#34;&gt;bull-monitor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/AbhilashJN/monitoro&#34;&gt;Monitoro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bull &amp;lt;= v2&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ShaneK/Matador&#34;&gt;Matador&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kfatehi/react-bull&#34;&gt;react-bull&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Epharmix/Toureiro&#34;&gt;Toureiro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;监测和报警&#34;&gt;监测和报警&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;With Prometheus &lt;a href=&#34;https://github.com/UpHabit/bull_exporter&#34;&gt;Bull Queue Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;特征比较&#34;&gt;特征比较&lt;/h3&gt;
+&lt;p&gt;Since there are a few job queue solutions, here is a table comparing them:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Feature&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Bullmq-Pro&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Bullmq&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Bull&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Kue&lt;/th&gt;
+&lt;th&gt;Bee&lt;/th&gt;
+&lt;th&gt;Agenda&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Backend&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;redis&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;redis&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;redis&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;redis&lt;/td&gt;
+&lt;td&gt;redis&lt;/td&gt;
+&lt;td&gt;mongo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Observables&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Group Rate Limit&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Group Support&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Parent/Child Dependencies&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Priorities&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Concurrency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Delayed jobs&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Global events&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Rate Limiter&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Pause/Resume&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sandboxed worker&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Repeatable jobs&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Atomic ops&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Persistence&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;UI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✓&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Optimized for&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Jobs / Messages&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Jobs / Messages&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Jobs / Messages&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Jobs&lt;/td&gt;
+&lt;td&gt;Messages&lt;/td&gt;
+&lt;td&gt;Jobs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm install bull --save
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;yarn add bull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Requirements:&lt;/strong&gt; Bull requires a Redis version greater than or equal to &lt;code&gt;2.8.18&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;typescript-定义&#34;&gt;Typescript 定义&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm install @types/bull --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;yarn add --dev @types/bull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Definitions are currently maintained in the &lt;a href=&#34;https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/bull&#34;&gt;DefinitelyTyped&lt;/a&gt; repo.&lt;/p&gt;
+&lt;h3 id=&#34;贡献&#34;&gt;贡献&lt;/h3&gt;
+&lt;p&gt;我们欢迎所有类型的贡献，无论是代码修复、新特性还是文档改进。
+代码格式由&lt;a href=&#34;https://prettier.io/&#34;&gt;prettier&lt;/a&gt;强制执行。
+对于提交，请遵循常规&lt;a href=&#34;https://www.conventionalcommits.org/en/v1.0.0-beta.2/&#34;&gt;commits convention&lt;/a&gt;。
+所有代码都必须通过 lint 规则和测试套件，然后才能合并到 development 中。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;快速指南&#34;&gt;快速指南&lt;/h3&gt;
+&lt;h4 id=&#34;基本用法&#34;&gt;基本用法&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;require&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bull&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;videoQueue&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;video transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;redis://127.0.0.1:6379&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;audioQueue&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;audio transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;redis&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6379&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;foobared&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Specify Redis connection using object
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;imageQueue&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;image transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;pdfQueue&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;pdf transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;videoQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// job.data contains the custom data passed when the job was created
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// job.id contains id of this job.
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// transcode video asynchronously and report progress
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;progress&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;42&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// call done when finished
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// or give a error if error
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;error transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// or pass it a result
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;framerate&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;29.5&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/* etc... */&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// If the job throws an unhandled exception it is also handled correctly
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;some unexpected error&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;audioQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// transcode audio asynchronously and report progress
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;progress&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;42&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// call done when finished
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// or give a error if error
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;error transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// or pass it a result
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;samplerate&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;48000&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/* etc... */&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// If the job throws an unhandled exception it is also handled correctly
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;some unexpected error&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;imageQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// transcode image asynchronously and report progress
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;progress&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;42&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// call done when finished
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// or give a error if error
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;error transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// or pass it a result
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1280&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;720&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/* etc... */&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// If the job throws an unhandled exception it is also handled correctly
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;some unexpected error&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;pdfQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Processors can also return promises instead of using the done callback
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;pdfAsyncProcessor&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;videoQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;video&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://example.com/video1.mov&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;audioQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;audio&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://example.com/audio1.mp3&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;imageQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://example.com/image1.tiff&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;使用承诺&#34;&gt;使用承诺&lt;/h4&gt;
+&lt;p&gt;或者，你可以使用 return promises 来代替&lt;code&gt;done&lt;/code&gt;回调:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;videoQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 不要忘记删除done回调!
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 简单地回报一个承诺
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fetchVideo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;transcodeVideo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 处理承诺拒绝
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;reject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;error transcoding&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 将承诺解析的值传递给“completed”事件
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;resolve&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;framerate&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;29.5&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/* etc... */&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 如果作业抛出一个未处理的异常，它也会得到正确的处理
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;some unexpected error&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 一样
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;reject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Error&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;some unexpected error&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;独立的进程&#34;&gt;独立的进程&lt;/h4&gt;
+&lt;p&gt;进程函数也可以在单独的进程中运行。这有几个好处:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这个进程是沙箱化的，所以即使它崩溃了，也不会影响工作进程。&lt;/li&gt;
+&lt;li&gt;您可以在不影响队列的情况下运行阻塞代码(作业不会停止)。&lt;/li&gt;
+&lt;li&gt;更好地利用多核 cpu。&lt;/li&gt;
+&lt;li&gt;减少与 redis 的连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了使用这个特性，只需创建一个单独的处理器文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// processor.js
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;module&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;exports&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 做一些繁重的工作
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;resolve&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后像这样定义处理器:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 单流程:
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/my/processor.js&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 你也可以使用并发:
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/my/processor.js&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 和指定的处理器:
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;my processor&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/my/processor.js&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;重复的工作&#34;&gt;重复的工作&lt;/h4&gt;
+&lt;p&gt;A job can be added to a queue and processed repeatedly according to a cron specification:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;paymentsQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Check payments
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Repeat payment job once every day at 3:15 (am)
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;paymentsQueue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;paymentsData&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;repeat&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;cron&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;15 3 * * *&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As a tip, check your expressions here to verify they are correct:
+&lt;a href=&#34;https://crontab.cronhub.io&#34;&gt;cron expression generator&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;暂停恢复&#34;&gt;暂停/恢复&lt;/h4&gt;
+&lt;p&gt;A queue can be paused and resumed globally (pass &lt;code&gt;true&lt;/code&gt; to pause processing for
+just this worker):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pause&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// queue is paused now
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;resume&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// queue is resumed now
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;事件&#34;&gt;事件&lt;/h4&gt;
+&lt;p&gt;队列会发出一些有用的事件，例如…&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;on&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;completed&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Job completed with output result!
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For more information on events, including the full list of events that are fired, check out the &lt;a href=&#34;./REFERENCE.md#events&#34;&gt;Events reference&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;队列性能&#34;&gt;队列性能&lt;/h4&gt;
+&lt;p&gt;队列很便宜，所以如果你需要很多队列，只需创建新的不同名称的队列:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;userJohn&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;john&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;userLisa&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;lisa&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However every queue instance will require new redis connections, check how to &lt;a href=&#34;https://github.com/OptimalBits/bull/blob/master/PATTERNS.md#reusing-redis-connections&#34;&gt;reuse connections&lt;/a&gt; or you can also use &lt;a href=&#34;https://github.com/OptimalBits/bull/blob/master/REFERENCE.md#queueprocess&#34;&gt;named processors&lt;/a&gt; to achieve a similar result.&lt;/p&gt;
+&lt;h4 id=&#34;集群的支持&#34;&gt;集群的支持&lt;/h4&gt;
+&lt;p&gt;NOTE: From version 3.2.0 and above it is recommended to use threaded processors instead.&lt;/p&gt;
+&lt;p&gt;Queues are robust and can be run in parallel in several threads or processes
+without any risk of hazards or queue corruption. Check this simple example
+using cluster to parallelize jobs across processes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;require&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bull&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;cluster&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;require&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cluster&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;numWorkers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test concurrent queue&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;cluster&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;isMaster&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;numWorkers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;cluster&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fork&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;cluster&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;on&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;online&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;worker&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Let&amp;#39;s create a few jobs for the queue workers
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;foo&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bar&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;cluster&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;on&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;exit&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;worker&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;signal&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;worker &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;worker&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pid&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; died&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;queue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;process&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;jobDone&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Job done by worker&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;cluster&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;worker&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;job&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;jobDone&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;文档&#34;&gt;文档&lt;/h3&gt;
+&lt;p&gt;要获取完整的文档，请查看参考和常用模式:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://optimalbits.github.io/bull/&#34;&gt;Guide&lt;/a&gt; — Your starting point for developing with Bull.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;./REFERENCE.md&#34;&gt;Reference&lt;/a&gt; — Reference document with all objects and methods available.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;./PATTERNS.md&#34;&gt;Patterns&lt;/a&gt; — a set of examples for common patterns.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;./LICENSE.md&#34;&gt;License&lt;/a&gt; — the Bull license—it&amp;rsquo;s MIT.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你看到任何可以使用更多文档的东西，请提交一个 pull request!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;重要的笔记&#34;&gt;重要的笔记&lt;/h3&gt;
+&lt;p&gt;The queue aims for an &amp;ldquo;at least once&amp;rdquo; working strategy. This means that in some situations, a job
+could be processed more than once. This mostly happens when a worker fails to keep a lock
+for a given job during the total duration of the processing.&lt;/p&gt;
+&lt;p&gt;When a worker is processing a job it will keep the job &amp;ldquo;locked&amp;rdquo; so other workers can&amp;rsquo;t process it.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s important to understand how locking works to prevent your jobs from losing their lock - becoming &lt;em&gt;stalled&lt;/em&gt; -
+and being restarted as a result. Locking is implemented internally by creating a lock for &lt;code&gt;lockDuration&lt;/code&gt; on interval
+&lt;code&gt;lockRenewTime&lt;/code&gt; (which is usually half &lt;code&gt;lockDuration&lt;/code&gt;). If &lt;code&gt;lockDuration&lt;/code&gt; elapses before the lock can be renewed,
+the job will be considered stalled and is automatically restarted; it will be &lt;strong&gt;double processed&lt;/strong&gt;. This can happen when:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The Node process running your job processor unexpectedly terminates.&lt;/li&gt;
+&lt;li&gt;Your job processor was too CPU-intensive and stalled the Node event loop, and as a result, Bull couldn&amp;rsquo;t renew the job lock (see &lt;a href=&#34;https://github.com/OptimalBits/bull/issues/488&#34;&gt;#488&lt;/a&gt; for how we might better detect this). You can fix this by breaking your job processor into smaller parts so that no single part can block the Node event loop. Alternatively, you can pass a larger value for the &lt;code&gt;lockDuration&lt;/code&gt; setting (with the tradeoff being that it will take longer to recognize a real stalled job).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As such, you should always listen for the &lt;code&gt;stalled&lt;/code&gt; event and log this to your error monitoring system, as this means your jobs are likely getting double-processed.&lt;/p&gt;
+&lt;p&gt;As a safeguard so problematic jobs won&amp;rsquo;t get restarted indefinitely (e.g. if the job processor always crashes its Node process), jobs will be recovered from a stalled state a maximum of &lt;code&gt;maxStalledCount&lt;/code&gt; times (default: &lt;code&gt;1&lt;/code&gt;).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: MongoDB概论</title>
       <link>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
