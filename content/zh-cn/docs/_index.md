@@ -7,6 +7,8 @@ menu:
     weight: 1
 ---
 
+> https://wanago.io/courses/api-with-nestjs/
+
 - 1. Controllers, routing and the module structure
 - 2. Setting up a PostgreSQL database with TypeORM
 - 3. Authenticating users with bcrypt, Passport, JWT, and cookies
