@@ -2,11 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/http/axios/</loc>
+    <lastmod>2022-04-23T14:48:20+08:00</lastmod>
+  </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/blog/</loc>
     <lastmod>2021-12-08T01:13:08+08:00</lastmod>
   </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/files/api-nestjs-uploading-files-to-server/</loc>
+    <lastmod>2022-04-18T08:56:43+08:00</lastmod>
+  </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/</loc>
-    <lastmod>2022-03-19T12:20:28+08:00</lastmod>
+    <lastmod>2022-04-23T14:48:20+08:00</lastmod>
   </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/validator/class-validator/</loc>
     <lastmod>2022-03-19T19:19:27+08:00</lastmod>
@@ -17,13 +23,28 @@
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/</loc>
     <lastmod>2022-03-19T17:19:39+08:00</lastmod>
   </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/http/nest-axios-interceptor/</loc>
+    <lastmod>2022-04-23T14:48:20+08:00</lastmod>
+  </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/validator/class-transformer/</loc>
     <lastmod>2022-03-19T19:19:27+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/files/</loc>
+    <lastmod>2022-04-18T08:56:43+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/http/axios-auth-refresh/</loc>
+    <lastmod>2022-04-23T14:48:20+08:00</lastmod>
   </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/awesome/</loc>
     <lastmod>2022-03-23T21:35:13+08:00</lastmod>
   </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/bull/</loc>
+    <lastmod>2022-03-25T00:40:53+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/http/</loc>
+    <lastmod>2022-04-23T14:48:20+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/docs/http/node-cache-manager/</loc>
   </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/introduction/</loc>
     <lastmod>2022-03-19T12:20:28+08:00</lastmod>
@@ -46,11 +67,11 @@
     <loc>https://wdk-docs.github.io/nestjs-docs/docs/mongodb/updating/</loc>
     <lastmod>2022-03-19T12:20:28+08:00</lastmod>
   </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/blog/2021/11/29/nestjs%E4%BD%BF%E7%94%A8multer%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2022-04-16T00:20:30+08:00</lastmod>
+  </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/blog/2021/03/27/jwt-authentication-using-nodenestjsmongoosepassportionic5-..-part1/</loc>
     <lastmod>2022-03-19T12:20:28+08:00</lastmod>
-  </url><url>
-    <loc>https://wdk-docs.github.io/nestjs-docs/</loc>
-    <lastmod>2022-03-23T21:35:13+08:00</lastmod>
   </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/blog/2020/04/07/websocket-cluster-with-nestjs-and-redis/</loc>
     <lastmod>2021-12-10T18:54:49+08:00</lastmod>
@@ -59,6 +80,12 @@
     <lastmod>2021-12-10T18:54:49+08:00</lastmod>
   </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/categories/</loc>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/</loc>
+    <lastmod>2022-04-23T14:48:20+08:00</lastmod>
+  </url><url>
+    <loc>https://wdk-docs.github.io/nestjs-docs/search/</loc>
+    <lastmod>2022-04-23T14:48:20+08:00</lastmod>
   </url><url>
     <loc>https://wdk-docs.github.io/nestjs-docs/tags/</loc>
   </url>

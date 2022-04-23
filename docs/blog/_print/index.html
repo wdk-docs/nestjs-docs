@@ -142,6 +142,16 @@ if (!doNotTrack) {
     
 	
 
+    <li><a href="#pg-3104a853f03e72e67ff21d8950894a7f">Nestjs使用Multer上传文件</a></li>
+
+
+
+    
+  
+    
+    
+	
+
     <li><a href="#pg-f403245923f76e6a74df80d9ba402fd9">JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1</a></li>
 
 
@@ -196,6 +206,217 @@ if (!doNotTrack) {
   
 
 <div class="td-content" style="">
+    <h1 id="pg-3104a853f03e72e67ff21d8950894a7f">Nestjs使用Multer上传文件</h1>
+	
+	<div class="td-byline mb-4">
+		By <b>Gabriel Tanner</b> |
+        
+		<time datetime="2021-11-29" class="text-muted">Monday, November 29, 2021</time>
+        
+	</div>
+	<blockquote>
+<p><a href="https://gabrieltanner.org/blog/nestjs-file-uploading-using-multer">https://gabrieltanner.org/blog/nestjs-file-uploading-using-multer</a></p>
+</blockquote>
+<p>本指南将向你展示如何将文件上传到你的 Nestjs 应用程序中，以及在这样做时你应该记住的事情。
+您将开发一个具有三个端点的应用程序，将达到以下目的:</p>
+<ul>
+<li>上传一个图像</li>
+<li>上传多个图像</li>
+<li>使用图像路径获取图像</li>
+</ul>
+<p>您还将添加自定义实用工具来编辑文件名并验证图像的文件上传。
+不浪费时间了，让我们开始吧。</p>
+<h2 id="设置">设置</h2>
+<p>您需要做的第一件事是创建一个包含文件服务器的 Nestjs 项目。
+为此，需要打开终端，执行如下命令:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nest new nest-file-uploading <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> nest-file-uploading
+</code></pre></div><p>这将创建一个名为 nest-file-upload 的新目录，并使用标准的 Nestjs 配置对其进行初始化。</p>
+<p>安装好目录后，你可以使用以下命令安装应用程序所需的依赖项:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm install @nestjs/platform-express --save
+npm install @types/express -D
+</code></pre></div><p>在开始编码之前，您需要做的最后一件事是创建项目所需的文件和文件夹。
+这非常简单，因为应用程序只需要多一个文件。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir src/utils
+touch src/utils/file-uploading.utils.ts
+</code></pre></div><p>要启动应用程序，你现在可以在你的终端中执行</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm run start:dev。
+</code></pre></div><h2 id="上传文件">上传文件</h2>
+<p>现在您已经完成了设置过程，您可以继续并开始实现实际的功能。
+让我们从在你的 <code>AppModule</code> 中导入 <code>MulterModule</code> 开始，这样你就可以在其他文件中使用 <code>Multer</code> 。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">Module</span> <span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#4e9a06">&#34;@nestjs/common&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">AppController</span> <span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#4e9a06">&#34;./app.controller&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">MulterModule</span> <span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#4e9a06">&#34;@nestjs/platform-express&#34;</span><span style="color:#000;font-weight:bold">;</span>
+
+<span style="color:#204a87;font-weight:bold">@Module</span><span style="color:#000;font-weight:bold">({</span>
+  <span style="color:#000">imports</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+    <span style="color:#000">MulterModule</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">register</span><span style="color:#000;font-weight:bold">({</span>
+      <span style="color:#000">dest</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./files&#34;</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">}),</span>
+  <span style="color:#000;font-weight:bold">],</span>
+  <span style="color:#000">controllers</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">AppController</span><span style="color:#000;font-weight:bold">],</span>
+<span style="color:#000;font-weight:bold">})</span>
+<span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AppModule</span> <span style="color:#000;font-weight:bold">{}</span>
+</code></pre></div><p>在这里，你从 <code>@nestjs/platform-express</code> 中导入 <code>MulterModule</code> ，并将其添加到 <code>imports</code> 语句中。
+您还可以定义上传时保存文件的目的地。</p>
+<blockquote>
+<p>Note: 这个目标从项目的根路径开始，而不是 src 文件夹。</p>
+</blockquote>
+<p>下一步是实现实际的上传功能，这相当简单。
+您只需要将 <code>FileInterceptor()</code> 添加到一个普通的 <code>@Post</code> 请求处理程序中，然后使用<code>@UploadedFile()</code>装饰器从请求中提取文件。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AlbumController</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">@Post</span><span style="color:#000;font-weight:bold">()</span>
+  <span style="color:#204a87;font-weight:bold">@UseInterceptors</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FileInterceptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">))</span>
+  <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#000">uploadedFile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">@UploadedFile</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000">file</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">originalname</span>: <span style="color:#204a87;font-weight:bold">file.originalname</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000">filename</span>: <span style="color:#204a87;font-weight:bold">file.filename</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">};</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p><code>FileInterceptor</code> 接受两个参数，一个 <code>fieldName</code> 和一个可选的 <code>options</code> 对象，稍后您将使用它来检查正确的文件类型，并在目录中给文件一个自定义名称。
+一次上传多个文件几乎是一样的，你只需要使用 FilesInterceptor 来代替，并传递一个额外的参数，即文件的最大数量。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AlbumController</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">@Post</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;multiple&#34;</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">@UseInterceptors</span><span style="color:#000;font-weight:bold">(</span>
+    <span style="color:#000">FilesInterceptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">storage</span>: <span style="color:#204a87;font-weight:bold">diskStorage</span><span style="color:#000;font-weight:bold">({</span>
+        <span style="color:#000">destination</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./files&#34;</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">filename</span>: <span style="color:#204a87;font-weight:bold">editFileName</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000;font-weight:bold">}),</span>
+      <span style="color:#000">fileFilter</span>: <span style="color:#204a87;font-weight:bold">imageFileFilter</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">})</span>
+  <span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#000">uploadMultipleFiles</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">@UploadedFiles</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000">files</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[];</span>
+    <span style="color:#000">files</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">forEach</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">file</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">fileReponse</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">originalname</span>: <span style="color:#204a87;font-weight:bold">file.originalname</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">filename</span>: <span style="color:#204a87;font-weight:bold">file.filename</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000;font-weight:bold">};</span>
+      <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fileReponse</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>这很简单，这里唯一的问题是，用户可以上传所有文件类型，而不考虑文件扩展名，这并不适合所有项目，文件名只是一些随机数。</p>
+<p>让我们通过在您的<code>file-upload.utils.ts</code>文件中实现一些实用工具来修复这个问题。</p>
+<p>首先，让我们实现只允许上传图像的文件类型过滤器。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">imageFileFilter</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">req</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">file</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">callback</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">file</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">originalname</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">match</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">/\.(jpg|jpeg|png|gif)$/</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">callback</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Error</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Only image files are allowed!&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">);</span>
+  <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000">callback</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><p>这里您创建了一个中间件函数，用于检查文件类型是否为图像。
+如果是，它返回 true，图像将被上传，如果不是，你抛出一个错误，并为回调返回 false。</p>
+<p><code>editFileName</code> 函数具有相同的结构，但使用原始名称、文件扩展名和四个随机数创建一个自定义文件名。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">editFileName</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">req</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">file</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">callback</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">file</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">originalname</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">)[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">];</span>
+  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">fileExtName</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">extname</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">file</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">originalname</span><span style="color:#000;font-weight:bold">);</span>
+  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">randomName</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">Array</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">fill</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">map</span><span style="color:#000;font-weight:bold">(()</span> <span style="color:#ce5c00;font-weight:bold">=&gt;</span> <span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">round</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">random</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">16</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">toString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">16</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+  <span style="color:#000">callback</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">`</span><span style="color:#4e9a06">${</span><span style="color:#000">name</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">-</span><span style="color:#4e9a06">${</span><span style="color:#000">randomName</span><span style="color:#4e9a06">}${</span><span style="color:#000">fileExtName</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">`</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><p>现在你已经创建了这两个中间件函数，是时候在 <code>app.controller.ts</code> 文件中使用它们了。
+为此，你只需要在 <code>FileInterceptor</code> 中添加一个额外的配置对象，如下所示:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AlbumController</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">@Post</span><span style="color:#000;font-weight:bold">()</span>
+  <span style="color:#204a87;font-weight:bold">@UseInterceptors</span><span style="color:#000;font-weight:bold">(</span>
+    <span style="color:#000">FileInterceptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">storage</span>: <span style="color:#204a87;font-weight:bold">diskStorage</span><span style="color:#000;font-weight:bold">({</span>
+        <span style="color:#000">destination</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./files&#34;</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">filename</span>: <span style="color:#204a87;font-weight:bold">editFileName</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000;font-weight:bold">}),</span>
+      <span style="color:#000">fileFilter</span>: <span style="color:#204a87;font-weight:bold">imageFileFilter</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">})</span>
+  <span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#000">uploadedFile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">@UploadedFile</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000">file</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">originalname</span>: <span style="color:#204a87;font-weight:bold">file.originalname</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000">filename</span>: <span style="color:#204a87;font-weight:bold">file.filename</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">};</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#000;font-weight:bold">}</span>
+
+  <span style="color:#204a87;font-weight:bold">@Post</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;multiple&#34;</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">@UseInterceptors</span><span style="color:#000;font-weight:bold">(</span>
+    <span style="color:#000">FilesInterceptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">storage</span>: <span style="color:#204a87;font-weight:bold">diskStorage</span><span style="color:#000;font-weight:bold">({</span>
+        <span style="color:#000">destination</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./files&#34;</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">filename</span>: <span style="color:#204a87;font-weight:bold">editFileName</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000;font-weight:bold">}),</span>
+      <span style="color:#000">fileFilter</span>: <span style="color:#204a87;font-weight:bold">imageFileFilter</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">})</span>
+  <span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#000">uploadMultipleFiles</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">@UploadedFiles</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000">files</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[];</span>
+    <span style="color:#000">files</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">forEach</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">file</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">fileReponse</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">originalname</span>: <span style="color:#204a87;font-weight:bold">file.originalname</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">filename</span>: <span style="color:#204a87;font-weight:bold">file.filename</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000;font-weight:bold">};</span>
+      <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fileReponse</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>最后，你将添加一个<code>@Get</code>路由，它将<code>imagepath</code>作为参数，并使用 <code>sendFile</code> 方法返回图像。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AlbumController</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">@Get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;:imgpath&#34;</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000">seeUploadedFile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">@Param</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;imgpath&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">image</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">@Res</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000">res</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">sendFile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">image</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./files&#34;</span> <span style="color:#000;font-weight:bold">});</span>
+  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h2 id="测试应用程序">测试应用程序</h2>
+<p>既然您已经完成了应用程序，现在就可以通过向端点发送 HTTP 请求来测试它了。
+这可以使用终端中的 <code>curl</code> 命令或使用一个 <code>HTTP</code> 客户端软件，如 <code>Postman</code> 或 <code>Insomnia</code> 来完成。
+我个人使用的是《Insomnia》，但在《Postman》中也应该是一样的。</p>
+<p>使用以下命令启动服务器:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm run start
+</code></pre></div><p>正如终端输出所示，服务器现在运行在 <code>http://localhost:3000</code> 上。
+要测试 API，您现在只需要创建一个新的 <code>HTTP</code> 请求并将请求体更改为 <code>multipart</code> ，这样您就可以上传文件了。</p>
+<p><img src="https://content.gabrieltanner.org/content/images/2019/09/nest-file-upload-upload-image.jpg" alt="Upload images">
+Upload images</p>
+<p>在这里，您将目标设置为 <code>http://localhost:3000</code>，并向请求体添加一个图像。
+这可以通过单击复选框旁边的箭头并选择 file 来完成。</p>
+<p>在右侧，您可以看到服务器上带有原始文件名和新文件名的响应。</p>
+<blockquote>
+<p>Note: 稍后将使用新文件名从服务器获取图像。</p>
+</blockquote>
+<p><img src="https://content.gabrieltanner.org/content/images/2019/09/nest-file-upload-upload-multiple-images.jpg" alt="Upload multiple images">
+Upload multiple images</p>
+<p>在这里，您可以执行相同的操作，但要在/多个端点上上传多个文件。</p>
+<p><img src="https://content.gabrieltanner.org/content/images/2019/09/nest-file-upload-get-image.jpg" alt="Get uploaded image">
+Get uploaded image</p>
+<p>获取文件也是一个简单的过程。
+您只需要将从 <code>post</code> 请求中获得的文件名作为参数发送一个 <code>get</code> 请求到 <code>API</code>。</p>
+<p>项目的完整代码也可以在我的 <a href="https://github.com/TannerGabriel/Blog/tree/master/nest-file-uploading">Github</a> 上找到。</p>
+<h2 id="结论">结论</h2>
+<p>你一直坚持到最后!希望本文能帮助您理解 <code>Nestjs</code> 中的文件上传。</p>
+<p>如果您觉得这很有用，请考虑推荐并与其他开发人员分享。
+如果你有任何问题或反馈，请在 <code>twitter</code> 上告诉我或使用我的联系方式。</p>
+
+</div>
+
+
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="page-break-before: always">
     <h1 id="pg-f403245923f76e6a74df80d9ba402fd9">JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1</h1>
 	
 	<div class="td-byline mb-4">

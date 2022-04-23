@@ -22,19 +22,15 @@
 
 <title>文档 | NestJS 文档</title>
 <meta name="description" content="
+https://wanago.io/courses/api-with-nestjs/
 
 
-Controllers, routing and the module structure
-
-
-
-
-Setting up a PostgreSQL database with TypeORM
-
-
-
-
-Authenticating users with bcrypt, Passport, …">
+控制器、路由和模块结构
+用 TypeORM 建立一个 PostgreSQL 数据库
+使用 bcrypt、Passport、JWT 和 cookie 对用户进行身份验证
+错误处理和数据验证
+用拦截器序列化响应
+ …">
 <meta property="og:title" content="文档" />
 <meta property="og:description" content="NestJs 文档" />
 <meta property="og:type" content="website" />
@@ -157,10 +153,30 @@ if (!doNotTrack) {
   <a href="/nestjs-docs/docs/mongodb/updating/" title="用PUT和PATCH更新MongoDB和Mongoose" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocsmongodbupdating"><span class="">更新</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nestjs-docsdocsfiles-li">
+  <a href="/nestjs-docs/docs/files/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-nestjs-docsdocsfiles"><span class="">files</span></a>
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nestjs-docsdocsfilesapi-nestjs-uploading-files-to-server-li">
+  <a href="/nestjs-docs/docs/files/api-nestjs-uploading-files-to-server/" title="Uploading files to the server" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocsfilesapi-nestjs-uploading-files-to-server"><span class="">文件上传</span></a>
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nestjs-docsdocsawesome-li">
   <a href="/nestjs-docs/docs/awesome/" title="awesome" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocsawesome"><span class="">资源集合</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nestjs-docsdocsbull-li">
   <a href="/nestjs-docs/docs/bull/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocsbull"><span class="">bull</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nestjs-docsdocshttp-li">
+  <a href="/nestjs-docs/docs/http/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-nestjs-docsdocshttp"><span class="">http</span></a>
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nestjs-docsdocshttpaxios-li">
+  <a href="/nestjs-docs/docs/http/axios/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocshttpaxios"><span class="">axios</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nestjs-docsdocshttpnest-axios-interceptor-li">
+  <a href="/nestjs-docs/docs/http/nest-axios-interceptor/" title="@narando/nest-axios-interceptor" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocshttpnest-axios-interceptor"><span class="">拦截器</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nestjs-docsdocshttpaxios-auth-refresh-li">
+  <a href="/nestjs-docs/docs/http/axios-auth-refresh/" title="axios-auth-refresh" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocshttpaxios-auth-refresh"><span class="">认证刷新</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nestjs-docsdocshttpnode-cache-manager-li">
+  <a href="/nestjs-docs/docs/http/node-cache-manager/" title="`node-cache-manager` - 灵活的NodeJS缓存模块" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-nestjs-docsdocshttpnode-cache-manager"><span class="">缓存管理</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li>
@@ -243,313 +259,72 @@ if (!doNotTrack) {
 		
 		
 	</header>
-	<ul>
-<li>
+	<blockquote>
+<p><a href="https://wanago.io/courses/api-with-nestjs/">https://wanago.io/courses/api-with-nestjs/</a></p>
+</blockquote>
 <ol>
-<li>Controllers, routing and the module structure</li>
+<li>控制器、路由和模块结构</li>
+<li>用 TypeORM 建立一个 PostgreSQL 数据库</li>
+<li>使用 bcrypt、Passport、JWT 和 cookie 对用户进行身份验证</li>
+<li>错误处理和数据验证</li>
+<li>用拦截器序列化响应</li>
+<li>研究依赖注入和模块</li>
+<li>创建与 Postgres 和 TypeORM 的关系</li>
+<li>编写单元测试</li>
+<li>使用集成测试测试服务和控制器</li>
+<li>上传公共文件到 Amazon S3</li>
+<li>使用 Amazon S3 管理私有文件</li>
+<li>介绍 Elasticsearch</li>
+<li>使用 JWT 实现刷新令牌</li>
+<li>使用索引提高 Postgres 数据库的性能</li>
+<li>用 PostgreSQL 和 TypeORM 定义事务</li>
+<li>使用数组数据类型与 PostgreSQL 和 TypeORM</li>
+<li>使用 PostgreSQL 和 TypeORM 进行偏移和键集分页</li>
+<li>探索微服务的理念</li>
+<li>使用 RabbitMQ 与微服务通信</li>
+<li>使用 gRPC 框架与微服务通信</li>
+<li>CQRS 的介绍</li>
+<li>用 PostgreSQL 和 TypeORM 存储 JSON</li>
+<li>实现内存缓存以提高性能</li>
+<li>缓存与复述。在 Node.js 集群中运行应用</li>
+<li>使用 cron 和 Nodemailer 发送预定的电子邮件</li>
+<li>与 WebSockets 的实时聊天</li>
+<li>GraphQL 概论。查询、修改和身份验证</li>
+<li>处理 GraphQL 中的 N + 1 问题</li>
+<li>使用 GraphQL 订阅实现实时更新</li>
+<li>GraphQL 中的标量类型</li>
+<li>双因素身份验证</li>
+<li>介绍 Prisma 与 PostgreSQL</li>
+<li>管理 PostgreSQL 与 Prisma 的关系</li>
+<li>使用队列处理 cpu 密集型任务</li>
+<li>使用服务器端会话而不是 JSON Web 令牌</li>
+<li>介绍带 React 的条纹</li>
+<li>使用 Stripe 保存信用卡以备将来使用</li>
+<li>通过订阅设置分期付款</li>
+<li>用 webhook 对 Stripe 事件做出反应</li>
+<li>确认邮箱地址</li>
+<li>验证电话号码和发送短信与 Twilio</li>
+<li>使用谷歌对用户进行认证</li>
+<li>MongoDB 概论</li>
+<li>与 MongoDB 实现关系</li>
+<li>MongoDB 和 Mongoose 的虚拟财产</li>
+<li>MongoDB 和 Mongoose 管理事务</li>
+<li>用 MongoDB 和 Mongoose 实现分页</li>
+<li>用 MongoDB 和 Mongoose 定义索引</li>
+<li>MongoDB 和 Mongoose 的 PUT 和 PATCH 更新</li>
+<li>介绍使用内置记录器和 TypeORM 进行日志记录</li>
+<li>使用终端和数据狗进行运行状况检查</li>
+<li>使用 Compodoc 和 JSDoc 生成文档</li>
+<li>使用 PostgreSQL 和 TypeORM 实现软删除</li>
+<li>在 PostgreSQL 数据库中存储文件</li>
+<li>上传文件到服务器</li>
+<li>使用角色和声明进行授权</li>
+<li>使用 mixin 模式组合类</li>
+<li>使用 ETag 实现缓存和节省带宽</li>
+<li>介绍一个与 Lerna 和 Yarn 工作空间的单簧管</li>
+<li>OpenAPI 规范和 Swagger</li>
+<li>处理循环依赖关系</li>
 </ol>
-</li>
-<li>
-<ol start="2">
-<li>Setting up a PostgreSQL database with TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="3">
-<li>Authenticating users with bcrypt, Passport, JWT, and cookies</li>
-</ol>
-</li>
-<li>
-<ol start="4">
-<li>Error handling and data validation</li>
-</ol>
-</li>
-<li>
-<ol start="5">
-<li>Serializing the response with interceptors</li>
-</ol>
-</li>
-<li>
-<ol start="6">
-<li>Looking into dependency injection and modules</li>
-</ol>
-</li>
-<li>
-<ol start="7">
-<li>Creating relationships with Postgres and TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="8">
-<li>Writing unit tests</li>
-</ol>
-</li>
-<li>
-<ol start="9">
-<li>Testing services and controllers with integration tests</li>
-</ol>
-</li>
-<li>
-<ol start="10">
-<li>Uploading public files to Amazon S3</li>
-</ol>
-</li>
-<li>
-<ol start="11">
-<li>Managing private files with Amazon S3</li>
-</ol>
-</li>
-<li>
-<ol start="12">
-<li>Introduction to Elasticsearch</li>
-</ol>
-</li>
-<li>
-<ol start="13">
-<li>Implementing refresh tokens using JWT</li>
-</ol>
-</li>
-<li>
-<ol start="14">
-<li>Improving performance of our Postgres database with indexes</li>
-</ol>
-</li>
-<li>
-<ol start="15">
-<li>Defining transactions with PostgreSQL and TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="16">
-<li>Using the array data type with PostgreSQL and TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="17">
-<li>Offset and keyset pagination with PostgreSQL and TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="18">
-<li>Exploring the idea of microservices</li>
-</ol>
-</li>
-<li>
-<ol start="19">
-<li>Using RabbitMQ to communicate with microservices</li>
-</ol>
-</li>
-<li>
-<ol start="20">
-<li>Communicating with microservices using the gRPC framework</li>
-</ol>
-</li>
-<li>
-<ol start="21">
-<li>An introduction to CQRS</li>
-</ol>
-</li>
-<li>
-<ol start="22">
-<li>Storing JSON with PostgreSQL and TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="23">
-<li>Implementing in-memory cache to increase the performance</li>
-</ol>
-</li>
-<li>
-<ol start="24">
-<li>Cache with Redis. Running the app in a Node.js cluster</li>
-</ol>
-</li>
-<li>
-<ol start="25">
-<li>Sending scheduled emails with cron and Nodemailer</li>
-</ol>
-</li>
-<li>
-<ol start="26">
-<li>Real-time chat with WebSockets</li>
-</ol>
-</li>
-<li>
-<ol start="27">
-<li>Introduction to GraphQL. Queries, mutations, and authentication</li>
-</ol>
-</li>
-<li>
-<ol start="28">
-<li>Dealing in the N + 1 problem in GraphQL</li>
-</ol>
-</li>
-<li>
-<ol start="29">
-<li>Real-time updates with GraphQL subscriptions</li>
-</ol>
-</li>
-<li>
-<ol start="30">
-<li>Scalar types in GraphQL</li>
-</ol>
-</li>
-<li>
-<ol start="31">
-<li>Two-factor authentication</li>
-</ol>
-</li>
-<li>
-<ol start="32">
-<li>Introduction to Prisma with PostgreSQL</li>
-</ol>
-</li>
-<li>
-<ol start="33">
-<li>Managing PostgreSQL relationships with Prisma</li>
-</ol>
-</li>
-<li>
-<ol start="34">
-<li>Handling CPU-intensive tasks with queues</li>
-</ol>
-</li>
-<li>
-<ol start="35">
-<li>Using server-side sessions instead of JSON Web Tokens</li>
-</ol>
-</li>
-<li>
-<ol start="36">
-<li>Introduction to Stripe with React</li>
-</ol>
-</li>
-<li>
-<ol start="37">
-<li>Using Stripe to save credit cards for future use</li>
-</ol>
-</li>
-<li>
-<ol start="38">
-<li>Setting up recurring payments via subscriptions with Stripe</li>
-</ol>
-</li>
-<li>
-<ol start="39">
-<li>Reacting to Stripe events with webhooks</li>
-</ol>
-</li>
-<li>
-<ol start="40">
-<li>Confirming the email address</li>
-</ol>
-</li>
-<li>
-<ol start="41">
-<li>Verifying phone numbers and sending SMS messages with Twilio</li>
-</ol>
-</li>
-<li>
-<ol start="42">
-<li>Authenticating users with Google</li>
-</ol>
-</li>
-<li>
-<ol start="43">
-<li>Introduction to MongoDB</li>
-</ol>
-</li>
-<li>
-<ol start="44">
-<li>Implementing relationships with MongoDB</li>
-</ol>
-</li>
-<li>
-<ol start="45">
-<li>Virtual properties with MongoDB and Mongoose</li>
-</ol>
-</li>
-<li>
-<ol start="46">
-<li>Managing transactions with MongoDB and Mongoose</li>
-</ol>
-</li>
-<li>
-<ol start="47">
-<li>Implementing pagination with MongoDB and Mongoose</li>
-</ol>
-</li>
-<li>
-<ol start="48">
-<li>Definining indexes with MongoDB and Mongoose</li>
-</ol>
-</li>
-<li>
-<ol start="49">
-<li>Updating with PUT and PATCH with MongoDB and Mongoose</li>
-</ol>
-</li>
-<li>
-<ol start="50">
-<li>Introduction to logging with the built-in logger and TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="51">
-<li>Health checks with Terminus and Datadog</li>
-</ol>
-</li>
-<li>
-<ol start="52">
-<li>Generating documentation with Compodoc and JSDoc</li>
-</ol>
-</li>
-<li>
-<ol start="53">
-<li>Implementing soft deletes with PostgreSQL and TypeORM</li>
-</ol>
-</li>
-<li>
-<ol start="54">
-<li>Storing files inside a PostgreSQL database</li>
-</ol>
-</li>
-<li>
-<ol start="55">
-<li>Uploading files to the server</li>
-</ol>
-</li>
-<li>
-<ol start="56">
-<li>Authorization with roles and claims</li>
-</ol>
-</li>
-<li>
-<ol start="57">
-<li>Composing classes with the mixin pattern</li>
-</ol>
-</li>
-<li>
-<ol start="58">
-<li>Using ETag to implement cache and save bandwidth</li>
-</ol>
-</li>
-<li>
-<ol start="59">
-<li>Introduction to a monorepo with Lerna and Yarn workspaces</li>
-</ol>
-</li>
-<li>
-<ol start="60">
-<li>The OpenAPI specification and Swagger</li>
-</ol>
-</li>
-<li>
-<ol start="61">
-<li>Dealing with circular dependencies</li>
-</ol>
-</li>
-</ul>
 
         <div class="section-index">
     
@@ -581,6 +356,14 @@ if (!doNotTrack) {
             
             <div class="entry">
                 <h5>
+                    <a href="/nestjs-docs/docs/files/">files</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
                     <a href="/nestjs-docs/docs/awesome/">awesome</a>
                 </h5>
                 <p></p>
@@ -592,6 +375,14 @@ if (!doNotTrack) {
                     <a href="/nestjs-docs/docs/bull/">bull</a>
                 </h5>
                 <p>最快、最可靠、基于redis的Node队列。 仔细写的岩石固体的稳定性和原子性。</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/nestjs-docs/docs/http/">http</a>
+                </h5>
+                <p></p>
             </div>
         
     
@@ -662,7 +453,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  最后修改 March 19, 2022: <a href="https://github.com/wdk-docs/nestjs-docs/commit/86a1cdf4ca4f3121e1bc086847389fdfa942a5c1">修改 baseUrl (86a1cdf)</a>
+  最后修改 April 23, 2022: <a href="https://github.com/wdk-docs/nestjs-docs/commit/9974a5a70fd14ee0b7d1503aaf6439ae7aad520e">add axios-auth-refresh (9974a5a)</a>
 </div>
 
 </div>
