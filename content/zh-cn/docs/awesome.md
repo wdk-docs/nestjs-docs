@@ -1,7 +1,7 @@
 ---
 title: "awesome"
 linkTitle: "资源集合"
-weight: 3
+weight: 100
 ---
 
 > https://github.com/nestjs/awesome-nestjs/blob/master/README.md

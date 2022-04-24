@@ -1,7 +1,7 @@
 ---
 title: "bull"
 linkTitle: "bull"
-weight: 4
+weight: 1
 description: 最快、最可靠、基于redis的Node队列。 仔细写的岩石固体的稳定性和原子性。
 ---
 

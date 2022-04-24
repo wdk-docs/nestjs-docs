@@ -1,5 +1,5 @@
 ---
-title: "`node-cache-manager` - 灵活的NodeJS缓存模块"
+title: "node-cache-manager - 灵活的NodeJS缓存模块"
 linkTitle: "缓存管理"
 weight: 4
 ---
