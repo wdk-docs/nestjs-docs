@@ -10,21 +10,6 @@ description: 最快、最可靠、基于redis的Node队列。 仔细写的岩石
 请在[📻Twitter](http://twitter.com/manast)上关注我，了解重要的新闻和更新。
 你可以在这个博客中找到教程和新闻: [🛠 教程](https://blog.taskforce.sh/)
 
-### 官方的前端
-
-[<img src="/assets/images/logo_square.png" width="100" alt="Taskforce.sh, Inc" style="padding: 100px"/>](https://taskforce.sh)
-
-用专业前端增压你的队列:
-
-- 获得所有队列的完整概览。
-- 检查作业、搜索、重试或提升被延迟的作业。
-- 指标和统计数据。
-- 还有更多的功能。
-
-登录[Taskforce.sh](https://taskforce.sh)
-
----
-
 ### Bull 特性
 
 - [x] 最小的 CPU 使用率，由于无轮询设计。
@@ -73,33 +58,33 @@ description: 最快、最可靠、基于redis的Node队列。 仔细写的岩石
 
 ### 监测和报警
 
-- With Prometheus [Bull Queue Exporter](https://github.com/UpHabit/bull_exporter)
+- 使用 Prometheus [Bull Queue Exporter](https://github.com/UpHabit/bull_exporter)
 
 ---
 
 ### 特征比较
 
-Since there are a few job queue solutions, here is a table comparing them:
+由于有一些作业队列解决方案，这里有一个表比较它们:
 
-| Feature                   |   Bullmq-Pro    |     Bullmq      |      Bull       |  Kue  | Bee      | Agenda |
-| :------------------------ | :-------------: | :-------------: | :-------------: | :---: | -------- | ------ |
-| Backend                   |      redis      |      redis      |      redis      | redis | redis    | mongo  |
-| Observables               |        ✓        |                 |                 |       |          |        |
-| Group Rate Limit          |        ✓        |                 |                 |       |          |        |
-| Group Support             |        ✓        |                 |                 |       |          |        |
-| Parent/Child Dependencies |        ✓        |        ✓        |                 |       |          |        |
-| Priorities                |        ✓        |        ✓        |        ✓        |   ✓   |          | ✓      |
-| Concurrency               |        ✓        |        ✓        |        ✓        |   ✓   | ✓        | ✓      |
-| Delayed jobs              |        ✓        |        ✓        |        ✓        |   ✓   |          | ✓      |
-| Global events             |        ✓        |        ✓        |        ✓        |   ✓   |          |        |
-| Rate Limiter              |        ✓        |        ✓        |        ✓        |       |          |        |
-| Pause/Resume              |        ✓        |        ✓        |        ✓        |   ✓   |          |        |
-| Sandboxed worker          |        ✓        |        ✓        |        ✓        |       |          |        |
-| Repeatable jobs           |        ✓        |        ✓        |        ✓        |       |          | ✓      |
-| Atomic ops                |        ✓        |        ✓        |        ✓        |       | ✓        |        |
-| Persistence               |        ✓        |        ✓        |        ✓        |   ✓   | ✓        | ✓      |
-| UI                        |        ✓        |        ✓        |        ✓        |   ✓   |          | ✓      |
-| Optimized for             | Jobs / Messages | Jobs / Messages | Jobs / Messages | Jobs  | Messages | Jobs   |
+| Feature       |   Bullmq-Pro    |     Bullmq      |      Bull       |  Kue  | Bee      | Agenda |
+| :------------ | :-------------: | :-------------: | :-------------: | :---: | -------- | ------ |
+| 后端          |      redis      |      redis      |      redis      | redis | redis    | mongo  |
+| 观察          |        ✓        |                 |                 |       |          |        |
+| 组速率限制    |        ✓        |                 |                 |       |          |        |
+| 集群支持      |        ✓        |                 |                 |       |          |        |
+| 父/子依赖关系 |        ✓        |        ✓        |                 |       |          |        |
+| 优先级        |        ✓        |        ✓        |        ✓        |   ✓   |          | ✓      |
+| 并发性        |        ✓        |        ✓        |        ✓        |   ✓   | ✓        | ✓      |
+| 演示工作      |        ✓        |        ✓        |        ✓        |   ✓   |          | ✓      |
+| 全局事件      |        ✓        |        ✓        |        ✓        |   ✓   |          |        |
+| 速度限制器    |        ✓        |        ✓        |        ✓        |       |          |        |
+| 暂停/恢复     |        ✓        |        ✓        |        ✓        |   ✓   |          |        |
+| 沙箱工人      |        ✓        |        ✓        |        ✓        |       |          |        |
+| 可重复的工作  |        ✓        |        ✓        |        ✓        |       |          | ✓      |
+| 原子操作      |        ✓        |        ✓        |        ✓        |       | ✓        |        |
+| 持久性        |        ✓        |        ✓        |        ✓        |   ✓   | ✓        | ✓      |
+| 用户界面      |        ✓        |        ✓        |        ✓        |   ✓   |          | ✓      |
+| 优化了        | Jobs / Messages | Jobs / Messages | Jobs / Messages | Jobs  | Messages | Jobs   |
 
 ### 安装
 
@@ -107,13 +92,13 @@ Since there are a few job queue solutions, here is a table comparing them:
 npm install bull --save
 ```
 
-or
+或者
 
 ```bash
 yarn add bull
 ```
 
-_**Requirements:** Bull requires a Redis version greater than or equal to `2.8.18`._
+_**要求:** Bull 需要大于或等于' 2.8.18 '的 Redis 版本。_
 
 ### Typescript 定义
 
@@ -125,16 +110,7 @@ npm install @types/bull --save-dev
 yarn add --dev @types/bull
 ```
 
-Definitions are currently maintained in the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/bull) repo.
-
-### 贡献
-
-我们欢迎所有类型的贡献，无论是代码修复、新特性还是文档改进。
-代码格式由[prettier](https://prettier.io/)强制执行。
-对于提交，请遵循常规[commits convention](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)。
-所有代码都必须通过 lint 规则和测试套件，然后才能合并到 development 中。
-
----
+定义目前维护在[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/bull) repo 中。
 
 ### 快速指南
 
@@ -164,7 +140,11 @@ videoQueue.process(function (job, done) {
   done(new Error("error transcoding"));
 
   // or pass it a result
-  done(null, { framerate: 29.5 /* etc... */ });
+  done(null, {
+    framerate: 29.5,
+    /* etc...
+     */
+  });
 
   // If the job throws an unhandled exception it is also handled correctly
   throw new Error("some unexpected error");
@@ -181,7 +161,11 @@ audioQueue.process(function (job, done) {
   done(new Error("error transcoding"));
 
   // or pass it a result
-  done(null, { samplerate: 48000 /* etc... */ });
+  done(null, {
+    samplerate: 48000,
+    /* etc...
+     */
+  });
 
   // If the job throws an unhandled exception it is also handled correctly
   throw new Error("some unexpected error");
@@ -198,7 +182,12 @@ imageQueue.process(function (job, done) {
   done(new Error("error transcoding"));
 
   // or pass it a result
-  done(null, { width: 1280, height: 720 /* etc... */ });
+  done(null, {
+    width: 1280,
+    height: 720,
+    /* etc...
+     */
+  });
 
   // If the job throws an unhandled exception it is also handled correctly
   throw new Error("some unexpected error");
@@ -228,7 +217,11 @@ videoQueue.process(function (job) {
   return Promise.reject(new Error("error transcoding"));
 
   // 将承诺解析的值传递给“completed”事件
-  return Promise.resolve({ framerate: 29.5 /* etc... */ });
+  return Promise.resolve({
+    framerate: 29.5,
+    /* etc...
+     */
+  });
 
   // 如果作业抛出一个未处理的异常，它也会得到正确的处理
   throw new Error("some unexpected error");
@@ -271,7 +264,7 @@ queue.process("my processor", 5, "/path/to/my/processor.js");
 
 #### 重复的工作
 
-A job can be added to a queue and processed repeatedly according to a cron specification:
+作业可以被添加到队列中，并根据 cron 规范重复处理:
 
 ```js
 paymentsQueue.process(function (job) {
@@ -282,13 +275,11 @@ paymentsQueue.process(function (job) {
 paymentsQueue.add(paymentsData, { repeat: { cron: "15 3 * * *" } });
 ```
 
-As a tip, check your expressions here to verify they are correct:
-[cron expression generator](https://crontab.cronhub.io)
+作为提示，请检查这里的表达式，以验证它们是正确的:[cron 表达式生成器](https://crontab.cronhub.io)
 
 #### 暂停/恢复
 
-A queue can be paused and resumed globally (pass `true` to pause processing for
-just this worker):
+一个队列可以被全局暂停和恢复(传递 `true` 来暂停这个 worker 的处理):
 
 ```js
 queue.pause().then(function () {
@@ -310,7 +301,7 @@ queue.resume().then(function () {
 })
 ```
 
-For more information on events, including the full list of events that are fired, check out the [Events reference](./REFERENCE.md#events)
+有关事件的更多信息，包括所触发事件的完整列表，请参阅[事件参考资料](./REFERENCE.md#events)
 
 #### 队列性能
 
@@ -324,15 +315,14 @@ const userLisa = new Queue('lisa');
 .
 ```
 
-However every queue instance will require new redis connections, check how to [reuse connections](https://github.com/OptimalBits/bull/blob/master/PATTERNS.md#reusing-redis-connections) or you can also use [named processors](https://github.com/OptimalBits/bull/blob/master/REFERENCE.md#queueprocess) to achieve a similar result.
+然而，每个队列实例将需要新的 redis 连接，检查如何[重用连接](https://github.com/OptimalBits/bull/blob/master/PATTERNS.md#reusing-redis-connections)，或者你也可以使用[命名处理器](https://github.com/OptimalBits/bull/blob/master/REFERENCE.md#queueprocess)来实现类似的结果。
 
 #### 集群的支持
 
-NOTE: From version 3.2.0 and above it is recommended to use threaded processors instead.
+> NOTE: 从 3.2.0 及以上版本开始，建议使用线程处理器。
 
-Queues are robust and can be run in parallel in several threads or processes
-without any risk of hazards or queue corruption. Check this simple example
-using cluster to parallelize jobs across processes:
+队列是健壮的，可以在几个线程或进程中并行运行，没有任何危险或队列损坏的风险。
+检查这个简单的例子，使用 cluster 跨进程并行化任务:
 
 ```js
 const Queue = require("bull");
@@ -370,10 +360,10 @@ if (cluster.isMaster) {
 
 要获取完整的文档，请查看参考和常用模式:
 
-- [Guide](https://optimalbits.github.io/bull/) — Your starting point for developing with Bull.
-- [Reference](./REFERENCE.md) — Reference document with all objects and methods available.
-- [Patterns](./PATTERNS.md) — a set of examples for common patterns.
-- [License](./LICENSE.md) — the Bull license—it's MIT.
+- [指南](https://optimalbits.github.io/bull/) - 你使用 Bull 开发的起点。
+- [参考](./REFERENCE.md) - 包含所有可用对象和方法的引用文档。
+- [模式](./PATTERNS.md) - 一组常见模式的示例。
+- [许可证](./LICENSE.md) - Bull 许可证-麻省理工学院。
 
 如果你看到任何可以使用更多文档的东西，请提交一个 pull request!
 
@@ -381,25 +371,28 @@ if (cluster.isMaster) {
 
 ### 重要的笔记
 
-The queue aims for an "at least once" working strategy. This means that in some situations, a job
-could be processed more than once. This mostly happens when a worker fails to keep a lock
-for a given job during the total duration of the processing.
+队列的目标是“至少一次”的工作策略。
+这意味着在某些情况下，一个作业可能会被多次处理。
+这种情况通常发生在一个 worker 在整个处理过程中没有为给定的作业保持锁的时候。
 
-When a worker is processing a job it will keep the job "locked" so other workers can't process it.
+当一个工人正在处理一项工作时，它将使该工作保持“锁定”，以便其他工人不能处理它。
 
-It's important to understand how locking works to prevent your jobs from losing their lock - becoming _stalled_ -
-and being restarted as a result. Locking is implemented internally by creating a lock for `lockDuration` on interval
-`lockRenewTime` (which is usually half `lockDuration`). If `lockDuration` elapses before the lock can be renewed,
-the job will be considered stalled and is automatically restarted; it will be **double processed**. This can happen when:
+理解锁定是如何工作的，以防止您的作业失去锁- becoming _stalled_ - 并因此重新启动，这一点很重要。
+锁是通过在 `lockRenewTime` (通常是 `lockDuration` 的一半)上为 `lockDuration` 创建一个锁来实现的。
+如果 `lockDuration` 在锁被更新之前过期，则该作业将被视为暂停并自动重启;它将被**二次加工**。
 
-1. The Node process running your job processor unexpectedly terminates.
-2. Your job processor was too CPU-intensive and stalled the Node event loop, and as a result, Bull couldn't renew the job lock (see [#488](https://github.com/OptimalBits/bull/issues/488) for how we might better detect this). You can fix this by breaking your job processor into smaller parts so that no single part can block the Node event loop. Alternatively, you can pass a larger value for the `lockDuration` setting (with the tradeoff being that it will take longer to recognize a real stalled job).
+这种情况可能发生在:
 
-As such, you should always listen for the `stalled` event and log this to your error monitoring system, as this means your jobs are likely getting double-processed.
+1. 运行作业处理器的 Node 进程意外终止。
+2. 您的作业处理器 cpu 过于密集，导致 Node 事件循环停顿，结果，Bull 无法更新作业锁(请参阅[#488](https://github.com/OptimalBits/bull/issues/488)了解如何更好地检测此问题)。
+   您可以通过将作业处理器分解为更小的部分来解决这个问题，这样单个部分就不会阻塞 Node 事件循环。
+   或者，您可以为 `lockDuration` 设置传递一个更大的值(代价是它将花费更长的时间来识别真正的暂停作业)。
 
-As a safeguard so problematic jobs won't get restarted indefinitely (e.g. if the job processor always crashes its Node process), jobs will be recovered from a stalled state a maximum of `maxStalledCount` times (default: `1`).
+因此，您应该始终侦听 `stopped` 事件并将其记录到错误监视系统中，因为这意味着您的作业可能会被重复处理。
 
-### 所使用的
+作为一种安全措施，有问题的作业不会被无限期重启(例如，如果作业处理器总是崩溃它的 Node 进程)，作业将从停止状态恢复，最大次数为 `maxStalledCount` (默认为 `1`)。
+
+### 谁在使用
 
 Bull 在大大小小的组织中都很受欢迎，比如以下这些组织:
 
@@ -455,14 +448,3 @@ Bull 在大大小小的组织中都很受欢迎，比如以下这些组织:
 
 如果你想开始使用完全用 Typescript 编写的下一个主要版本的 Bull，欢迎使用新的 repo[这里](https://github.com/taskforcesh/bullmq).
 否则，我们非常欢迎你仍然使用 Bull，这是一个安全的、经过战斗测试的代码库。
-
----
-
-### 🚀 赞助商 🚀
-
-[<img src="/assets/images/redisgreen_transparent_240x48.png" width="150" alt="RedisGreen" style="padding: 100px"/>](https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ)
-
-如果您需要高质量的生产 Redis 实例为您的 Bull 项目，请考虑订阅[RedisGreen](https://dashboard.redisgreen.net/new?utm_campaign=BULLMQ),Redis 的领导者们与 Bull 完美地合作。
-注册时请使用促销代码“BULLMQ”，以帮助我们赞助 Bull 的发展!
-
----
