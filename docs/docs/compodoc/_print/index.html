@@ -1,0 +1,1460 @@
+<!doctype html>
+<html lang="zh-cn" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.97.3" />
+<link rel="canonical" type="text/html" href="https://wdk-docs.github.io/nestjs-docs/docs/compodoc/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://wdk-docs.github.io/nestjs-docs/docs/compodoc/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/nestjs-docs/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/nestjs-docs/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/nestjs-docs/favicons/android-192x192.png" sizes="192x192">
+
+<title>Compodoc | NestJS 文档</title>
+<meta name="description" content="Compodoc 是 Angular 应用的文档工具。它生成应用程序的静态文档。">
+<meta property="og:title" content="Compodoc" />
+<meta property="og:description" content="Compodoc 是 Angular 应用的文档工具。它生成应用程序的静态文档。" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wdk-docs.github.io/nestjs-docs/docs/compodoc/" /><meta property="og:site_name" content="NestJS 文档" />
+
+<meta itemprop="name" content="Compodoc">
+<meta itemprop="description" content="Compodoc 是 Angular 应用的文档工具。它生成应用程序的静态文档。"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Compodoc"/>
+<meta name="twitter:description" content="Compodoc 是 Angular 应用的文档工具。它生成应用程序的静态文档。"/>
+
+
+
+
+<link rel="preload" href="/nestjs-docs/scss/main.min.90983698afafd407e6b72e83a2b749ff1726e8502277108f05bd66510938dec2.css" as="style">
+<link href="/nestjs-docs/scss/main.min.90983698afafd407e6b72e83a2b749ff1726e8502277108f05bd66510938dec2.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-00000000-0', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/nestjs-docs/">
+		<span class="navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="font-weight-bold">NestJS 文档</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/nestjs-docs/docs/" ><span class="active">文档</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/nestjs-docs/blog/" ><span>博客</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"><input type="search" class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label="站内搜索…" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+这是本节的多页打印视图。
+<a href="#" onclick="print();return false;">点击此处打印</a>.
+</p><p>
+<a href="/nestjs-docs/docs/compodoc/">返回本页常规视图</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Compodoc</h1>
+<div class="lead">Compodoc 是 Angular 应用的文档工具。它生成应用程序的静态文档。</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-38110e06092671efe57e80506ad7d6cd">特性</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-d5f9b7778aae4bd657917bf2e261b763">现场演示</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-b0354f583d9a3a9e48824a0a3aeebfe6">安装</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-c0ac848d92ddbc3e33561178e5e1ee36">教程</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-cb31c531633ad46f94fa9f4091c85722">选项</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-9331b0b3a1c55ae0bfa71906835aa3b9">使用</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-84caa58c1058f2ce2b6ade4d3e371942">主题</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-db592824f77238895cbef04b2604b7b9">注释</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-4bbeef79c88bb3b94cd568b7504ae93d">JSDoc 标签</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-54bc04e30a7a41663cb4bbd67b69f363">路由</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-cdf2fb3c0b4f8274b56b5797760b3a67">文档覆盖</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-51711e73679086a3e0f0276eee494290">提示和技巧</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-fa3c4547e13acf34330e9a8bf520713b">扩展</a></li>
+
+
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-b8b742126ffdc6e81fb99023217d4157">杂项</a></li>
+
+
+    
+  
+    
+    
+	
+<li>15: <a href="#pg-e5ea9da1ac369109f562c6cdfd15683e">现场例子选项卡</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16: <a href="#pg-558a22dcf299da207b3907e926498225">选项卡配置</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17: <a href="#pg-6e3e400ece00dfed1532d592701b2294">托管</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <blockquote>
+<p><a href="https://github.com/compodoc">https://github.com/compodoc</a></p>
+</blockquote>
+<h2 id="为什么使用-compodoc">为什么使用 Compodoc?</h2>
+<p>Compodoc 帮助 Angular 开发人员为他们的应用程序提供清晰而有用的文档。</p>
+<p>您团队的其他开发人员，或者访问公共文档的 internet 访问者，可以很容易地理解您的应用程序或库的特性。</p>
+<h2 id="开源">开源</h2>
+<p>Compodoc 是<a href="http://www.vincentogloblinsky.com">Vincent Ogloblinsky</a>的开源成果。</p>
+<p>开发者可以在<a href="https://github.com/compodoc/compodoc">GitHub</a>上贡献和分叉回购。</p>
+<p>不要忘记阅读<a href="https://github.com/compodoc/compodoc/blob/master/CONTRIBUTING.md">贡献指南</a>。</p>
+<h2 id="准备好了吗走吧">准备好了吗?走吧!</h2>
+<p>请阅读<a href="./install.md">installation</a>页面以了解有关安装的详细信息。<a href="./usage.md">usage</a>帮助您使用所有可用的选项。</p>
+<h2 id="支持者">支持者</h2>
+<p>请每月捐款支持我们，并协助我们继续活动。[成为支持者]支持地址)</p>
+<p><a href="https://opencollective.com/compodoc#support"><img src="https://opencollective.com/compodoc/backers.svg" alt="Backers"></a></p>
+<h2 id="赞助商">赞助商</h2>
+<p>通过成为赞助者来支持这个项目。您的徽标将显示在这里与一个链接到您的网站。[成为赞助商]支持地址)</p>
+<p><a href="https://opencollective.com/compodoc#support"><img src="https://opencollective.com/compodoc/sponsor.svg" alt="Sponsors"></a></p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-38110e06092671efe57e80506ad7d6cd">1 - 特性</h1>
+    
+	<ul>
+<li>
+<p><strong>支持</strong> — <a href="https://angular.io/">Angular</a>, <a href="https://nestjs.com/">NestJS</a> &amp; <a href="https://stenciljs.com/">Stencil</a></p>
+</li>
+<li>
+<p><strong>干净,简单的设计</strong> — 使用 Compodoc，主要端点位于文档的左侧，所有内容位于右侧</p>
+</li>
+<li>
+<p><strong>美丽的主题</strong> — <a href="./themes.html">8 个主题</a>可以从著名的文档工具如<a href="https://www.gitbook.com">Gitbook</a>, <a href="https://readthedocs.org/">Read the Docs</a> 或项目如 <a href="https://www.vagrantup.com/docs/">Vagrant</a>, <a href="https://laravel.com/docs/5.3">Laravel</a>, <a href="http://developer.postmarkapp.com/">Postmark</a>, <a href="https://material.io/">Material design</a> and <a href="https://stripe.com/docs/api">Stripe</a>中获得.</p>
+</li>
+<li>
+<p><strong>i18n</strong> — 许多可用的语言: de-DE, en-US, es-ES, fr-FR, hu-HU, it-IT, ja-JP, nl-NL, pl-PL, pt-BR, sk-SK, zh-CN</p>
+</li>
+<li>
+<p><strong>搜索</strong> — Compodoc 包括一个强大的搜索引擎(<a href="http://lunrjs.com/">lunr.js</a>)，可以方便地找到您的信息</p>
+</li>
+<li>
+<p><strong>自动目录</strong> - API 目录是使用在文件解析期间找到的元素生成的</p>
+</li>
+<li>
+<p><strong>开源和 npm 发布</strong> - 使用 npm 和一个脚本直接在你的项目中使用它，就是这样!</p>
+</li>
+<li>
+<p><strong>当地的一个工具</strong> - 不需要服务器，不需要在线上传资源</p>
+</li>
+<li>
+<p><strong>没有 TypeScript 编译</strong> - Compodoc 解析你的代码</p>
+</li>
+<li>
+<p><strong>JSDoc 轻支持</strong> - 支持 <strong>@param</strong>, <strong>@returns</strong>, <strong>@link</strong>, <strong>@ignore</strong> and <strong>@example</strong> 标签</p>
+</li>
+<li>
+<p><strong>文档覆盖</strong> - 获取项目的文档覆盖率报告</p>
+</li>
+<li>
+<p><strong>Angular-CLI 友好</strong> - Compodoc 支持开箱即用的 Angular-CLI 项目</p>
+</li>
+<li>
+<p><strong>暗黑模式</strong> - Compodoc 支持您的浏览器的开箱暗模式</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d5f9b7778aae4bd657917bf2e261b763">2 - 现场演示</h1>
+    
+	<p>现场演示:</p>
+<ul>
+<li>
+<p><a href="https://compodoc.github.io/compodoc-demo-todomvc-angular/">Angular</a></p>
+<p>这是一个简单的<a href="https://github.com/compodoc/compodoc-demo-todomvc-angular">TodoMVC 应用程序</a>演示项目生成的文档。</p>
+</li>
+<li>
+<p><a href="https://compodoc.github.io/compodoc-demo-nestjs/">Nest</a></p>
+<p>它是为这个演示项目生成的文档，这是一个<a href="https://github.com/compodoc/compodoc-demo-nestjs">RealWorld 示例应用程序</a>.</p>
+</li>
+<li>
+<p><a href="https://compodoc.github.io/compodoc-demo-stencil/">Stencil</a></p>
+<p>它是为这个演示项目生成的文档，这是一个<a href="https://github.com/compodoc/compodoc-demo-stencil">Stencil 示例应用程序</a>.</p>
+</li>
+</ul>
+<h2 id="截图">截图</h2>
+<p>下面是这个项目<a href="https://github.com/r-park/soundcloud-ngrx">SoundCloud API 客户端</a>和默认主题(gitbook)生成文档的截图</p>
+<h3 id="自述文件页面">自述文件页面</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/1.png" alt="screenshot-1"></p>
+<h3 id="概述页面">概述页面</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/2.png" alt="screenshot-2"></p>
+<h3 id="模块页面">模块页面</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/3.png" alt="screenshot-3"></p>
+<h3 id="单模块页面">单模块页面</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/4.png" alt="screenshot-4"></p>
+<h3 id="组件页面">组件页面</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/5.png" alt="screenshot-5"></p>
+<h3 id="源代码选项卡">源代码选项卡</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/7.png" alt="screenshot-7"></p>
+<h3 id="搜索页面">搜索页面</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/6.png" alt="screenshot-6"></p>
+<h3 id="覆盖率报告">覆盖率报告</h3>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/8.png" alt="screenshot-8"></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b0354f583d9a3a9e48824a0a3aeebfe6">3 - 安装</h1>
+    
+	<h2 id="nodejs-版本">Node.js 版本</h2>
+<p>Compodoc 只使用 LTS 版本进行测试: v12.x, v14.x</p>
+<h2 id="angular-cli">Angular-CLI</h2>
+<p>Compodoc 支持最新的 Angular-CLI 版本:13.x</p>
+<p>只需在一个新的或现有的项目中运行 Compodoc。</p>
+<h2 id="全局安装">全局安装</h2>
+<p>从 npm 安装:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @compodoc/compodoc
+</span></span></code></pre></div><p>如果你在 Windows 上使用 PowerShell，请添加引号:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g <span style="color:#4e9a06">&#34;@compodoc/compodoc&#34;</span>
+</span></span></code></pre></div><h2 id="本地安装">本地安装</h2>
+<p>使用 Angular CLI 安装:npm scripts + 特殊的 tsconfig.doc.json 文件将被创建。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ng add @compodoc/compodoc
+</span></span></code></pre></div><p>或直接</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save-dev @compodoc/compodoc
+</span></span></code></pre></div><h2 id="运行">运行</h2>
+<p>创建一个名为<code>tsconfig.doc.json</code>的文件，包含一个指向<code>src</code>文件夹的键<code>include</code>，你也可以使用<code>exclude</code>键:</p>
+<pre tabindex="0"><code>{
+  &#34;include&#34;: [&#34;src/**/*.ts&#34;],
+  &#34;exclude&#34;: [&#34;src/test.ts&#34;, &#34;src/**/*.spec.ts&#34;, &#34;src/app/file-to-exclude.ts&#34;]
+}
+</code></pre><p>在你的 package.json 中定义一个脚本任务(使用 npm 6.x):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;scripts&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#4e9a06">&#34;compodoc&#34;</span>: <span style="color:#4e9a06">&#34;npx compodoc -p tsconfig.doc.json&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><p>并像正常的 NPM 脚本一样运行它:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm run compodoc
+</span></span></code></pre></div><p>或与 npx:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx @compodoc/compodoc ...
+</span></span></code></pre></div><p>请参阅<a href="./usage.html">usage</a>了解更多细节。</p>
+<h2 id="tsconfig-文件在代码库中的位置">tsconfig 文件在代码库中的位置</h2>
+<p>Compodoc 从<code>-p</code>选项提供的 tsconfig 文件的文件夹级别启动。</p>
+<p>Angular CLI 项目的例子:</p>
+<pre tabindex="0"><code>.
+├── src
+│ ├── app
+│ │ ├── app.component.ts
+│ │ └── app.module.ts
+│ ├── main.ts
+│ └── ...
+├── tsconfig.app.json
+├── tsconfig.doc.json
+└── tsconfig.json
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c0ac848d92ddbc3e33561178e5e1ee36">4 - 教程</h1>
+    
+	<p>这些文章很好地解释了如何在你的项目中使用 Compodoc:</p>
+<h2 id="alfredo-perez">Alfredo Perez</h2>
+<p><a href="https://medium.com/@alfredo.perez.q/publish-angular-library-documentation-created-with-nx-using-travisci-and-github-pages-27854598239c">https://medium.com/@alfredo.perez.q/publish-angular-library-documentation-created-with-nx-using-travisci-and-github-pages-27854598239c</a></p>
+<h2 id="ionic-academy">Ionic Academy</h2>
+<p><a href="https://ionicacademy.com/ionic-code-documentation/">https://ionicacademy.com/ionic-code-documentation/</a></p>
+<p>他们还制作了一个 10 英寸的视频:</p>
+<iframe title="YouTube video player" class="youtube-player" type="text/html" 
+width="640" height="390" src="https://www.youtube.com/embed/xJSKZ1DE4Go"
+frameborder="0" allowFullScreen></iframe>
+<h2 id="angular-训练">Angular 训练</h2>
+<iframe title="YouTube video player" class="youtube-player" type="text/html" 
+width="640" height="390" src="https://www.youtube.com/embed/-NER_Dy7ohY"
+frameborder="0" allowFullScreen></iframe>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cb31c531633ad46f94fa9f4091c85722">5 - 选项</h1>
+    
+	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>compodoc &lt;src&gt; <span style="color:#ce5c00;font-weight:bold">[</span>options<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-h, &ndash;help</strong></td>
+<td>输出使用信息</td>
+</tr>
+<tr>
+<td><strong>-V, &ndash;version</strong></td>
+<td>输出版本号</td>
+</tr>
+<tr>
+<td><strong>-c, &ndash;config [config]</strong></td>
+<td>配置文件: .compodocrc, .compodocrc.json, .compodocrc.yaml or compodoc property in package.json 属性</td>
+</tr>
+<tr>
+<td><strong>-p, &ndash;tsconfig [config]</strong></td>
+<td>tsconfig.json 文件</td>
+</tr>
+<tr>
+<td><strong>-d, &ndash;output [folder]</strong></td>
+<td>在哪里存储生成的文档</td>
+</tr>
+<tr>
+<td><strong>-y, &ndash;extTheme [file]</strong></td>
+<td>外部造型主题</td>
+</tr>
+<tr>
+<td><strong>-n, &ndash;name [name]</strong></td>
+<td>文档名称</td>
+</tr>
+<tr>
+<td><strong>-a, &ndash;assetsFolder [folder]</strong></td>
+<td>在生成的文档文件夹中复制的外部资产文件夹</td>
+</tr>
+<tr>
+<td><strong>-o, &ndash;open</strong></td>
+<td>打开生成的文档</td>
+</tr>
+<tr>
+<td><strong>-t, &ndash;silent</strong></td>
+<td>在静默模式下，日志消息不会记录在控制台中</td>
+</tr>
+<tr>
+<td><strong>-s, &ndash;serve</strong></td>
+<td>服务生成的文档(默认为 http://localhost:8080/)</td>
+</tr>
+<tr>
+<td><strong>-r, &ndash;port [port]</strong></td>
+<td>更改默认服务端口</td>
+</tr>
+<tr>
+<td><strong>-w, &ndash;watch</strong></td>
+<td>在服务和强制文档重建后，观察源文件</td>
+</tr>
+<tr>
+<td><strong>-e, &ndash;exportFormat [format]</strong></td>
+<td>导出指定格式(json, html(默认))</td>
+</tr>
+<tr>
+<td><strong>&ndash;language [language]</strong></td>
+<td>用于生成文档的语言 (de-DE, en-US, es-ES, fr-FR, hu-HU, it-IT, ja-JP, ko-KR, nl-NL, pl-PL, pt-BR, sk-SK, zh-CN) (默认: en-US)</td>
+</tr>
+<tr>
+<td><strong>&ndash;theme [theme]</strong></td>
+<td>选择一个可用的主题，默认为 &lsquo;gitbook&rsquo; (laravel, original, material, postmark, readthedocs, stripe, vagrant)</td>
+</tr>
+<tr>
+<td><strong>&ndash;hideGenerator</strong></td>
+<td>不要在页面底部打印 Compodoc 标志</td>
+</tr>
+<tr>
+<td><strong>&ndash;toggleMenuItems <items></strong></td>
+<td>关闭菜单(default [&lsquo;all&rsquo;])值中的默认项: [&lsquo;all&rsquo;] 或者是 [&lsquo;modules&rsquo;,&lsquo;components&rsquo;,&lsquo;directives&rsquo;,&lsquo;controllers&rsquo;,&lsquo;classes&rsquo;,&lsquo;injectables&rsquo;,&lsquo;guards&rsquo;,&lsquo;interfaces&rsquo;,&lsquo;interceptors&rsquo;,&lsquo;pipes&rsquo;,&lsquo;miscellaneous&rsquo;,&lsquo;additionalPages&rsquo;]其中一个)</td>
+</tr>
+<tr>
+<td><strong>&ndash;navTabConfig <tab configs></strong></td>
+<td>用两个字符串属性按所需顺序列出导航选项卡对象 (&ldquo;id&rdquo; 和 &ldquo;label&rdquo;). 双引号必须用&rsquo;\&lsquo;转义。 可用的选项卡 IDs 是 &ldquo;info&rdquo;, &ldquo;readme&rdquo;, &ldquo;source&rdquo;, &ldquo;templateData&rdquo;, &ldquo;tree&rdquo;, 和 &ldquo;example&rdquo;. 注意:某些选项卡只会在适用于给定依赖项时显示</td>
+</tr>
+<tr>
+<td><strong>&ndash;templates [folder]</strong></td>
+<td>Handlebars 模板覆盖内置模板的目录路径</td>
+</tr>
+<tr>
+<td><strong>&ndash;includes [path]</strong></td>
+<td>要包含的外部标记文件的路径</td>
+</tr>
+<tr>
+<td><strong>&ndash;includesName [name]</strong></td>
+<td>外部标记文件的项目菜单名称 (默认是 &ldquo;Additional documentation&rdquo;)</td>
+</tr>
+<tr>
+<td><strong>&ndash;coverageTest</strong></td>
+<td>使用阈值(默认 70)测试文档覆盖率的命令</td>
+</tr>
+<tr>
+<td><strong>&ndash;coverageMinimumPerFile [minimum]</strong></td>
+<td>每个文件的文档覆盖率测试命令的最小值(默认为 0)</td>
+</tr>
+<tr>
+<td><strong>&ndash;coverageTestThresholdFail [boolean]</strong></td>
+<td>文档覆盖的测试命令(全局的或每个文件的)将会失败并产生错误或者只是警告用户(true: error, false: warn)(默认值:true)</td>
+</tr>
+<tr>
+<td><strong>&ndash;coverageTestShowOnlyFailed</strong></td>
+<td>只显示覆盖率测试失败的文件</td>
+</tr>
+<tr>
+<td><strong>&ndash;unitTestCoverage [json-summary]</strong></td>
+<td>要包含单元测试覆盖率，请指定 istanbul JSON 覆盖率摘要文件</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableSourceCode</strong></td>
+<td>不添加源代码选项卡和到源代码的链接</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableDomTree</strong></td>
+<td>不添加 dom 树标签</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableTemplateTab</strong></td>
+<td>不添加模板选项卡</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableStyleTab</strong></td>
+<td>不添加样式标签</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableGraph</strong></td>
+<td>禁用依赖关系图的呈现</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableCoverage</strong></td>
+<td>不添加文档覆盖率报告</td>
+</tr>
+<tr>
+<td><strong>&ndash;disablePrivate</strong></td>
+<td>在生成的文档中不显示私有</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableProtected</strong></td>
+<td>在生成的文档中不显示受保护</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableInternal</strong></td>
+<td>在生成的文档中不显示@internal</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableLifeCycleHooks</strong></td>
+<td>没有在生成的文档中显示 Angular 的生命周期钩子</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableRoutesGraph</strong></td>
+<td>不添加路由图</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableSearch</strong></td>
+<td>不添加搜索输入</td>
+</tr>
+<tr>
+<td><strong>&ndash;disableDependencies</strong></td>
+<td>不添加依赖项列表</td>
+</tr>
+<tr>
+<td><strong>&ndash;minimal</strong></td>
+<td>只有文档的最小模式。没有搜索，没有图表，没有覆盖范围。</td>
+</tr>
+<tr>
+<td><strong>&ndash;customFavicon [path]</strong></td>
+<td>使用自定义图标</td>
+</tr>
+<tr>
+<td><strong>&ndash;customLogo [path]</strong></td>
+<td>使用自定义 logo</td>
+</tr>
+<tr>
+<td><strong>&ndash;gaID [id]</strong></td>
+<td>谷歌分析跟踪 ID</td>
+</tr>
+<tr>
+<td><strong>&ndash;gaSite [site]</strong></td>
+<td>谷歌分析站点名称(默认: auto)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9331b0b3a1c55ae0bfa71906835aa3b9">6 - 使用</h1>
+    
+	<h2 id="配置文件">配置文件</h2>
+<p>您可以在项目文件夹的根目录中提供配置文件。</p>
+<p>Compodoc 将搜索如下文件: .compodocrc, .compodocrc.json, .compodocrc.yaml 或 package.json 中的 Compodoc 属性</p>
+<p>这里有一个 JSON 模式: <code>./node_modules/@compodoc/compodoc/src/config/schema.json</code></p>
+<h2 id="选项引号和-windows-使用">选项、引号和 Windows 使用</h2>
+<p>记住，使用多个单词的选项需要在句子周围加引号。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>compodoc -p tsconfig.doc.json -n <span style="color:#4e9a06">&#39;My app documentation&#39;</span>
+</span></span></code></pre></div><p>使用 npm 脚本，命令被托管在 package.json 文件中。
+不要忘记在 Windows 系统中使用双引号转义。(npm 6. x)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   ...
+</span></span><span style="display:flex;"><span>   <span style="color:#4e9a06">&#34;doc&#34;</span>: <span style="color:#4e9a06">&#34;npx compodoc -p tsconfig.doc.json -n \&#34;My app documentation\&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>   ...
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="渲染文档">渲染文档</h2>
+<p>文档在默认输出文件夹中生成，然后在该文件夹中运行 HTTP 服务器。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>compodoc -p tsconfig.doc.json
+</span></span></code></pre></div><h2 id="提供源文件夹时呈现文档">提供源文件夹时呈现文档</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>compodoc src -p tsconfig.doc.json
+</span></span></code></pre></div><h2 id="使用-compodoc-提供生成的文档">使用 compodoc 提供生成的文档</h2>
+<p>文档在默认输出文件夹或特定文件夹中生成，本地 HTTP 服务器在 http://localhost:8080 上启动</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>compodoc -s
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 或者</span>
+</span></span><span style="display:flex;"><span>compodoc -s -d ./doc
+</span></span></code></pre></div><h2 id="渲染文档并用-compodoc-提供它">渲染文档，并用 compodoc 提供它</h2>
+<p>文档生成在默认输出文件夹中，本地 HTTP 服务器可以在 http://localhost:8080 上找到</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>compodoc -p tsconfig.doc.json -s
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-84caa58c1058f2ce2b6ade4d3e371942">7 - 主题</h1>
+    
+	<h2 id="default-gitbook">Default (gitbook)</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-gitbook.png" alt="theme-gitbook"></p>
+<h2 id="material-design">Material design</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-material.png" alt="theme-material"></p>
+<h2 id="laravel">Laravel</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-laravel.png" alt="theme-laravel"></p>
+<h2 id="readthedocs">Readthedocs</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-readthedocs.png" alt="theme-readthedocs"></p>
+<h2 id="stripe">Stripe</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-stripe.png" alt="theme-stripe"></p>
+<h2 id="vagrant">Vagrant</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-vagrant.png" alt="theme-vagrant"></p>
+<h2 id="postmark">Postmark</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-postmark.png" alt="theme-postmark"></p>
+<h2 id="original-first-theme-of-2016">Original (first theme of 2016)</h2>
+<p><img src="https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-original.png" alt="theme-original"></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-db592824f77238895cbef04b2604b7b9">8 - 注释</h1>
+    
+	<p>Compodoc 使用 Typescript 的 AST 解析器和它的内部 api，所以注释必须是 JSDoc 注释:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * 支持注视
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span></code></pre></div><p>这些是不支持的:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * 不支持的注视
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">  不支持的注视
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// 不支持的注视
+</span></span></span></code></pre></div><p>在注释中创建新行，两行之间有一个空行。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * First line
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * Second line
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span></code></pre></div><p>下面的示例将在输出的文档中只生成一行。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * First line
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * Second line
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4bbeef79c88bb3b94cd568b7504ae93d">9 - JSDoc 标签</h1>
+    
+	<p>目前 Compodoc 只支持这些 JSDoc 标签 (由于 <a href="https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-JavaScript">TypeScript 编译器的限制</a>) :</p>
+<ul>
+<li>
+<p><code>@deprecated Deprecated description</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * This is my class
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @deprecated This class is deprecated
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MyClass</span> <span style="color:#000;font-weight:bold">{}</span>
+</span></span></code></pre></div></li>
+<li>
+<p><code>@returns {Type} Description</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @param {string} target  The target to process
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @returns The processed target number
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000">processTarget</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">target</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#000">string</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#000">number</span><span style="color:#000;font-weight:bold">;</span>
+</span></span></code></pre></div></li>
+<li>
+<p><code>@ignore</code>, <code>@internal</code></p>
+<p>这些标记指示代码中的符号永远不应该出现在文档中。</p>
+<p><code>@ignore</code> 适用于类、组件或可注入组件内部，也适用于整个组件。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @ignore
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">@</span><span style="color:#000">Component</span><span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">selector</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;app-root&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">templateUrl</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./app.component.html&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">styleUrls</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;./app.component.css&#34;</span><span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AppComponent</span> <span style="color:#000;font-weight:bold">{}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * Footer component
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">@</span><span style="color:#000">Component</span><span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">selector</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;the-footer&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">templateUrl</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./footer.component.html&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">styleUrls</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;./footer.component.css&#34;</span><span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">FooterComponent</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   * @ignore
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">ignoredProperty</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">string</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   * @ignore
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a40000">@</span><span style="color:#000">Input</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000">ignoredInput</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">string</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   * @ignore
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a40000">@</span><span style="color:#000">Output</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000">ignoredOutput</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   * @ignore
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">ignoredFunction</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p><code>@param {Type} Name Description</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @example
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * This is a good example
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * processTarget(&#39;yo&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @param {string} target  The target to process see {@link Todo}
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @returns The processed target number
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000">processTarget</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">target</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#000">string</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#000">number</span><span style="color:#000;font-weight:bold">;</span>
+</span></span></code></pre></div></li>
+<li>
+<p><code>@link</code> : 你可以像 JSDoc 一样使用这三种语法:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">//for an internal reference
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">@</span><span style="color:#000">link</span> <span style="color:#000">Todo</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">Todo</span><span style="color:#000;font-weight:bold">]{</span><span style="color:#a40000">@</span><span style="color:#000">link</span> <span style="color:#000">Todo</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">@</span><span style="color:#000">link</span> <span style="color:#000">Todo</span><span style="color:#ce5c00;font-weight:bold">|</span><span style="color:#000">TodoClass</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Anchors</span> <span style="color:#000">are</span> <span style="color:#000">supported</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">Todo</span><span style="color:#000;font-weight:bold">]{</span><span style="color:#a40000">@</span><span style="color:#000">link</span> <span style="color:#000">Todo</span><span style="color:#a40000">#</span><span style="color:#000">myproperty</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">//for an external link
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">Google</span><span style="color:#000;font-weight:bold">]{</span><span style="color:#a40000">@</span><span style="color:#000">link</span> <span style="color:#000">http</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#8f5902;font-style:italic">//www.google.com}
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">@</span><span style="color:#000">link</span> <span style="color:#000">http</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#8f5902;font-style:italic">//www.apple.com|Apple}
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">@</span><span style="color:#000">link</span> <span style="color:#000">https</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#8f5902;font-style:italic">//github.com GitHub}
+</span></span></span></code></pre></div></li>
+<li>
+<p><code>@example</code> : 要给出指令、组件和管道装饰器的示例，请使用@example 或 markdown:</p>
+<p><strong>缩进的警告</strong> : TypeScript 对新行有内部空白，如果你想保持一定程度的缩进，就像下一个例子一样，至少放 13 个空格字符。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * 显示某一天的所有事件。使用示例:
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * `` `
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * &amp;lt;mwl-calendar-day-view
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *             [viewDate]=&#34;viewDate&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *             [events]=&#34;events&#34;&amp;gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * &amp;lt;/mwl-calendar-day-view&amp;gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * `` `
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * 显示某一天的所有事件。使用示例:
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * @example
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * &lt;mwl-calendar-day-view
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *             [viewDate]=&#34;viewDate&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> *             [events]=&#34;events&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * &lt;/mwl-calendar-day-view&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span></code></pre></div></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-54bc04e30a7a41663cb4bbd67b69f363">10 - 路由</h1>
+    
+	<p>参考<a href="https://angular.io/docs/ts/latest/guide/router.html#!#routing-module">样式指南</a>，提供一个类型为 <strong>&lsquo;Routes&rsquo;</strong> 的 const 对象，具有<strong>唯一的</strong>名称:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">APP_ROUTES</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">Routes</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">path</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#39;about&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">component</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">AboutComponent</span> <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">path</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">component</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">HomeComponent</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">RouterModule</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">forRoot</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">APP_ROUTES</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p><img src="/assets/img/screenshots/routing.png" alt="screenshot"></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cdf2fb3c0b4f8274b56b5797760b3a67">11 - 文档覆盖</h1>
+    
+	<h1 id="general-information">General information</h1>
+<p>Documentation coverage is calculated only for all statement of the file, even decorators.</p>
+<p>Private functions are not part of the calculation.</p>
+<p>The command <code>--coverageTest</code> gives the ability to test under a CI context the level of documentation coverage.</p>
+<p><img src="../assets/img/screenshots/8.png" alt="screenshot"></p>
+<p>The command <code>--coverageTestThresholdFail</code> gives the ability to specify if command will fail with error or just warn user (true: error, false: warn) (default: true)</p>
+<p>The command <code>--coverageMinimumPerFile</code> gives the ability to specify a minimum of coverage per file.</p>
+<h2 id="test-coverage-during-commit-process">Test coverage during commit process</h2>
+<ol>
+<li>install first <a href="https://github.com/okonet/lint-staged">lint-staged</a> : <code>npm i -d lint-staged</code></li>
+<li>add the configuration inside your <code>package.json</code> file :</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;devDependencies&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#34;lint-staged&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;linters&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;*.ts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;compodoc --coverageMinimumPerFile 25&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-51711e73679086a3e0f0276eee494290">12 - 提示和技巧</h1>
+    
+	<ul>
+<li><a href="#%E6%A0%B7%E5%BC%8F%E7%9A%84%E6%96%87%E6%A1%A3">样式的文档</a></li>
+<li><a href="#%E6%AF%8F%E4%B8%AA%E7%BB%84%E4%BB%B6%E6%A8%A1%E5%9D%97%E6%8C%87%E4%BB%A4%E7%AD%89%E7%9A%84%E6%96%87%E6%A1%A3">每个组件、模块、指令等的文档</a></li>
+<li><a href="#%E9%99%84%E5%8A%A0%E7%9A%84%E6%96%87%E6%A1%A3">附加的文档</a></li>
+<li><a href="#%E5%8D%95%E5%AD%98%E5%82%A8%E5%BA%93%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%96%87%E6%A1%A3">单存储库中几个应用程序的文档</a></li>
+<li><a href="#%E6%A0%87%E8%AE%B0%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA">标记文件中的语法高亮显示</a></li>
+<li><a href="#%E4%B8%8D%E5%8C%85%E6%8B%AC%E6%96%87%E4%BB%B6">不包括文件</a></li>
+<li><a href="#%E5%8C%85%E6%8B%AC%E6%96%87%E4%BB%B6">包括文件</a></li>
+</ul>
+<p><a id="styling-the-documentation"></a></p>
+<h2 id="样式的文档">样式的文档</h2>
+<pre tabindex="0"><code>compodoc -p tsconfig.doc.json -y your_theme_styles/
+</code></pre><p>在你的文件夹中，你至少需要提供一个 style.css 文件，其中包含以下 7 个导入文件。</p>
+<pre tabindex="0"><code>@import &#34;./reset.css&#34;;
+@import &#34;./bootstrap.min.css&#34;;
+@import &#34;./bootstrap-card.css&#34;;
+@import &#34;./prism.css&#34;;
+@import &#34;./ionicons.min.css&#34;;
+@import &#34;./compodoc.css&#34;;
+@import &#34;./tablesort.css&#34;;
+</code></pre><p>Compodoc 使用<a href="http://getbootstrap.com/">bootstrap</a> 3.3.7。您可以轻松定制 Compodoc。</p>
+<p><a href="http://bootswatch.com/">bootswatch.com</a>可以是一个很好的起点。如果你想覆盖默认的主题，只需提供一个 bootstrap.min.css 文件，它就会覆盖默认的主题。</p>
+<pre tabindex="0"><code>└── your_theme_styles/
+    ├── style.css // the main css file with default imports
+    └── bootstrap.min.css // your bootstrap theme
+</code></pre><p><a id="documentation-of-each-components"></a></p>
+<h2 id="每个组件模块指令等的文档">每个组件、模块、指令等的文档</h2>
+<p>在 JSDoc 注释之间的<strong>xxx.component.ts</strong>文件中的注释描述可能有点短。</p>
+<p>Compodoc 在每个组件的根文件夹中搜索一个默认的<strong>xxx.component.md</strong>文件，并将其添加到组件页面的一个选项卡中。对于类、模块等也是如此。</p>
+<pre tabindex="0"><code>└── my-component/
+    ├── my.component.ts
+    ├── my.component.spec.ts
+    ├── my.component.scss|css
+    ├── my.component.html
+    └── my.component.md
+</code></pre><p><a id="additional-documentation"></a></p>
+<h2 id="附加的文档">附加的文档</h2>
+<p>Compodoc 支持添加外部 markdown 文件，以扩展应用程序的代码注释和主 README 文件。</p>
+<p>创建一个包含 markdown 文件的文件夹，并使用<code>--includes</code> 标志来扩展文档。
+你的文件夹应该包含一个<strong>summary.json</strong>文件解释结构和文件:</p>
+<pre tabindex="0"><code>summary.json
+
+[
+    {
+        &#34;title&#34;: &#34;A TITLE&#34;,
+        &#34;file&#34;: &#34;a-file.md&#34;
+    },
+    {
+        &#34;title&#34;: &#34;A TITLE&#34;,
+        &#34;file&#34;: &#34;a-file.md&#34;,
+        &#34;children&#34;: [
+            {
+                &#34;title&#34;: &#34;A TITLE&#34;,
+                &#34;file&#34;: &#34;a-sub-folder/a-file.md&#34;
+            }
+        ]
+    }
+]
+</code></pre><p>链接像常规的标记链接一样受支持。</p>
+<p><a id="documentation-of-several-apps-in-a-monorepository"></a></p>
+<h2 id="单存储库中几个应用程序的文档">单存储库中几个应用程序的文档</h2>
+<p><a href="https://github.com/nrwl/nx">Nx</a>是一个开源、智能、快速和可扩展的构建系统。
+它遵循的方法是，多个应用程序和库可以生活在同一个工作空间(又名“monorepo”)。</p>
+<p>一个包含多个应用程序的单存储库可以很容易地被 Compodoc 记录下来。
+你只需要在每个应用程序中单独运行 Compodoc。
+下面是一个使用<a href="https://github.com/nrwl/nx-examples">nx-examples</a>的例子:</p>
+<pre tabindex="0"><code>.
+├── apps
+│   ├── demo
+│   │   └── src
+│   │       └── tsconfig.doc.json
+│   ├── profile
+│   ├── school
+│   └── teach
+└── README.md
+</code></pre><p>像这样运行 Compodoc:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> apps/demo/src
+</span></span><span style="display:flex;"><span>compodoc -p tsconfig.doc.json -s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// or
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>compodoc -p apps/demo/src/tsconfig.doc.json -s
+</span></span></code></pre></div><p><a id="syntax-highlighting-in-markdown-files"></a></p>
+<h2 id="标记文件中的语法高亮显示">标记文件中的语法高亮显示</h2>
+<p>Compodoc 使用<a href="https://github.com/chjj/marked">Marked</a>进行标记解析并编译成 html。
+添加了<a href="http://prismjs.com/">prismjs.js</a>以支持语法高亮显示。</p>
+<p>只需使用一个正常的代码块在您的标记与正确的语言:<a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">Github 帮助</a></p>
+<p>集成语言包括: <strong>json, bash, javascript, markdown, html, scss, typescript</strong></p>
+<p><a id="excluding-files"></a></p>
+<h2 id="不包括文件">不包括文件</h2>
+<p>要从文档中排除文件，只需使用<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html"><strong>tsconfig.json</strong></a>文件的<strong>exclude</strong>属性。</p>
+<p>你可以排除名称为<code>app/myfile.ts</code>或 glob 模式<code>**/*.spec.ts</code>的特定文件。</p>
+<p><a id="including-files"></a></p>
+<h2 id="包括文件">包括文件</h2>
+<p>要包含文档中的文件，只需使用<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html"><strong>tsconfig.json</strong></a>文件的<strong>include</strong>属性。</p>
+<p>你可以包含特定的文件名<code>app/myfile.ts</code>或 glob 模式<code>**/*.ts</code>的文件。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fa3c4547e13acf34330e9a8bf520713b">13 - 扩展</h1>
+    
+	<h2 id="gulp">Gulp</h2>
+<p>有一个插件可用来运行 Compodoc 与 Gulp。</p>
+<p>你可以在 NPM 上找到它: <a href="https://www.npmjs.com/package/gulp-compodoc">https://www.npmjs.com/package/gulp-compodoc</a></p>
+<h2 id="jhispter">JHispter</h2>
+<p>有一个 JHipster 模块可以用 JHipster 运行 Compodoc。</p>
+<p>你可以在 NPM 上找到它: <a href="https://www.npmjs.com/package/generator-jhipster-compodoc">https://www.npmjs.com/package/generator-jhipster-compodoc</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b8b742126ffdc6e81fb99023217d4157">14 - 杂项</h1>
+    
+	<h2 id="谁在使用康波多克">谁在使用康波多克?</h2>
+<ul>
+<li><a href="https://github.com/AngularClass/angular-starter">angular-starter</a></li>
+<li><a href="https://github.com/mgechev/angular-seed">angular-seed</a></li>
+<li><a href="https://github.com/akveo/ngx-admin">ngx-admin</a></li>
+<li><a href="https://github.com/mattlewis92/angular-calendar">angular-calendar</a></li>
+<li><a href="https://github.com/mattlewis92/angular-gauge">angular-gauge</a></li>
+<li><a href="https://github.com/jvandemo/generator-angular2-library">generator-angular2-library</a></li>
+<li><a href="https://docs.firetask.io/">Ionic Firebase Starter Application</a></li>
+<li><a href="https://github.com/mattlewis92/angular-text-input-highlight">angular-text-input-highlight</a></li>
+<li><a href="https://tinesoft.github.io/ngx-wow/home">ngx-wow</a></li>
+<li><a href="https://maurei.github.io/ngx-table-editor/demo/">ngx-table-editor</a></li>
+<li><a href="https://www.ngqp.io/api-docs/">ngqp</a></li>
+</ul>
+<p>这些是<a href="https://github.com/search?q=compodoc+filename%3Apackage.json+-user%3Acompodoc&amp;ref=searchresults&amp;type=Code&amp;utf8=%E2%9C%93">我们知道的</a>。
+希望您的项目列在这里?给我们写信。</p>
+<h2 id="他们对康波多克有什么看法">他们对康波多克有什么看法?</h2>
+<blockquote class="twitter-tweet" data-lang="fr">
+    <p lang="en" dir="ltr">我一直在向我的130个研讨会中的每一个人介绍Compodoc !</p>
+    &mdash; Laurent Duveau 🇨🇦 (@LaurentDuveau) <a href="https://twitter.com/LaurentDuveau/status/1070444130675904513?ref_src=twsrc%5Etfw">5 décembre 2018</a>
+</blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">▶️Documentation matters◀️<br>If it is not documented, “it does not exists” for developers<br>Need a help? Use Compodoc 📚as do <a href="https://twitter.com/Sonietta?ref_src=twsrc%5Etfw">@Sonietta</a> and <a href="https://twitter.com/carlobonamico?ref_src=twsrc%5Etfw">@carlobonamico</a> <br>Join their talk at room 3! <a href="https://twitter.com/hashtag/codemotion?src=hash&amp;ref_src=twsrc%5Etfw">#codemotion</a> <a href="https://t.co/zEfe0OnfYo">pic.twitter.com/zEfe0OnfYo</a></p>&mdash; Codemotion (@CodemotionIT) <a href="https://twitter.com/CodemotionIT/status/1068139398666035200?ref_src=twsrc%5Etfw">29 novembre 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/compodoc?src=hash&amp;ref_src=twsrc%5Etfw">#compodoc</a> is insane.  Seriously one of the best tools for <a href="https://twitter.com/angular?ref_src=twsrc%5Etfw">@angular</a></p>&mdash; Zachary Hale (@Hale88Hale) <a href="https://twitter.com/Hale88Hale/status/1049727291570495488?ref_src=twsrc%5Etfw">9 octobre 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/Compodoc?src=hash&amp;ref_src=twsrc%5Etfw">#Compodoc</a> - amazing documentation tool for your <a href="https://twitter.com/hashtag/Angular?src=hash&amp;ref_src=twsrc%5Etfw">#Angular</a> \ <a href="https://twitter.com/hashtag/Nestjs?src=hash&amp;ref_src=twsrc%5Etfw">#Nestjs</a> application<br>Big thanks to the author, <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> , awesome!</p>&mdash; Boris Malaichik (@BMalaichik) <a href="https://twitter.com/BMalaichik/status/1046875808256667648?ref_src=twsrc%5Etfw">1 octobre 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Just used  <a href="https://twitter.com/hashtag/compodoc?src=hash&amp;ref_src=twsrc%5Etfw">#compodoc</a> in one of our (inherited) projects! Gave me really great overview of what&#39;s going on in the application 😋 Big thanks to <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> and everyone who is contributing to this great project! <a href="https://t.co/SW0ZEQwpar">pic.twitter.com/SW0ZEQwpar</a></p>&mdash; Sherry List 🔜 ✈️ 🇨🇴 (@sherrrylst) <a href="https://twitter.com/sherrrylst/status/1022013063749398528?ref_src=twsrc%5Etfw">25 juillet 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Such a great tool :)<br>Compodoc - The missing documentation tool for your <a href="https://twitter.com/hashtag/Angular?src=hash&amp;ref_src=twsrc%5Etfw">#Angular</a> application <a href="https://t.co/uy6SIoIsI2">https://t.co/uy6SIoIsI2</a> <a href="https://t.co/NFNxREE4R4">pic.twitter.com/NFNxREE4R4</a></p>&mdash; Nir kaufman (@nirkaufman) <a href="https://twitter.com/nirkaufman/status/966865450868109312?ref_src=twsrc%5Etfw">23 février 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Compodoc - The missing documentation tool for your Angular application. Need to check out. <a href="https://t.co/iHeQg9Ue3H">https://t.co/iHeQg9Ue3H</a></p>&mdash; David Boster (@davidboster) <a href="https://twitter.com/davidboster/status/960279567121383424?ref_src=twsrc%5Etfw">4 février 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">I love <a href="https://twitter.com/hashtag/Compodoc?src=hash&amp;ref_src=twsrc%5Etfw">#Compodoc</a>. If you use <a href="https://twitter.com/hashtag/Angular?src=hash&amp;ref_src=twsrc%5Etfw">#Angular</a>, you should use it. <a href="https://t.co/j8doRX1kpF">https://t.co/j8doRX1kpF</a></p>&mdash; Leo Caseiro 🇧🇷 🇦🇺 (@leocaseiro) <a href="https://twitter.com/leocaseiro/status/949076815930277888?ref_src=twsrc%5Etfw">5 janvier 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/compodoc?src=hash&amp;ref_src=twsrc%5Etfw">#compodoc</a> is blowing my mind right now, just pointed it at an Angular4 app and it’s generated beautiful docs with component trees, module visualisations, the works! Top work <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> and <a href="https://twitter.com/manekinekko?ref_src=twsrc%5Etfw">@manekinekko</a></p>&mdash; Mel Lota (@mlota) <a href="https://twitter.com/mlota/status/940872310634024961?ref_src=twsrc%5Etfw">13 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Wanna documenting ur <a href="https://twitter.com/hashtag/angular?src=hash&amp;ref_src=twsrc%5Etfw">#angular</a> &amp; <a href="https://twitter.com/hashtag/typescript?src=hash&amp;ref_src=twsrc%5Etfw">#typescript</a> code? Definitely check out Compodoc! By <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> on <a href="https://twitter.com/hashtag/ngbe?src=hash&amp;ref_src=twsrc%5Etfw">#ngbe</a></p>&mdash; Juri Strumpflohner (@juristr) <a href="https://twitter.com/juristr/status/939083244561227777?ref_src=twsrc%5Etfw">8 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">7 Angular Tools That You Should Consider 🔨 <a href="https://twitter.com/code?ref_src=twsrc%5Etfw">@code</a> Snippets by <a href="https://twitter.com/John_Papa?ref_src=twsrc%5Etfw">@John_Papa</a>, CompoDoc by <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a>, Augury by <a href="https://twitter.com/rangleio?ref_src=twsrc%5Etfw">@rangleio</a> and much more! <a href="https://t.co/upEnn0S84X">pic.twitter.com/upEnn0S84X</a></p>&mdash; Minko Gechev (@mgechev) <a href="https://twitter.com/mgechev/status/937984909003563008?ref_src=twsrc%5Etfw">5 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Seriously, this is one of the coolest Angular projects we&#39;ve seen yet. It allows you to totally visualize your components. by <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> <a href="https://t.co/l8A9Rr814B">https://t.co/l8A9Rr814B</a></p>&mdash; ng-conf (@ngconf) <a href="https://twitter.com/ngconf/status/942878648775905286?ref_src=twsrc%5Etfw">18 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Swagger is some cool stuff. For front-end and Back-end <a href="https://twitter.com/SwaggerApi?ref_src=twsrc%5Etfw">@SwaggerApi</a> and CompoDoc by <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> makes a good combination<a href="https://twitter.com/hashtag/fullstack?src=hash&amp;ref_src=twsrc%5Etfw">#fullstack</a> <a href="https://twitter.com/hashtag/developers?src=hash&amp;ref_src=twsrc%5Etfw">#developers</a></p>&mdash; Saiyaff Farouk (@msaiyaff) <a href="https://twitter.com/msaiyaff/status/942391805340876806?ref_src=twsrc%5Etfw">17 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/compodoc?src=hash&amp;ref_src=twsrc%5Etfw">#compodoc</a> is blowing my mind right now, just pointed it at an Angular4 app and it’s generated beautiful docs with component trees, module visualisations, the works! Top work <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> and <a href="https://twitter.com/manekinekko?ref_src=twsrc%5Etfw">@manekinekko</a></p>&mdash; Mel Lota (@mlota) <a href="https://twitter.com/mlota/status/940872310634024961?ref_src=twsrc%5Etfw">13 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Wanna documenting ur <a href="https://twitter.com/hashtag/angular?src=hash&amp;ref_src=twsrc%5Etfw">#angular</a> &amp; <a href="https://twitter.com/hashtag/typescript?src=hash&amp;ref_src=twsrc%5Etfw">#typescript</a> code? Definitely check out Compodoc! By <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> on <a href="https://twitter.com/hashtag/ngbe?src=hash&amp;ref_src=twsrc%5Etfw">#ngbe</a></p>&mdash; Juri Strumpflohner (@juristr) <a href="https://twitter.com/juristr/status/939083244561227777?ref_src=twsrc%5Etfw">8 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">7 Angular Tools That You Should Consider 🔨 <a href="https://twitter.com/code?ref_src=twsrc%5Etfw">@code</a> Snippets by <a href="https://twitter.com/John_Papa?ref_src=twsrc%5Etfw">@John_Papa</a>, CompoDoc by <a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a>, Augury by <a href="https://twitter.com/rangleio?ref_src=twsrc%5Etfw">@rangleio</a> and much more! <a href="https://t.co/upEnn0S84X">pic.twitter.com/upEnn0S84X</a></p>&mdash; Minko Gechev (@mgechev) <a href="https://twitter.com/mgechev/status/937984909003563008?ref_src=twsrc%5Etfw">5 décembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">A good documentation tool for Angular project : Compodoc<a href="https://t.co/I3cFnwbMd4">https://t.co/I3cFnwbMd4</a></p>&mdash; Maxime Bruguet (@MaximeBruguet) <a href="https://twitter.com/MaximeBruguet/status/934420899939409921?ref_src=twsrc%5Etfw">25 novembre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">.<a href="https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw">@vogloblinsky</a> we have been using <a href="https://twitter.com/hashtag/compodoc?src=hash&amp;ref_src=twsrc%5Etfw">#compodoc</a> internally <a href="https://twitter.com/CapitalOne?ref_src=twsrc%5Etfw">@CapitalOne</a><br>Thanks for all the hardwork! <a href="https://twitter.com/hashtag/Angular?src=hash&amp;ref_src=twsrc%5Etfw">#Angular</a> <a href="https://twitter.com/hashtag/typescript?src=hash&amp;ref_src=twsrc%5Etfw">#typescript</a> <a href="https://t.co/ZzK5ZGf0t9">https://t.co/ZzK5ZGf0t9</a></p>&mdash; Youssef Taghlabi (@YoussefTaghlabi) <a href="https://twitter.com/YoussefTaghlabi/status/925174109960630274?ref_src=twsrc%5Etfw">31 octobre 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">thx <a href="https://twitter.com/vogloblinsky">@vogloblinsky</a> for compodoc  <a href="https://t.co/DYr3SlTw18">https://t.co/DYr3SlTw18</a> ...it already helped a lot ;)</p>&mdash; matthias rebel (@_rebeling) <a href="https://twitter.com/_rebeling/status/875867727533146112">17 juin 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="pl" dir="ltr">Największe odkrycie dnia dzisiejszego - compodoc<br><br>Budowanie dokumentacji z kodu projektu na <a href="https://twitter.com/angular">@angular</a> <a href="https://t.co/Vdx0L08Z5g">https://t.co/Vdx0L08Z5g</a><a href="https://twitter.com/hashtag/cool?src=hash">#cool</a> <a href="https://twitter.com/hashtag/stuff?src=hash">#stuff</a></p>&mdash; Piotr Kowalski (@piecioshka) <a href="https://twitter.com/piecioshka/status/866716119071174658">22 mai 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">how to document <a href="https://twitter.com/hashtag/angular2?src=hash">#angular2</a> <a href="https://twitter.com/hashtag/Angular?src=hash">#Angular</a> applications ? have a look <a href="https://t.co/D3SdWdZ5pv">https://t.co/D3SdWdZ5pv</a> they did a great job. <a href="https://twitter.com/hashtag/compodoc?src=hash">#compodoc</a></p>&mdash; carsten Piepel (@cpiepel_de) <a href="https://twitter.com/cpiepel_de/status/864849612682792961">17 mai 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="es" dir="ltr">Compodoc es una excelente herramienta para documentar todos nuestros proyectos de <a href="https://twitter.com/hashtag/angular2?src=hash">#angular2</a><br> <a href="https://t.co/iYHKVSq2no">https://t.co/iYHKVSq2no</a></p>&mdash; tsugiteam (@tsugiteam) <a href="https://twitter.com/tsugiteam/status/860197444629524483">4 mai 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Hey <a href="https://twitter.com/vogloblinsky">@vogloblinsky</a> and <a href="https://twitter.com/manekinekko">@manekinekko</a> the team here at work is falling in ❤️ with <a href="https://twitter.com/hashtag/compodoc?src=hash">#compodoc</a>. Thank you x1000!<a href="https://t.co/wme8n3cVHv">https://t.co/wme8n3cVHv</a></p>&mdash; Justin (@schwarty) <a href="https://twitter.com/schwarty/status/859814974578868224">3 mai 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="fr"><p lang="en" dir="ltr"><a href="https://twitter.com/vogloblinsky">@vogloblinsky</a> <a href="https://twitter.com/schwarty">@schwarty</a> <a href="https://twitter.com/amcdnl">@amcdnl</a> <a href="https://twitter.com/manekinekko">@manekinekko</a> <a href="https://twitter.com/AngularAir">@AngularAir</a> Compodoc is the bees knees!! Thank you!</p>&mdash; Alyssa Nicoll (@AlyssaNicoll) <a href="https://twitter.com/AlyssaNicoll/status/859596472500801538">3 mai 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e5ea9da1ac369109f562c6cdfd15683e">15 - 现场例子选项卡</h1>
+    
+	<h2 id="组件指令和服务的示例标签">组件、指令和服务的示例标签</h2>
+<p>通过<example-url>标签的帮助，可以将 Live demo examples 标签添加到组件、指令和服务文档页面。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * Example of usage:
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * &lt;example-url&gt;http://localhost/demo/mysample.component.html&lt;/example-url&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> * &lt;example-url&gt;/demo/mysample.component.html&lt;/example-url&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"> */</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-558a22dcf299da207b3907e926498225">16 - 选项卡配置</h1>
+    
+	<h2 id="自定义选项卡顺序和标签">自定义选项卡顺序和标签</h2>
+<p>The ordering of the tabs and the text used for their labels can be modified by setting the <code>navTabConfig</code>
+input either as a property in a compodoc configuration file or as an argument to the <code>compodoc</code> CLI command.</p>
+<p>The <code>navTabConfig</code> input is an array of tab configuration objects representing the superset of tabs that will
+be shown for the various dependencies in your project. The ordering of the array determines the left-to-right
+placement of the tabs in the compodoc output, and the string value of a tab object&rsquo;s <code>label</code>
+property determines the label displayed on the corresponding tab.</p>
+<h2 id="定义一个标签">定义一个标签</h2>
+<pre tabindex="0"><code>{
+  &#34;id&#34;: &#34;info&#34;,
+  &#34;label&#34;: &#34;Custom Label&#34;
+}
+</code></pre><p>The tab id is used to determine which tab to apply the custom placement and label to. The available tab id&rsquo;s are:
+<strong>&ldquo;info&rdquo;</strong>, <strong>&ldquo;readme&rdquo;</strong>, <strong>&ldquo;source&rdquo;</strong>, <strong>&ldquo;templateData&rdquo;</strong>, <strong>&ldquo;tree&rdquo;</strong>, and <strong>&ldquo;example&rdquo;</strong>.</p>
+<h2 id="需要注意的事情">需要注意的事情</h2>
+<p>Certain tabs will only be shown if applicable to a given dependency:</p>
+<ul>
+<li>
+<p><strong>&ldquo;info&rdquo;</strong>, <strong>&ldquo;readme&rdquo;</strong>, and <strong>&ldquo;source&rdquo;</strong> tabs are applicable to all dependency types.</p>
+</li>
+<li>
+<p><strong>&ldquo;templateData&rdquo;</strong> and <strong>&ldquo;tree&rdquo;</strong> tabs are applicable to Components.</p>
+</li>
+<li>
+<p>The <strong>&ldquo;example&rdquo;</strong> tab is applicable to Component, Directive, Injectable, and Pipe dependencies.</p>
+</li>
+</ul>
+<p>Additionally, the <strong>&ldquo;example&rdquo;</strong>, <strong>&ldquo;readme&rdquo;</strong>, and <strong>&ldquo;templateData&rdquo;</strong> tabs will only be shown for dependencies
+that specify content for them. For instance, dependencies for which no examples are provided will not have an
+example tab.</p>
+<h2 id="配置文件中的示例用法">配置文件中的示例用法</h2>
+<pre tabindex="0"><code>{
+    &#34;navTabConfig&#34;: [
+        {
+            &#34;id&#34;: &#34;example&#34;,
+            &#34;label&#34;: &#34;Overview&#34;
+        },
+        {
+            &#34;id&#34;: &#34;info&#34;,
+            &#34;label&#34;: &#34;API&#34;
+        },
+        {
+            &#34;id&#34;: &#34;source&#34;,
+            &#34;label&#34;: &#34;Source&#34;
+        },
+        {
+            &#34;id&#34;: &#34;tree&#34;,
+            &#34;label&#34;: &#34;DOM Tree&#34;
+        }
+    ],
+    &#34;tsconfig&#34;: &#34;./src/tsconfig.json&#34;
+}
+</code></pre><h2 id="作为-cli-参数的示例用法">作为 CLI 参数的示例用法</h2>
+<p>Note: Double-quotes must be escaped with &ldquo;\&rdquo;.</p>
+<pre tabindex="0"><code> compodoc --navTabConfig &#39;[{\&#34;id\&#34;: \&#34;example\&#34;,\&#34;label\&#34;: \&#34;Overview\&#34;},{\&#34;id\&#34;: \&#34;info\&#34;,\&#34;label\&#34;: \&#34;API\&#34;},{\&#34;id\&#34;: \&#34;source\&#34;,\&#34;label\&#34;: \&#34;Source\&#34;}]&#39; -p src/tsconfig.json -n &#39;Documentation Name&#39; -s
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6e3e400ece00dfed1532d592701b2294">17 - 托管</h1>
+    <div class="lead">一旦在输出文件夹中生成了文档，就可以将文档放在想要的位置。</div>
+	<h2 id="github-pages">Github pages</h2>
+<p>遵循这个伟大的教程: <a href="https://voorhoede.github.io/front-end-tooling-recipes/travis-deploy-to-gh-pages/">https://voorhoede.github.io/front-end-tooling-recipes/travis-deploy-to-gh-pages/</a></p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User mailing list" aria-label="User mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="User mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Stack Overflow" aria-label="Stack Overflow">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/stack" aria-label="Stack Overflow">
+      <i class="fab fa-stack-overflow"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/google/docsy" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/slack" aria-label="Slack">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 kamilmysliwiec 保留所有权利</small>
+        <small class="ml-1"><a href="https://kamilmysliwiec.com/" target="_blank" rel="noopener">隐私政策</a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/nestjs-docs/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/nestjs-docs/js/main.min.82227759f8f2ead5d4ac2028ff961235745a57120ee2f90ce8f820d05976f9bb.js" integrity="sha256-giJ3Wfjy6tXUrCAo/5YSNXRaVxIO4vkM6Pgg0Fl2&#43;bs=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

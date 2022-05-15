@@ -1,0 +1,982 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NestJS 文档 – Compodoc</title>
+    <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/</link>
+    <description>Recent content in Compodoc on NestJS 文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://wdk-docs.github.io/nestjs-docs/docs/compodoc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 特性</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/features/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/features/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;支持&lt;/strong&gt; — &lt;a href=&#34;https://angular.io/&#34;&gt;Angular&lt;/a&gt;, &lt;a href=&#34;https://nestjs.com/&#34;&gt;NestJS&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://stenciljs.com/&#34;&gt;Stencil&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;干净,简单的设计&lt;/strong&gt; — 使用 Compodoc，主要端点位于文档的左侧，所有内容位于右侧&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;美丽的主题&lt;/strong&gt; — &lt;a href=&#34;./themes.html&#34;&gt;8 个主题&lt;/a&gt;可以从著名的文档工具如&lt;a href=&#34;https://www.gitbook.com&#34;&gt;Gitbook&lt;/a&gt;, &lt;a href=&#34;https://readthedocs.org/&#34;&gt;Read the Docs&lt;/a&gt; 或项目如 &lt;a href=&#34;https://www.vagrantup.com/docs/&#34;&gt;Vagrant&lt;/a&gt;, &lt;a href=&#34;https://laravel.com/docs/5.3&#34;&gt;Laravel&lt;/a&gt;, &lt;a href=&#34;http://developer.postmarkapp.com/&#34;&gt;Postmark&lt;/a&gt;, &lt;a href=&#34;https://material.io/&#34;&gt;Material design&lt;/a&gt; and &lt;a href=&#34;https://stripe.com/docs/api&#34;&gt;Stripe&lt;/a&gt;中获得.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;i18n&lt;/strong&gt; — 许多可用的语言: de-DE, en-US, es-ES, fr-FR, hu-HU, it-IT, ja-JP, nl-NL, pl-PL, pt-BR, sk-SK, zh-CN&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;搜索&lt;/strong&gt; — Compodoc 包括一个强大的搜索引擎(&lt;a href=&#34;http://lunrjs.com/&#34;&gt;lunr.js&lt;/a&gt;)，可以方便地找到您的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;自动目录&lt;/strong&gt; - API 目录是使用在文件解析期间找到的元素生成的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;开源和 npm 发布&lt;/strong&gt; - 使用 npm 和一个脚本直接在你的项目中使用它，就是这样!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;当地的一个工具&lt;/strong&gt; - 不需要服务器，不需要在线上传资源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;没有 TypeScript 编译&lt;/strong&gt; - Compodoc 解析你的代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JSDoc 轻支持&lt;/strong&gt; - 支持 &lt;strong&gt;@param&lt;/strong&gt;, &lt;strong&gt;@returns&lt;/strong&gt;, &lt;strong&gt;@link&lt;/strong&gt;, &lt;strong&gt;@ignore&lt;/strong&gt; and &lt;strong&gt;@example&lt;/strong&gt; 标签&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;文档覆盖&lt;/strong&gt; - 获取项目的文档覆盖率报告&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Angular-CLI 友好&lt;/strong&gt; - Compodoc 支持开箱即用的 Angular-CLI 项目&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;暗黑模式&lt;/strong&gt; - Compodoc 支持您的浏览器的开箱暗模式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 现场演示</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/demo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/demo/</guid>
+      <description>
+        
+        
+        &lt;p&gt;现场演示:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://compodoc.github.io/compodoc-demo-todomvc-angular/&#34;&gt;Angular&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这是一个简单的&lt;a href=&#34;https://github.com/compodoc/compodoc-demo-todomvc-angular&#34;&gt;TodoMVC 应用程序&lt;/a&gt;演示项目生成的文档。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://compodoc.github.io/compodoc-demo-nestjs/&#34;&gt;Nest&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;它是为这个演示项目生成的文档，这是一个&lt;a href=&#34;https://github.com/compodoc/compodoc-demo-nestjs&#34;&gt;RealWorld 示例应用程序&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://compodoc.github.io/compodoc-demo-stencil/&#34;&gt;Stencil&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;它是为这个演示项目生成的文档，这是一个&lt;a href=&#34;https://github.com/compodoc/compodoc-demo-stencil&#34;&gt;Stencil 示例应用程序&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;截图&#34;&gt;截图&lt;/h2&gt;
+&lt;p&gt;下面是这个项目&lt;a href=&#34;https://github.com/r-park/soundcloud-ngrx&#34;&gt;SoundCloud API 客户端&lt;/a&gt;和默认主题(gitbook)生成文档的截图&lt;/p&gt;
+&lt;h3 id=&#34;自述文件页面&#34;&gt;自述文件页面&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/1.png&#34; alt=&#34;screenshot-1&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;概述页面&#34;&gt;概述页面&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/2.png&#34; alt=&#34;screenshot-2&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;模块页面&#34;&gt;模块页面&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/3.png&#34; alt=&#34;screenshot-3&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;单模块页面&#34;&gt;单模块页面&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/4.png&#34; alt=&#34;screenshot-4&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;组件页面&#34;&gt;组件页面&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/5.png&#34; alt=&#34;screenshot-5&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;源代码选项卡&#34;&gt;源代码选项卡&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/7.png&#34; alt=&#34;screenshot-7&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;搜索页面&#34;&gt;搜索页面&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/6.png&#34; alt=&#34;screenshot-6&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;覆盖率报告&#34;&gt;覆盖率报告&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/screenshots/8.png&#34; alt=&#34;screenshot-8&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 安装</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/installation/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;nodejs-版本&#34;&gt;Node.js 版本&lt;/h2&gt;
+&lt;p&gt;Compodoc 只使用 LTS 版本进行测试: v12.x, v14.x&lt;/p&gt;
+&lt;h2 id=&#34;angular-cli&#34;&gt;Angular-CLI&lt;/h2&gt;
+&lt;p&gt;Compodoc 支持最新的 Angular-CLI 版本:13.x&lt;/p&gt;
+&lt;p&gt;只需在一个新的或现有的项目中运行 Compodoc。&lt;/p&gt;
+&lt;h2 id=&#34;全局安装&#34;&gt;全局安装&lt;/h2&gt;
+&lt;p&gt;从 npm 安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install -g @compodoc/compodoc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你在 Windows 上使用 PowerShell，请添加引号:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install -g &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;@compodoc/compodoc&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;本地安装&#34;&gt;本地安装&lt;/h2&gt;
+&lt;p&gt;使用 Angular CLI 安装:npm scripts + 特殊的 tsconfig.doc.json 文件将被创建。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ng add @compodoc/compodoc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或直接&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install --save-dev @compodoc/compodoc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;运行&#34;&gt;运行&lt;/h2&gt;
+&lt;p&gt;创建一个名为&lt;code&gt;tsconfig.doc.json&lt;/code&gt;的文件，包含一个指向&lt;code&gt;src&lt;/code&gt;文件夹的键&lt;code&gt;include&lt;/code&gt;，你也可以使用&lt;code&gt;exclude&lt;/code&gt;键:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;include&amp;#34;: [&amp;#34;src/**/*.ts&amp;#34;],
+  &amp;#34;exclude&amp;#34;: [&amp;#34;src/test.ts&amp;#34;, &amp;#34;src/**/*.spec.ts&amp;#34;, &amp;#34;src/app/file-to-exclude.ts&amp;#34;]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在你的 package.json 中定义一个脚本任务(使用 npm 6.x):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;scripts&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;compodoc&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;npx compodoc -p tsconfig.doc.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;并像正常的 NPM 脚本一样运行它:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm run compodoc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或与 npx:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx @compodoc/compodoc ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;请参阅&lt;a href=&#34;./usage.html&#34;&gt;usage&lt;/a&gt;了解更多细节。&lt;/p&gt;
+&lt;h2 id=&#34;tsconfig-文件在代码库中的位置&#34;&gt;tsconfig 文件在代码库中的位置&lt;/h2&gt;
+&lt;p&gt;Compodoc 从&lt;code&gt;-p&lt;/code&gt;选项提供的 tsconfig 文件的文件夹级别启动。&lt;/p&gt;
+&lt;p&gt;Angular CLI 项目的例子:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.
+├── src
+│ ├── app
+│ │ ├── app.component.ts
+│ │ └── app.module.ts
+│ ├── main.ts
+│ └── ...
+├── tsconfig.app.json
+├── tsconfig.doc.json
+└── tsconfig.json
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 教程</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/tutorial/</guid>
+      <description>
+        
+        
+        &lt;p&gt;这些文章很好地解释了如何在你的项目中使用 Compodoc:&lt;/p&gt;
+&lt;h2 id=&#34;alfredo-perez&#34;&gt;Alfredo Perez&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@alfredo.perez.q/publish-angular-library-documentation-created-with-nx-using-travisci-and-github-pages-27854598239c&#34;&gt;https://medium.com/@alfredo.perez.q/publish-angular-library-documentation-created-with-nx-using-travisci-and-github-pages-27854598239c&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ionic-academy&#34;&gt;Ionic Academy&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://ionicacademy.com/ionic-code-documentation/&#34;&gt;https://ionicacademy.com/ionic-code-documentation/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;他们还制作了一个 10 英寸的视频:&lt;/p&gt;
+&lt;iframe title=&#34;YouTube video player&#34; class=&#34;youtube-player&#34; type=&#34;text/html&#34; 
+width=&#34;640&#34; height=&#34;390&#34; src=&#34;https://www.youtube.com/embed/xJSKZ1DE4Go&#34;
+frameborder=&#34;0&#34; allowFullScreen&gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;angular-训练&#34;&gt;Angular 训练&lt;/h2&gt;
+&lt;iframe title=&#34;YouTube video player&#34; class=&#34;youtube-player&#34; type=&#34;text/html&#34; 
+width=&#34;640&#34; height=&#34;390&#34; src=&#34;https://www.youtube.com/embed/-NER_Dy7ohY&#34;
+frameborder=&#34;0&#34; allowFullScreen&gt;&lt;/iframe&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 选项</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/options/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc &amp;lt;src&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;options&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-h, &amp;ndash;help&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;输出使用信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-V, &amp;ndash;version&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;输出版本号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-c, &amp;ndash;config [config]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;配置文件: .compodocrc, .compodocrc.json, .compodocrc.yaml or compodoc property in package.json 属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-p, &amp;ndash;tsconfig [config]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;tsconfig.json 文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-d, &amp;ndash;output [folder]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;在哪里存储生成的文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-y, &amp;ndash;extTheme [file]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;外部造型主题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-n, &amp;ndash;name [name]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;文档名称&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-a, &amp;ndash;assetsFolder [folder]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;在生成的文档文件夹中复制的外部资产文件夹&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-o, &amp;ndash;open&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;打开生成的文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-t, &amp;ndash;silent&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;在静默模式下，日志消息不会记录在控制台中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-s, &amp;ndash;serve&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;服务生成的文档(默认为 http://localhost:8080/)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-r, &amp;ndash;port [port]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;更改默认服务端口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-w, &amp;ndash;watch&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;在服务和强制文档重建后，观察源文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-e, &amp;ndash;exportFormat [format]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;导出指定格式(json, html(默认))&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;language [language]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;用于生成文档的语言 (de-DE, en-US, es-ES, fr-FR, hu-HU, it-IT, ja-JP, ko-KR, nl-NL, pl-PL, pt-BR, sk-SK, zh-CN) (默认: en-US)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;theme [theme]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;选择一个可用的主题，默认为 &amp;lsquo;gitbook&amp;rsquo; (laravel, original, material, postmark, readthedocs, stripe, vagrant)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;hideGenerator&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不要在页面底部打印 Compodoc 标志&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;toggleMenuItems &lt;items&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;关闭菜单(default [&amp;lsquo;all&amp;rsquo;])值中的默认项: [&amp;lsquo;all&amp;rsquo;] 或者是 [&amp;lsquo;modules&amp;rsquo;,&amp;lsquo;components&amp;rsquo;,&amp;lsquo;directives&amp;rsquo;,&amp;lsquo;controllers&amp;rsquo;,&amp;lsquo;classes&amp;rsquo;,&amp;lsquo;injectables&amp;rsquo;,&amp;lsquo;guards&amp;rsquo;,&amp;lsquo;interfaces&amp;rsquo;,&amp;lsquo;interceptors&amp;rsquo;,&amp;lsquo;pipes&amp;rsquo;,&amp;lsquo;miscellaneous&amp;rsquo;,&amp;lsquo;additionalPages&amp;rsquo;]其中一个)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;navTabConfig &lt;tab configs&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;用两个字符串属性按所需顺序列出导航选项卡对象 (&amp;ldquo;id&amp;rdquo; 和 &amp;ldquo;label&amp;rdquo;). 双引号必须用&amp;rsquo;\&amp;lsquo;转义。 可用的选项卡 IDs 是 &amp;ldquo;info&amp;rdquo;, &amp;ldquo;readme&amp;rdquo;, &amp;ldquo;source&amp;rdquo;, &amp;ldquo;templateData&amp;rdquo;, &amp;ldquo;tree&amp;rdquo;, 和 &amp;ldquo;example&amp;rdquo;. 注意:某些选项卡只会在适用于给定依赖项时显示&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;templates [folder]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Handlebars 模板覆盖内置模板的目录路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;includes [path]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;要包含的外部标记文件的路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;includesName [name]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;外部标记文件的项目菜单名称 (默认是 &amp;ldquo;Additional documentation&amp;rdquo;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;coverageTest&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;使用阈值(默认 70)测试文档覆盖率的命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;coverageMinimumPerFile [minimum]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;每个文件的文档覆盖率测试命令的最小值(默认为 0)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;coverageTestThresholdFail [boolean]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;文档覆盖的测试命令(全局的或每个文件的)将会失败并产生错误或者只是警告用户(true: error, false: warn)(默认值:true)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;coverageTestShowOnlyFailed&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;只显示覆盖率测试失败的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;unitTestCoverage [json-summary]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;要包含单元测试覆盖率，请指定 istanbul JSON 覆盖率摘要文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableSourceCode&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加源代码选项卡和到源代码的链接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableDomTree&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加 dom 树标签&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableTemplateTab&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加模板选项卡&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableStyleTab&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加样式标签&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableGraph&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;禁用依赖关系图的呈现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableCoverage&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加文档覆盖率报告&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disablePrivate&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;在生成的文档中不显示私有&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableProtected&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;在生成的文档中不显示受保护&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableInternal&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;在生成的文档中不显示@internal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableLifeCycleHooks&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;没有在生成的文档中显示 Angular 的生命周期钩子&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableRoutesGraph&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加路由图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableSearch&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加搜索输入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;disableDependencies&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;不添加依赖项列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;minimal&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;只有文档的最小模式。没有搜索，没有图表，没有覆盖范围。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;customFavicon [path]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;使用自定义图标&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;customLogo [path]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;使用自定义 logo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;gaID [id]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;谷歌分析跟踪 ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;gaSite [site]&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;谷歌分析站点名称(默认: auto)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 使用</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/usage/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;配置文件&#34;&gt;配置文件&lt;/h2&gt;
+&lt;p&gt;您可以在项目文件夹的根目录中提供配置文件。&lt;/p&gt;
+&lt;p&gt;Compodoc 将搜索如下文件: .compodocrc, .compodocrc.json, .compodocrc.yaml 或 package.json 中的 Compodoc 属性&lt;/p&gt;
+&lt;p&gt;这里有一个 JSON 模式: &lt;code&gt;./node_modules/@compodoc/compodoc/src/config/schema.json&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;选项引号和-windows-使用&#34;&gt;选项、引号和 Windows 使用&lt;/h2&gt;
+&lt;p&gt;记住，使用多个单词的选项需要在句子周围加引号。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc -p tsconfig.doc.json -n &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;My app documentation&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用 npm 脚本，命令被托管在 package.json 文件中。
+不要忘记在 Windows 系统中使用双引号转义。(npm 6. x)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;doc&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;npx compodoc -p tsconfig.doc.json -n \&amp;#34;My app documentation\&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;渲染文档&#34;&gt;渲染文档&lt;/h2&gt;
+&lt;p&gt;文档在默认输出文件夹中生成，然后在该文件夹中运行 HTTP 服务器。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc -p tsconfig.doc.json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;提供源文件夹时呈现文档&#34;&gt;提供源文件夹时呈现文档&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc src -p tsconfig.doc.json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用-compodoc-提供生成的文档&#34;&gt;使用 compodoc 提供生成的文档&lt;/h2&gt;
+&lt;p&gt;文档在默认输出文件夹或特定文件夹中生成，本地 HTTP 服务器在 http://localhost:8080 上启动&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc -s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 或者&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc -s -d ./doc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;渲染文档并用-compodoc-提供它&#34;&gt;渲染文档，并用 compodoc 提供它&lt;/h2&gt;
+&lt;p&gt;文档生成在默认输出文件夹中，本地 HTTP 服务器可以在 http://localhost:8080 上找到&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc -p tsconfig.doc.json -s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 主题</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/themes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/themes/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;default-gitbook&#34;&gt;Default (gitbook)&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-gitbook.png&#34; alt=&#34;theme-gitbook&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;material-design&#34;&gt;Material design&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-material.png&#34; alt=&#34;theme-material&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;laravel&#34;&gt;Laravel&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-laravel.png&#34; alt=&#34;theme-laravel&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;readthedocs&#34;&gt;Readthedocs&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-readthedocs.png&#34; alt=&#34;theme-readthedocs&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;stripe&#34;&gt;Stripe&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-stripe.png&#34; alt=&#34;theme-stripe&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;vagrant&#34;&gt;Vagrant&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-vagrant.png&#34; alt=&#34;theme-vagrant&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;postmark&#34;&gt;Postmark&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-postmark.png&#34; alt=&#34;theme-postmark&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;original-first-theme-of-2016&#34;&gt;Original (first theme of 2016)&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/compodoc/website/develop/src/assets/img/themes/theme-original.png&#34; alt=&#34;theme-original&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 注释</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/comments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/comments/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Compodoc 使用 Typescript 的 AST 解析器和它的内部 api，所以注释必须是 JSDoc 注释:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * 支持注视
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这些是不支持的:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * 不支持的注视
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;  不支持的注视
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 不支持的注视
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在注释中创建新行，两行之间有一个空行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * First line
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * Second line
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下面的示例将在输出的文档中只生成一行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * First line
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * Second line
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: JSDoc 标签</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/jsdoc-tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/jsdoc-tags/</guid>
+      <description>
+        
+        
+        &lt;p&gt;目前 Compodoc 只支持这些 JSDoc 标签 (由于 &lt;a href=&#34;https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-JavaScript&#34;&gt;TypeScript 编译器的限制&lt;/a&gt;) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@deprecated Deprecated description&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * This is my class
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @deprecated This class is deprecated
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyClass&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@returns {Type} Description&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @param {string} target  The target to process
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @returns The processed target number
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;processTarget&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@ignore&lt;/code&gt;, &lt;code&gt;@internal&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这些标记指示代码中的符号永远不应该出现在文档中。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@ignore&lt;/code&gt; 适用于类、组件或可注入组件内部，也适用于整个组件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @ignore
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Component&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;selector&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;app-root&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;templateUrl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./app.component.html&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;styleUrls&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./app.component.css&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;AppComponent&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * Footer component
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Component&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;selector&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;the-footer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;templateUrl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./footer.component.html&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;styleUrls&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./footer.component.css&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;FooterComponent&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   * @ignore
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;ignoredProperty&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   * @ignore
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Input&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ignoredInput&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   * @ignore
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Output&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ignoredOutput&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   * @ignore
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;   */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;ignoredFunction&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@param {Type} Name Description&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @example
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * This is a good example
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * processTarget(&amp;#39;yo&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @param {string} target  The target to process see {@link Todo}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @returns The processed target number
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;processTarget&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@link&lt;/code&gt; : 你可以像 JSDoc 一样使用这三种语法:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//for an internal reference
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Todo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Todo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Todo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Todo&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TodoClass&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;Anchors&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;are&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;supported&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Todo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Todo&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myproperty&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//for an external link
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Google&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;http&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//www.google.com}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;http&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//www.apple.com|Apple}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;https&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//github.com GitHub}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@example&lt;/code&gt; : 要给出指令、组件和管道装饰器的示例，请使用@example 或 markdown:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缩进的警告&lt;/strong&gt; : TypeScript 对新行有内部空白，如果你想保持一定程度的缩进，就像下一个例子一样，至少放 13 个空格字符。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * 显示某一天的所有事件。使用示例:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * `` `
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * &amp;amp;lt;mwl-calendar-day-view
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *             [viewDate]=&amp;#34;viewDate&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *             [events]=&amp;#34;events&amp;#34;&amp;amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * &amp;amp;lt;/mwl-calendar-day-view&amp;amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * `` `
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * 显示某一天的所有事件。使用示例:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * @example
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * &amp;lt;mwl-calendar-day-view
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *             [viewDate]=&amp;#34;viewDate&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; *             [events]=&amp;#34;events&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * &amp;lt;/mwl-calendar-day-view&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 路由</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/routing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/routing/</guid>
+      <description>
+        
+        
+        &lt;p&gt;参考&lt;a href=&#34;https://angular.io/docs/ts/latest/guide/router.html#!#routing-module&#34;&gt;样式指南&lt;/a&gt;，提供一个类型为 &lt;strong&gt;&amp;lsquo;Routes&amp;rsquo;&lt;/strong&gt; 的 const 对象，具有&lt;strong&gt;唯一的&lt;/strong&gt;名称:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;APP_ROUTES&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Routes&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;about&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;component&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;AboutComponent&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;component&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;HomeComponent&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;RouterModule&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;forRoot&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;APP_ROUTES&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://wdk-docs.github.io/nestjs-docs/assets/img/screenshots/routing.png&#34; alt=&#34;screenshot&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 文档覆盖</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/documentation-coverage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/documentation-coverage/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;general-information&#34;&gt;General information&lt;/h1&gt;
+&lt;p&gt;Documentation coverage is calculated only for all statement of the file, even decorators.&lt;/p&gt;
+&lt;p&gt;Private functions are not part of the calculation.&lt;/p&gt;
+&lt;p&gt;The command &lt;code&gt;--coverageTest&lt;/code&gt; gives the ability to test under a CI context the level of documentation coverage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../assets/img/screenshots/8.png&#34; alt=&#34;screenshot&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The command &lt;code&gt;--coverageTestThresholdFail&lt;/code&gt; gives the ability to specify if command will fail with error or just warn user (true: error, false: warn) (default: true)&lt;/p&gt;
+&lt;p&gt;The command &lt;code&gt;--coverageMinimumPerFile&lt;/code&gt; gives the ability to specify a minimum of coverage per file.&lt;/p&gt;
+&lt;h2 id=&#34;test-coverage-during-commit-process&#34;&gt;Test coverage during commit process&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;install first &lt;a href=&#34;https://github.com/okonet/lint-staged&#34;&gt;lint-staged&lt;/a&gt; : &lt;code&gt;npm i -d lint-staged&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;add the configuration inside your &lt;code&gt;package.json&lt;/code&gt; file :&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;devDependencies&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a40000&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;lint-staged&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;linters&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;*.ts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;compodoc --coverageMinimumPerFile 25&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 提示和技巧</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/tips-and-tricks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/tips-and-tricks/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A0%B7%E5%BC%8F%E7%9A%84%E6%96%87%E6%A1%A3&#34;&gt;样式的文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%AF%8F%E4%B8%AA%E7%BB%84%E4%BB%B6%E6%A8%A1%E5%9D%97%E6%8C%87%E4%BB%A4%E7%AD%89%E7%9A%84%E6%96%87%E6%A1%A3&#34;&gt;每个组件、模块、指令等的文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E9%99%84%E5%8A%A0%E7%9A%84%E6%96%87%E6%A1%A3&#34;&gt;附加的文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8D%95%E5%AD%98%E5%82%A8%E5%BA%93%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%96%87%E6%A1%A3&#34;&gt;单存储库中几个应用程序的文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E6%A0%87%E8%AE%B0%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA&#34;&gt;标记文件中的语法高亮显示&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%B8%8D%E5%8C%85%E6%8B%AC%E6%96%87%E4%BB%B6&#34;&gt;不包括文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E5%8C%85%E6%8B%AC%E6%96%87%E4%BB%B6&#34;&gt;包括文件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a id=&#34;styling-the-documentation&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;样式的文档&#34;&gt;样式的文档&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;compodoc -p tsconfig.doc.json -y your_theme_styles/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在你的文件夹中，你至少需要提供一个 style.css 文件，其中包含以下 7 个导入文件。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@import &amp;#34;./reset.css&amp;#34;;
+@import &amp;#34;./bootstrap.min.css&amp;#34;;
+@import &amp;#34;./bootstrap-card.css&amp;#34;;
+@import &amp;#34;./prism.css&amp;#34;;
+@import &amp;#34;./ionicons.min.css&amp;#34;;
+@import &amp;#34;./compodoc.css&amp;#34;;
+@import &amp;#34;./tablesort.css&amp;#34;;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Compodoc 使用&lt;a href=&#34;http://getbootstrap.com/&#34;&gt;bootstrap&lt;/a&gt; 3.3.7。您可以轻松定制 Compodoc。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://bootswatch.com/&#34;&gt;bootswatch.com&lt;/a&gt;可以是一个很好的起点。如果你想覆盖默认的主题，只需提供一个 bootstrap.min.css 文件，它就会覆盖默认的主题。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└── your_theme_styles/
+    ├── style.css // the main css file with default imports
+    └── bootstrap.min.css // your bootstrap theme
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a id=&#34;documentation-of-each-components&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;每个组件模块指令等的文档&#34;&gt;每个组件、模块、指令等的文档&lt;/h2&gt;
+&lt;p&gt;在 JSDoc 注释之间的&lt;strong&gt;xxx.component.ts&lt;/strong&gt;文件中的注释描述可能有点短。&lt;/p&gt;
+&lt;p&gt;Compodoc 在每个组件的根文件夹中搜索一个默认的&lt;strong&gt;xxx.component.md&lt;/strong&gt;文件，并将其添加到组件页面的一个选项卡中。对于类、模块等也是如此。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└── my-component/
+    ├── my.component.ts
+    ├── my.component.spec.ts
+    ├── my.component.scss|css
+    ├── my.component.html
+    └── my.component.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a id=&#34;additional-documentation&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;附加的文档&#34;&gt;附加的文档&lt;/h2&gt;
+&lt;p&gt;Compodoc 支持添加外部 markdown 文件，以扩展应用程序的代码注释和主 README 文件。&lt;/p&gt;
+&lt;p&gt;创建一个包含 markdown 文件的文件夹，并使用&lt;code&gt;--includes&lt;/code&gt; 标志来扩展文档。
+你的文件夹应该包含一个&lt;strong&gt;summary.json&lt;/strong&gt;文件解释结构和文件:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;summary.json
+
+[
+    {
+        &amp;#34;title&amp;#34;: &amp;#34;A TITLE&amp;#34;,
+        &amp;#34;file&amp;#34;: &amp;#34;a-file.md&amp;#34;
+    },
+    {
+        &amp;#34;title&amp;#34;: &amp;#34;A TITLE&amp;#34;,
+        &amp;#34;file&amp;#34;: &amp;#34;a-file.md&amp;#34;,
+        &amp;#34;children&amp;#34;: [
+            {
+                &amp;#34;title&amp;#34;: &amp;#34;A TITLE&amp;#34;,
+                &amp;#34;file&amp;#34;: &amp;#34;a-sub-folder/a-file.md&amp;#34;
+            }
+        ]
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;链接像常规的标记链接一样受支持。&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;documentation-of-several-apps-in-a-monorepository&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;单存储库中几个应用程序的文档&#34;&gt;单存储库中几个应用程序的文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/nrwl/nx&#34;&gt;Nx&lt;/a&gt;是一个开源、智能、快速和可扩展的构建系统。
+它遵循的方法是，多个应用程序和库可以生活在同一个工作空间(又名“monorepo”)。&lt;/p&gt;
+&lt;p&gt;一个包含多个应用程序的单存储库可以很容易地被 Compodoc 记录下来。
+你只需要在每个应用程序中单独运行 Compodoc。
+下面是一个使用&lt;a href=&#34;https://github.com/nrwl/nx-examples&#34;&gt;nx-examples&lt;/a&gt;的例子:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.
+├── apps
+│   ├── demo
+│   │   └── src
+│   │       └── tsconfig.doc.json
+│   ├── profile
+│   ├── school
+│   └── teach
+└── README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;像这样运行 Compodoc:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; apps/demo/src
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc -p tsconfig.doc.json -s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// or
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compodoc -p apps/demo/src/tsconfig.doc.json -s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a id=&#34;syntax-highlighting-in-markdown-files&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;标记文件中的语法高亮显示&#34;&gt;标记文件中的语法高亮显示&lt;/h2&gt;
+&lt;p&gt;Compodoc 使用&lt;a href=&#34;https://github.com/chjj/marked&#34;&gt;Marked&lt;/a&gt;进行标记解析并编译成 html。
+添加了&lt;a href=&#34;http://prismjs.com/&#34;&gt;prismjs.js&lt;/a&gt;以支持语法高亮显示。&lt;/p&gt;
+&lt;p&gt;只需使用一个正常的代码块在您的标记与正确的语言:&lt;a href=&#34;https://help.github.com/articles/creating-and-highlighting-code-blocks/&#34;&gt;Github 帮助&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;集成语言包括: &lt;strong&gt;json, bash, javascript, markdown, html, scss, typescript&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;excluding-files&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;不包括文件&#34;&gt;不包括文件&lt;/h2&gt;
+&lt;p&gt;要从文档中排除文件，只需使用&lt;a href=&#34;https://www.typescriptlang.org/docs/handbook/tsconfig-json.html&#34;&gt;&lt;strong&gt;tsconfig.json&lt;/strong&gt;&lt;/a&gt;文件的&lt;strong&gt;exclude&lt;/strong&gt;属性。&lt;/p&gt;
+&lt;p&gt;你可以排除名称为&lt;code&gt;app/myfile.ts&lt;/code&gt;或 glob 模式&lt;code&gt;**/*.spec.ts&lt;/code&gt;的特定文件。&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;including-files&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;包括文件&#34;&gt;包括文件&lt;/h2&gt;
+&lt;p&gt;要包含文档中的文件，只需使用&lt;a href=&#34;https://www.typescriptlang.org/docs/handbook/tsconfig-json.html&#34;&gt;&lt;strong&gt;tsconfig.json&lt;/strong&gt;&lt;/a&gt;文件的&lt;strong&gt;include&lt;/strong&gt;属性。&lt;/p&gt;
+&lt;p&gt;你可以包含特定的文件名&lt;code&gt;app/myfile.ts&lt;/code&gt;或 glob 模式&lt;code&gt;**/*.ts&lt;/code&gt;的文件。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 扩展</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/extensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/extensions/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;gulp&#34;&gt;Gulp&lt;/h2&gt;
+&lt;p&gt;有一个插件可用来运行 Compodoc 与 Gulp。&lt;/p&gt;
+&lt;p&gt;你可以在 NPM 上找到它: &lt;a href=&#34;https://www.npmjs.com/package/gulp-compodoc&#34;&gt;https://www.npmjs.com/package/gulp-compodoc&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jhispter&#34;&gt;JHispter&lt;/h2&gt;
+&lt;p&gt;有一个 JHipster 模块可以用 JHipster 运行 Compodoc。&lt;/p&gt;
+&lt;p&gt;你可以在 NPM 上找到它: &lt;a href=&#34;https://www.npmjs.com/package/generator-jhipster-compodoc&#34;&gt;https://www.npmjs.com/package/generator-jhipster-compodoc&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 杂项</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/miscellaneous/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/miscellaneous/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;谁在使用康波多克&#34;&gt;谁在使用康波多克?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/AngularClass/angular-starter&#34;&gt;angular-starter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mgechev/angular-seed&#34;&gt;angular-seed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/akveo/ngx-admin&#34;&gt;ngx-admin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mattlewis92/angular-calendar&#34;&gt;angular-calendar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mattlewis92/angular-gauge&#34;&gt;angular-gauge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jvandemo/generator-angular2-library&#34;&gt;generator-angular2-library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.firetask.io/&#34;&gt;Ionic Firebase Starter Application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mattlewis92/angular-text-input-highlight&#34;&gt;angular-text-input-highlight&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tinesoft.github.io/ngx-wow/home&#34;&gt;ngx-wow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://maurei.github.io/ngx-table-editor/demo/&#34;&gt;ngx-table-editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ngqp.io/api-docs/&#34;&gt;ngqp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些是&lt;a href=&#34;https://github.com/search?q=compodoc+filename%3Apackage.json+-user%3Acompodoc&amp;amp;ref=searchresults&amp;amp;type=Code&amp;amp;utf8=%E2%9C%93&#34;&gt;我们知道的&lt;/a&gt;。
+希望您的项目列在这里?给我们写信。&lt;/p&gt;
+&lt;h2 id=&#34;他们对康波多克有什么看法&#34;&gt;他们对康波多克有什么看法?&lt;/h2&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;
+    &lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;我一直在向我的130个研讨会中的每一个人介绍Compodoc !&lt;/p&gt;
+    &amp;mdash; Laurent Duveau 🇨🇦 (@LaurentDuveau) &lt;a href=&#34;https://twitter.com/LaurentDuveau/status/1070444130675904513?ref_src=twsrc%5Etfw&#34;&gt;5 décembre 2018&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;▶️Documentation matters◀️&lt;br&gt;If it is not documented, “it does not exists” for developers&lt;br&gt;Need a help? Use Compodoc 📚as do &lt;a href=&#34;https://twitter.com/Sonietta?ref_src=twsrc%5Etfw&#34;&gt;@Sonietta&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/carlobonamico?ref_src=twsrc%5Etfw&#34;&gt;@carlobonamico&lt;/a&gt; &lt;br&gt;Join their talk at room 3! &lt;a href=&#34;https://twitter.com/hashtag/codemotion?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#codemotion&lt;/a&gt; &lt;a href=&#34;https://t.co/zEfe0OnfYo&#34;&gt;pic.twitter.com/zEfe0OnfYo&lt;/a&gt;&lt;/p&gt;&amp;mdash; Codemotion (@CodemotionIT) &lt;a href=&#34;https://twitter.com/CodemotionIT/status/1068139398666035200?ref_src=twsrc%5Etfw&#34;&gt;29 novembre 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/hashtag/compodoc?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#compodoc&lt;/a&gt; is insane.  Seriously one of the best tools for &lt;a href=&#34;https://twitter.com/angular?ref_src=twsrc%5Etfw&#34;&gt;@angular&lt;/a&gt;&lt;/p&gt;&amp;mdash; Zachary Hale (@Hale88Hale) &lt;a href=&#34;https://twitter.com/Hale88Hale/status/1049727291570495488?ref_src=twsrc%5Etfw&#34;&gt;9 octobre 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/hashtag/Compodoc?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Compodoc&lt;/a&gt; - amazing documentation tool for your &lt;a href=&#34;https://twitter.com/hashtag/Angular?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Angular&lt;/a&gt; \ &lt;a href=&#34;https://twitter.com/hashtag/Nestjs?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Nestjs&lt;/a&gt; application&lt;br&gt;Big thanks to the author, &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; , awesome!&lt;/p&gt;&amp;mdash; Boris Malaichik (@BMalaichik) &lt;a href=&#34;https://twitter.com/BMalaichik/status/1046875808256667648?ref_src=twsrc%5Etfw&#34;&gt;1 octobre 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Just used  &lt;a href=&#34;https://twitter.com/hashtag/compodoc?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#compodoc&lt;/a&gt; in one of our (inherited) projects! Gave me really great overview of what&amp;#39;s going on in the application 😋 Big thanks to &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; and everyone who is contributing to this great project! &lt;a href=&#34;https://t.co/SW0ZEQwpar&#34;&gt;pic.twitter.com/SW0ZEQwpar&lt;/a&gt;&lt;/p&gt;&amp;mdash; Sherry List 🔜 ✈️ 🇨🇴 (@sherrrylst) &lt;a href=&#34;https://twitter.com/sherrrylst/status/1022013063749398528?ref_src=twsrc%5Etfw&#34;&gt;25 juillet 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Such a great tool :)&lt;br&gt;Compodoc - The missing documentation tool for your &lt;a href=&#34;https://twitter.com/hashtag/Angular?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Angular&lt;/a&gt; application &lt;a href=&#34;https://t.co/uy6SIoIsI2&#34;&gt;https://t.co/uy6SIoIsI2&lt;/a&gt; &lt;a href=&#34;https://t.co/NFNxREE4R4&#34;&gt;pic.twitter.com/NFNxREE4R4&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nir kaufman (@nirkaufman) &lt;a href=&#34;https://twitter.com/nirkaufman/status/966865450868109312?ref_src=twsrc%5Etfw&#34;&gt;23 février 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Compodoc - The missing documentation tool for your Angular application. Need to check out. &lt;a href=&#34;https://t.co/iHeQg9Ue3H&#34;&gt;https://t.co/iHeQg9Ue3H&lt;/a&gt;&lt;/p&gt;&amp;mdash; David Boster (@davidboster) &lt;a href=&#34;https://twitter.com/davidboster/status/960279567121383424?ref_src=twsrc%5Etfw&#34;&gt;4 février 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I love &lt;a href=&#34;https://twitter.com/hashtag/Compodoc?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Compodoc&lt;/a&gt;. If you use &lt;a href=&#34;https://twitter.com/hashtag/Angular?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Angular&lt;/a&gt;, you should use it. &lt;a href=&#34;https://t.co/j8doRX1kpF&#34;&gt;https://t.co/j8doRX1kpF&lt;/a&gt;&lt;/p&gt;&amp;mdash; Leo Caseiro 🇧🇷 🇦🇺 (@leocaseiro) &lt;a href=&#34;https://twitter.com/leocaseiro/status/949076815930277888?ref_src=twsrc%5Etfw&#34;&gt;5 janvier 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/hashtag/compodoc?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#compodoc&lt;/a&gt; is blowing my mind right now, just pointed it at an Angular4 app and it’s generated beautiful docs with component trees, module visualisations, the works! Top work &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/manekinekko?ref_src=twsrc%5Etfw&#34;&gt;@manekinekko&lt;/a&gt;&lt;/p&gt;&amp;mdash; Mel Lota (@mlota) &lt;a href=&#34;https://twitter.com/mlota/status/940872310634024961?ref_src=twsrc%5Etfw&#34;&gt;13 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Wanna documenting ur &lt;a href=&#34;https://twitter.com/hashtag/angular?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#angular&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://twitter.com/hashtag/typescript?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#typescript&lt;/a&gt; code? Definitely check out Compodoc! By &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; on &lt;a href=&#34;https://twitter.com/hashtag/ngbe?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ngbe&lt;/a&gt;&lt;/p&gt;&amp;mdash; Juri Strumpflohner (@juristr) &lt;a href=&#34;https://twitter.com/juristr/status/939083244561227777?ref_src=twsrc%5Etfw&#34;&gt;8 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;7 Angular Tools That You Should Consider 🔨 &lt;a href=&#34;https://twitter.com/code?ref_src=twsrc%5Etfw&#34;&gt;@code&lt;/a&gt; Snippets by &lt;a href=&#34;https://twitter.com/John_Papa?ref_src=twsrc%5Etfw&#34;&gt;@John_Papa&lt;/a&gt;, CompoDoc by &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt;, Augury by &lt;a href=&#34;https://twitter.com/rangleio?ref_src=twsrc%5Etfw&#34;&gt;@rangleio&lt;/a&gt; and much more! &lt;a href=&#34;https://t.co/upEnn0S84X&#34;&gt;pic.twitter.com/upEnn0S84X&lt;/a&gt;&lt;/p&gt;&amp;mdash; Minko Gechev (@mgechev) &lt;a href=&#34;https://twitter.com/mgechev/status/937984909003563008?ref_src=twsrc%5Etfw&#34;&gt;5 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Seriously, this is one of the coolest Angular projects we&amp;#39;ve seen yet. It allows you to totally visualize your components. by &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; &lt;a href=&#34;https://t.co/l8A9Rr814B&#34;&gt;https://t.co/l8A9Rr814B&lt;/a&gt;&lt;/p&gt;&amp;mdash; ng-conf (@ngconf) &lt;a href=&#34;https://twitter.com/ngconf/status/942878648775905286?ref_src=twsrc%5Etfw&#34;&gt;18 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Swagger is some cool stuff. For front-end and Back-end &lt;a href=&#34;https://twitter.com/SwaggerApi?ref_src=twsrc%5Etfw&#34;&gt;@SwaggerApi&lt;/a&gt; and CompoDoc by &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; makes a good combination&lt;a href=&#34;https://twitter.com/hashtag/fullstack?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#fullstack&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/developers?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#developers&lt;/a&gt;&lt;/p&gt;&amp;mdash; Saiyaff Farouk (@msaiyaff) &lt;a href=&#34;https://twitter.com/msaiyaff/status/942391805340876806?ref_src=twsrc%5Etfw&#34;&gt;17 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/hashtag/compodoc?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#compodoc&lt;/a&gt; is blowing my mind right now, just pointed it at an Angular4 app and it’s generated beautiful docs with component trees, module visualisations, the works! Top work &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/manekinekko?ref_src=twsrc%5Etfw&#34;&gt;@manekinekko&lt;/a&gt;&lt;/p&gt;&amp;mdash; Mel Lota (@mlota) &lt;a href=&#34;https://twitter.com/mlota/status/940872310634024961?ref_src=twsrc%5Etfw&#34;&gt;13 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Wanna documenting ur &lt;a href=&#34;https://twitter.com/hashtag/angular?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#angular&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://twitter.com/hashtag/typescript?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#typescript&lt;/a&gt; code? Definitely check out Compodoc! By &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; on &lt;a href=&#34;https://twitter.com/hashtag/ngbe?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ngbe&lt;/a&gt;&lt;/p&gt;&amp;mdash; Juri Strumpflohner (@juristr) &lt;a href=&#34;https://twitter.com/juristr/status/939083244561227777?ref_src=twsrc%5Etfw&#34;&gt;8 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;7 Angular Tools That You Should Consider 🔨 &lt;a href=&#34;https://twitter.com/code?ref_src=twsrc%5Etfw&#34;&gt;@code&lt;/a&gt; Snippets by &lt;a href=&#34;https://twitter.com/John_Papa?ref_src=twsrc%5Etfw&#34;&gt;@John_Papa&lt;/a&gt;, CompoDoc by &lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt;, Augury by &lt;a href=&#34;https://twitter.com/rangleio?ref_src=twsrc%5Etfw&#34;&gt;@rangleio&lt;/a&gt; and much more! &lt;a href=&#34;https://t.co/upEnn0S84X&#34;&gt;pic.twitter.com/upEnn0S84X&lt;/a&gt;&lt;/p&gt;&amp;mdash; Minko Gechev (@mgechev) &lt;a href=&#34;https://twitter.com/mgechev/status/937984909003563008?ref_src=twsrc%5Etfw&#34;&gt;5 décembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;A good documentation tool for Angular project : Compodoc&lt;a href=&#34;https://t.co/I3cFnwbMd4&#34;&gt;https://t.co/I3cFnwbMd4&lt;/a&gt;&lt;/p&gt;&amp;mdash; Maxime Bruguet (@MaximeBruguet) &lt;a href=&#34;https://twitter.com/MaximeBruguet/status/934420899939409921?ref_src=twsrc%5Etfw&#34;&gt;25 novembre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;.&lt;a href=&#34;https://twitter.com/vogloblinsky?ref_src=twsrc%5Etfw&#34;&gt;@vogloblinsky&lt;/a&gt; we have been using &lt;a href=&#34;https://twitter.com/hashtag/compodoc?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#compodoc&lt;/a&gt; internally &lt;a href=&#34;https://twitter.com/CapitalOne?ref_src=twsrc%5Etfw&#34;&gt;@CapitalOne&lt;/a&gt;&lt;br&gt;Thanks for all the hardwork! &lt;a href=&#34;https://twitter.com/hashtag/Angular?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Angular&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/typescript?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#typescript&lt;/a&gt; &lt;a href=&#34;https://t.co/ZzK5ZGf0t9&#34;&gt;https://t.co/ZzK5ZGf0t9&lt;/a&gt;&lt;/p&gt;&amp;mdash; Youssef Taghlabi (@YoussefTaghlabi) &lt;a href=&#34;https://twitter.com/YoussefTaghlabi/status/925174109960630274?ref_src=twsrc%5Etfw&#34;&gt;31 octobre 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;thx &lt;a href=&#34;https://twitter.com/vogloblinsky&#34;&gt;@vogloblinsky&lt;/a&gt; for compodoc  &lt;a href=&#34;https://t.co/DYr3SlTw18&#34;&gt;https://t.co/DYr3SlTw18&lt;/a&gt; ...it already helped a lot ;)&lt;/p&gt;&amp;mdash; matthias rebel (@_rebeling) &lt;a href=&#34;https://twitter.com/_rebeling/status/875867727533146112&#34;&gt;17 juin 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;pl&#34; dir=&#34;ltr&#34;&gt;Największe odkrycie dnia dzisiejszego - compodoc&lt;br&gt;&lt;br&gt;Budowanie dokumentacji z kodu projektu na &lt;a href=&#34;https://twitter.com/angular&#34;&gt;@angular&lt;/a&gt; &lt;a href=&#34;https://t.co/Vdx0L08Z5g&#34;&gt;https://t.co/Vdx0L08Z5g&lt;/a&gt;&lt;a href=&#34;https://twitter.com/hashtag/cool?src=hash&#34;&gt;#cool&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/stuff?src=hash&#34;&gt;#stuff&lt;/a&gt;&lt;/p&gt;&amp;mdash; Piotr Kowalski (@piecioshka) &lt;a href=&#34;https://twitter.com/piecioshka/status/866716119071174658&#34;&gt;22 mai 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;how to document &lt;a href=&#34;https://twitter.com/hashtag/angular2?src=hash&#34;&gt;#angular2&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/Angular?src=hash&#34;&gt;#Angular&lt;/a&gt; applications ? have a look &lt;a href=&#34;https://t.co/D3SdWdZ5pv&#34;&gt;https://t.co/D3SdWdZ5pv&lt;/a&gt; they did a great job. &lt;a href=&#34;https://twitter.com/hashtag/compodoc?src=hash&#34;&gt;#compodoc&lt;/a&gt;&lt;/p&gt;&amp;mdash; carsten Piepel (@cpiepel_de) &lt;a href=&#34;https://twitter.com/cpiepel_de/status/864849612682792961&#34;&gt;17 mai 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;es&#34; dir=&#34;ltr&#34;&gt;Compodoc es una excelente herramienta para documentar todos nuestros proyectos de &lt;a href=&#34;https://twitter.com/hashtag/angular2?src=hash&#34;&gt;#angular2&lt;/a&gt;&lt;br&gt; &lt;a href=&#34;https://t.co/iYHKVSq2no&#34;&gt;https://t.co/iYHKVSq2no&lt;/a&gt;&lt;/p&gt;&amp;mdash; tsugiteam (@tsugiteam) &lt;a href=&#34;https://twitter.com/tsugiteam/status/860197444629524483&#34;&gt;4 mai 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Hey &lt;a href=&#34;https://twitter.com/vogloblinsky&#34;&gt;@vogloblinsky&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/manekinekko&#34;&gt;@manekinekko&lt;/a&gt; the team here at work is falling in ❤️ with &lt;a href=&#34;https://twitter.com/hashtag/compodoc?src=hash&#34;&gt;#compodoc&lt;/a&gt;. Thank you x1000!&lt;a href=&#34;https://t.co/wme8n3cVHv&#34;&gt;https://t.co/wme8n3cVHv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Justin (@schwarty) &lt;a href=&#34;https://twitter.com/schwarty/status/859814974578868224&#34;&gt;3 mai 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34; data-lang=&#34;fr&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/vogloblinsky&#34;&gt;@vogloblinsky&lt;/a&gt; &lt;a href=&#34;https://twitter.com/schwarty&#34;&gt;@schwarty&lt;/a&gt; &lt;a href=&#34;https://twitter.com/amcdnl&#34;&gt;@amcdnl&lt;/a&gt; &lt;a href=&#34;https://twitter.com/manekinekko&#34;&gt;@manekinekko&lt;/a&gt; &lt;a href=&#34;https://twitter.com/AngularAir&#34;&gt;@AngularAir&lt;/a&gt; Compodoc is the bees knees!! Thank you!&lt;/p&gt;&amp;mdash; Alyssa Nicoll (@AlyssaNicoll) &lt;a href=&#34;https://twitter.com/AlyssaNicoll/status/859596472500801538&#34;&gt;3 mai 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 现场例子选项卡</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/live-example-tab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/live-example-tab/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;组件指令和服务的示例标签&#34;&gt;组件、指令和服务的示例标签&lt;/h2&gt;
+&lt;p&gt;通过&lt;example-url&gt;标签的帮助，可以将 Live demo examples 标签添加到组件、指令和服务文档页面。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * Example of usage:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * &amp;lt;example-url&amp;gt;http://localhost/demo/mysample.component.html&amp;lt;/example-url&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; * &amp;lt;example-url&amp;gt;/demo/mysample.component.html&amp;lt;/example-url&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 选项卡配置</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/tab-configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/tab-configuration/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;自定义选项卡顺序和标签&#34;&gt;自定义选项卡顺序和标签&lt;/h2&gt;
+&lt;p&gt;The ordering of the tabs and the text used for their labels can be modified by setting the &lt;code&gt;navTabConfig&lt;/code&gt;
+input either as a property in a compodoc configuration file or as an argument to the &lt;code&gt;compodoc&lt;/code&gt; CLI command.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;navTabConfig&lt;/code&gt; input is an array of tab configuration objects representing the superset of tabs that will
+be shown for the various dependencies in your project. The ordering of the array determines the left-to-right
+placement of the tabs in the compodoc output, and the string value of a tab object&amp;rsquo;s &lt;code&gt;label&lt;/code&gt;
+property determines the label displayed on the corresponding tab.&lt;/p&gt;
+&lt;h2 id=&#34;定义一个标签&#34;&gt;定义一个标签&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;id&amp;#34;: &amp;#34;info&amp;#34;,
+  &amp;#34;label&amp;#34;: &amp;#34;Custom Label&amp;#34;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The tab id is used to determine which tab to apply the custom placement and label to. The available tab id&amp;rsquo;s are:
+&lt;strong&gt;&amp;ldquo;info&amp;rdquo;&lt;/strong&gt;, &lt;strong&gt;&amp;ldquo;readme&amp;rdquo;&lt;/strong&gt;, &lt;strong&gt;&amp;ldquo;source&amp;rdquo;&lt;/strong&gt;, &lt;strong&gt;&amp;ldquo;templateData&amp;rdquo;&lt;/strong&gt;, &lt;strong&gt;&amp;ldquo;tree&amp;rdquo;&lt;/strong&gt;, and &lt;strong&gt;&amp;ldquo;example&amp;rdquo;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;需要注意的事情&#34;&gt;需要注意的事情&lt;/h2&gt;
+&lt;p&gt;Certain tabs will only be shown if applicable to a given dependency:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;info&amp;rdquo;&lt;/strong&gt;, &lt;strong&gt;&amp;ldquo;readme&amp;rdquo;&lt;/strong&gt;, and &lt;strong&gt;&amp;ldquo;source&amp;rdquo;&lt;/strong&gt; tabs are applicable to all dependency types.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;templateData&amp;rdquo;&lt;/strong&gt; and &lt;strong&gt;&amp;ldquo;tree&amp;rdquo;&lt;/strong&gt; tabs are applicable to Components.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;strong&gt;&amp;ldquo;example&amp;rdquo;&lt;/strong&gt; tab is applicable to Component, Directive, Injectable, and Pipe dependencies.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additionally, the &lt;strong&gt;&amp;ldquo;example&amp;rdquo;&lt;/strong&gt;, &lt;strong&gt;&amp;ldquo;readme&amp;rdquo;&lt;/strong&gt;, and &lt;strong&gt;&amp;ldquo;templateData&amp;rdquo;&lt;/strong&gt; tabs will only be shown for dependencies
+that specify content for them. For instance, dependencies for which no examples are provided will not have an
+example tab.&lt;/p&gt;
+&lt;h2 id=&#34;配置文件中的示例用法&#34;&gt;配置文件中的示例用法&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+    &amp;#34;navTabConfig&amp;#34;: [
+        {
+            &amp;#34;id&amp;#34;: &amp;#34;example&amp;#34;,
+            &amp;#34;label&amp;#34;: &amp;#34;Overview&amp;#34;
+        },
+        {
+            &amp;#34;id&amp;#34;: &amp;#34;info&amp;#34;,
+            &amp;#34;label&amp;#34;: &amp;#34;API&amp;#34;
+        },
+        {
+            &amp;#34;id&amp;#34;: &amp;#34;source&amp;#34;,
+            &amp;#34;label&amp;#34;: &amp;#34;Source&amp;#34;
+        },
+        {
+            &amp;#34;id&amp;#34;: &amp;#34;tree&amp;#34;,
+            &amp;#34;label&amp;#34;: &amp;#34;DOM Tree&amp;#34;
+        }
+    ],
+    &amp;#34;tsconfig&amp;#34;: &amp;#34;./src/tsconfig.json&amp;#34;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;作为-cli-参数的示例用法&#34;&gt;作为 CLI 参数的示例用法&lt;/h2&gt;
+&lt;p&gt;Note: Double-quotes must be escaped with &amp;ldquo;\&amp;rdquo;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; compodoc --navTabConfig &amp;#39;[{\&amp;#34;id\&amp;#34;: \&amp;#34;example\&amp;#34;,\&amp;#34;label\&amp;#34;: \&amp;#34;Overview\&amp;#34;},{\&amp;#34;id\&amp;#34;: \&amp;#34;info\&amp;#34;,\&amp;#34;label\&amp;#34;: \&amp;#34;API\&amp;#34;},{\&amp;#34;id\&amp;#34;: \&amp;#34;source\&amp;#34;,\&amp;#34;label\&amp;#34;: \&amp;#34;Source\&amp;#34;}]&amp;#39; -p src/tsconfig.json -n &amp;#39;Documentation Name&amp;#39; -s
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 托管</title>
+      <link>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/hosting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wdk-docs.github.io/nestjs-docs/docs/compodoc/hosting/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;github-pages&#34;&gt;Github pages&lt;/h2&gt;
+&lt;p&gt;遵循这个伟大的教程: &lt;a href=&#34;https://voorhoede.github.io/front-end-tooling-recipes/travis-deploy-to-gh-pages/&#34;&gt;https://voorhoede.github.io/front-end-tooling-recipes/travis-deploy-to-gh-pages/&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
