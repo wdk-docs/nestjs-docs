@@ -1,0 +1,2019 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
+    
+    
+      
+        <title>WebSocket cluster with NestJs and Redis - NestJs 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="NestJs 文档" class="md-header__button md-logo" aria-label="NestJs 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NestJs 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              WebSocket cluster with NestJs and Redis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NestJs 文档" class="md-nav__button md-logo" aria-label="NestJs 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NestJs 文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../61.circular-dependencies/" class="md-nav__link">
+        处理循环依赖项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_index/" class="md-nav__link">
+        博客
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../applying-solid-principles-to-your-typescript-code/" class="md-nav__link">
+        对typescript代码应用可靠的原则
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwt-authentication-using-node-nestjs-mongoose-passport-ionic5-part1/" class="md-nav__link">
+        JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nestjs-file-uploading-using-multer/" class="md-nav__link">
+        Nestjs使用Multer上传文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scalable-websockets-with-nestjs-and-redis/" class="md-nav__link">
+        使用 NestJS 和 Redis 扩展 WebSockets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          WebSocket cluster with NestJs and Redis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        WebSocket cluster with NestJs and Redis
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    准备安装
+  </a>
+  
+    <nav class="md-nav" aria-label="准备安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nestjs-cli" class="md-nav__link">
+    安装 NestJs CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nestjs" class="md-nav__link">
+    创建 NestJS 项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socket" class="md-nav__link">
+    生成 Socket 模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    安装 WebSocket 适配器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    用例实现
+  </a>
+  
+    <nav class="md-nav" aria-label="用例实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    标识每个套接字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    套接字服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    测试场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    完整示例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/_index/" class="md-nav__link">
+        文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/awesome/" class="md-nav__link">
+        awesome
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Compodoc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Compodoc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Compodoc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/_index/" class="md-nav__link">
+        Compodoc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/comments/" class="md-nav__link">
+        注释
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/demo/" class="md-nav__link">
+        现场演示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/documentation-coverage/" class="md-nav__link">
+        文档覆盖
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/extensions/" class="md-nav__link">
+        扩展
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/features/" class="md-nav__link">
+        特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/hosting/" class="md-nav__link">
+        托管
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/installation/" class="md-nav__link">
+        安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/jsdoc-tags/" class="md-nav__link">
+        JSDoc 标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/live-example-tab/" class="md-nav__link">
+        现场例子选项卡
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/miscellaneous/" class="md-nav__link">
+        杂项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/options/" class="md-nav__link">
+        选项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/routing/" class="md-nav__link">
+        路由
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tab-configuration/" class="md-nav__link">
+        选项卡配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/themes/" class="md-nav__link">
+        主题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tips-and-tricks/" class="md-nav__link">
+        提示和技巧
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tutorial/" class="md-nav__link">
+        教程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/usage/" class="md-nav__link">
+        使用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Files" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/files/_index/" class="md-nav__link">
+        files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/files/api-nestjs-uploading-files-to-server/" class="md-nav__link">
+        Uploading files to the server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Http
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Http" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Http
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/_index/" class="md-nav__link">
+        http
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/api-nestjs-error-handling-validation/" class="md-nav__link">
+        错误处理和数据验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/api-nestjs-stripe-events-webhooks/" class="md-nav__link">
+        用webhook对Stripe事件做出反应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/axios-auth-refresh/" class="md-nav__link">
+        axios-auth-refresh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/axios/" class="md-nav__link">
+        axios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/nest-axios-interceptor/" class="md-nav__link">
+        @narando/nest-axios-interceptor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/node-cache-manager/" class="md-nav__link">
+        node-cache-manager - 灵活的NodeJS缓存模块
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/logs/_index/" class="md-nav__link">
+        logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/logs/api-nestjs-logging-typeorm/" class="md-nav__link">
+        介绍使用内置记录器和TypeORM进行日志记录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Mongodb
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mongodb" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Mongodb
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/_index/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/indexes/" class="md-nav__link">
+        使用MongoDB和Mongoose定义索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/introduction/" class="md-nav__link">
+        MongoDB概论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/pagination/" class="md-nav__link">
+        使用MongoDB和Mongoose实现分页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/relationships/" class="md-nav__link">
+        实现与MongoDB的关系
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/transactions/" class="md-nav__link">
+        与MongoDB和Mongoose管理事务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/typescript-express-put-vs-patch-mongodb-mongoose/" class="md-nav__link">
+        MongoDB与Mongoose使用PUT vs PATCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/updating/" class="md-nav__link">
+        用PUT和PATCH更新MongoDB和Mongoose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/virtual/" class="md-nav__link">
+        MongoDB和Mongoose的虚拟属性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Openapi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Openapi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Openapi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/openapi/_index/" class="md-nav__link">
+        OpenAPI-swagger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/openapi/api-nestjs-openapi-swagger/" class="md-nav__link">
+        OpenAPI规范和Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Queue
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Queue" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Queue
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/_index/" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/bull/" class="md-nav__link">
+        bull
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/guide/" class="md-nav__link">
+        指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/patterns/" class="md-nav__link">
+        模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/reference/" class="md-nav__link">
+        参考
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Validator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Validator" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Validator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/_index/" class="md-nav__link">
+        validator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/class-transformer/" class="md-nav__link">
+        class-transformer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/class-validator/" class="md-nav__link">
+        class-validator
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    准备安装
+  </a>
+  
+    <nav class="md-nav" aria-label="准备安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nestjs-cli" class="md-nav__link">
+    安装 NestJs CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nestjs" class="md-nav__link">
+    创建 NestJS 项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socket" class="md-nav__link">
+    生成 Socket 模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    安装 WebSocket 适配器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    用例实现
+  </a>
+  
+    <nav class="md-nav" aria-label="用例实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    标识每个套接字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    套接字服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    测试场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    完整示例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>WebSocket cluster with NestJs and Redis</h1>
+
+<blockquote>
+<p><a href="https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418ed">https://medium.com/@mohsenes/websocket-cluster-with-nestjs-and-redis-a18882d418ed</a></p>
+</blockquote>
+<p>扩展是后端应用程序生活中不可避免的一部分，一旦您决定将应用程序扩展到多个实例，您将面临一个问题:如何处理拥有多个客户机(电话、笔记本电脑等)的用户，每个客户机都连接到集群的随机实例。
+在这篇文章中，我们将定义这个问题，并使用 NestJs 和 Redis 来解决它。</p>
+<p>需求:</p>
+<ul>
+<li>有使用 Nodejs 和 NestJs 的经验</li>
+<li>安装 Nodejs</li>
+<li>安装了 NestJs CLI</li>
+<li>安装 Redis</li>
+</ul>
+<p>问题:</p>
+<ul>
+<li>在 WebSocket 上发出的消息需要发送到与我们的每个实例相连的接收方的设备上</li>
+</ul>
+<p>解决方案:</p>
+<ul>
+<li>我们将使用 Redis PubSub 流处理消息到多个实例，为了在 NestJs 上实现这一点，我们将创建一个名为 socket 模块的模块，我们将放置一个网关来处理 socket 客户端和一个服务来进行发现，连接到 Redis 和分发消息。</li>
+</ul>
+<p>我们将逐步介绍这一点。</p>
+<h2 id="_1">准备安装</h2>
+<h3 id="nestjs-cli">安装 NestJs CLI</h3>
+<p>以全局包的形式安装 NestJs CLI</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="c1"># run with sudo if you are on ubuntu</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos="2 "></span></a>npm i -g @nestjs/cli
+</code></pre></div>
+<h3 id="nestjs">创建 NestJS 项目</h3>
+<p>创建新的 NestJS 项目，依赖项也将通过这个命令通过向导安装</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a>nest g socket-cluster-app
+</code></pre></div>
+<h3 id="socket">生成 Socket 模块</h3>
+<p>生成我们讨论过的 Socket 模块</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="c1"># go into project folder</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="nb">cd</span> socket-cluster-app/
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="c1"># generate socket module</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos=" 5 "></span></a>nest g module socket
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos=" 6 "></span></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><a href="#__codelineno-2-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="c1"># generate socket service</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos=" 8 "></span></a>nest g service socket
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><a href="#__codelineno-2-9"><span class="linenos" data-linenos=" 9 "></span></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><a href="#__codelineno-2-10"><span class="linenos" data-linenos="10 "></span></a><span class="c1"># generate socket gateway</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><a href="#__codelineno-2-11"><span class="linenos" data-linenos="11 "></span></a>nest g gateway socket/socket
+</code></pre></div>
+<p>使用<code>nest g</code>命令会自动将你的服务和套接字添加到它们的相关模块中</p>
+<h3 id="websocket">安装 WebSocket 适配器</h3>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a>npm i @nestjs/platform-ws
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos="2 "></span></a>npm i @nestjs/websockets
+</code></pre></div>
+<h2 id="_2">用例实现</h2>
+<p>在<code>main.ts</code>文件中注册适配器</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">NestFactory</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/core&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><a href="#__codelineno-4-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WsAdapter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/platform-ws&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><a href="#__codelineno-4-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./app.module&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><a href="#__codelineno-4-4"><span class="linenos" data-linenos=" 4 "></span></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><a href="#__codelineno-4-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">bootstrap</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><a href="#__codelineno-4-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><a href="#__codelineno-4-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="c1">// register adapter</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><a href="#__codelineno-4-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">useWebSocketAdapter</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">WsAdapter</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><a href="#__codelineno-4-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s2">&quot;PORT&quot;</span><span class="p">],</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">3000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><a href="#__codelineno-4-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><a href="#__codelineno-4-11"><span class="linenos" data-linenos="11 "></span></a><span class="nx">bootstrap</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_3">标识每个套接字</h3>
+<p>然后，我们将在 handleConnection 调用中标识每个套接字，并将为每个客户端添加一个“userId”属性。
+在这个例子中，我们将通过客户端发送的令牌 cookie 设置 userId，在一个真实的例子中，您需要验证令牌，
+并通过查询数据库或某些身份验证服务将 userId 分配给客户端。</p>
+<p>src/socket.gateway.ts</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><a href="#__codelineno-5-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="nx">OnGatewayConnection</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><a href="#__codelineno-5-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">  </span><span class="nx">OnGatewayDisconnect</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><a href="#__codelineno-5-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="nx">WebSocketGateway</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><a href="#__codelineno-5-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/websockets&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><a href="#__codelineno-5-6"><span class="linenos" data-linenos=" 6 "></span></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><a href="#__codelineno-5-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="kd">@WebSocketGateway</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><a href="#__codelineno-5-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">SocketGateway</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnGatewayConnection</span><span class="p">,</span><span class="w"> </span><span class="nx">OnGatewayDisconnect</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><a href="#__codelineno-5-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">connectedSockets</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="p">[]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><a href="#__codelineno-5-10"><span class="linenos" data-linenos="10 "></span></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><a href="#__codelineno-5-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">handleConnection</span><span class="p">(</span><span class="nx">client</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="kt">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><a href="#__codelineno-5-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><a href="#__codelineno-5-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;cookie&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><a href="#__codelineno-5-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><a href="#__codelineno-5-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span><span class="w"></span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><a href="#__codelineno-5-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;token&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><a href="#__codelineno-5-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mf">1</span><span class="p">];</span><span class="w"></span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a><a href="#__codelineno-5-18"><span class="linenos" data-linenos="18 "></span></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a><a href="#__codelineno-5-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">      </span><span class="c1">// for this example, we simply set userId by token</span><span class="w"></span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a><a href="#__codelineno-5-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">      </span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">token</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a><a href="#__codelineno-5-21"><span class="linenos" data-linenos="21 "></span></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a><a href="#__codelineno-5-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">])</span><span class="w"></span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a><a href="#__codelineno-5-23"><span class="linenos" data-linenos="23 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a><a href="#__codelineno-5-24"><span class="linenos" data-linenos="24 "></span></a>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a><a href="#__codelineno-5-25"><span class="linenos" data-linenos="25 "></span></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a><a href="#__codelineno-5-26"><span class="linenos" data-linenos="26 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a><a href="#__codelineno-5-27"><span class="linenos" data-linenos="27 "></span></a><span class="w">      </span><span class="nx">client</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="mf">4403</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;set JWT cookie to authenticate&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a><a href="#__codelineno-5-28"><span class="linenos" data-linenos="28 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a><a href="#__codelineno-5-29"><span class="linenos" data-linenos="29 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a><a href="#__codelineno-5-30"><span class="linenos" data-linenos="30 "></span></a>
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a><a href="#__codelineno-5-31"><span class="linenos" data-linenos="31 "></span></a><span class="w">  </span><span class="nx">handleDisconnect</span><span class="p">(</span><span class="nx">client</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-32" name="__codelineno-5-32"></a><a href="#__codelineno-5-32"><span class="linenos" data-linenos="32 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-5-33" name="__codelineno-5-33"></a><a href="#__codelineno-5-33"><span class="linenos" data-linenos="33 "></span></a><span class="w">      </span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="w"></span>
+<a id="__codelineno-5-34" name="__codelineno-5-34"></a><a href="#__codelineno-5-34"><span class="linenos" data-linenos="34 "></span></a><span class="w">    </span><span class="p">].</span><span class="nx">filter</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-35" name="__codelineno-5-35"></a><a href="#__codelineno-5-35"><span class="linenos" data-linenos="35 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-36" name="__codelineno-5-36"></a><a href="#__codelineno-5-36"><span class="linenos" data-linenos="36 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_4">套接字服务</h3>
+<p>现在我们需要实现套接字服务，我们需要一个 Redis 包在实例之间分发消息。</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos="1 "></span></a>npm i redis
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><a href="#__codelineno-6-2"><span class="linenos" data-linenos="2 "></span></a>npm i --save-dev @types/redis
+</code></pre></div>
+<ul>
+<li>Socket 服务将有多个构造函数，第 0 步是在构造函数方法中为我们的服务分配一个随机 id，并注入我们在上一步中实现的“SocketGateWay”。</li>
+</ul>
+<p>src/main.ts</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><a href="#__codelineno-7-1"><span class="linenos" data-linenos="1 "></span></a><span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">socketGateway</span><span class="o">:</span><span class="w"> </span><span class="kt">SocketGateway</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><a href="#__codelineno-7-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><a href="#__codelineno-7-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">            </span><span class="s1">&#39;SOCKET_CHANNEL_&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><a href="#__codelineno-7-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">            </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><a href="#__codelineno-7-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">                </span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mf">26</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><a href="#__codelineno-7-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">                </span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><a href="#__codelineno-7-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p>另外，我们在 socket 服务中实现了 onModuleInit 函数，它将创建并连接到 3 个 Redis 客户端。</p>
+</li>
+<li>
+<p>用 redisClient 通过通道发现更新服务关键字</p>
+</li>
+<li>通过 subscriberClient 获取分布式消息</li>
+<li>
+<p>publisherClient 将消息分发到其他实例</p>
+<p>src/socket/socket.service.ts</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">onModuleInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><a href="#__codelineno-8-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">redisClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">newRedisClient</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><a href="#__codelineno-8-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">subscriberClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">newRedisClient</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><a href="#__codelineno-8-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">publisherClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">newRedisClient</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><a href="#__codelineno-8-5"><span class="linenos" data-linenos=" 5 "></span></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><a href="#__codelineno-8-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">subscriberClient</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><a href="#__codelineno-8-7"><span class="linenos" data-linenos=" 7 "></span></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><a href="#__codelineno-8-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">subscriberClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><a href="#__codelineno-8-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><a href="#__codelineno-8-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">payload</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><a href="#__codelineno-8-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">        </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><a href="#__codelineno-8-12"><span class="linenos" data-linenos="12 "></span></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><a href="#__codelineno-8-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">channelDiscovery</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><a href="#__codelineno-8-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><a href="#__codelineno-8-15"><span class="linenos" data-linenos="15 "></span></a>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a><a href="#__codelineno-8-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">newRedisClient</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><a href="#__codelineno-8-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">createClient</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a><a href="#__codelineno-8-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">            </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><a href="#__codelineno-8-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">            </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6379</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a><a href="#__codelineno-8-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">        </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a><a href="#__codelineno-8-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>createClient 是从“redis”包导入的
+  channelDiscovery 将保存它的 serviceId 在 Redis 与过期 3 秒。
+  它还将启动自我重复超时，每 2 秒重新执行一次。
+  这样，所有实例都可以访问已更新的套接字服务列表，以便分发消息。
+  清除发现间隔超时
+  在测试此服务时，防止开放处理程序的问题将是一个好主意。</p>
+</li>
+</ul>
+<p>src/socket/socket.service.ts</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">channelDiscovery</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><a href="#__codelineno-9-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">redisClient</span><span class="p">.</span><span class="nx">setex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><a href="#__codelineno-9-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">discoveryInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><a href="#__codelineno-9-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">channelDiscovery</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><a href="#__codelineno-9-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mf">2000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><a href="#__codelineno-9-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><a href="#__codelineno-9-7"><span class="linenos" data-linenos=" 7 "></span></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><a href="#__codelineno-9-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="k">async</span><span class="w"> </span><span class="nx">onModuleDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><a href="#__codelineno-9-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">discoveryInterval</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">clearTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">discoveryInterval</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><a href="#__codelineno-9-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>sendMessage 最后一步是向特定用户的每个连接的客户端发送消息。
+  我们将消息发送到连接的客户端，并将此消息分发给其他实例。
+  如果消息已经由另一个实例分发，“if(!fromRedisChannel)” 则将阻止分发。</li>
+</ul>
+<p>src/socket/socket.service.ts</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><a href="#__codelineno-10-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">sendMessage</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><a href="#__codelineno-10-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">        </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><a href="#__codelineno-10-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">        </span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><a href="#__codelineno-10-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">        </span><span class="nx">fromRedisChannel</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><a href="#__codelineno-10-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><a href="#__codelineno-10-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">socketGateway</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">userId</span><span class="p">]</span><span class="o">?</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">socket</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><a href="#__codelineno-10-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">            </span><span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span><span class="w"></span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><a href="#__codelineno-10-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">        </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><a href="#__codelineno-10-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fromRedisChannel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><a href="#__codelineno-10-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">redisClient</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="s1">&#39;SOCKET_CHANNEL_&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">ids</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><a href="#__codelineno-10-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">                </span><span class="nx">ids</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><a href="#__codelineno-10-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="nx">publisherClient</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a><a href="#__codelineno-10-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">                        </span><span class="nx">id</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a><a href="#__codelineno-10-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">                        </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a><a href="#__codelineno-10-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">                            </span><span class="nx">payload</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><a href="#__codelineno-10-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">                            </span><span class="nx">userId</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a><a href="#__codelineno-10-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">                        </span><span class="p">}),</span><span class="w"></span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a><a href="#__codelineno-10-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">                    </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a><a href="#__codelineno-10-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">                </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a><a href="#__codelineno-10-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">            </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a><a href="#__codelineno-10-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a><a href="#__codelineno-10-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_5">测试场景</h2>
+<p>好的，我们完成了，现在我们可以设置测试场景。
+首先，我们将创建一个简单的测试脚本，该脚本将连接到我们的一个实例并打印接收到的消息。
+通过运行“npm i ws”来安装 ws 包</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><a href="#__codelineno-11-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3001</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><a href="#__codelineno-11-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ws</span><span class="p">(</span><span class="sb">`ws://localhost:</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><a href="#__codelineno-11-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Cookie</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;token=user1&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><a href="#__codelineno-11-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><a href="#__codelineno-11-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><a href="#__codelineno-11-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Received message`</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><a href="#__codelineno-11-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><a href="#__codelineno-11-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a><a href="#__codelineno-11-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Connected to port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><a href="#__codelineno-11-11"><span class="linenos" data-linenos="11 "></span></a><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a><a href="#__codelineno-11-12"><span class="linenos" data-linenos="12 "></span></a><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a><a href="#__codelineno-11-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Disconnected from port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a><a href="#__codelineno-11-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>然后，我们向套接字服务添加一个简单的间隔，用于向 user1 发送时间。</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos=" 1 "></span></a>  constructor<span class="o">(</span>private <span class="nb">readonly</span> socketGateway: SocketGateway<span class="o">)</span> <span class="o">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><a href="#__codelineno-12-2"><span class="linenos" data-linenos=" 2 "></span></a>    this.serviceId <span class="o">=</span> <span class="s1">&#39;SOCKET_CHANNEL_&#39;</span> + Math.random<span class="o">()</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><a href="#__codelineno-12-3"><span class="linenos" data-linenos=" 3 "></span></a>      .toString<span class="o">(</span><span class="m">26</span><span class="o">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><a href="#__codelineno-12-4"><span class="linenos" data-linenos=" 4 "></span></a>      .slice<span class="o">(</span><span class="m">2</span><span class="o">)</span><span class="p">;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><a href="#__codelineno-12-5"><span class="linenos" data-linenos=" 5 "></span></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><a href="#__codelineno-12-6"><span class="linenos" data-linenos=" 6 "></span></a>      setInterval<span class="o">(()</span> <span class="o">=</span>&gt; <span class="o">{</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><a href="#__codelineno-12-7"><span class="linenos" data-linenos=" 7 "></span></a>        this.sendMessage<span class="o">(</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><a href="#__codelineno-12-8"><span class="linenos" data-linenos=" 8 "></span></a>          <span class="s1">&#39;user1&#39;</span>,
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><a href="#__codelineno-12-9"><span class="linenos" data-linenos=" 9 "></span></a>          new Date<span class="o">()</span>.toLocaleTimeString<span class="o">()</span> +
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><a href="#__codelineno-12-10"><span class="linenos" data-linenos="10 "></span></a>            <span class="sb">`</span> <span class="p">|</span> from server on port <span class="si">${</span><span class="nv">process</span><span class="p">.env[</span><span class="s1">&#39;PORT&#39;</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span>,
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a><a href="#__codelineno-12-11"><span class="linenos" data-linenos="11 "></span></a>          false,
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a><a href="#__codelineno-12-12"><span class="linenos" data-linenos="12 "></span></a>        <span class="o">)</span><span class="p">;</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a><a href="#__codelineno-12-13"><span class="linenos" data-linenos="13 "></span></a>      <span class="o">}</span>, <span class="m">3000</span><span class="o">)</span><span class="p">;</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a><a href="#__codelineno-12-14"><span class="linenos" data-linenos="14 "></span></a>  <span class="o">}</span>
+</code></pre></div>
+<p>最后，按顺序运行以下命令</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><a href="#__codelineno-13-1"><span class="linenos" data-linenos="1 "></span></a><span class="nv">PORT</span><span class="o">=</span><span class="m">3001</span> npm start
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><a href="#__codelineno-13-2"><span class="linenos" data-linenos="2 "></span></a><span class="nv">PORT</span><span class="o">=</span><span class="m">3002</span> npm start
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><a href="#__codelineno-13-3"><span class="linenos" data-linenos="3 "></span></a>node test-script.js
+</code></pre></div>
+<p>测试脚本应该每 3 秒记录一条来自两个实例的消息。</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><a href="#__codelineno-14-1"><span class="linenos" data-linenos="1 "></span></a><span class="c1"># output</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><a href="#__codelineno-14-2"><span class="linenos" data-linenos="2 "></span></a>Received message <span class="m">8</span>:21:55 AM <span class="p">|</span> from server on port <span class="m">3001</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><a href="#__codelineno-14-3"><span class="linenos" data-linenos="3 "></span></a>Received message <span class="m">8</span>:21:57 AM <span class="p">|</span> from server on port <span class="m">3002</span>
+</code></pre></div>
+<p>这向我们表明，现在我们的服务能够将来自不同实例的 WebSocket 消息分发到特定的客户机。</p>
+<h2 id="_6">完整示例</h2>
+<p>我们在本文中所采取的步骤的一个完整的工作示例可以在这里找到 <a href="https://github.com/m-esm/socket-cluster-app">https://github.com/m-esm/socket-cluster-app</a></p>
+<ul>
+<li>main.js</li>
+</ul>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><a href="#__codelineno-15-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">NestFactory</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/core&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WsAdapter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/platform-ws&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><a href="#__codelineno-15-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><a href="#__codelineno-15-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./app.module&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><a href="#__codelineno-15-5"><span class="linenos" data-linenos=" 5 "></span></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><a href="#__codelineno-15-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">bootstrap</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><a href="#__codelineno-15-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><a href="#__codelineno-15-8"><span class="linenos" data-linenos=" 8 "></span></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><a href="#__codelineno-15-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="c1">// register adapter</span><span class="w"></span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><a href="#__codelineno-15-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">useWebSocketAdapter</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">WsAdapter</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><a href="#__codelineno-15-11"><span class="linenos" data-linenos="11 "></span></a>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><a href="#__codelineno-15-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s2">&quot;PORT&quot;</span><span class="p">],</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">3000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a><a href="#__codelineno-15-13"><span class="linenos" data-linenos="13 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a><a href="#__codelineno-15-14"><span class="linenos" data-linenos="14 "></span></a><span class="nx">bootstrap</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p>socket</p>
+</li>
+<li>
+<p>socket.service.ts</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><a href="#__codelineno-16-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Injectable</span><span class="p">,</span><span class="w"> </span><span class="nx">OnModuleDestroy</span><span class="p">,</span><span class="w"> </span><span class="nx">OnModuleInit</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/common&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><a href="#__codelineno-16-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="p">,</span><span class="w"> </span><span class="nx">RedisClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;redis&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><a href="#__codelineno-16-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><a href="#__codelineno-16-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SocketGateway</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./socket.gateway&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><a href="#__codelineno-16-5"><span class="linenos" data-linenos=" 5 "></span></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><a href="#__codelineno-16-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="kd">@Injectable</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><a href="#__codelineno-16-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">SocketService</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnModuleInit</span><span class="p">,</span><span class="w"> </span><span class="nx">OnModuleDestroy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><a href="#__codelineno-16-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">redisClient</span><span class="o">:</span><span class="w"> </span><span class="kt">RedisClient</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><a href="#__codelineno-16-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">publisherClient</span><span class="o">:</span><span class="w"> </span><span class="kt">RedisClient</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><a href="#__codelineno-16-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">subscriberClient</span><span class="o">:</span><span class="w"> </span><span class="kt">RedisClient</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><a href="#__codelineno-16-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">discoveryInterval</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><a href="#__codelineno-16-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">serviceId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><a href="#__codelineno-16-13"><span class="linenos" data-linenos="13 "></span></a>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><a href="#__codelineno-16-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">socketGateway</span><span class="o">:</span><span class="w"> </span><span class="kt">SocketGateway</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><a href="#__codelineno-16-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><a href="#__codelineno-16-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">      </span><span class="s2">&quot;SOCKET_CHANNEL_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">26</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><a href="#__codelineno-16-17"><span class="linenos" data-linenos="17 "></span></a>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><a href="#__codelineno-16-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">    </span><span class="nx">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a><a href="#__codelineno-16-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a><a href="#__codelineno-16-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">        </span><span class="s2">&quot;user1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a><a href="#__codelineno-16-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleTimeString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a><a href="#__codelineno-16-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">          </span><span class="sb">` | from server on port </span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s2">&quot;PORT&quot;</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a><a href="#__codelineno-16-23"><span class="linenos" data-linenos="23 "></span></a><span class="w">        </span><span class="kc">false</span><span class="w"></span>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a><a href="#__codelineno-16-24"><span class="linenos" data-linenos="24 "></span></a><span class="w">      </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-25" name="__codelineno-16-25"></a><a href="#__codelineno-16-25"><span class="linenos" data-linenos="25 "></span></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mf">3000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-26" name="__codelineno-16-26"></a><a href="#__codelineno-16-26"><span class="linenos" data-linenos="26 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-27" name="__codelineno-16-27"></a><a href="#__codelineno-16-27"><span class="linenos" data-linenos="27 "></span></a>
+<a id="__codelineno-16-28" name="__codelineno-16-28"></a><a href="#__codelineno-16-28"><span class="linenos" data-linenos="28 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">onModuleInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-29" name="__codelineno-16-29"></a><a href="#__codelineno-16-29"><span class="linenos" data-linenos="29 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">redisClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">newRedisClient</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-16-30" name="__codelineno-16-30"></a><a href="#__codelineno-16-30"><span class="linenos" data-linenos="30 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">subscriberClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">newRedisClient</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-16-31" name="__codelineno-16-31"></a><a href="#__codelineno-16-31"><span class="linenos" data-linenos="31 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">publisherClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">newRedisClient</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-16-32" name="__codelineno-16-32"></a><a href="#__codelineno-16-32"><span class="linenos" data-linenos="32 "></span></a>
+<a id="__codelineno-16-33" name="__codelineno-16-33"></a><a href="#__codelineno-16-33"><span class="linenos" data-linenos="33 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">subscriberClient</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-34" name="__codelineno-16-34"></a><a href="#__codelineno-16-34"><span class="linenos" data-linenos="34 "></span></a>
+<a id="__codelineno-16-35" name="__codelineno-16-35"></a><a href="#__codelineno-16-35"><span class="linenos" data-linenos="35 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">subscriberClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-36" name="__codelineno-16-36"></a><a href="#__codelineno-16-36"><span class="linenos" data-linenos="36 "></span></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-37" name="__codelineno-16-37"></a><a href="#__codelineno-16-37"><span class="linenos" data-linenos="37 "></span></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">payload</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-38" name="__codelineno-16-38"></a><a href="#__codelineno-16-38"><span class="linenos" data-linenos="38 "></span></a><span class="w">    </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-16-39" name="__codelineno-16-39"></a><a href="#__codelineno-16-39"><span class="linenos" data-linenos="39 "></span></a>
+<a id="__codelineno-16-40" name="__codelineno-16-40"></a><a href="#__codelineno-16-40"><span class="linenos" data-linenos="40 "></span></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">channelDiscovery</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-16-41" name="__codelineno-16-41"></a><a href="#__codelineno-16-41"><span class="linenos" data-linenos="41 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-42" name="__codelineno-16-42"></a><a href="#__codelineno-16-42"><span class="linenos" data-linenos="42 "></span></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">newRedisClient</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-43" name="__codelineno-16-43"></a><a href="#__codelineno-16-43"><span class="linenos" data-linenos="43 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">createClient</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-16-44" name="__codelineno-16-44"></a><a href="#__codelineno-16-44"><span class="linenos" data-linenos="44 "></span></a><span class="w">      </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-45" name="__codelineno-16-45"></a><a href="#__codelineno-16-45"><span class="linenos" data-linenos="45 "></span></a><span class="w">      </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6379</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-46" name="__codelineno-16-46"></a><a href="#__codelineno-16-46"><span class="linenos" data-linenos="46 "></span></a><span class="w">    </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-16-47" name="__codelineno-16-47"></a><a href="#__codelineno-16-47"><span class="linenos" data-linenos="47 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-48" name="__codelineno-16-48"></a><a href="#__codelineno-16-48"><span class="linenos" data-linenos="48 "></span></a>
+<a id="__codelineno-16-49" name="__codelineno-16-49"></a><a href="#__codelineno-16-49"><span class="linenos" data-linenos="49 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">onModuleDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-50" name="__codelineno-16-50"></a><a href="#__codelineno-16-50"><span class="linenos" data-linenos="50 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">discoveryInterval</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">clearTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">discoveryInterval</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-51" name="__codelineno-16-51"></a><a href="#__codelineno-16-51"><span class="linenos" data-linenos="51 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-52" name="__codelineno-16-52"></a><a href="#__codelineno-16-52"><span class="linenos" data-linenos="52 "></span></a>
+<a id="__codelineno-16-53" name="__codelineno-16-53"></a><a href="#__codelineno-16-53"><span class="linenos" data-linenos="53 "></span></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">channelDiscovery</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-54" name="__codelineno-16-54"></a><a href="#__codelineno-16-54"><span class="linenos" data-linenos="54 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">redisClient</span><span class="p">.</span><span class="nx">setex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-16-55" name="__codelineno-16-55"></a><a href="#__codelineno-16-55"><span class="linenos" data-linenos="55 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">discoveryInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-56" name="__codelineno-16-56"></a><a href="#__codelineno-16-56"><span class="linenos" data-linenos="56 "></span></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">channelDiscovery</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-16-57" name="__codelineno-16-57"></a><a href="#__codelineno-16-57"><span class="linenos" data-linenos="57 "></span></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mf">2000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-58" name="__codelineno-16-58"></a><a href="#__codelineno-16-58"><span class="linenos" data-linenos="58 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-59" name="__codelineno-16-59"></a><a href="#__codelineno-16-59"><span class="linenos" data-linenos="59 "></span></a>
+<a id="__codelineno-16-60" name="__codelineno-16-60"></a><a href="#__codelineno-16-60"><span class="linenos" data-linenos="60 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">sendMessage</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-16-61" name="__codelineno-16-61"></a><a href="#__codelineno-16-61"><span class="linenos" data-linenos="61 "></span></a><span class="w">    </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-62" name="__codelineno-16-62"></a><a href="#__codelineno-16-62"><span class="linenos" data-linenos="62 "></span></a><span class="w">    </span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-63" name="__codelineno-16-63"></a><a href="#__codelineno-16-63"><span class="linenos" data-linenos="63 "></span></a><span class="w">    </span><span class="nx">fromRedisChannel</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"></span>
+<a id="__codelineno-16-64" name="__codelineno-16-64"></a><a href="#__codelineno-16-64"><span class="linenos" data-linenos="64 "></span></a><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-65" name="__codelineno-16-65"></a><a href="#__codelineno-16-65"><span class="linenos" data-linenos="65 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">socketGateway</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">userId</span><span class="p">]</span><span class="o">?</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">socket</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"></span>
+<a id="__codelineno-16-66" name="__codelineno-16-66"></a><a href="#__codelineno-16-66"><span class="linenos" data-linenos="66 "></span></a><span class="w">      </span><span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-16-67" name="__codelineno-16-67"></a><a href="#__codelineno-16-67"><span class="linenos" data-linenos="67 "></span></a><span class="w">    </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-68" name="__codelineno-16-68"></a><a href="#__codelineno-16-68"><span class="linenos" data-linenos="68 "></span></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fromRedisChannel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-69" name="__codelineno-16-69"></a><a href="#__codelineno-16-69"><span class="linenos" data-linenos="69 "></span></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">redisClient</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="s2">&quot;SOCKET_CHANNEL_*&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">ids</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-70" name="__codelineno-16-70"></a><a href="#__codelineno-16-70"><span class="linenos" data-linenos="70 "></span></a><span class="w">        </span><span class="nx">ids</span><span class="w"></span>
+<a id="__codelineno-16-71" name="__codelineno-16-71"></a><a href="#__codelineno-16-71"><span class="linenos" data-linenos="71 "></span></a><span class="w">          </span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-16-72" name="__codelineno-16-72"></a><a href="#__codelineno-16-72"><span class="linenos" data-linenos="72 "></span></a><span class="w">          </span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-73" name="__codelineno-16-73"></a><a href="#__codelineno-16-73"><span class="linenos" data-linenos="73 "></span></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">publisherClient</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-16-74" name="__codelineno-16-74"></a><a href="#__codelineno-16-74"><span class="linenos" data-linenos="74 "></span></a><span class="w">              </span><span class="nx">id</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-75" name="__codelineno-16-75"></a><a href="#__codelineno-16-75"><span class="linenos" data-linenos="75 "></span></a><span class="w">              </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-16-76" name="__codelineno-16-76"></a><a href="#__codelineno-16-76"><span class="linenos" data-linenos="76 "></span></a><span class="w">                </span><span class="nx">payload</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-77" name="__codelineno-16-77"></a><a href="#__codelineno-16-77"><span class="linenos" data-linenos="77 "></span></a><span class="w">                </span><span class="nx">userId</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-16-78" name="__codelineno-16-78"></a><a href="#__codelineno-16-78"><span class="linenos" data-linenos="78 "></span></a><span class="w">              </span><span class="p">})</span><span class="w"></span>
+<a id="__codelineno-16-79" name="__codelineno-16-79"></a><a href="#__codelineno-16-79"><span class="linenos" data-linenos="79 "></span></a><span class="w">            </span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-80" name="__codelineno-16-80"></a><a href="#__codelineno-16-80"><span class="linenos" data-linenos="80 "></span></a><span class="w">          </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-16-81" name="__codelineno-16-81"></a><a href="#__codelineno-16-81"><span class="linenos" data-linenos="81 "></span></a><span class="w">      </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-16-82" name="__codelineno-16-82"></a><a href="#__codelineno-16-82"><span class="linenos" data-linenos="82 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-83" name="__codelineno-16-83"></a><a href="#__codelineno-16-83"><span class="linenos" data-linenos="83 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-84" name="__codelineno-16-84"></a><a href="#__codelineno-16-84"><span class="linenos" data-linenos="84 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>socket.gateway.ts</li>
+</ul>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><a href="#__codelineno-17-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><a href="#__codelineno-17-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="nx">OnGatewayConnection</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><a href="#__codelineno-17-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">  </span><span class="nx">OnGatewayDisconnect</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><a href="#__codelineno-17-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="nx">WebSocketGateway</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><a href="#__codelineno-17-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/websockets&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><a href="#__codelineno-17-6"><span class="linenos" data-linenos=" 6 "></span></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><a href="#__codelineno-17-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="kd">@WebSocketGateway</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><a href="#__codelineno-17-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">SocketGateway</span><span class="w"></span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><a href="#__codelineno-17-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnGatewayConnection</span><span class="p">,</span><span class="w"> </span><span class="nx">OnGatewayDisconnect</span><span class="w"></span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a><a href="#__codelineno-17-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a><a href="#__codelineno-17-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">connectedSockets</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="p">[]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a><a href="#__codelineno-17-12"><span class="linenos" data-linenos="12 "></span></a>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a><a href="#__codelineno-17-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">handleConnection</span><span class="p">(</span><span class="nx">client</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="kt">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a><a href="#__codelineno-17-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a><a href="#__codelineno-17-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;cookie&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a><a href="#__codelineno-17-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a><a href="#__codelineno-17-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span><span class="w"></span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a><a href="#__codelineno-17-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;token&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a><a href="#__codelineno-17-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">        </span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mf">1</span><span class="p">];</span><span class="w"></span>
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a><a href="#__codelineno-17-20"><span class="linenos" data-linenos="20 "></span></a>
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a><a href="#__codelineno-17-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">      </span><span class="c1">// for this example, we simply set userId by token</span><span class="w"></span>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a><a href="#__codelineno-17-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">      </span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">token</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-17-23" name="__codelineno-17-23"></a><a href="#__codelineno-17-23"><span class="linenos" data-linenos="23 "></span></a>
+<a id="__codelineno-17-24" name="__codelineno-17-24"></a><a href="#__codelineno-17-24"><span class="linenos" data-linenos="24 "></span></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">])</span><span class="w"></span>
+<a id="__codelineno-17-25" name="__codelineno-17-25"></a><a href="#__codelineno-17-25"><span class="linenos" data-linenos="25 "></span></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<a id="__codelineno-17-26" name="__codelineno-17-26"></a><a href="#__codelineno-17-26"><span class="linenos" data-linenos="26 "></span></a>
+<a id="__codelineno-17-27" name="__codelineno-17-27"></a><a href="#__codelineno-17-27"><span class="linenos" data-linenos="27 "></span></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-17-28" name="__codelineno-17-28"></a><a href="#__codelineno-17-28"><span class="linenos" data-linenos="28 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-29" name="__codelineno-17-29"></a><a href="#__codelineno-17-29"><span class="linenos" data-linenos="29 "></span></a><span class="w">      </span><span class="nx">client</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="mf">4403</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;set JWT cookie to authenticate&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-17-30" name="__codelineno-17-30"></a><a href="#__codelineno-17-30"><span class="linenos" data-linenos="30 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-17-31" name="__codelineno-17-31"></a><a href="#__codelineno-17-31"><span class="linenos" data-linenos="31 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-17-32" name="__codelineno-17-32"></a><a href="#__codelineno-17-32"><span class="linenos" data-linenos="32 "></span></a>
+<a id="__codelineno-17-33" name="__codelineno-17-33"></a><a href="#__codelineno-17-33"><span class="linenos" data-linenos="33 "></span></a><span class="w">  </span><span class="nx">handleDisconnect</span><span class="p">(</span><span class="nx">client</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-34" name="__codelineno-17-34"></a><a href="#__codelineno-17-34"><span class="linenos" data-linenos="34 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connectedSockets</span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-17-35" name="__codelineno-17-35"></a><a href="#__codelineno-17-35"><span class="linenos" data-linenos="35 "></span></a><span class="w">      </span><span class="nx">client</span><span class="p">.</span><span class="nx">userId</span><span class="w"></span>
+<a id="__codelineno-17-36" name="__codelineno-17-36"></a><a href="#__codelineno-17-36"><span class="linenos" data-linenos="36 "></span></a><span class="w">    </span><span class="p">].</span><span class="nx">filter</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-17-37" name="__codelineno-17-37"></a><a href="#__codelineno-17-37"><span class="linenos" data-linenos="37 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-17-38" name="__codelineno-17-38"></a><a href="#__codelineno-17-38"><span class="linenos" data-linenos="38 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../scalable-websockets-with-nestjs-and-redis/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用 NestJS 和 Redis 扩展 WebSockets" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              使用 NestJS 和 Redis 扩展 WebSockets
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../docs/_index/" class="md-footer__link md-footer__link--next" aria-label="下一页: 文档" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              文档
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      
+    
+  </body>
+</html>

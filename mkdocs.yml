@@ -1,0 +1,23 @@
+site_name: NestJs 文档
+docs_dir: content/zh-cn
+site_dir: docs
+
+theme:
+  name: material
+  language: zh
+
+markdown_extensions:
+  - pymdownx.highlight:
+      auto_title: true
+      anchor_linenums: true
+      use_pygments: true
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+nav:

@@ -1,0 +1,1701 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Gabriel Tanner">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
+    
+    
+      
+        <title>Nestjs使用Multer上传文件 - NestJs 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="NestJs 文档" class="md-header__button md-logo" aria-label="NestJs 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NestJs 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Nestjs使用Multer上传文件
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NestJs 文档" class="md-nav__button md-logo" aria-label="NestJs 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NestJs 文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../61.circular-dependencies/" class="md-nav__link">
+        处理循环依赖项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_index/" class="md-nav__link">
+        博客
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../applying-solid-principles-to-your-typescript-code/" class="md-nav__link">
+        对typescript代码应用可靠的原则
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwt-authentication-using-node-nestjs-mongoose-passport-ionic5-part1/" class="md-nav__link">
+        JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Nestjs使用Multer上传文件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Nestjs使用Multer上传文件
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    上传文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    测试应用程序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    结论
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scalable-websockets-with-nestjs-and-redis/" class="md-nav__link">
+        使用 NestJS 和 Redis 扩展 WebSockets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websocket-cluster-with-nestjs-and-redis/" class="md-nav__link">
+        WebSocket cluster with NestJs and Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/_index/" class="md-nav__link">
+        文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/awesome/" class="md-nav__link">
+        awesome
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Compodoc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Compodoc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Compodoc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/_index/" class="md-nav__link">
+        Compodoc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/comments/" class="md-nav__link">
+        注释
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/demo/" class="md-nav__link">
+        现场演示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/documentation-coverage/" class="md-nav__link">
+        文档覆盖
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/extensions/" class="md-nav__link">
+        扩展
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/features/" class="md-nav__link">
+        特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/hosting/" class="md-nav__link">
+        托管
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/installation/" class="md-nav__link">
+        安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/jsdoc-tags/" class="md-nav__link">
+        JSDoc 标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/live-example-tab/" class="md-nav__link">
+        现场例子选项卡
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/miscellaneous/" class="md-nav__link">
+        杂项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/options/" class="md-nav__link">
+        选项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/routing/" class="md-nav__link">
+        路由
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tab-configuration/" class="md-nav__link">
+        选项卡配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/themes/" class="md-nav__link">
+        主题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tips-and-tricks/" class="md-nav__link">
+        提示和技巧
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tutorial/" class="md-nav__link">
+        教程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/usage/" class="md-nav__link">
+        使用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Files" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/files/_index/" class="md-nav__link">
+        files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/files/api-nestjs-uploading-files-to-server/" class="md-nav__link">
+        Uploading files to the server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Http
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Http" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Http
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/_index/" class="md-nav__link">
+        http
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/api-nestjs-error-handling-validation/" class="md-nav__link">
+        错误处理和数据验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/api-nestjs-stripe-events-webhooks/" class="md-nav__link">
+        用webhook对Stripe事件做出反应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/axios-auth-refresh/" class="md-nav__link">
+        axios-auth-refresh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/axios/" class="md-nav__link">
+        axios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/nest-axios-interceptor/" class="md-nav__link">
+        @narando/nest-axios-interceptor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/node-cache-manager/" class="md-nav__link">
+        node-cache-manager - 灵活的NodeJS缓存模块
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/logs/_index/" class="md-nav__link">
+        logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/logs/api-nestjs-logging-typeorm/" class="md-nav__link">
+        介绍使用内置记录器和TypeORM进行日志记录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Mongodb
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mongodb" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Mongodb
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/_index/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/indexes/" class="md-nav__link">
+        使用MongoDB和Mongoose定义索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/introduction/" class="md-nav__link">
+        MongoDB概论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/pagination/" class="md-nav__link">
+        使用MongoDB和Mongoose实现分页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/relationships/" class="md-nav__link">
+        实现与MongoDB的关系
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/transactions/" class="md-nav__link">
+        与MongoDB和Mongoose管理事务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/typescript-express-put-vs-patch-mongodb-mongoose/" class="md-nav__link">
+        MongoDB与Mongoose使用PUT vs PATCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/updating/" class="md-nav__link">
+        用PUT和PATCH更新MongoDB和Mongoose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/virtual/" class="md-nav__link">
+        MongoDB和Mongoose的虚拟属性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Openapi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Openapi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Openapi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/openapi/_index/" class="md-nav__link">
+        OpenAPI-swagger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/openapi/api-nestjs-openapi-swagger/" class="md-nav__link">
+        OpenAPI规范和Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Queue
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Queue" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Queue
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/_index/" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/bull/" class="md-nav__link">
+        bull
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/guide/" class="md-nav__link">
+        指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/patterns/" class="md-nav__link">
+        模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/reference/" class="md-nav__link">
+        参考
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Validator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Validator" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Validator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/_index/" class="md-nav__link">
+        validator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/class-transformer/" class="md-nav__link">
+        class-transformer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/class-validator/" class="md-nav__link">
+        class-validator
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    上传文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    测试应用程序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    结论
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Nestjs使用Multer上传文件</h1>
+
+<blockquote>
+<p>https://gabrieltanner.org/blog/nestjs-file-uploading-using-multer</p>
+</blockquote>
+<p>本指南将向你展示如何将文件上传到你的 Nestjs 应用程序中，以及在这样做时你应该记住的事情。
+您将开发一个具有三个端点的应用程序，将达到以下目的:</p>
+<ul>
+<li>上传一个图像</li>
+<li>上传多个图像</li>
+<li>使用图像路径获取图像</li>
+</ul>
+<p>您还将添加自定义实用工具来编辑文件名并验证图像的文件上传。
+不浪费时间了，让我们开始吧。</p>
+<h2 id="_1">设置</h2>
+<p>您需要做的第一件事是创建一个包含文件服务器的 Nestjs 项目。
+为此，需要打开终端，执行如下命令:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a>nest new nest-file-uploading <span class="o">&amp;&amp;</span> <span class="nb">cd</span> nest-file-uploading
+</code></pre></div>
+<p>这将创建一个名为 nest-file-upload 的新目录，并使用标准的 Nestjs 配置对其进行初始化。</p>
+<p>安装好目录后，你可以使用以下命令安装应用程序所需的依赖项:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a>npm install @nestjs/platform-express --save
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a>npm install @types/express -D
+</code></pre></div>
+<p>在开始编码之前，您需要做的最后一件事是创建项目所需的文件和文件夹。
+这非常简单，因为应用程序只需要多一个文件。</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a>mkdir src/utils
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a>touch src/utils/file-uploading.utils.ts
+</code></pre></div>
+<p>要启动应用程序，你现在可以在你的终端中执行</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a>npm run start:dev。
+</code></pre></div>
+<h2 id="_2">上传文件</h2>
+<p>现在您已经完成了设置过程，您可以继续并开始实现实际的功能。
+让我们从在你的 <code>AppModule</code> 中导入 <code>MulterModule</code> 开始，这样你就可以在其他文件中使用 <code>Multer</code> 。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Module</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/common&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><a href="#__codelineno-4-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppController</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./app.controller&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><a href="#__codelineno-4-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">MulterModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@nestjs/platform-express&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><a href="#__codelineno-4-4"><span class="linenos" data-linenos=" 4 "></span></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><a href="#__codelineno-4-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kd">@Module</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><a href="#__codelineno-4-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><a href="#__codelineno-4-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="nx">MulterModule</span><span class="p">.</span><span class="nx">register</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><a href="#__codelineno-4-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">      </span><span class="nx">dest</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./files&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><a href="#__codelineno-4-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="p">}),</span><span class="w"></span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><a href="#__codelineno-4-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><a href="#__codelineno-4-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="nx">controllers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">AppController</span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><a href="#__codelineno-4-12"><span class="linenos" data-linenos="12 "></span></a><span class="p">})</span><span class="w"></span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><a href="#__codelineno-4-13"><span class="linenos" data-linenos="13 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AppModule</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+</code></pre></div>
+<p>在这里，你从 <code>@nestjs/platform-express</code> 中导入 <code>MulterModule</code> ，并将其添加到 <code>imports</code> 语句中。
+您还可以定义上传时保存文件的目的地。</p>
+<blockquote>
+<p>Note: 这个目标从项目的根路径开始，而不是 src 文件夹。</p>
+</blockquote>
+<p>下一步是实现实际的上传功能，这相当简单。
+您只需要将 <code>FileInterceptor()</code> 添加到一个普通的 <code>@Post</code> 请求处理程序中，然后使用<code>@UploadedFile()</code>装饰器从请求中提取文件。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AlbumController</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><a href="#__codelineno-5-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="kd">@Post</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><a href="#__codelineno-5-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">  </span><span class="kd">@UseInterceptors</span><span class="p">(</span><span class="nx">FileInterceptor</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><a href="#__codelineno-5-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">uploadedFile</span><span class="p">(</span><span class="kd">@UploadedFile</span><span class="p">()</span><span class="w"> </span><span class="nx">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><a href="#__codelineno-5-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><a href="#__codelineno-5-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">      </span><span class="nx">originalname</span><span class="o">:</span><span class="w"> </span><span class="kt">file.originalname</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><a href="#__codelineno-5-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">      </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="kt">file.filename</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><a href="#__codelineno-5-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><a href="#__codelineno-5-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><a href="#__codelineno-5-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><a href="#__codelineno-5-11"><span class="linenos" data-linenos="11 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p><code>FileInterceptor</code> 接受两个参数，一个 <code>fieldName</code> 和一个可选的 <code>options</code> 对象，稍后您将使用它来检查正确的文件类型，并在目录中给文件一个自定义名称。
+一次上传多个文件几乎是一样的，你只需要使用 FilesInterceptor 来代替，并传递一个额外的参数，即文件的最大数量。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AlbumController</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><a href="#__codelineno-6-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="kd">@Post</span><span class="p">(</span><span class="s2">&quot;multiple&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><a href="#__codelineno-6-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">  </span><span class="kd">@UseInterceptors</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><a href="#__codelineno-6-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="nx">FilesInterceptor</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><a href="#__codelineno-6-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">      </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">diskStorage</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><a href="#__codelineno-6-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="nx">destination</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./files&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><a href="#__codelineno-6-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="kt">editFileName</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><a href="#__codelineno-6-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">      </span><span class="p">}),</span><span class="w"></span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><a href="#__codelineno-6-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">      </span><span class="nx">fileFilter</span><span class="o">:</span><span class="w"> </span><span class="kt">imageFileFilter</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><a href="#__codelineno-6-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="p">})</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><a href="#__codelineno-6-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><a href="#__codelineno-6-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">uploadMultipleFiles</span><span class="p">(</span><span class="kd">@UploadedFiles</span><span class="p">()</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><a href="#__codelineno-6-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><a href="#__codelineno-6-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="nx">files</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">file</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><a href="#__codelineno-6-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileReponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><a href="#__codelineno-6-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">        </span><span class="nx">originalname</span><span class="o">:</span><span class="w"> </span><span class="kt">file.originalname</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><a href="#__codelineno-6-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="kt">file.filename</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a><a href="#__codelineno-6-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">      </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><a href="#__codelineno-6-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">      </span><span class="nx">response</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">fileReponse</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a><a href="#__codelineno-6-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">    </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a><a href="#__codelineno-6-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a><a href="#__codelineno-6-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a><a href="#__codelineno-6-23"><span class="linenos" data-linenos="23 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>这很简单，这里唯一的问题是，用户可以上传所有文件类型，而不考虑文件扩展名，这并不适合所有项目，文件名只是一些随机数。</p>
+<p>让我们通过在您的<code>file-upload.utils.ts</code>文件中实现一些实用工具来修复这个问题。</p>
+<p>首先，让我们实现只允许上传图像的文件类型过滤器。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><a href="#__codelineno-7-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">imageFileFilter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><a href="#__codelineno-7-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">file</span><span class="p">.</span><span class="nx">originalname</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/\.(jpg|jpeg|png|gif)$/</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><a href="#__codelineno-7-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">callback</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Only image files are allowed!&quot;</span><span class="p">),</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><a href="#__codelineno-7-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><a href="#__codelineno-7-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">  </span><span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><a href="#__codelineno-7-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<p>这里您创建了一个中间件函数，用于检查文件类型是否为图像。
+如果是，它返回 true，图像将被上传，如果不是，你抛出一个错误，并为回调返回 false。</p>
+<p><code>editFileName</code> 函数具有相同的结构，但使用原始名称、文件扩展名和四个随机数创建一个自定义文件名。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">editFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><a href="#__codelineno-8-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">file</span><span class="p">.</span><span class="nx">originalname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><a href="#__codelineno-8-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileExtName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">extname</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">originalname</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><a href="#__codelineno-8-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">randomName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">4</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><a href="#__codelineno-8-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><a href="#__codelineno-8-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="p">.</span><span class="nx">map</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">16</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mf">16</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><a href="#__codelineno-8-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><a href="#__codelineno-8-8"><span class="linenos" data-linenos="8 "></span></a><span class="w">  </span><span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">randomName</span><span class="si">}${</span><span class="nx">fileExtName</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><a href="#__codelineno-8-9"><span class="linenos" data-linenos="9 "></span></a><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<p>现在你已经创建了这两个中间件函数，是时候在 <code>app.controller.ts</code> 文件中使用它们了。
+为此，你只需要在 <code>FileInterceptor</code> 中添加一个额外的配置对象，如下所示:</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AlbumController</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><a href="#__codelineno-9-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="kd">@Post</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><a href="#__codelineno-9-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">  </span><span class="kd">@UseInterceptors</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><a href="#__codelineno-9-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="nx">FileInterceptor</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><a href="#__codelineno-9-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">      </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">diskStorage</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><a href="#__codelineno-9-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="nx">destination</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./files&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><a href="#__codelineno-9-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="kt">editFileName</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><a href="#__codelineno-9-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">      </span><span class="p">}),</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><a href="#__codelineno-9-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">      </span><span class="nx">fileFilter</span><span class="o">:</span><span class="w"> </span><span class="kt">imageFileFilter</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><a href="#__codelineno-9-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="p">})</span><span class="w"></span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><a href="#__codelineno-9-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><a href="#__codelineno-9-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">uploadedFile</span><span class="p">(</span><span class="kd">@UploadedFile</span><span class="p">()</span><span class="w"> </span><span class="nx">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><a href="#__codelineno-9-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a><a href="#__codelineno-9-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">      </span><span class="nx">originalname</span><span class="o">:</span><span class="w"> </span><span class="kt">file.originalname</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><a href="#__codelineno-9-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">      </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="kt">file.filename</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a><a href="#__codelineno-9-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a><a href="#__codelineno-9-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a><a href="#__codelineno-9-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a><a href="#__codelineno-9-19"><span class="linenos" data-linenos="19 "></span></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a><a href="#__codelineno-9-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">  </span><span class="kd">@Post</span><span class="p">(</span><span class="s2">&quot;multiple&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a><a href="#__codelineno-9-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">  </span><span class="kd">@UseInterceptors</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a><a href="#__codelineno-9-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">    </span><span class="nx">FilesInterceptor</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a><a href="#__codelineno-9-23"><span class="linenos" data-linenos="23 "></span></a><span class="w">      </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">diskStorage</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a><a href="#__codelineno-9-24"><span class="linenos" data-linenos="24 "></span></a><span class="w">        </span><span class="nx">destination</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./files&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a><a href="#__codelineno-9-25"><span class="linenos" data-linenos="25 "></span></a><span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="kt">editFileName</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a><a href="#__codelineno-9-26"><span class="linenos" data-linenos="26 "></span></a><span class="w">      </span><span class="p">}),</span><span class="w"></span>
+<a id="__codelineno-9-27" name="__codelineno-9-27"></a><a href="#__codelineno-9-27"><span class="linenos" data-linenos="27 "></span></a><span class="w">      </span><span class="nx">fileFilter</span><span class="o">:</span><span class="w"> </span><span class="kt">imageFileFilter</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-28" name="__codelineno-9-28"></a><a href="#__codelineno-9-28"><span class="linenos" data-linenos="28 "></span></a><span class="w">    </span><span class="p">})</span><span class="w"></span>
+<a id="__codelineno-9-29" name="__codelineno-9-29"></a><a href="#__codelineno-9-29"><span class="linenos" data-linenos="29 "></span></a><span class="w">  </span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-30" name="__codelineno-9-30"></a><a href="#__codelineno-9-30"><span class="linenos" data-linenos="30 "></span></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">uploadMultipleFiles</span><span class="p">(</span><span class="kd">@UploadedFiles</span><span class="p">()</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-31" name="__codelineno-9-31"></a><a href="#__codelineno-9-31"><span class="linenos" data-linenos="31 "></span></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<a id="__codelineno-9-32" name="__codelineno-9-32"></a><a href="#__codelineno-9-32"><span class="linenos" data-linenos="32 "></span></a><span class="w">    </span><span class="nx">files</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">file</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-33" name="__codelineno-9-33"></a><a href="#__codelineno-9-33"><span class="linenos" data-linenos="33 "></span></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileReponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-34" name="__codelineno-9-34"></a><a href="#__codelineno-9-34"><span class="linenos" data-linenos="34 "></span></a><span class="w">        </span><span class="nx">originalname</span><span class="o">:</span><span class="w"> </span><span class="kt">file.originalname</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-35" name="__codelineno-9-35"></a><a href="#__codelineno-9-35"><span class="linenos" data-linenos="35 "></span></a><span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="kt">file.filename</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-9-36" name="__codelineno-9-36"></a><a href="#__codelineno-9-36"><span class="linenos" data-linenos="36 "></span></a><span class="w">      </span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-9-37" name="__codelineno-9-37"></a><a href="#__codelineno-9-37"><span class="linenos" data-linenos="37 "></span></a><span class="w">      </span><span class="nx">response</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">fileReponse</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-38" name="__codelineno-9-38"></a><a href="#__codelineno-9-38"><span class="linenos" data-linenos="38 "></span></a><span class="w">    </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-9-39" name="__codelineno-9-39"></a><a href="#__codelineno-9-39"><span class="linenos" data-linenos="39 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-9-40" name="__codelineno-9-40"></a><a href="#__codelineno-9-40"><span class="linenos" data-linenos="40 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-41" name="__codelineno-9-41"></a><a href="#__codelineno-9-41"><span class="linenos" data-linenos="41 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>最后，你将添加一个<code>@Get</code>路由，它将<code>imagepath</code>作为参数，并使用 <code>sendFile</code> 方法返回图像。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><a href="#__codelineno-10-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AlbumController</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><a href="#__codelineno-10-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="kd">@Get</span><span class="p">(</span><span class="s2">&quot;:imgpath&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><a href="#__codelineno-10-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">  </span><span class="nx">seeUploadedFile</span><span class="p">(</span><span class="kd">@Param</span><span class="p">(</span><span class="s2">&quot;imgpath&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">image</span><span class="p">,</span><span class="w"> </span><span class="kd">@Res</span><span class="p">()</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><a href="#__codelineno-10-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./files&quot;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><a href="#__codelineno-10-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><a href="#__codelineno-10-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_3">测试应用程序</h2>
+<p>既然您已经完成了应用程序，现在就可以通过向端点发送 HTTP 请求来测试它了。
+这可以使用终端中的 <code>curl</code> 命令或使用一个 <code>HTTP</code> 客户端软件，如 <code>Postman</code> 或 <code>Insomnia</code> 来完成。
+我个人使用的是《Insomnia》，但在《Postman》中也应该是一样的。</p>
+<p>使用以下命令启动服务器:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos="1 "></span></a>npm run start
+</code></pre></div>
+<p>正如终端输出所示，服务器现在运行在 <code>http://localhost:3000</code> 上。
+要测试 API，您现在只需要创建一个新的 <code>HTTP</code> 请求并将请求体更改为 <code>multipart</code> ，这样您就可以上传文件了。</p>
+<p><img alt="Upload images" src="https://content.gabrieltanner.org/content/images/2019/09/nest-file-upload-upload-image.jpg" />
+Upload images</p>
+<p>在这里，您将目标设置为 <code>http://localhost:3000</code>，并向请求体添加一个图像。
+这可以通过单击复选框旁边的箭头并选择 file 来完成。</p>
+<p>在右侧，您可以看到服务器上带有原始文件名和新文件名的响应。</p>
+<blockquote>
+<p>Note: 稍后将使用新文件名从服务器获取图像。</p>
+</blockquote>
+<p><img alt="Upload multiple images" src="https://content.gabrieltanner.org/content/images/2019/09/nest-file-upload-upload-multiple-images.jpg" />
+Upload multiple images</p>
+<p>在这里，您可以执行相同的操作，但要在/多个端点上上传多个文件。</p>
+<p><img alt="Get uploaded image" src="https://content.gabrieltanner.org/content/images/2019/09/nest-file-upload-get-image.jpg" />
+Get uploaded image</p>
+<p>获取文件也是一个简单的过程。
+您只需要将从 <code>post</code> 请求中获得的文件名作为参数发送一个 <code>get</code> 请求到 <code>API</code>。</p>
+<p>项目的完整代码也可以在我的 <a href="https://github.com/TannerGabriel/Blog/tree/master/nest-file-uploading">Github</a> 上找到。</p>
+<h2 id="_4">结论</h2>
+<p>你一直坚持到最后!希望本文能帮助您理解 <code>Nestjs</code> 中的文件上传。</p>
+<p>如果您觉得这很有用，请考虑推荐并与其他开发人员分享。
+如果你有任何问题或反馈，请在 <code>twitter</code> 上告诉我或使用我的联系方式。</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../jwt-authentication-using-node-nestjs-mongoose-passport-ionic5-part1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../scalable-websockets-with-nestjs-and-redis/" class="md-footer__link md-footer__link--next" aria-label="下一页: 使用 NestJS 和 Redis 扩展 WebSockets" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              使用 NestJS 和 Redis 扩展 WebSockets
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1904 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="wanago.io">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
+    
+    
+      
+        <title>对typescript代码应用可靠的原则 - NestJs 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="NestJs 文档" class="md-header__button md-logo" aria-label="NestJs 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NestJs 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              对typescript代码应用可靠的原则
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NestJs 文档" class="md-nav__button md-logo" aria-label="NestJs 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NestJs 文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../61.circular-dependencies/" class="md-nav__link">
+        处理循环依赖项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_index/" class="md-nav__link">
+        博客
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          对typescript代码应用可靠的原则
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        对typescript代码应用可靠的原则
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    单一职责原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    开闭原则
+  </a>
+  
+    <nav class="md-nav" aria-label="开闭原则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#never-void" class="md-nav__link">
+    never 和 void 之间的区别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liskov" class="md-nav__link">
+    Liskov 替换原则
+  </a>
+  
+    <nav class="md-nav" aria-label="Liskov 替换原则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    验证条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    接口隔离原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    依赖性倒置原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwt-authentication-using-node-nestjs-mongoose-passport-ionic5-part1/" class="md-nav__link">
+        JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nestjs-file-uploading-using-multer/" class="md-nav__link">
+        Nestjs使用Multer上传文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scalable-websockets-with-nestjs-and-redis/" class="md-nav__link">
+        使用 NestJS 和 Redis 扩展 WebSockets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websocket-cluster-with-nestjs-and-redis/" class="md-nav__link">
+        WebSocket cluster with NestJs and Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/_index/" class="md-nav__link">
+        文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/awesome/" class="md-nav__link">
+        awesome
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Compodoc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Compodoc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Compodoc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/_index/" class="md-nav__link">
+        Compodoc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/comments/" class="md-nav__link">
+        注释
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/demo/" class="md-nav__link">
+        现场演示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/documentation-coverage/" class="md-nav__link">
+        文档覆盖
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/extensions/" class="md-nav__link">
+        扩展
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/features/" class="md-nav__link">
+        特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/hosting/" class="md-nav__link">
+        托管
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/installation/" class="md-nav__link">
+        安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/jsdoc-tags/" class="md-nav__link">
+        JSDoc 标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/live-example-tab/" class="md-nav__link">
+        现场例子选项卡
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/miscellaneous/" class="md-nav__link">
+        杂项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/options/" class="md-nav__link">
+        选项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/routing/" class="md-nav__link">
+        路由
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tab-configuration/" class="md-nav__link">
+        选项卡配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/themes/" class="md-nav__link">
+        主题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tips-and-tricks/" class="md-nav__link">
+        提示和技巧
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/tutorial/" class="md-nav__link">
+        教程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/compodoc/usage/" class="md-nav__link">
+        使用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Files" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/files/_index/" class="md-nav__link">
+        files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/files/api-nestjs-uploading-files-to-server/" class="md-nav__link">
+        Uploading files to the server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Http
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Http" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Http
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/_index/" class="md-nav__link">
+        http
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/api-nestjs-error-handling-validation/" class="md-nav__link">
+        错误处理和数据验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/api-nestjs-stripe-events-webhooks/" class="md-nav__link">
+        用webhook对Stripe事件做出反应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/axios-auth-refresh/" class="md-nav__link">
+        axios-auth-refresh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/axios/" class="md-nav__link">
+        axios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/nest-axios-interceptor/" class="md-nav__link">
+        @narando/nest-axios-interceptor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/http/node-cache-manager/" class="md-nav__link">
+        node-cache-manager - 灵活的NodeJS缓存模块
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/logs/_index/" class="md-nav__link">
+        logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/logs/api-nestjs-logging-typeorm/" class="md-nav__link">
+        介绍使用内置记录器和TypeORM进行日志记录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Mongodb
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mongodb" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Mongodb
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/_index/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/indexes/" class="md-nav__link">
+        使用MongoDB和Mongoose定义索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/introduction/" class="md-nav__link">
+        MongoDB概论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/pagination/" class="md-nav__link">
+        使用MongoDB和Mongoose实现分页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/relationships/" class="md-nav__link">
+        实现与MongoDB的关系
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/transactions/" class="md-nav__link">
+        与MongoDB和Mongoose管理事务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/typescript-express-put-vs-patch-mongodb-mongoose/" class="md-nav__link">
+        MongoDB与Mongoose使用PUT vs PATCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/updating/" class="md-nav__link">
+        用PUT和PATCH更新MongoDB和Mongoose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/mongodb/virtual/" class="md-nav__link">
+        MongoDB和Mongoose的虚拟属性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Openapi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Openapi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Openapi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/openapi/_index/" class="md-nav__link">
+        OpenAPI-swagger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/openapi/api-nestjs-openapi-swagger/" class="md-nav__link">
+        OpenAPI规范和Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Queue
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Queue" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Queue
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/_index/" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/bull/" class="md-nav__link">
+        bull
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/guide/" class="md-nav__link">
+        指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/patterns/" class="md-nav__link">
+        模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/queue/reference/" class="md-nav__link">
+        参考
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Validator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Validator" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Validator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/_index/" class="md-nav__link">
+        validator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/class-transformer/" class="md-nav__link">
+        class-transformer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/validator/class-validator/" class="md-nav__link">
+        class-validator
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    单一职责原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    开闭原则
+  </a>
+  
+    <nav class="md-nav" aria-label="开闭原则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#never-void" class="md-nav__link">
+    never 和 void 之间的区别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liskov" class="md-nav__link">
+    Liskov 替换原则
+  </a>
+  
+    <nav class="md-nav" aria-label="Liskov 替换原则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    验证条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    接口隔离原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    依赖性倒置原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>对typescript代码应用可靠的原则</h1>
+
+<p>SOLID 原则在相当长的一段时间以前就被定义了，现在仍然适用。
+他们的目标是使我们的软件更容易理解、阅读和扩展。
+我们把这个概念归功于罗伯特·C。
+马丁 2000 年的论文。
+不过，SOLID 的首字母缩略词是后来定义的。
+在本文中，我们将介绍 SOLID 的所有原理，并在 TypeScript 的例子中体现出来。</p>
+<h2 id="_1">单一职责原则</h2>
+<p>单一职责原则声明一个类应该只负责单一功能。
+以上也涉及到模块和功能。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Statistics</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">computeSalesStatistics</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="c1">// ...</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">generateReport</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><a href="#__codelineno-0-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="c1">// ...</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><a href="#__codelineno-0-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><a href="#__codelineno-0-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>我们应该把上面的类分成两个单独的类。
+SOLID 将责任的概念定义为改变的理由。</p>
+<p>Robert C.Martin 在他的博客文章中讨论了我们如何定义改变的理由。
+他强调，不应该在代码方面进行审议。
+例如，根据单一责任原则，重构不是更改的原因。</p>
+<p>要定义更改的原因，我们需要调查我们的程序的责任是什么。</p>
+<p>Statistics 类可能会因为两个不同的原因而改变:</p>
+<ul>
+<li>销售统计计算逻辑发生变化，</li>
+<li>报告的格式发生变化</li>
+</ul>
+<p>单一职责原则强调了上述两个方面给 Statistics 类增加了两种不同的职责。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Statistics</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">computeSalesStatistics</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="c1">// ...</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><a href="#__codelineno-1-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">ReportGenerator</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><a href="#__codelineno-1-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">generateReport</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><a href="#__codelineno-1-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="c1">// ...</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><a href="#__codelineno-1-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><a href="#__codelineno-1-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>现在我们必须分开类，每个类都有一个改变的原因，因此只有一个责任。
+应用上述原则使我们的代码更容易解释和理解。</p>
+<h2 id="_2">开闭原则</h2>
+<p>根据开放-封闭原则，软件实体对扩展是开放的，对修改是封闭的。</p>
+<p>上述原则的核心思想是，我们应该能够在不改变现有代码的情况下添加新功能。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Rectangle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">width</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><a href="#__codelineno-2-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><a href="#__codelineno-2-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Circle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><a href="#__codelineno-2-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">radius</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><a href="#__codelineno-2-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">radius</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><a href="#__codelineno-2-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">radius</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><a href="#__codelineno-2-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><a href="#__codelineno-2-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>假设我们想要创建一个函数来计算形状数组的面积。
+在我们当前的设计中，它可能是这样的:</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">function</span><span class="w"> </span><span class="nx">calculateAreasOfMultipleShapes</span><span class="p">(</span><span class="nx">shapes</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="nx">Rectangle</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Circle</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">shapes</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">calculatedArea</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">shape</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">Rectangle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><a href="#__codelineno-3-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">calculatedArea</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">shape</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">shape</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><a href="#__codelineno-3-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><a href="#__codelineno-3-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">shape</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">Circle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><a href="#__codelineno-3-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">calculatedArea</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">shape</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><a href="#__codelineno-3-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><a href="#__codelineno-3-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><a href="#__codelineno-3-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>多亏了基于控制流的收缩，TypeScript 知道我们的形状有哪些属性。
+我们在《理解 TypeScript 中的任意和未知》中讨论过这个主题。</p>
+<h3 id="never-void">never 和 void 之间的区别</h3>
+<p>上述方法的问题是，当我们引入一个新形状时，我们需要修改 calculateAreasOfMultipleShapes 函数。
+这使得它可以修改，打破了开闭原则。</p>
+<p>我们可以通过强制我们的形状拥有一个返回区域的方法来解决这个问题。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><a href="#__codelineno-4-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="nx">getArea</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><a href="#__codelineno-4-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><a href="#__codelineno-4-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Rectangle</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><a href="#__codelineno-4-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><a href="#__codelineno-4-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><a href="#__codelineno-4-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><a href="#__codelineno-4-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">width</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><a href="#__codelineno-4-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><a href="#__codelineno-4-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><a href="#__codelineno-4-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">getArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><a href="#__codelineno-4-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><a href="#__codelineno-4-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><a href="#__codelineno-4-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><a href="#__codelineno-4-15"><span class="linenos" data-linenos="15 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Circle</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><a href="#__codelineno-4-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">radius</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><a href="#__codelineno-4-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">radius</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><a href="#__codelineno-4-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">radius</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a><a href="#__codelineno-4-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><a href="#__codelineno-4-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">getArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><a href="#__codelineno-4-21"><span class="linenos" data-linenos="21 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a><a href="#__codelineno-4-22"><span class="linenos" data-linenos="22 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a><a href="#__codelineno-4-23"><span class="linenos" data-linenos="23 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>现在我们确信所有的形状都有 getArea 函数，我们可以进一步使用它。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">function</span><span class="w"> </span><span class="nx">calculateAreasOfMultipleShapes</span><span class="p">(</span><span class="nx">shapes</span><span class="o">:</span><span class="w"> </span><span class="kt">Shape</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><a href="#__codelineno-5-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">shapes</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">calculatedArea</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><a href="#__codelineno-5-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">calculatedArea</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">shape</span><span class="p">.</span><span class="nx">getArea</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><a href="#__codelineno-5-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><a href="#__codelineno-5-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>现在，当我们引入一个新形状时，我们不需要修改 calculateAreasOfMultipleShapes 函数。
+我们对延期开放，对修改关闭。</p>
+<p>我们也可以通过使用抽象类而不是接口来实现上述功能</p>
+<h2 id="liskov">Liskov 替换原则</h2>
+<p>上述规则，由 Barbara Liskov 介绍，也帮助我们确保更改系统的一个区域不会破坏其他部分。
+为了使这一原则不那么令人困惑，我们将把它分成多个部分。</p>
+<p>用子类替换类的实例不会产生任何负面影响</p>
+<p>在上述原则中，我们注意到的第一件事是，它的主要焦点是类继承。</p>
+<p>让我们来实现一个简单而生动的例子来说明如何打破上述原则。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Employee</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><a href="#__codelineno-6-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="k">protected</span><span class="w"> </span><span class="nx">permissions</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><a href="#__codelineno-6-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><a href="#__codelineno-6-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">hasPermission</span><span class="p">(</span><span class="nx">permissionName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><a href="#__codelineno-6-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">permissions</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">permissionName</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><a href="#__codelineno-6-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><a href="#__codelineno-6-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">addPermission</span><span class="p">(</span><span class="nx">permissionName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><a href="#__codelineno-6-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">permissions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">permissionName</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><a href="#__codelineno-6-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><a href="#__codelineno-6-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><a href="#__codelineno-6-11"><span class="linenos" data-linenos="11 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Cashier</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Employee</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><a href="#__codelineno-6-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">  </span><span class="k">protected</span><span class="w"> </span><span class="nx">permissions</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><a href="#__codelineno-6-13"><span class="linenos" data-linenos="13 "></span></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><a href="#__codelineno-6-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">addPermission</span><span class="p">(</span><span class="nx">permissionName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><a href="#__codelineno-6-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">permissions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">permissionName</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><a href="#__codelineno-6-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><a href="#__codelineno-6-17"><span class="linenos" data-linenos="17 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a><a href="#__codelineno-6-18"><span class="linenos" data-linenos="18 "></span></a><span class="kd">function</span><span class="w"> </span><span class="nx">isPersonAllowedToDeleteProducts</span><span class="p">(</span><span class="nx">person</span><span class="o">:</span><span class="w"> </span><span class="kt">Employee</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><a href="#__codelineno-6-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">person</span><span class="p">.</span><span class="nx">hasPermission</span><span class="p">(</span><span class="s2">&quot;deleteProducts&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a><a href="#__codelineno-6-20"><span class="linenos" data-linenos="20 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>上面的代码问题很大，因为出纳和用户的权限实现是不同的。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><a href="#__codelineno-7-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">employee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Employee</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><a href="#__codelineno-7-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">employee</span><span class="p">.</span><span class="nx">addPermission</span><span class="p">(</span><span class="s2">&quot;deleteProducts&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><a href="#__codelineno-7-3"><span class="linenos" data-linenos="3 "></span></a><span class="nx">isPersonAllowedToDeleteProducts</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>上面的代码工作得很好，但是当我们用子类替换父类的实例时，就会遇到问题。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">cashier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Cashier</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><a href="#__codelineno-8-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">cashier</span><span class="p">.</span><span class="nx">addPermission</span><span class="p">(</span><span class="s2">&quot;deleteProducts&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><a href="#__codelineno-8-3"><span class="linenos" data-linenos="3 "></span></a><span class="nx">isPersonAllowedToDeleteProducts</span><span class="p">(</span><span class="nx">cashier</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<blockquote>
+<p>TypeError: this.permissions.has is not a function</p>
+</blockquote>
+<p>这种情况非常明显，不应该出现在正确键入的 TypeScript 代码中。
+我们必须使用 <code>permissions: any</code> 来允许出纳不恰当地扩展用户。</p>
+<h3 id="_3">验证条件</h3>
+<p>一个更完善的示例是前置条件和验证。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Employee</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><a href="#__codelineno-9-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="k">protected</span><span class="w"> </span><span class="nx">permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><a href="#__codelineno-9-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><a href="#__codelineno-9-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">addPermission</span><span class="p">(</span><span class="nx">permissionName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><a href="#__codelineno-9-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">permissions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">permissionName</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><a href="#__codelineno-9-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><a href="#__codelineno-9-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><a href="#__codelineno-9-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Cashier</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Employee</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><a href="#__codelineno-9-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">addPermission</span><span class="p">(</span><span class="nx">permissionName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><a href="#__codelineno-9-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">permissionName</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;deleteProducts&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><a href="#__codelineno-9-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Cashier should not be able to delete products!&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><a href="#__codelineno-9-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><a href="#__codelineno-9-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">permissions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">permissionName</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a><a href="#__codelineno-9-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><a href="#__codelineno-9-15"><span class="linenos" data-linenos="15 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>另一方面，上面的示例在类型方面很好。
+不幸的是，它也打破了利斯科夫替换原则。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><a href="#__codelineno-10-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">employee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Employee</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><a href="#__codelineno-10-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">employee</span><span class="p">.</span><span class="nx">addPermission</span><span class="p">(</span><span class="s2">&quot;deleteProducts&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><a href="#__codelineno-10-3"><span class="linenos" data-linenos="3 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">employee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Cashier</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><a href="#__codelineno-10-4"><span class="linenos" data-linenos="4 "></span></a><span class="nx">employee</span><span class="p">.</span><span class="nx">addPermission</span><span class="p">(</span><span class="s2">&quot;deleteProducts&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<blockquote>
+<p>Error: Cashier should not be able to delete products!</p>
+</blockquote>
+<p>同样的事情也适用于输出条件。
+如果我们覆盖的函数返回一个值，那么子类不应该对输出进行额外的验证。</p>
+<h2 id="_4">接口隔离原则</h2>
+<p>接口隔离原则强调创建更小、更具体的接口。
+让我们想象一下下面的情况。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><a href="#__codelineno-11-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="nx">fly</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><a href="#__codelineno-11-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">  </span><span class="nx">walk</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><a href="#__codelineno-11-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>上图中，我们有一个鸟的接口。
+我们假设鸟能走能飞。
+创建这样一只鸟的例子很简单:</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Nightingale</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><a href="#__codelineno-12-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><a href="#__codelineno-12-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="c1">/// ...</span><span class="w"></span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><a href="#__codelineno-12-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><a href="#__codelineno-12-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">walk</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><a href="#__codelineno-12-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="c1">/// ...</span><span class="w"></span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><a href="#__codelineno-12-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><a href="#__codelineno-12-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>不过，上述情况并不总是如此。
+上述假设可能是错误的。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><a href="#__codelineno-13-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Kiwi</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><a href="#__codelineno-13-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><a href="#__codelineno-13-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Unfortunately, Kiwi can not fly!&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><a href="#__codelineno-13-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><a href="#__codelineno-13-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">walk</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><a href="#__codelineno-13-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="c1">/// ...</span><span class="w"></span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><a href="#__codelineno-13-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><a href="#__codelineno-13-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>接口隔离原则指出，不应该强迫客户端依赖于它不使用的方法。
+在接口中放入太多属性，可能会破坏上述规则。</p>
+<p>我们可能要做的是实现更小的接口，有时称为角色接口。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><a href="#__codelineno-14-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">interface</span><span class="w"> </span><span class="nx">CanWalk</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><a href="#__codelineno-14-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="nx">walk</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><a href="#__codelineno-14-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><a href="#__codelineno-14-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kd">interface</span><span class="w"> </span><span class="nx">CanFly</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><a href="#__codelineno-14-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">  </span><span class="nx">fly</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><a href="#__codelineno-14-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><a href="#__codelineno-14-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Nightingale</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">CanFly</span><span class="p">,</span><span class="w"> </span><span class="nx">CanWalk</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><a href="#__codelineno-14-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><a href="#__codelineno-14-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="c1">/// ...</span><span class="w"></span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><a href="#__codelineno-14-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a><a href="#__codelineno-14-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">walk</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a><a href="#__codelineno-14-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="c1">/// ...</span><span class="w"></span>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a><a href="#__codelineno-14-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a><a href="#__codelineno-14-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a><a href="#__codelineno-14-15"><span class="linenos" data-linenos="15 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Kiwi</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">CanWalk</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a><a href="#__codelineno-14-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">walk</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a><a href="#__codelineno-14-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="c1">/// ...</span><span class="w"></span>
+<a id="__codelineno-14-18" name="__codelineno-14-18"></a><a href="#__codelineno-14-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-14-19" name="__codelineno-14-19"></a><a href="#__codelineno-14-19"><span class="linenos" data-linenos="19 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>通过改变接口的方法，我们避免了接口的膨胀，并使我们的软件更容易维护。</p>
+<h2 id="_5">依赖性倒置原则</h2>
+<p>依赖倒置原则的核心是高层模块不应该依赖低层模块。
+相反，它们都应该依赖于抽象。</p>
+<p>让我们创建一个示例来进一步研究上述问题。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><a href="#__codelineno-15-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">interface</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="nx">introduceSelf</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><a href="#__codelineno-15-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><a href="#__codelineno-15-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Engineer</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><a href="#__codelineno-15-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introduceSelf</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><a href="#__codelineno-15-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I am an engineer&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><a href="#__codelineno-15-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><a href="#__codelineno-15-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><a href="#__codelineno-15-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Musician</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><a href="#__codelineno-15-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introduceSelf</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><a href="#__codelineno-15-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I am a musician&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><a href="#__codelineno-15-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a><a href="#__codelineno-15-13"><span class="linenos" data-linenos="13 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>上述行为是基本的和学术性的，但并不总是这样。
+如果介绍更复杂，我们可能需要为此创建单独的类。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><a href="#__codelineno-16-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">interface</span><span class="w"> </span><span class="nx">IntroductionService</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><a href="#__codelineno-16-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="nx">introduce</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><a href="#__codelineno-16-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><a href="#__codelineno-16-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">EngineerIntroductionService</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">IntroductionService</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><a href="#__codelineno-16-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introduce</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><a href="#__codelineno-16-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I am an engineer&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><a href="#__codelineno-16-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><a href="#__codelineno-16-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><a href="#__codelineno-16-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Engineer</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><a href="#__codelineno-16-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">introductionService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EngineerIntroductionService</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><a href="#__codelineno-16-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introduceSelf</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><a href="#__codelineno-16-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">introductionService</span><span class="p">.</span><span class="nx">introduce</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><a href="#__codelineno-16-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><a href="#__codelineno-16-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>不幸的是，上面的代码打破了依赖倒置原则。
+它说我们应该颠倒工程师和工程师介绍所的依赖关系。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><a href="#__codelineno-17-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Engineer</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><a href="#__codelineno-17-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introductionService</span><span class="o">:</span><span class="w"> </span><span class="kt">EngineerIntroductionService</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><a href="#__codelineno-17-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><a href="#__codelineno-17-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">introductionService</span><span class="o">:</span><span class="w"> </span><span class="kt">IntroductionService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><a href="#__codelineno-17-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">introductionService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">introductionService</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><a href="#__codelineno-17-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><a href="#__codelineno-17-7"><span class="linenos" data-linenos=" 7 "></span></a>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><a href="#__codelineno-17-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introduceSelf</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><a href="#__codelineno-17-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">introductionService</span><span class="p">.</span><span class="nx">introduce</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a><a href="#__codelineno-17-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a><a href="#__codelineno-17-11"><span class="linenos" data-linenos="11 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a><a href="#__codelineno-17-12"><span class="linenos" data-linenos="12 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">engineer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Engineer</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">EngineerIntroductionService</span><span class="p">());</span><span class="w"></span>
+</code></pre></div>
+<p>上面的好处是我们不需要工程师和音乐家的子类。</p>
+<div class="highlight"><span class="filename">TypeScript</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><a href="#__codelineno-18-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">class</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><a href="#__codelineno-18-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introductionService</span><span class="o">:</span><span class="w"> </span><span class="kt">IntroductionService</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><a href="#__codelineno-18-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><a href="#__codelineno-18-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">introductionService</span><span class="o">:</span><span class="w"> </span><span class="kt">IntroductionService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><a href="#__codelineno-18-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">introductionService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">introductionService</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><a href="#__codelineno-18-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a><a href="#__codelineno-18-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">introduceSelf</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a><a href="#__codelineno-18-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">introductionService</span><span class="p">.</span><span class="nx">introduce</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><a href="#__codelineno-18-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a><a href="#__codelineno-18-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a><a href="#__codelineno-18-11"><span class="linenos" data-linenos="11 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">engineer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">EngineerIntroductionService</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a><a href="#__codelineno-18-12"><span class="linenos" data-linenos="12 "></span></a><span class="kd">const</span><span class="w"> </span><span class="nx">musician</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">MusicianIntroductionService</span><span class="p">());</span><span class="w"></span>
+</code></pre></div>
+<p>上面的方法是一个使用组合而不是继承的例子。</p>
+<p>此外，这使我们的类更容易进行单元测试，因为我们可以毫不费力地在构造函数中提供模拟服务。</p>
+<h2 id="_6">总结</h2>
+<p>在本文中，我们已经讨论了所有 SOLID 原则:</p>
+<ul>
+<li>S: 单一职责原则</li>
+<li>O: 开闭原则</li>
+<li>L: Liskov 替换原则</li>
+<li>I: 接口隔离原则</li>
+<li>D: 依赖性倒置原则</li>
+</ul>
+<p>通过将它们应用到我们的代码中，我们可以使其更具可读性和可维护性。
+此外，这些都是很好的实践，可以使我们的代码库更容易扩展，同时不影响应用程序的其他部分。</p>
+<p>尽管 SOLID 的定义已经有一段时间了，但它表明它仍然是可关联的，并且我们可以从理解它们中获得一些真正的好处。</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../_index/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 博客" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              博客
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../jwt-authentication-using-node-nestjs-mongoose-passport-ionic5-part1/" class="md-footer__link md-footer__link--next" aria-label="下一页: JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              JWT Authentication using node(Nestjs),Mongoose,Passport,ionic5 .. PART1
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      
+    
+  </body>
+</html>
