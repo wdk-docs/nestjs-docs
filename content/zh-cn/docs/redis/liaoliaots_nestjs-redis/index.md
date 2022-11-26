@@ -7,6 +7,8 @@
 ![Vulnerabilities][vulnerabilities-shield]
 [![License][license-shield]][license-url]
 
+# @liaoliaots/nestjs-redis
+
 <p align="center">
   <a href="https://nestjs.com/">
     <img src="https://nestjs.com/img/logo-small.svg" alt="Nest Logo" width="120">
@@ -159,10 +161,7 @@ Examples of code:
 ```ts
 // redis-config.service.ts
 import { Injectable } from "@nestjs/common";
-import {
-  RedisModuleOptions,
-  RedisOptionsFactory,
-} from "@liaoliaots/nestjs-redis";
+import { RedisModuleOptions, RedisOptionsFactory } from "@liaoliaots/nestjs-redis";
 
 @Injectable()
 export class RedisConfigService implements RedisOptionsFactory {

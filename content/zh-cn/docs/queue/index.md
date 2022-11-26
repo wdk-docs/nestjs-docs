@@ -4,4 +4,6 @@ linkTitle: ""
 weight: 6
 ---
 
-> https://github.com/axios/axios
+# 队列
+
+> https://github.com/OptimalBits/bull

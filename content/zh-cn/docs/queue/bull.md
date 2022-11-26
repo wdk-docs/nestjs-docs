@@ -98,7 +98,7 @@ npm install bull --save
 yarn add bull
 ```
 
-_**要求:** Bull 需要大于或等于' 2.8.18 '的 Redis 版本。_
+_**要求:** Bull 需要大于或等于`2.8.18`的 Redis 版本。_
 
 ### Typescript 定义
 

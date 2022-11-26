@@ -4,11 +4,32 @@ linkTitle: "资源集合"
 weight: 100
 ---
 
-> https://github.com/nestjs/awesome-nestjs/blob/master/README.md
+# Awesome NestJS
 
-## 资源
+> [https://github.com/nestjs/awesome-nestjs/blob/master/README.md](https://github.com/nestjs/awesome-nestjs/blob/master/README.md)
 
-#### 官方资源
+<!--lint disable awesome-list-item-->
+<div align="center">
+  <p align="center">
+    <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  </p>
+<h1>Awesome NestJS</h1>
+<p>A curated list of awesome things related to NestJS</p>
+
+<a href="#resources">Resources</a>
+&nbsp;&nbsp;&nbsp;
+<a href="CONTRIBUTING.md">Contribution guide</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://docs.nestjs.com">Official documentation</a>
+
+  <a href="https://awesome.re">
+    <img src="https://awesome.re/badge.svg" alt="Awesome">
+  </a>
+</div>
+
+## Resources
+
+#### Official Resources
 
 - [Website](https://nestjs.com)
 - [Official Guide](https://docs.nestjs.com)
@@ -17,26 +38,25 @@ weight: 100
   - [Nest Starter](https://github.com/nestjs/typescript-starter) - Nest framework TypeScript starter.
   - [JavaScript Starter](https://github.com/nestjs/javascript-starter) - Nest framework JavaScript (ES6 / ES7 / ES8) starter.
 
-#### 社区
+#### Community
 
-- [Gitter](https://gitter.im/nestjs/)
-- [Discord](https://discord.gg/G7Qnnhy)
+- ![](https://img.shields.io/discord/520622812742811698?style=flat-square&logo=nestjs&color=a61b3a) [Discord](https://discord.gg/nestjs)
 - [Telegram (community maintained)](https://t.me/nestjs)
 - [Telegram (Brazilian Portuguese speak community)](https://t.me/nestjsbr)
 - [Telegram (Russian speak community)](https://t.me/nest_ru)
+- [Telegram (Ukrainian speak community)](https://t.me/nest_ukraine)
 - [Slack (Korean speak community)](https://nestjs.slack.com)
 - [Reddit (community maintained)](https://www.reddit.com/r/Nestjs_framework)
 - [Facebook (Polish speak community)](https://www.facebook.com/groups/606785643208589)
 
-#### 会谈
+#### Talks
 
 - [Revealing framework fundamentals: NestJS behind the curtain by Kamil Myśliwiec](https://www.youtube.com/watch?v=jo-1EUxMmxc)
 
-#### 教程
+#### Tutorials
 
-- [Introduction to modern Node.js framework](https://kamilmysliwiec.com/nest-release-canditate-is-here-introduction-modern-node-js-framework)
-- [NestJS Node Express](https://auth0.com/blog/nestjs-brings-typescript-to-nodejs-and-express) - Teach how to use NestJS step by step.
-- [Build web applications with Nest](https://kamilmysliwiec.com/build-modern-scalable-node-js-web-applications-with-nest)
+- NestJS content on Dev.to: [articles made by the core team](https://dev.to/nestjs); [articles made by the community](https://dev.to/t/nestjs).
+- [Blog of Trilon](https://trilon.io/blog) (NestJS creator's company).
 - [NestJS30Days](https://github.com/m24927605/Nestjs30Days) - Learn the NestJS framework in 30 days.
 - [Build a geofencing web app using NestJS and the Google Maps API](https://pusher.com/tutorials/geofencing-nestjs-googlemaps)
 - [Build live comments with sentiment analysis using NestJS](https://pusher.com/tutorials/live-comments-sentiment-analysis-nestjs)
@@ -46,12 +66,12 @@ weight: 100
 - [NestJS Basic Auth and Sessions](https://blog.exceptionfound.com/index.php/2018/06/07/nestjs-basic-auth-and-sessions/)
 - [NestJS Hasura Integration via Schema Stitching And JWT Auth](https://blog.exceptionfound.com/2020/12/03/nestjs-hasura-integration-via-schema-stitching/)
 - [MEAN Stack with NestJS and Swagger](https://medium.com/@ctran2428/mean-stack-with-nestjs-and-swagger-9d8d14862d6b)
-- [NestJS Ideas API](https://www.youtube.com/watch?v=NF9Xn4g5MJY&list=PLBeQxJQNprbiJm55q7nTAfhMmzIC8MWxc)
+- YouTube playlist by Kelvin Mai: [NestJS Ideas API](https://www.youtube.com/playlist?list=PLBeQxJQNprbiJm55q7nTAfhMmzIC8MWxc) - A project based course on Full Stack Typescript covering NestJS, GraphQL PostgreSQL, Angular and NgRx.
 - [Building a real time web applications using NestJS and Ably](https://hackernoon.com/building-real-time-web-applications-using-nest-js-and-ably-d85887e81f06)
-- [Video Tutorials](https://www.youtube.com/watch?v=nz6yFTyLbAQ&list=PLq1kZ5GbKd4qyDcK3IHGSi4FDAL6fRZeL) - Building a full-stack blog with NestJS, Angular and Angular Material.
-- [Free Video Course](https://www.udemy.com/course/the-complete-nestjs-developer-enterprise-nodejs-framework/) - The complete NestJS developer. Enterprise Node.js framework.
+- YouTube playlist by Codeforges TM: [Angular + NestJs Tutorials](https://www.youtube.com/playlist?list=PLq1kZ5GbKd4qyDcK3IHGSi4FDAL6fRZeL) - Building a full-stack blog with NestJS, Angular and Angular Material.
+- Udemy free course: [The complete NestJS developer. Enterprise Node.js framework](https://www.udemy.com/course/the-complete-nestjs-developer-enterprise-nodejs-framework/) - The complete guide for developers how to create enterprise ready applications using NestJS framework.
 
-#### 例子
+#### Examples
 
 - [ChatServer](https://github.com/Pinedo11/nestDemo-ChatServer) - Server side of Chat App implemented using NestJS.
 - [Domain Driven Design - Library](https://github.com/Sikora00/ddd-by-examples-library-nestjs) - Example of an application that follows Domain Driven Design.
@@ -76,7 +96,7 @@ weight: 100
 - [TypeScript Clean Architecture](https://github.com/pvarentsov/typescript-clean-architecture) - Clean Architecture based application with NestJS, PostgreSQL and TypeORM.
 - [NestJS Api Mongoose](https://github.com/Tony133/nestjs-api-mongoose) - Simple example Api Rest with Nestjs 8.x and Mongoose
 
-#### 样板
+#### Boilerplate
 
 - [🧪 Fully tested NestJS Prisma Clean Architecture Boilerplate](https://github.com/VincentJouanne/nest-clean-architecture-ddd-example) - This boilerplate shows how to test your NestJS API with unit, integration and e2e tests. Use-cases are written in functionnal programming with FP-TS.
 - [NestJS Permission Boilerplate](https://github.com/Ferdysd96/nestjs-permission-boilerplate) - This is a basic NestJS boilerplate project built on the more powerful Node.js framework. The main purpose of this project is to dynamically handle roles and permissions assigned to the user.
@@ -89,7 +109,7 @@ weight: 100
 - [NestJS Prisma Starter](https://github.com/notiz-dev/nestjs-prisma-starter) - Starter project for NestJS includes Graphql with Prisma Client, Passport-JWT authentication, Swagger Api and Docker.
 - [TeanJS](https://github.com/adrien2p/teanjs) - TeanJS is a starter that provides you all the keys to be able to start writing your code as quickly as possible.
 - [NestJS DDD Boilerplate](https://github.com/pezzetti/base-app-nestjs) - Domain Driven Design Base app with NestJS, Class Validator and TypeORM. SOLID principles applied to create fully testable applications.
-- [Nest Mongo Graphql](https://github.com/benawad/nest-mongo-graphql/) - Starter Kit using NestJS MongoDB Graphql and type-graphql [https://typegraphql.ml/](https://typegraphql.ml/) inspired the type schema first approach.
+- [Nest Mongo Graphql](https://github.com/benawad/nest-mongo-graphql/) - Starter Kit using NestJS MongoDB Graphql and [`type-graphql`](https://typegraphql.com) inspired the type schema first approach.
 - [Ultimate Backend](https://github.com/juicycleff/ultimate-backend) - Enterprise multi-tenant SaaS starter kit with CQRS GraphQL microservice architecture, apollo federation, event source and authentication.
 - [NestJS GraphQL Boilerplate](https://github.com/fernandohenriques/nestjs-graphql-boilerplate) - Dockerized API boilerplate with NestJS, TypeORM, TypeGraphQL, MongoDB, GraphQL and automated tasks with Makefile. Code first approach.
 - [NextJS & NestJS GraphQL Starter](https://github.com/tomanagle/NextJS-NestJS-GraphQL-Starter) - GraphQL NestJS with NextJS boilerplace. Includes GitHub, Reddit & Google OAuth.
@@ -102,10 +122,17 @@ weight: 100
 - [NestJS and Prisma Yarn Monorepo Starter Template](https://github.com/alitnk/nest-prisma-monorepo) - Full-stack monorepo starter (Yarn workspaces) with Prisma, GraphQL, CI and more.
 - [Truthy NestJS Headless CMS](https://github.com/gobeam/truthy) - Open source headless CMS API written using NestJS, that has built-in modules like User Management, Role Management, Permission Management, Email Module, Account Settings, 2FA settings, Throttling, RBAC support, Localization, frontend application written with ReactJS & Redux Saga, UI built with Ant design and many more. Other: unit test using Jest, prettier, commit-linting husky hooks, PostgreSQL, Redis, docker etc.
 - [NestJS Realtime Chat](https://github.com/mokuteki225/nest-websockets-chat-boilerplate) - Boilerplate for a realtime chat based on Websockets, TypeORM, PostgreSQL, REST, Docker which includes PassportJS/JWT auth, rooms, kick/ban user functionality
+- [Nest Sequelize JWT](https://github.com/adrien2p/nest-js-sequelize-jwt) - Starter kit Nest + Sequelize + jwt.
+- [Nest sequelize-typescript](https://github.com/kentloog/nestjs-sequelize-typescript) - Nest + sequelize-typescript + JWT + Jest + Swagger.
+- [Samchon Backend](https://github.com/samchon/backend) - Template project for NestJS which utilizes Nestia, Safe-TypeORM and PostgreSQL. It supports developers to follow the TDD (Test Driven Development) and BDD (Behavior Driven Development) principles. Documents are well-formed and additional example projects are provided.
+- [NestJS Starter](https://github.com/rudemex/nestjs-starter) - Starter for BFF, MS and API Rest with NestJS, scalable by environments with centralized configuration to use GitOps, CI/CD with GitHub Actions, Dockerization, Conventional commits, versioning, etc... and much more.
+- [NestJS HTTP Boilerplate](https://github.com/Innei/nest-http-boilerplate) - A template for NestJS, Fastify, Typegoose, Vitest, custom Logger implementation, Redis and more, fast and simple boilerplate.
+- [Ultimate NestJs](https://github.com/rubiin/ultimate-nest) - Nestjs template with Mikroorm, postgres, i18n , twilio, CI/CD with Github actions, conventiona commits with cz and husky, caching, mailer , sentry. Extended ESLint config for best practices. Also has nest's new `repl` added
+- [Zen NestJS Prisma Apollo Angular Starter](https://github.com/ZenSoftware/zen) - An Nx monorepo for creating user portals as a progressive web application. Zen integrates the most widely adopted dependencies within the NestJS, Prisma, Apollo & Angular eco-systems. Code generating the entire data access layer for you.
 
-## 项目使用 NestJS
+## Projects using NestJS
 
-#### 开源
+#### Open Source
 
 - [Ever®](https://github.com/ever-co/ever) - Open-Source Commerce Platform for On-Demand Economy and Digital Marketplaces.
 - [Feednext](https://github.com/feednext/feednext) - Open-Source Social Media Application.
@@ -118,170 +145,170 @@ weight: 100
 - [iola](https://github.com/pvarentsov/iola) - Socket client with Rest API.
 - [Amplication](https://github.com/amplication/amplication) - Amplication is an open-source low-code devtool that auto-generates backend apps built with TypeScript and Node.js, and a client built with React.
 
-## 组件和库
+## Components & Libraries
 
-#### 实用程序
+#### Utilities
 
-- ![](https://img.shields.io/github/stars/nestjs/cqrs.svg?style=flat-square) [Nest CQRS](https://github.com/nestjs/cqrs) - A lightweight CQRS module for Nest framework.
-- ![](https://img.shields.io/github/stars/valueadd-poland/nestjs-packages.svg?style=flat-square) [Typed CQRS](https://github.com/valueadd-poland/nestjs-packages/tree/master/packages/typed-cqrs) - A wrapper for the Nest CQRS library for better typing of query and command results.
-- ![](https://img.shields.io/github/stars/nestjsx/nestjs-config.svg?style=flat-square) [Nest Config](https://github.com/nestjsx/nestjs-config) - A Great module to handle project configurations.
-- ![](https://img.shields.io/github/stars/Nikaple/nest-typed-config.svg?style=flat-square) [Nest Typed Config](https://github.com/Nikaple/nest-typed-config) - Intuitive, type-safe configuration module for Nest framework.
-- ![](https://img.shields.io/github/stars/nest-cloud/nestcloud.svg?style=flat-square) [Nest Consul Service](https://github.com/nest-cloud/nestcloud) - A Node.js micro-service solution based on Consul, writing by Typescript language and NestJS framework.
-- ![](https://img.shields.io/github/stars/rubiin/nestjs-easyconfig.svg?style=flat-square) [Nest Easy Config](https://github.com/rubiin/nestjs-easyconfig) - A NestJS module for managing configs that provides some sleek features.
-- ![](https://img.shields.io/github/stars/miaowing/nest-schedule.svg?style=flat-square) [Nest Schedule](https://github.com/miaowing/nest-schedule) - Schedule job easier by decorator.
-- ![](https://img.shields.io/github/stars/owl1n/nest-queue.svg?style=flat-square) [Nest Queue](https://github.com/owl1n/nest-queue) - Easy queue management based on Redis for your application.
-- ![](https://img.shields.io/github/stars/lupu60/nestjs-toolbox.svg?style=flat-square) [Nest Toolbox](https://github.com/lupu60/nestjs-toolbox) - The repository contains a suite of components and modules for NestJS.
-- ![](https://img.shields.io/github/stars/jeffminsungkim/nestjs-multer-extended.svg?style=flat-square) [Nest Multer Extended](https://github.com/jeffminsungkim/nestjs-multer-extended) - Extended MulterModule for NestJS framework with flexible Amazon S3 upload and helpful features.
-- ![](https://img.shields.io/github/stars/Papooch/nestjs-cls.svg?style=flat-square) [Nest CLS](https://github.com/Papooch/nestjs-cls) - A continuation-local storage module for Nest (using `async_hooks`)
-- ![](https://img.shields.io/github/stars/benhason1/nestjs-http-promise.svg?style=flat-square) [NestJS HTTP Promise](https://github.com/benhason1/nestjs-http-promise) - A Promise-based alternative to `@nestjs/axios`, with retries feature using `axios-retry` and `axios`.
+- [`@nestjs/cqrs`](https://github.com/nestjs/cqrs) - A lightweight CQRS module for Nest framework.
+- ![](https://img.shields.io/github/stars/valueadd-poland/nestjs-packages.svg?style=flat-square) [`@nestjs-architects/typed-cqrs`](https://github.com/valueadd-poland/nestjs-packages/tree/master/packages/typed-cqrs) - A wrapper for the Nest CQRS library for better typing of query and command results.
+- ![](https://img.shields.io/github/stars/nestjsx/nestjs-config.svg?style=flat-square) [`nestjs-config`](https://github.com/nestjsx/nestjs-config) - A Great module to handle project configurations.
+- ![](https://img.shields.io/github/stars/Nikaple/nest-typed-config.svg?style=flat-square) [`nest-typed-config`](https://github.com/Nikaple/nest-typed-config) - Intuitive, type-safe configuration module for Nest framework.
+- ![](https://img.shields.io/github/stars/nest-cloud/nestcloud.svg?style=flat-square) [`@nestcloud/cli`](https://github.com/nest-cloud/nestcloud) - A Node.js micro-service solution based on Consul, writing by Typescript language and NestJS framework.
+- ![](https://img.shields.io/github/stars/rubiin/nestjs-easyconfig.svg?style=flat-square) [`nestjs-easyconfig`](https://github.com/rubiin/nestjs-easyconfig) - A NestJS module for managing configs that provides some sleek features.
+- ![](https://img.shields.io/github/stars/miaowing/nest-schedule.svg?style=flat-square) [`nest-schedule`](https://github.com/miaowing/nest-schedule) - Schedule job easier by decorator.
+- ![](https://img.shields.io/github/stars/owl1n/nest-queue.svg?style=flat-square) [`nest-queue`](https://github.com/owl1n/nest-queue) - Easy queue management based on Redis for your application.
+- ![](https://img.shields.io/github/stars/lupu60/nestjs-toolbox.svg?style=flat-square) [NestJS Toolbox](https://github.com/lupu60/nestjs-toolbox) - The repository contains a suite of components and modules for NestJS.
+- ![](https://img.shields.io/github/stars/jeffminsungkim/nestjs-multer-extended.svg?style=flat-square) [`nestjs-multer-extended`](https://github.com/jeffminsungkim/nestjs-multer-extended) - Extended MulterModule for NestJS framework with flexible Amazon S3 upload and helpful features.
+- ![](https://img.shields.io/github/stars/Papooch/nestjs-cls.svg?style=flat-square) [`nestjs-cls`](https://github.com/Papooch/nestjs-cls) - A continuation-local storage module for Nest (using `async_hooks`)
+- ![](https://img.shields.io/github/stars/benhason1/nestjs-http-promise.svg?style=flat-square) [`nestjs-http-promise`](https://github.com/benhason1/nestjs-http-promise) - A Promise-based alternative to `@nestjs/axios`, with retries feature using `axios-retry` and `axios`.
+- ![](https://img.shields.io/github/stars/samchon/nestia-helper.svg?style=flat-square) [`nestia-helper`](https://github.com/samchon/nestia-helper): Boost up `JSON.stringify()`, of the API responses, 2x times faster.
+- ![](https://img.shields.io/github/stars/tresdoce/tresdoce-nestjs-toolkit.svg?style=flat-square) [`NestJS Toolkit`](https://github.com/tresdoce/tresdoce-nestjs-toolkit) - This toolkit is intended to be used in [NestJs Starter](https://github.com/rudemex/nestjs-starter), or any project that uses a centralized configuration, following the same architecture of the starter. Pks: http-client, typeorm, redis, filter exceptions, test utilities with test containers.
 
-#### 状态管理
-
-- ![](https://img.shields.io/github/stars/derekkite/ngrx-nest.svg?style=flat-square) [Ngrx Nest](https://github.com/derekkite/ngrx-nest) - Ngrx/store and ngrx/effects on the server using the nest framework.
-
-#### 代码风格
+#### Code Style
 
 - ![](https://img.shields.io/github/stars/basarat/typescript-book.svg?style=flat-square) [StyleGuide and Coding Conventions](https://github.com/basarat/typescript-book/blob/master/docs/styleguide/styleguide.md) - An unofficial TypeScript StyleGuide.
 
 #### Web Sockets
 
-- [Official](https://docs.nestjs.com/websockets/gateways)
+- [`@nestjs/websockets`](https://docs.nestjs.com/websockets/gateways)
 
 #### Redis
 
-- ![](https://img.shields.io/github/stars/nest-modules/ioredis.svg?style=flat-square) [Nest Ioredis](https://github.com/nest-modules/ioredis) - A ioredis module for Nest framework.
-- ![](https://img.shields.io/github/stars/liaoliaots/nestjs-redis.svg?style=flat-square) [Nest Redis Cluster](https://github.com/liaoliaots/nestjs-redis) - Redis(ioredis) module for NestJS framework.
+- ![](https://img.shields.io/github/stars/nest-modules/ioredis.svg?style=flat-square) [`@nestjs-modules/ioredis`](https://github.com/nest-modules/ioredis) - A ioredis module for Nest framework.
+- ![](https://img.shields.io/github/stars/liaoliaots/nestjs-redis.svg?style=flat-square) [`@liaoliaots/nestjs-redis`](https://github.com/liaoliaots/nestjs-redis) - Redis(ioredis) module for NestJS framework.
 
 #### Mail
 
-- ![](https://img.shields.io/github/stars/squareboat/nest-mailman.svg?style=flat-square) [Mailman](https://github.com/squareboat/nest-mailman) - The only 📮 mailer package you need for your NestJS Applications.
-- ![](https://img.shields.io/github/stars/partyka95/nest-mailer.svg?style=flat-square) [Nest Mailer](https://github.com/partyka95/nest-mailer) - A mailer module for Nest framework.
+- ![](https://img.shields.io/github/stars/squareboat/nest-mailman.svg?style=flat-square) [`@squareboat/nest-mailman`](https://github.com/squareboat/nest-mailman) - The only 📮 mailer package you need for your NestJS Applications.
+- ![](https://img.shields.io/github/stars/partyka95/nest-mailer.svg?style=flat-square) [`@nestjs-modules/mailer`](https://github.com/partyka95/nest-mailer) - A mailer module for Nest framework.
 
 #### API
 
-- [Swagger](https://github.com/nestjs/swagger) - This's an OpenAPI (Swagger) module for Nest. _[[Tutorial](https://docs.nestjs.com/recipes/swagger)]_.
-- ![](https://img.shields.io/github/stars/flamewow/nestjs-asyncapi.svg?style=flat-square) [AsyncAPI](https://github.com/flamewow/nestjs-asyncapi) - AsyncAPI module for NestJS.
-- ![](https://img.shields.io/github/stars/doug-martin/nestjs-query.svg?style=flat-square) [Nest-Query](https://github.com/doug-martin/nestjs-query) - Nest CRUD for GraphQL APIs.
-- ![](https://img.shields.io/github/stars/samchon/nestia.svg?style=flat-square) [Nestia](https://github.com/samchon/nestia) - Automatic SDK generator for the clients.
+- [`@nestjs/swagger`](https://github.com/nestjs/swagger) - This's an OpenAPI (Swagger) module for Nest. _[[Tutorial](https://docs.nestjs.com/recipes/swagger)]_.
+- ![](https://img.shields.io/github/stars/flamewow/nestjs-asyncapi.svg?style=flat-square) [`nestjs-asyncapi`](https://github.com/flamewow/nestjs-asyncapi) - AsyncAPI module for NestJS.
+- ![](https://img.shields.io/github/stars/doug-martin/nestjs-query.svg?style=flat-square) [`@nestjs-query/*`](https://github.com/doug-martin/nestjs-query) - Nest CRUD for GraphQL APIs.
+- ![](https://img.shields.io/github/stars/samchon/nestia.svg?style=flat-square) [`nestia`](https://github.com/samchon/nestia) - Automatic SDK and Swagger generator, evolved than ever.
 
-#### 中间件
+#### Middleware
 
-- ![](https://img.shields.io/github/stars/wbhob/nest-middlewares.svg?style=flat-square) [Nest Middlewares](https://github.com/wbhob/nest-middlewares) - Common, injectable middlewares for NestJS.
+- ![](https://img.shields.io/github/stars/wbhob/nest-middlewares.svg?style=flat-square) [`@nest-middlewares/*`](https://github.com/wbhob/nest-middlewares) - Common, injectable middlewares for NestJS.
 
-#### 错误
+#### Errors
 
-- ![](https://img.shields.io/github/stars/squareboat/nest-eyewitness.svg?style=flat-square) [Eyewitness](https://github.com/squareboat/nest-eyewitness) - Receive error reports directly to your inbox whenever any exception is witnessed 👀 in your NestJS application.
-- ![](https://img.shields.io/github/stars/shekohex/nestjs-flub.svg?style=flat-square) [Nest Flub](https://github.com/shekohex/nestjs-flub) - Pretty Error :tired_face: Stack Viewer for NestJS Framework :hammer_and_wrench:.
-- ![](https://img.shields.io/github/stars/ozkanonur/nestjs-enlighten.svg?style=flat-square) [Nest Enlighten](https://github.com/ozkanonur/nestjs-enlighten) - A laravel-ignition like error page for NestJS Framework.
-- ![](https://img.shields.io/github/stars/ozkanonur/nestjs-rate-limiter.svg?style=flat-square) [Nest Rate Limiter](https://github.com/ozkanonur/nestjs-rate-limiter) - A highly configurable rate limiter library.
-- ![](https://img.shields.io/github/stars/mentos1386/nest-raven.svg?style=flat-square) [Nest Raven](https://github.com/mentos1386/nest-raven) - Sentry Raven Module for NestJS Framework.
+- ![](https://img.shields.io/github/stars/squareboat/nest-eyewitness.svg?style=flat-square) [`@squareboat/nest-eyewitness`](https://github.com/squareboat/nest-eyewitness) - Receive error reports directly to your inbox whenever any exception is witnessed 👀 in your NestJS application.
+- ![](https://img.shields.io/github/stars/shekohex/nestjs-flub.svg?style=flat-square) [`nestjs-flub`](https://github.com/shekohex/nestjs-flub) - Pretty Error :tired_face: Stack Viewer for NestJS Framework :hammer_and_wrench:.
+- ![](https://img.shields.io/github/stars/ozkanonur/nestjs-enlighten.svg?style=flat-square) [`nestjs-enlighten`](https://github.com/ozkanonur/nestjs-enlighten) - A laravel-ignition like error page for NestJS Framework.
+- ![](https://img.shields.io/github/stars/ozkanonur/nestjs-rate-limiter.svg?style=flat-square) [`nestjs-rate-limiter`](https://github.com/ozkanonur/nestjs-rate-limiter) - A highly configurable rate limiter library.
+- ![](https://img.shields.io/github/stars/mentos1386/nest-raven.svg?style=flat-square) [`nest-raven`](https://github.com/mentos1386/nest-raven) - Sentry Raven (`@sentry/minimal`) Module for NestJS Framework.
+- ![](https://img.shields.io/github/stars/ntegral/nestjs-sentry.svg?style=flat-square) [`nestjs-sentry`](https://github.com/ntegral/nestjs-sentry) - Another NestJS Sentry module, with injectable sentry client.
 
 #### Lint
 
-- ![](https://img.shields.io/github/stars/unlight/eslint-plugin-nestjs.svg?style=flat-square) [Eslint Plugin NestJS](https://github.com/unlight/eslint-plugin-nestjs) - ESLint rules for NestJS framework.
-- ![](https://img.shields.io/github/stars/darraghoriordan/eslint-plugin-nestjs-typed.svg?style=flat-square) [Typescript-Eslint Plugin NestJS](https://github.com/darraghoriordan/eslint-plugin-nestjs-typed) - ESLint rules for NestJS framework.
+- ![](https://img.shields.io/github/stars/unlight/eslint-plugin-nestjs.svg?style=flat-square) [`eslint-plugin-nestjs`](https://github.com/unlight/eslint-plugin-nestjs) - ESLint rules for NestJS framework.
+- ![](https://img.shields.io/github/stars/darraghoriordan/eslint-plugin-nestjs-typed.svg?style=flat-square) [`@darraghor/eslint-plugin-nestjs-typed`](https://github.com/darraghoriordan/eslint-plugin-nestjs-typed) - ESLint rules for NestJS framework.
 
-#### 路由器 🚦
+#### Router🚦
 
-- ![](https://img.shields.io/github/stars/shekohex/nest-router.svg?style=flat-square) [Nest Router](https://github.com/shekohex/nest-router) - Router Module For NestJS Framework 🚦 🚀
+- ![](https://img.shields.io/github/stars/shekohex/nest-router.svg?style=flat-square) [`nest-router`](https://github.com/shekohex/nest-router) - Router Module For NestJS Framework 🚦 🚀
   for organizing your Routes, creating a routes tree, and more.
 
-#### :satellite:
+#### Dialogflow :satellite:
 
-- ![](https://img.shields.io/github/stars/adrien2p/nestjs-dialogflow.svg?style=flat-square) [NestJS Dialogflow](https://github.com/adrien2p/nestjs-dialogflow) - Dialog flow module that simplify the web hook handling for your NLP application using NestJS.
+- ![](https://img.shields.io/github/stars/adrien2p/nestjs-dialogflow.svg?style=flat-square) [`nestjs-dialogflow`](https://github.com/adrien2p/nestjs-dialogflow) - Dialog flow module that simplify the web hook handling for your NLP application using NestJS.
 
-#### 日志记录
+#### Logging
 
-- ![](https://img.shields.io/github/stars/gremo/nest-winston.svg?style=flat-square) [Nest Winston](https://github.com/gremo/nest-winston) - Winston module for NestJS.
-- ![](https://img.shields.io/github/stars/iamolegga/nestjs-pino.svg?style=flat-square) [Nest Pino](https://github.com/iamolegga/nestjs-pino) - Pino module for NestJS Log with request context in any place.
-- ![](https://img.shields.io/github/stars/jmcdo29/ogma.svg?style=flat-square) [Ogma](https://github.com/jmcdo29/ogma) - A monorepo for the Ogma logger and related packages.
+- ![](https://img.shields.io/github/stars/gremo/nest-winston.svg?style=flat-square) [`nest-winston`](https://github.com/gremo/nest-winston) - Winston module for NestJS.
+- ![](https://img.shields.io/github/stars/iamolegga/nestjs-pino.svg?style=flat-square) [`nestjs-pino`](https://github.com/iamolegga/nestjs-pino) - Pino module for NestJS Log with request context in any place.
+- ![](https://img.shields.io/github/stars/jmcdo29/ogma.svg?style=flat-square) [`@ogma/*`](https://github.com/jmcdo29/ogma) - A monorepo for the Ogma logger and related packages.
 
-#### 监控
+#### Monitoring
 
-- ![](https://img.shields.io/github/stars/MetinSeylan/Nestjs-OpenTelemetry.svg?style=flat-square) [Nest OpenTelemetry](https://github.com/MetinSeylan/Nestjs-OpenTelemetry) - Deeply integrated NestJS OpenTelemetry module with auto instrumentations.
-- ![](https://img.shields.io/github/stars/GenFirst/nest-status-monitor.svg?style=flat-square) [Nest Status Monitor](https://github.com/GenFirst/nest-status-monitor) - Simple, self-hosted module based on Socket.io and Chart.js to report realtime server metrics for NestJS based node servers.
-- ![](https://img.shields.io/github/stars/nestjs/terminus.svg?style=flat-square) [Nest Terminus](https://github.com/nestjs/terminus) - Integrated healthchecks, based on [Terminus](https://github.com/godaddy/terminus) package.
-- ![](https://img.shields.io/github/stars/narando/nest-xray.svg?style=flat-square) [Nest X-Ray](https://github.com/narando/nest-xray) - Record incoming and outgoing request for [AWS X-Ray](https://aws.amazon.com/xray/), also supports custom instrumentation.
-- ![](https://img.shields.io/github/stars/pragmaticivan/nestjs-otel.svg?style=flat-square) [Nest OpenTelemetry (OTEL)](https://github.com/pragmaticivan/nestjs-otel) - OpenTelemetry module for NestJS.
+- [`@nestjs/terminus`](https://github.com/nestjs/terminus) - Integrated healthchecks, based on [Terminus](https://github.com/godaddy/terminus) package.
+- ![](https://img.shields.io/github/stars/MetinSeylan/Nestjs-OpenTelemetry.svg?style=flat-square) [`@metinseylan/nestjs-opentelemetry`](https://github.com/MetinSeylan/Nestjs-OpenTelemetry) - Deeply integrated NestJS OpenTelemetry module with auto instrumentations.
+- ![](https://img.shields.io/github/stars/GenFirst/nest-status-monitor.svg?style=flat-square) [`nest-status-monitor`](https://github.com/GenFirst/nest-status-monitor) - Simple, self-hosted module based on Socket.io and Chart.js to report realtime server metrics for NestJS based node servers.
+- ![](https://img.shields.io/github/stars/narando/nest-xray.svg?style=flat-square) [`@narando/nest-xray`](https://github.com/narando/nest-xray) - Record incoming and outgoing request for [AWS X-Ray](https://aws.amazon.com/xray/), also supports custom instrumentation.
+- ![](https://img.shields.io/github/stars/pragmaticivan/nestjs-otel.svg?style=flat-square) [`nestjs-otel`](https://github.com/pragmaticivan/nestjs-otel) - OpenTelemetry module for NestJS.
+- ![](https://img.shields.io/github/stars/SocketSomeone/nestjs-hot-shots.svg?style=flat-square) [`nestjs-hot-shots`](https://github.com/SocketSomeone/nestjs-hot-shots) - Hot-shots Module for NestJS. A Node.js client for Etsy's StatsD server, Datadog's DogStatsD server, and InfluxDB's Telegraf StatsD server.
+- ![](https://img.shields.io/github/stars/willsoto/nestjs-prometheus.svg?style=flat-square) [`nestjs-prometheus`](https://github.com/willsoto/nestjs-prometheus) - NestJS module for Prometheus.
 
-#### 国际化 (i18n)
+#### Internationalization (i18n)
 
-- ![](https://img.shields.io/github/stars/ToonvanStrijp/nestjs-i18n.svg?style=flat-square) [Nest i18n](https://github.com/ToonvanStrijp/nestjs-i18n) - Adds i18n support easily to your server, with a rich formatting api build in.
+- ![](https://img.shields.io/github/stars/ToonvanStrijp/nestjs-i18n.svg?style=flat-square) [`nestjs-i18n`](https://github.com/ToonvanStrijp/nestjs-i18n) - Adds i18n support easily to your server, with a rich formatting api build in.
 
-#### 货币
+#### Currency
 
-- ![](https://img.shields.io/github/stars/vahidvdn/nestjs-cashify.svg?style=flat-square) [Nestjs Cashify](https://github.com/vahidvdn/nestjs-cashify) - Currency conversion module for NestJS.
+- ![](https://img.shields.io/github/stars/vahidvdn/nestjs-cashify.svg?style=flat-square) [`nestjs-cashify`](https://github.com/vahidvdn/nestjs-cashify) - Currency conversion module for NestJS.
 
-#### 事件
+#### Event
 
-- ![](https://img.shields.io/github/stars/yak0/nest-event.svg?style=flat-square) [Nest Event](https://github.com/yak0/nest-event) - Event handling with decorators for NestJS Framework.
+- ![](https://img.shields.io/github/stars/yak0/nest-event.svg?style=flat-square) [`nest-event`](https://github.com/yak0/nest-event) - Event handling with decorators for NestJS Framework.
 
-#### 身份验证
+#### Auth
 
-- ![](https://img.shields.io/github/stars/iamolegga/nestjs-session.svg?style=flat-square) [NestJS Session](https://github.com/iamolegga/nestjs-session) - Idiomatic Session Module for NestJS. Built on top of [express-session](https://npm.im/express-session).
+- ![](https://img.shields.io/github/stars/iamolegga/nestjs-session.svg?style=flat-square) [`nestjs-session`](https://github.com/iamolegga/nestjs-session) - Idiomatic Session Module for NestJS. Built on top of [express-session](https://npm.im/express-session).
 
-#### RBAC (基于角色的访问控制)
+#### RBAC (Role-based access control)
 
-- ![](https://img.shields.io/github/stars/sergey-telpuk/nestjs-rbac.svg?style=flat-square) [Nest RBAC](https://github.com/sergey-telpuk/nestjs-rbac) - RBAC module for NestJS, with a dynamic storage and cache.
-- ![](https://img.shields.io/github/stars/relevantfruit/nestjs-keycloak-admin.svg?style=flat-square) [Nest Keycloak Admin](https://github.com/relevantfruit/nestjs-keycloak-admin) - Keycloak Admin Client with support for User Managed Access protocol.
-- ![](https://img.shields.io/github/stars/bjerkio/nestjs-oso.svg?style=flat-square) [NestJS OSO](https://github.com/bjerkio/nestjs-oso) - Library that simplifies the implementation of OSO (open-source policy engine for authorization).
+- ![](https://img.shields.io/github/stars/sergey-telpuk/nestjs-rbac.svg?style=flat-square) [`nestjs-rbac`](https://github.com/sergey-telpuk/nestjs-rbac) - RBAC module for NestJS, with a dynamic storage and cache.
+- ![](https://img.shields.io/github/stars/relevantfruit/nestjs-keycloak-admin.svg?style=flat-square) [`nestjs-keycloak-admin`](https://github.com/relevantfruit/nestjs-keycloak-admin) - Keycloak Admin Client with support for User Managed Access protocol.
+- ![](https://img.shields.io/github/stars/bjerkio/nestjs-oso.svg?style=flat-square) [`nestjs-oso`](https://github.com/bjerkio/nestjs-oso) - Library that simplifies the implementation of OSO (open-source policy engine for authorization).
 
-#### 多租赁
+#### Multi Tenancy
 
-- ![](https://img.shields.io/github/stars/AlexanderC/nestjs-mtenant.svg?style=flat-square) [Nestjs MTenant](https://github.com/AlexanderC/nestjs-mtenant) - A module for NestJS to enable multitenancy support with deep integration into the system as whole (based on `async_hooks`).
+- ![](https://img.shields.io/github/stars/AlexanderC/nestjs-mtenant.svg?style=flat-square) [`nestjs-mtenant`](https://github.com/AlexanderC/nestjs-mtenant) - A module for NestJS to enable multitenancy support with deep integration into the system as whole (based on `async_hooks`).
 
-#### 微服务
+#### Microservice
 
-- ![](https://img.shields.io/github/stars/pvarentsov/nestjs-pg-notify.svg?style=flat-square) [NestJS PG Notify](https://github.com/pvarentsov/nestjs-pg-notify) - NestJS custom transport strategy for PostgreSQL Pub/Sub.
-- ![](https://img.shields.io/github/stars/sergey-telpuk/nestjs-transport-eventbus.svg?style=flat-square) [Nestjs Transport Eventbus](https://github.com/sergey-telpuk/nestjs-transport-eventbus) - The module for Nest to allow broadcasting events via variety of nestjs trasports in easy way
-- ![](https://img.shields.io/github/stars/p-fedyukovich/nestjs-google-pubsub-microservice.svg?style=flat-square) [NestJS Google Cloud Pub/Sub Microservice Transport](https://github.com/p-fedyukovich/nestjs-google-pubsub-microservice) - Custom Google Cloud Pub/Sub microservice transport
+- ![](https://img.shields.io/github/stars/pvarentsov/nestjs-pg-notify.svg?style=flat-square) [`nestjs-pg-notify`](https://github.com/pvarentsov/nestjs-pg-notify) - NestJS custom transport strategy for PostgreSQL Pub/Sub.
+- ![](https://img.shields.io/github/stars/sergey-telpuk/nestjs-transport-eventbus.svg?style=flat-square) [`nestjs-transport-eventbus`](https://github.com/sergey-telpuk/nestjs-transport-eventbus) - The module for Nest to allow broadcasting events via variety of nestjs trasports in easy way
+- ![](https://img.shields.io/github/stars/p-fedyukovich/nestjs-google-pubsub-microservice.svg?style=flat-square) [`nestjs-google-pubsub-microservice`](https://github.com/p-fedyukovich/nestjs-google-pubsub-microservice) - Custom Google Cloud Pub/Sub microservice transport
 
-#### 数据库
+#### Database
 
-- ![](https://img.shields.io/github/stars/notiz-dev/nestjs-prisma.svg?style=flat-square) [NestJS Prisma](https://github.com/notiz-dev/nestjs-prisma) - Library and schematics adding Prisma integration to a NestJS application
+- ![](https://img.shields.io/github/stars/notiz-dev/nestjs-prisma.svg?style=flat-square) [`nestjs-prisma`](https://github.com/notiz-dev/nestjs-prisma) - Library and schematics adding Prisma integration to a NestJS application
 
-## 测试
+## Testing
 
-#### 集合的例子
+#### Collections of examples
 
 - [Testing Nestjs](https://github.com/jmcdo29/testing-nestjs) - A repository to show off to the community methods of testing NestJS including Unit Tests, Integration Tests, E2E Tests, pipes, filters, interceptors, GraphQL, Mongo, TypeORM, and more!
 
-#### 使用工具
+#### Utilities
 
-- [GoLevelUp utilities for Jest](https://www.npmjs.com/package/@golevelup/ts-jest) - Utilities for making testing NestJS applications easier. Currently supports Jest.
-- [Mockingbird](https://www.npmjs.com/package/mockingbird) - A library to create typed tests fixtures/mocks using decorators and built-in faker support
-- [NestJS + Pact](https://www.npmjs.com/package/nestjs-pact) - Injectable Pact.js Consumer/Provider for NestJS
+- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [`@golevelup/ts-jest`](https://www.npmjs.com/package/@golevelup/ts-jest) - Utilities for making testing NestJS applications easier. Currently supports Jest.
+- ![](https://img.shields.io/github/stars/omermorad/mockingbird.svg?style=flat-square) [`mockingbird`](https://www.npmjs.com/package/mockingbird) - A library to create typed tests fixtures/mocks using decorators and built-in faker support
+- ![](https://img.shields.io/github/stars/omermorad/nestjs-pact.svg?style=flat-square) [NestJS + Pact](https://www.npmjs.com/package/nestjs-pact) - Injectable Pact.js Consumer/Provider for NestJS
 
-## 集成
+## Integrations
 
-#### 认证
+#### Auth
 
 - ![](https://img.shields.io/github/stars/cdiaz/nestjs-auth0.svg?style=flat-square) [Nest + Auth0](https://github.com/cdiaz/nestjs-auth0) - NestJS Framework web application with Auth0.
-- ![](https://img.shields.io/github/stars/tfarras/nestjs-firebase-auth.svg?style=flat-square) [Nest Firebase Auth](https://github.com/tfarras/nestjs-firebase-auth) - NestJS Passport Strategy for Firebase Auth using Firebase Admin SDK
+- ![](https://img.shields.io/github/stars/tfarras/nestjs-firebase-auth.svg?style=flat-square) [`@tfarras/nestjs-firebase-auth`](https://github.com/tfarras/nestjs-firebase-auth) - NestJS Passport Strategy for Firebase Auth using Firebase Admin SDK
 
-#### 数据库
+#### Databases
 
-- ![](https://img.shields.io/github/stars/nestjs/typeorm.svg?style=flat-square) [Typeorm](https://github.com/nestjs/typeorm) - A TypeORM module for Nest framework [[Tutorial](http://docs.nestjs.com/recipes/sql-typeorm)].
-- ![](https://img.shields.io/github/stars/owl1n/typeorm-factories.svg?style=flat-square) [Nest Typeorm Factories](https://github.com/owl1n/typeorm-factories) - A TypeORM Entities factories. Useful for NestJS unit testing.
-- ![](https://img.shields.io/github/stars/alphamikle/nest_transact.svg?style=flat-square) [Nest Transact](https://github.com/alphamikle/nest_transact) - The simplest transactions using with Nest and TypeORM
-- ![](https://img.shields.io/github/stars/nestjs/mongoose.svg?style=flat-square) [Nest Mongoose](https://github.com/nestjs/mongoose) - A Mongoose module for Nest framework.
-- ![](https://img.shields.io/github/stars/kpfromer/nestjs-typegoose.svg?style=flat-square) [Nest Typegoose](https://github.com/kpfromer/nestjs-typegoose) - A [Typegoose](https://github.com/typegoose/typegoose) module for Nest framework.
-- ![](https://img.shields.io/github/stars/mikro-orm/nestjs.svg?style=flat-square) [Nest MikroORM](https://github.com/mikro-orm/nestjs) - A [MikroORM](https://mikro-orm.io/) module for Nest Framework.
-- ![](https://img.shields.io/github/stars/adrien2p/nest-js-sequelize-jwt.svg?style=flat-square) [Nest Sequelize JWT](https://github.com/adrien2p/nest-js-sequelize-jwt) - Starter kit Nest + Sequelize + jwt.
-- ![](https://img.shields.io/github/stars/kentloog/nestjs-sequelize-typescript.svg?style=flat-square) [Nest sequelize-typescript](https://github.com/kentloog/nestjs-sequelize-typescript) - Nest + sequelize-typescript + JWT + Jest + Swagger.
+- [`@nestjs/typeorm`](https://github.com/nestjs/typeorm) - A TypeORM module for Nest framework [[Tutorial](http://docs.nestjs.com/recipes/sql-typeorm)].
+- [`@nestjs/mongoose`](https://github.com/nestjs/mongoose) - A Mongoose module for Nest framework.
+- ![](https://img.shields.io/github/stars/owl1n/typeorm-factories.svg?style=flat-square) [`typeorm-factories`](https://github.com/owl1n/typeorm-factories) - A TypeORM Entities factories. Useful for NestJS unit testing.
+- ![](https://img.shields.io/github/stars/alphamikle/nest_transact.svg?style=flat-square) [`nest-transact`](https://github.com/alphamikle/nest_transact) - The simplest transactions using with Nest and TypeORM
+- ![](https://img.shields.io/github/stars/kpfromer/nestjs-typegoose.svg?style=flat-square) [`nestjs-typegoose`](https://github.com/kpfromer/nestjs-typegoose) - A [Typegoose](https://github.com/typegoose/typegoose) module for Nest framework.
+- ![](https://img.shields.io/github/stars/mikro-orm/nestjs.svg?style=flat-square) [`@mikro-orm/nestjs`](https://github.com/mikro-orm/nestjs) - A [MikroORM](https://mikro-orm.io/) module for Nest Framework.
 - [Nest Prisma](https://www.prisma.io/nestjs) - A Fully Type-Safe ORM for [NestJS](https://docs.nestjs.com/recipes/prisma).
+- ![](https://img.shields.io/github/stars/hyperloris/nestjs-tile38.svg?style=flat-square) [`nestjs-tile38`](https://github.com/hyperloris/nestjs-tile38) - A [Tile38](https://tile38.com) module for Nest framework.
 
 #### GraphQL
 
-- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [GoLevelUp NestJS GraphQL Request](https://github.com/golevelup/nestjs/tree/master/packages/graphql-request) - Easily inject and work with GraphQLClient instances from server side NestJS code. Useful for interacting with third party GraphQL APIs.
-- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [GoLevelUp NestJS Hasura](https://github.com/golevelup/nestjs/tree/master/packages/hasura) - NestJS integrations for working with [Hasura](https://hasura.io/) which provides realtime GraphQL APIs over your Postgres Database.
+- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [`@golevelup/nestjs-graphql-request`](https://github.com/golevelup/nestjs/tree/master/packages/graphql-request) - Easily inject and work with GraphQLClient instances from server side NestJS code. Useful for interacting with third party GraphQL APIs.
+- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [`@golevelup/nestjs-hasura`](https://github.com/golevelup/nestjs/tree/master/packages/hasura) - NestJS integrations for working with [Hasura](https://hasura.io/) which provides realtime GraphQL APIs over your Postgres Database.
 
-#### 模式
+#### Pattern
 
-- ![](https://img.shields.io/github/stars/nestjsx/nestjs-typeorm-paginate.svg?style=flat-square) [Nest typeorm paginate](https://github.com/nestjsx/nestjs-typeorm-paginate) - A simple function and interfaces for pagination.
-- ![](https://img.shields.io/github/stars/Insidexa/nestjs-rpc.svg?style=flat-square) [Nest JSON RPC Transport](https://github.com/Insidexa/nestjs-rpc) - JSON RPC transport layer for the NestJS framework.
+- ![](https://img.shields.io/github/stars/nestjsx/nestjs-typeorm-paginate.svg?style=flat-square) [`nestjs-typeorm-paginate`](https://github.com/nestjsx/nestjs-typeorm-paginate) - A simple function and interfaces for pagination.
+- ![](https://img.shields.io/github/stars/Insidexa/nestjs-rpc.svg?style=flat-square) [`@jashkasoft/nestjs-json-rpc`](https://github.com/Insidexa/nestjs-rpc) - JSON RPC transport layer for the NestJS framework.
 
-#### 编辑器
+#### Editors
 
 - VSCode
   - [NestJS Files](https://marketplace.visualstudio.com/items?itemName=AbhijoyBasak.nestjs-files) - Quickly create NestJS Files.
@@ -289,70 +316,72 @@ weight: 100
 
 #### AMQP
 
-- ![](https://img.shields.io/github/stars/nestjsx/nestjs-amqp.svg?style=flat-square) [Nest AMQP](https://github.com/nestjsx/nestjs-amqp) - An amqp connection manager.
-- ![](https://img.shields.io/github/stars/AlariCode/nestjs-rmq.svg?style=flat-square) [Nest RabbitMQ](https://github.com/AlariCode/nestjs-rmq) - A custom library for NestJS microservice. It allows you to use RabbitMQ or AMQP.
-- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [GoLevelUp NestJS RabbitMQ](https://github.com/golevelup/nestjs/tree/master/packages/rabbitmq) - Flexible AMQP integrations for NestJS that supports multiple messaging patterns and intuitive decorators.
+- ![](https://img.shields.io/github/stars/nestjsx/nestjs-amqp.svg?style=flat-square) [`nestjs-amqp`](https://github.com/nestjsx/nestjs-amqp) - An amqp connection manager.
+- ![](https://img.shields.io/github/stars/AlariCode/nestjs-rmq.svg?style=flat-square) [`nestjs-rmq`](https://github.com/AlariCode/nestjs-rmq) - A custom library for NestJS microservice. It allows you to use RabbitMQ or AMQP.
+- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [`@golevelup/nestjs-rabbitmq`](https://github.com/golevelup/nestjs/tree/master/packages/rabbitmq) - Flexible AMQP integrations for NestJS that supports multiple messaging patterns and intuitive decorators.
 
 #### EventStore
 
-- ![](https://img.shields.io/github/stars/juicycleff/nestjs-event-store.svg?style=flat-square) [Nest EventStore](https://github.com/juicycleff/nestjs-event-store) - An evenstore.org module for NestJS CQRS with adapter support to persist lastcheckpoint for Catchup subscription.
+- ![](https://img.shields.io/github/stars/PrestaShopCorp/nestjs-geteventstore.svg?style=flat-square) [`nestjs-geteventstore` by PrestaShopCorp](https://github.com/PrestaShopCorp/nestjs-geteventstore) - An evenstore.org module for NestJS CQRS with Projects and Subscriptions. Supports Eventstore 21.10.0+
+- ![](https://img.shields.io/github/stars/juicycleff/nestjs-event-store.svg?style=flat-square) [`@juicycleff/nestjs-event-store`](https://github.com/juicycleff/nestjs-event-store) - An evenstore.org module for NestJS CQRS with adapter support to persist lastcheckpoint for Catchup subscription.
+- ![](https://img.shields.io/github/stars/ocoda/event-sourcing.svg?style=flat-square) [`@ocoda/event-sourcing`](https://github.com/ocoda/event-sourcing) - An Event Sourcing and CQRS module for NestJS with support for MongoDB and DynamoDB.
 
-#### 支付网关
+#### Payment Gateways
 
-- ![](https://img.shields.io/github/stars/nestjsx/nestjs-braintree.svg?style=flat-square) [Nest Braintree](https://github.com/nestjsx/nestjs-braintree) - A module for webhooks and transactions.
-- ![](https://img.shields.io/github/stars/dhaspden/nestjs-stripe.svg?style=flat-square) [Nest Stripe](https://github.com/dhaspden/nestjs-stripe) - A module for injecting a configured Stripe client into your services.
-- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [GoLevelUp Nest Stripe](https://github.com/golevelup/nestjs/tree/master/packages/stripe) - Injectable client plus autowired Stripe webhook handling for deeper integrations.
+- ![](https://img.shields.io/github/stars/nestjsx/nestjs-braintree.svg?style=flat-square) [`nestjs-braintree`](https://github.com/nestjsx/nestjs-braintree) - A module for webhooks and transactions.
+- ![](https://img.shields.io/github/stars/dhaspden/nestjs-stripe.svg?style=flat-square) [`nestjs-stripe`](https://github.com/dhaspden/nestjs-stripe) - A module for injecting a configured Stripe client into your services.
+- ![](https://img.shields.io/github/stars/golevelup/nestjs.svg?style=flat-square) [`@golevelup/nestjs-stripe`](https://github.com/golevelup/nestjs/tree/master/packages/stripe) - Injectable client plus autowired Stripe webhook handling for deeper integrations.
 
 #### Frontend
 
-- ![](https://img.shields.io/github/stars/FusionWorks/react-admin-nestjsx-crud-dataprovider.svg?style=flat-square) [Nest CRUD React Admin](https://github.com/FusionWorks/react-admin-nestjsx-crud-dataprovider) - A React Admin data provider for [NextJS CRUD](https://github.com/nestjsx/crud).
-- ![](https://img.shields.io/github/stars/SoftwareBrothers/admin-bro-nestjs.svg?style=flat-square) [Nest AdminBro](https://github.com/SoftwareBrothers/admin-bro-nestjs) - NestJS plugin for [AdminBro](https://github.com/SoftwareBrothers/admin-bro), an automatic admin interface which can be plugged into your application.
+- ![](https://img.shields.io/github/stars/FusionWorks/react-admin-nestjsx-crud-dataprovider.svg?style=flat-square) [`@fusionworks/ra-data-nest-crud`](https://github.com/FusionWorks/react-admin-nestjsx-crud-dataprovider) - A React Admin data provider for [NextJS CRUD](https://github.com/nestjsx/crud).
+- ![](https://img.shields.io/github/stars/SoftwareBrothers/admin-bro-nestjs.svg?style=flat-square) [`@adminjs/nestjs`](https://github.com/SoftwareBrothers/admin-bro-nestjs) - NestJS plugin for [AdminBro](https://github.com/SoftwareBrothers/admin-bro), an automatic admin interface which can be plugged into your application.
+- ![](https://img.shields.io/github/stars/ForestAdmin/agent-nodejs.svg?style=flat-square) [`@forestadmin/agent`](https://github.com/ForestAdmin/agent-nodejs) - NestJS compatible plugin for [Forest Admin](https://www.forestadmin.com), an off-the-shelf administration panel based on a highly-extensible API plugged into your application.
 
-#### 调度
+#### Scheduling
 
-- ![](https://img.shields.io/github/stars/nestjsx/nest-bull.svg?style=flat-square) [Nest Bull](https://github.com/nestjsx/nest-bull) - A Bull module for Nest framework.
+- [`@nestjs/bull`](https://github.com/nestjsx/nest-bull) - A Bull module for Nest framework.
 
-#### 工作流自动化
+#### Workflow Automation
 
-- ![](https://img.shields.io/github/stars/camunda-community-hub/nestjs-zeebe.svg?style=flat-square) [Zeebe microservices](https://github.com/camunda-community-hub/nestjs-zeebe)
+- ![](https://img.shields.io/github/stars/camunda-community-hub/nestjs-zeebe.svg?style=flat-square) [`nestjs-zeebe`](https://github.com/camunda-community-hub/nestjs-zeebe)
 
-#### 聊天机器人
+#### Chatbots
 
-- ![](https://img.shields.io/github/stars/bukhalo/nestjs-telegraf.svg?style=flat-square) [Nest Telegraf](https://github.com/bukhalo/nestjs-telegraf) - A module for creating Telegram bots using NestJS, based on [Telegraf](https://github.com/telegraf/telegraf).
-- ![](https://img.shields.io/github/stars/SocketSomeone/necord.svg?style=flat-square) [Necord](https://github.com/SocketSomeone/necord) - A module for creating Discord bots using NestJS, based on [Discord.js](https://github.com/discordjs/discord.js).
+- ![](https://img.shields.io/github/stars/bukhalo/nestjs-telegraf.svg?style=flat-square) [`nestjs-telegraf`](https://github.com/bukhalo/nestjs-telegraf) - A module for creating Telegram bots using NestJS, based on [Telegraf](https://github.com/telegraf/telegraf).
+- ![](https://img.shields.io/github/stars/SocketSomeone/necord.svg?style=flat-square) [`necord`](https://github.com/SocketSomeone/necord) - A module for creating Discord bots using NestJS, based on [Discord.js](https://github.com/discordjs/discord.js).
 
-#### 文件存储
+#### File Storage
 
-- ![](https://img.shields.io/github/stars/codebrewlab/nestjs-storage.svg?style=flat-square) [Nest Storage](https://github.com/codebrewlab/nestjs-storage) - A manage file storage module([flydrive](https://github.com/Slynova-Org/flydrive)) for NestJS Framework.
+- ![](https://img.shields.io/github/stars/codebrewlab/nestjs-storage.svg?style=flat-square) [`@codebrew/nestjs-storage`](https://github.com/codebrewlab/nestjs-storage) - A manage file storage module([flydrive](https://github.com/Slynova-Org/flydrive)) for NestJS Framework.
 
-#### 云管理配置
+#### Cloud Managed Configuration
 
-- ![](https://img.shields.io/github/stars/nonfig/nestjs-config.svg?style=flat-square) [Nonfig Config](https://github.com/nonfig/nestjs-config) - A module for [Nonfig](https://www.nonfig.com) Configuration Management Service. Nonfig combines Configurations and Features. So you change features, and release swiftly, and measure to digital impact.
+- ![](https://img.shields.io/github/stars/nonfig/nestjs-config.svg?style=flat-square) [`@nonfig/nestjs-config`](https://github.com/nonfig/nestjs-config) - A module for [Nonfig](https://www.nonfig.com) Configuration Management Service. Nonfig combines Configurations and Features. So you change features, and release swiftly, and measure to digital impact.
 
 #### SDK
 
-- ![](https://img.shields.io/github/stars/tfarras/nestjs-firebase-admin.svg?style=flat-square) [Nest Firebase Admin](https://github.com/tfarras/nestjs-firebase-admin) - NestJS Module for [Firebase Admin SDK](https://firebase.google.com/).
+- ![](https://img.shields.io/github/stars/tfarras/nestjs-firebase-admin.svg?style=flat-square) [`@tfarras/nestjs-firebase-admin`](https://github.com/tfarras/nestjs-firebase-admin) - NestJS Module for [Firebase Admin SDK](https://firebase.google.com/).
 
-## 运行时
+## Runtime
 
-#### 命令行/终端
+#### Command Line / Terminal
 
-- ![](https://img.shields.io/github/stars/jmcdo29/nest-commander.svg?style=flat-square) [Nest Commander](https://github.com/jmcdo29/nest-commander) - A module for using NestJS to build up CLI applications
-- ![](https://img.shields.io/github/stars/nestjs/nest-cli.svg?style=flat-square) [CLI](https://github.com/nestjs/nest-cli) - CLI tool for NestJS applications.
-- ![](https://img.shields.io/github/stars/ashinzekene/generator-nestjs-app.svg?style=flat-square) [Yeoman Generator](https://github.com/ashinzekene/generator-nestjs-app) - A yeoman generator for NestJS apps.
-- ![](https://img.shields.io/github/stars/Pop-Code/nestjs-console.svg?style=flat-square) [NestJS Console](https://github.com/Pop-Code/nestjs-console) - A NestJS module that provide a cli to application.
-- ![](https://img.shields.io/github/stars/LoneStone/nest-sdk-generator.svg?style=flat-square) [Typescript SDK Generator](https://github.com/lonestone/nest-sdk-generator) - A command-line utility to generate a fully typed SDK from a Nest.js REST API
+- [`@nestjs/cli`](https://github.com/nestjs/nest-cli) - CLI tool for NestJS applications.
+- ![](https://img.shields.io/github/stars/jmcdo29/nest-commander.svg?style=flat-square) [`nest-commander`](https://github.com/jmcdo29/nest-commander) - A module for using NestJS to build up CLI applications
+- ![](https://img.shields.io/github/stars/ashinzekene/generator-nestjs-app.svg?style=flat-square) [`generator-nestjs-app`](https://github.com/ashinzekene/generator-nestjs-app) - A yeoman generator for NestJS apps.
+- ![](https://img.shields.io/github/stars/Pop-Code/nestjs-console.svg?style=flat-square) [`nestjs-console`](https://github.com/Pop-Code/nestjs-console) - A NestJS module that provide a cli to application.
+- ![](https://img.shields.io/github/stars/LoneStone/nest-sdk-generator.svg?style=flat-square) [`nest-sdk-generator`](https://github.com/lonestone/nest-sdk-generator) - A command-line utility to generate a fully typed SDK from a Nest.js REST API
 
 ## Meetups
 
-None at the moment.  
-Why not create a meetup and make a PR?
+- [NestJS Meetup](https://www.meetup.com/nestjs-meetup/) - community driven meetup
 
-## 贡献
+## Contribute
 
 Contributions welcome! Read the [contribution guidelines](CONTRIBUTING.md) first.
 
-## 许可证
+## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](http://creativecommons.org/publicdomain/zero/1.0)
 

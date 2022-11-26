@@ -5,6 +5,14 @@ site_dir: docs
 theme:
   name: material
   language: zh
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    # - navigation.sections # 列出子目录
+    # - navigation.expand # 打开孙目录
+    - navigation.indexes
+    - navigation.top
 
 markdown_extensions:
   - pymdownx.highlight:
